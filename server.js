@@ -30,7 +30,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/projectthree",
 	{
 		useNewUrlParser: true,
 		useUnifiedTopology: true
-	});
+	}).catch(err=>{
+		console.log(err);
+	})
 
 app.use(
 	session({

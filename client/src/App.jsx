@@ -5,6 +5,7 @@ import LoginForm from './pages/LoginForm'
 import SignupForm from './pages/SignupForm'
 import Home from './pages/Home'
 import { NavBar } from './components'
+import Signup from './components/Signup';
 
 class App extends Component {
 	constructor(props) {
@@ -70,6 +71,7 @@ class App extends Component {
 					_logout={this._logout}
 					loggedIn={this.state.loggedIn}
 				/>
+				<Signup />
 				{/*  Individual Things */}
 				<Route
 					exact
