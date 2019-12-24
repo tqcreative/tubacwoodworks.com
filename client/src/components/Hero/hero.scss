@@ -1,0 +1,22 @@
+@import "../../_scss/_vars";
+
+.hero_root {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url(./images/kitchen_white.jpg);
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    div {
+        background-color: rgba($main, .6);
+        color: #fff;
+        width: 40%;
+        max-width: 768px;
+        min-width: 356px;
+        height: 512px;
+    }
+}

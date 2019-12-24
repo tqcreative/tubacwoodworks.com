@@ -2,22 +2,34 @@
 
 .nav_root {
     color: #fff;
-    background-color: $main;
+    background-color: rgba($main, .7);
     text-decoration: none;
     list-style: none;
     display: flex;
     justify-content: flex-start;
     text-transform: uppercase;
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: 700;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 1em;
 
     li {
-        padding: 12px;
+        border-right: 1px solid $light;
+
+        &:last-child {
+            border: none;
+        }
     }
 
     a {
         color: #fff;
         text-decoration: none;
+        padding: 4px;
+        margin: .25em;
 
         &:hover {
             outline: 1px solid #fff;

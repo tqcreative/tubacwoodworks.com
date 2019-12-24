@@ -55,7 +55,9 @@
     background-color: transparent;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    z-index: 99; }
+    z-index: 99;
+    max-width: 1200px;
+    margin: auto; }
     .signupWrapper form input {
       display: -webkit-inline-box;
       display: -ms-inline-flexbox;
