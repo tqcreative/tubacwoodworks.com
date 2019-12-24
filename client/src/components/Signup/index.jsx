@@ -23,8 +23,6 @@ class Signup extends Component {
 
     handleSubmit(event){
         event.preventDefault();
-        console.log("State:");
-        console.log(this.state);
         API.signup({
             firstName: this.state.firstName,
             lastName: this.state.lastName,
