@@ -20,7 +20,7 @@ const HeaderComponent = props => {
 	}
 	return (
 		<div className="Header">
-			{Greeting}
+			{/* {Greeting} */}
 		</div>
 	)
 }

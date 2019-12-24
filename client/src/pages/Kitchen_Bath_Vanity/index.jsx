@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Header } from '../../components';
-import "./home.css";
+import "./kitchen_bath_vanity.css";
 
-export default class Home extends Component {
+export default class Kitchen_Bath_Vanity extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -11,13 +11,13 @@ export default class Home extends Component {
 	}
 
 	componentDidMount() {
-		console.log("Home Component Mounted")
+		console.log("Kitchen_Bath_Vanity Component Mounted")
 	}
 
 	render() {
 		if (this.props.user) {
 			return (
-				<div className="Home">
+				<div className="kitchen_root">
 					<Header user={this.state.user} />
 					{/* <p>Current User:</p>
 					<code>
@@ -27,8 +27,11 @@ export default class Home extends Component {
 			)
 		} else {
 			return (
-				<div className="Home">
+				<div className="kitchen_root">
 					<Header user={this.state.user} />
+                    <h1>
+                        kitchen_bath_vanity
+                    </h1>
 					{/* <p>Current User:</p>
 					<code>
 						{JSON.stringify(this.props)}

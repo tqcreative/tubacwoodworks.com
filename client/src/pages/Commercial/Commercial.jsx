@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Header } from '../../components';
-import "./home.css";
+import "./commercial.css";
 
-export default class Home extends Component {
+export default class Commercial extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -11,13 +11,13 @@ export default class Home extends Component {
 	}
 
 	componentDidMount() {
-		console.log("Home Component Mounted")
+		console.log("Commercial Component Mounted")
 	}
 
 	render() {
 		if (this.props.user) {
 			return (
-				<div className="Home">
+				<div className="commercial_root">
 					<Header user={this.state.user} />
 					{/* <p>Current User:</p>
 					<code>
@@ -27,7 +27,7 @@ export default class Home extends Component {
 			)
 		} else {
 			return (
-				<div className="Home">
+				<div className="commercial_root">
 					<Header user={this.state.user} />
 					{/* <p>Current User:</p>
 					<code>

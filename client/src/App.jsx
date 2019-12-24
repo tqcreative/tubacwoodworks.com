@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom'
 import LoginForm from './pages/LoginForm'
 import SignupForm from './pages/SignupForm'
 import Home from './pages/Home'
+import Kitchen_Bath_Vanity from './pages/Kitchen_Bath_Vanity'
 import { NavBar } from './components'
 
 class App extends Component {
@@ -63,8 +64,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="">
-
+			<div className="App_root">
 				{/* Navbar on every page */}
 				<NavBar
 					_logout={this._logout}
@@ -76,6 +76,11 @@ class App extends Component {
 					path="/"
 					render={() =>
 						<Home user={this.state.user} />} />
+				<Route
+					exact
+					path="/kitchenbathvanity"
+					render={() => 
+						<Kitchen_Bath_Vanity user={this.state.user} /> } />
 				<Route
 					exact
 					path="/login"
