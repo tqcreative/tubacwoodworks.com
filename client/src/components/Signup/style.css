@@ -92,11 +92,16 @@
 @media screen and (min-width: 992px) {
   .signupWrapper form {
     -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap; }
+    flex-wrap: nowrap;
+    padding-top: 1%;
+    padding-bottom: 3%; }
     .signupWrapper form :first-child {
       margin-left: 10%; }
     .signupWrapper form :last-child {
       margin-right: 10%; }
+  .signupWrapper .banner {
+    padding-top: 3%;
+    padding-bottom: 1%; }
   .signupWrapper input {
     -ms-flex-preferred-size: 20% !important;
     flex-basis: 20% !important; }

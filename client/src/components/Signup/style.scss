@@ -96,6 +96,8 @@ $bg-color: #c23616;
     .signupWrapper{
         form{
             flex-wrap: nowrap;
+            padding-top: 1%;
+            padding-bottom: 3%;
 
             :first-child{
                 margin-left: 10%;
@@ -104,6 +106,11 @@ $bg-color: #c23616;
             :last-child{
                 margin-right: 10%;
             }    
+        }
+
+        .banner{
+            padding-top: 3%;
+            padding-bottom: 1%;
         }
 
         input{

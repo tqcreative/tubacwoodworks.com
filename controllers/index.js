@@ -2,9 +2,11 @@ const router = require("express").Router();
 const bookController = require("./book.controller");
 const authController = require("./auth.controller");
 const kitchenController = require("./kitchen.controller");
+const customerController = require("./customer.controller");
 
 // API Routes
 router.use("/api/books", bookController);
+router.use("/api/customers", customerController);
 
 // Auth Routes
 router.use("/auth", authController)
