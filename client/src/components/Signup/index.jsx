@@ -3,21 +3,18 @@ import "./style.css";
 import API from "../../utils/API";
 
 class Signup extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            firstName: "",
-            lastName: "",
-            email: "",
-            phoneNumber: ""
-        }
+    state = {
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: ""
     };
 
-    handleInputChange(event){
+    handleInputChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     };
 
-    handleSubmit(event){
+    handleSubmit = event => {
         event.preventDefault();
         API.signup({
             firstName: this.state.firstName,
