@@ -4,9 +4,6 @@ import { Route, BrowserRouter, Link, Switch } from 'react-router-dom'
 import LoginForm from './pages/LoginForm'
 import SignupForm from './pages/SignupForm'
 import { NavBar } from './components'
-<<<<<<< HEAD
-import Signup from './components/Signup';
-=======
 import Home from './pages/Home'
 import Kitchen_Bath_Vanity from './pages/Kitchen_Bath_Vanity'
 import Commercial from './pages/Commercial/'
@@ -14,7 +11,6 @@ import Furniture from './pages/Furniture/'
 import Pro_Tips from './pages/Pro_Tips/'
 import Gallery from './pages/Gallery/'
 import Error from './pages/Error/'
->>>>>>> 41b3ec2bf692c8fd8812d85a2876f097ce501e3b
 
 class App extends Component {
 	constructor(props) {
@@ -81,7 +77,6 @@ class App extends Component {
 					_logout={this._logout}
 					loggedIn={this.state.loggedIn}
 				/>
-				<Signup />
 				{/*  Individual Things */}
 				<Switch>
 					<Route

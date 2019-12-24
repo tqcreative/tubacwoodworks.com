@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Header } from '../../components';
+import Signup from "../../components/Signup"
 import "./home.css";
 
 export default class Home extends Component {
@@ -21,9 +22,7 @@ export default class Home extends Component {
 					<Header user={this.state.user} />
 					<h1> Home </h1>
 					<p>logged in</p>
-					{/* load each section component here from the components folder ../../components. 
-					line 2 is pulling in just the header using a deconstructor. Make sure to bring in the other
-					components as well. */}
+					<Signup />
 				</div>
 			)
 		} else {
@@ -32,10 +31,7 @@ export default class Home extends Component {
 					<Header user={this.state.user} />
 					<h1> Home </h1>
 					<p>Not logged in</p>
-					{/* <p>Current User:</p>
-					<code>
-						{JSON.stringify(this.props)}
-					</code> */}
+					<Signup />
 				</div>
 			)
 		}

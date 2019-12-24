@@ -51,7 +51,6 @@ class Signup extends Component {
                     </form>
                 </div>
             </section>
-
         )
     };
 }
