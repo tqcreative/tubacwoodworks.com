@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Header } from '../../components';
-import Signup from "../../components/Signup"
+import Signup from "../../components/Signup";
 import "./home.css";
+import Hero from "../../components/Hero";
 
 export default class Home extends Component {
 	constructor(props) {
@@ -20,8 +21,7 @@ export default class Home extends Component {
 			return (
 				<div className="Home">
 					<Header user={this.state.user} />
-					<h1> Home </h1>
-					<p>logged in</p>
+					<Hero />
 					<Signup />
 				</div>
 			)
@@ -29,8 +29,7 @@ export default class Home extends Component {
 			return (
 				<div className="Home">
 					<Header user={this.state.user} />
-					<h1> Home </h1>
-					<p>Not logged in</p>
+					<Hero />
 					<Signup />
 				</div>
 			)

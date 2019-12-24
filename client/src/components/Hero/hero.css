@@ -1,0 +1,23 @@
+.hero_root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(./images/kitchen_white.jpg);
+  background-size: cover;
+  background-position: center center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .hero_root div {
+    background-color: rgba(225, 112, 85, 0.6);
+    color: #fff;
+    width: 40%;
+    max-width: 768px;
+    min-width: 356px;
+    height: 512px; }
