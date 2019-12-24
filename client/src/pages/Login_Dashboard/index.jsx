@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Header } from '../../components';
-import "./home.css";
+import './login.css';
 
-export default class Home extends Component {
+export default class Login_Dashboard extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -11,27 +11,22 @@ export default class Home extends Component {
 	}
 
 	componentDidMount() {
-		console.log("Home Component Mounted")
+		console.log("Login_Dashboard Component Mounted")
 	}
 
 	render() {
 		if (this.props.user) {
 			return (
-				<div className="Home">
+				<div className="dashboard_root">
 					<Header user={this.state.user} />
-					<h1> Home </h1>
-					<p>logged in</p>
-					{/* load each section component here from the components folder ../../components. 
-					line 2 is pulling in just the header using a deconstructor. Make sure to bring in the other
-					components as well. */}
+                    <h1> Login_Dashboard </h1>
 				</div>
 			)
 		} else {
 			return (
-				<div className="Home">
+				<div className="dashboard_root">
 					<Header user={this.state.user} />
-					<h1> Home </h1>
-					<p>Not logged in</p>
+                    <h1> Login_Dashboard </h1>
 					{/* <p>Current User:</p>
 					<code>
 						{JSON.stringify(this.props)}

@@ -18,22 +18,22 @@ function NavBarComponent({ loggedIn, _logout }) {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className="nav-link">
+                        <Link to="/furniture" className="nav-link">
                             Furniture
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className="nav-link">
+                        <Link to="/commercial" className="nav-link">
                             Commercial
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className="nav-link">
+                        <Link to="/protips" className="nav-link">
                             Pro Tips
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className="nav-link">
+                        <Link to="/gallery" className="nav-link">
                             Gallery
                         </Link>
                     </li>
@@ -56,22 +56,22 @@ function NavBarComponent({ loggedIn, _logout }) {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className="nav-link">
+                        <Link to="/furniture" className="nav-link">
                             Furniture
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className="nav-link">
+                        <Link to="/commercial" className="nav-link">
                             Commercial
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className="nav-link">
+                        <Link to="/protips" className="nav-link">
                             Pro Tips
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" className="nav-link">
+                        <Link to="/gallery" className="nav-link">
                             Gallery
                         </Link>
                     </li>
