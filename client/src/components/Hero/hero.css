@@ -2,9 +2,10 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-image: url(./images/kitchen_white.jpg);
+  background-image: url(./images/kitchen_black.jpg);
+  background-attachment: fixed;
   background-size: cover;
-  background-position: center center;
+  background-position: center right;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15,9 +16,27 @@
   -ms-flex-align: center;
   align-items: center; }
   .hero_root div {
-    background-color: rgba(225, 112, 85, 0.6);
+    background-color: rgba(192, 57, 43, 0.8);
     color: #fff;
     width: 40%;
     max-width: 768px;
     min-width: 356px;
-    height: 512px; }
+    height: 50%;
+    min-height: 256px; }
+    .hero_root div div {
+      background: none;
+      width: 100%;
+      height: 50%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      overflow: hidden; }
+    .hero_root div p {
+      display: block;
+      padding: 1em 2em; }

@@ -3,6 +3,7 @@ import { Header } from '../../components';
 import Signup from "../../components/Signup";
 import "./home.css";
 import Hero from "../../components/Hero";
+import Numbers from "../../components/Numbers";
 
 export default class Home extends Component {
 	constructor(props) {
@@ -22,6 +23,7 @@ export default class Home extends Component {
 				<div className="Home">
 					<Header user={this.state.user} />
 					<Hero />
+					<Numbers />
 					<Signup />
 				</div>
 			)
@@ -30,6 +32,7 @@ export default class Home extends Component {
 				<div className="Home">
 					<Header user={this.state.user} />
 					<Hero />
+					<Numbers />
 					<Signup />
 				</div>
 			)
