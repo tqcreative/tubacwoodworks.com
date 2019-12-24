@@ -11,14 +11,20 @@ class Signup extends Component {
             email: "",
             phoneNumber: ""
         }
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     };
 
     handleInputChange(event){
+        event.preventDefault();
         this.setState({ [event.target.name]: event.target.value });
     };
 
     handleSubmit(event){
         event.preventDefault();
+        console.log("State:");
+        console.log(this.state);
         API.signup({
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -27,6 +33,13 @@ class Signup extends Component {
         })
             .then(res => {
                 console.log(res);
+                //Clear out the input fields
+                this.setState({
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    phoneNumber: ""
+                })
             })
             .catch(err => {
                 console.log(err);
