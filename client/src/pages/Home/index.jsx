@@ -4,6 +4,7 @@ import Signup from "../../components/Signup";
 import "./home.css";
 import Hero from "../../components/Hero";
 import Numbers from "../../components/Numbers";
+import Footer from "../../components/Footer";
 
 export default class Home extends Component {
 	constructor(props) {
@@ -20,20 +21,22 @@ export default class Home extends Component {
 	render() {
 		if (this.props.user) {
 			return (
-				<div className="Home">
+				<div className="Home home_root">
 					<Header user={this.state.user} />
 					<Hero />
 					<Numbers />
 					<Signup />
+					<Footer />
 				</div>
 			)
 		} else {
 			return (
-				<div className="Home">
+				<div className="Home home_root">
 					<Header user={this.state.user} />
 					<Hero />
 					<Numbers />
 					<Signup />
+					<Footer />
 				</div>
 			)
 		}
