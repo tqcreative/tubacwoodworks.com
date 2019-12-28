@@ -29,11 +29,11 @@ const sendEmail = function (mailOptions) {
 };
 
 const EmailAPI = {
-    sendSignupEmail: function (emailAddrs, firstName, lastName) {
+    sendSignupEmail: function (emailAddr, firstName, lastName) {
         const subject = `Thank You for Signing Up for a Quote from ${companyName}`;
         const bodyHtml = `<p>Hello ${firstName} ${lastName},<br><br>Thank you for contacting ${companyName} regarding a quote.  We have received your request and someone will be in contact with you shortly.</p>`;
 
-        const mailOptions = configMailOptions(emailAddrs, subject, bodyHtml);
+        const mailOptions = configMailOptions(emailAddr, subject, bodyHtml);
         return sendEmail(mailOptions)
     }
 };
