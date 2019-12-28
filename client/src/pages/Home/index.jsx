@@ -7,6 +7,8 @@ import Numbers from "../../components/Numbers";
 import Footer from "../../components/Footer";
 import Quote from "../../components/Quote";
 import Portfolio from '../../components/Portfolio';
+import Gallery from '../../components/Gallery';
+import Checkbox from '../../components/Checkbox';
 
 export default class Home extends Component {
 	constructor(props) {
@@ -30,6 +32,8 @@ export default class Home extends Component {
 					<Quote />
 					<Portfolio />
 					<Quote />
+					<Gallery />
+					<Checkbox />
 					<Signup />
 					<Footer />
 				</div>
@@ -43,6 +47,8 @@ export default class Home extends Component {
 					<Quote />
 					<Portfolio />
 					<Quote />
+					<Gallery />
+					<Checkbox />
 					<Signup />
 					<Footer />
 				</div>

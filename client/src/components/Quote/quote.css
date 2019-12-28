@@ -1,7 +1,6 @@
 .quote_root {
   width: 100%;
-  height: 40vh;
-  min-height: 256px;
+  min-height: 40vh;
   background-image: url("./images/background_quotes.jpg");
   background-position: center center;
   background-attachment: fixed;
@@ -22,8 +21,8 @@
     min-height: 256px;
     background-color: rgba(192, 57, 43, 0.8);
     padding: 1em;
-    margin: 0 0 0 15%;
-    color: #fff; }
+    color: #fff;
+    margin: 1em 0 1em 10%; }
     .quote_root .quote ion-icon {
       position: absolute;
       left: 16px;
