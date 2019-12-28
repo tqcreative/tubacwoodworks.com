@@ -16,7 +16,7 @@ export default class Home extends Component {
 		super(props)
 		this.state = {
 			user: props.user,
-			toastMsg: "",
+			toastMsg: [],
 			toastShow: false
 		}
 		this.handleSignupResult = this.handleSignupResult.bind(this);
@@ -50,7 +50,11 @@ export default class Home extends Component {
 					<Checkbox />
 					<Signup submitResult={this.handleSignupResult}/>
 					<Footer />
-					<Toast message={this.state.toastMsg} show={this.state.toastShow} onClose={this.toggleToast} />
+					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
+						{this.state.toastMsg.map(element => {
+							return <p>element</p>
+						})};
+					</Toast>
 				</div>
 			)
 		} else {
@@ -66,7 +70,11 @@ export default class Home extends Component {
 					<Checkbox />
 					<Signup submitResult={this.handleSignupResult}/>
 					<Footer />
-					<Toast message={this.state.toastMsg} show={this.state.toastShow} onClose={this.toggleToast} />
+					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
+						{this.state.toastMsg.map(element => {
+							return <p>{element}</p>
+						})}
+					</Toast>
 				</div>
 			)
 		}

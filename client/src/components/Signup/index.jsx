@@ -39,11 +39,27 @@ class Signup extends Component {
                     email: "",
                     phoneNumber: ""
                 })
-                {this.props.submitResult("Success")};
+                this.props.submitResult(["Thank you for signing up.  You will receive a confirmation email shortly."]);
             })
             .catch(err => {
-                console.log(err);
-                {this.props.submitResult("Error")};
+                console.log(err.response.data);
+                let obj = err.response.data.errors;
+                let errors = ["Sorry, your request could not be completed due to the following issues:"];
+                if(obj){
+                    Object.keys(obj).forEach(key=>{
+                        errors.push(obj[key].message)
+                    })    
+                }
+                else if(!obj && err.response.data.name === "MongoError" && err.response.data.code == 11000){
+                    errors.push("You've already signed up for a quote.  We'll be in touch soon.")
+                }
+                else if(err.response.data.errmsg){
+                    errors.push(err.response.data.errmsg)
+                }
+                else{
+                    errors.push("Unknown error occurred.  Please try again.");
+                }
+                this.props.submitResult(errors);
             })
     };
 

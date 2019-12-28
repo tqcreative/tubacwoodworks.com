@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function Toast(props){
+function Toast(props) {
     let classes = "toast_root";
     props.show ? classes += " toast-show" : classes += " toast-hide";
 
@@ -10,9 +10,11 @@ function Toast(props){
             <div className="background">
             </div>
             <div className="message">
-                <p>{props.message}</p>
-                <div className="closeBtn" onClick={props.onClose}>
-                    <p>X</p>
+                <button type="button" className="close closeBtn" onClick={(event) => { event.preventDefault(); props.onClose() }}>
+                    <span>&times;</span>
+                </button>
+                <div className="body">
+                    {props.children}
                 </div>
             </div>
         </div>

@@ -21,13 +21,17 @@
     height: 100%;
     width: 100%; }
   .toast_root .message {
+    border: 1px solid gray;
+    border-radius: 5px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     position: relative;
     background: white;
-    height: 50%;
-    width: 50%;
+    min-height: 25%;
+    min-width: 25%;
+    max-height: 80%;
+    max-width: 80%;
     text-align: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -35,9 +39,17 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    color: red; }
+    color: black; }
+    .toast_root .message .body {
+      display: block;
+      padding: 20px;
+      padding-top: 40px; }
+    .toast_root .message p {
+      display: block; }
     .toast_root .message .closeBtn {
-      position: relative; }
+      position: absolute;
+      top: 0%;
+      right: 1%; }
 
 .toast-hide {
   display: none; }

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const customerSchema = new Schema({
     firstName: {
         type: String,
-        required: "String is Required",
+        required: "First Name is Required",
         minlength: [1, 'First name must be at least 1 character.']
       },
         middleName: {
@@ -12,7 +12,7 @@ const customerSchema = new Schema({
       },
       lastName: {
         type: String,
-        required: "String is Required",
+        required: "Last Name is Required",
         minlength: [1, 'Last name must be at least 1 character.']
       },
         nickName: {
