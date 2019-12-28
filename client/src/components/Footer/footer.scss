@@ -1,0 +1,21 @@
+@import "../../_scss/_vars";
+
+.footer_root {
+    width: 100%;
+    height: 50vh;
+    min-height: 256px;
+    background-color: $dark;
+    color: #fff;
+    font-size: .8em;
+
+    div {
+
+        ul {
+            text-decoration: none;
+
+            li {
+                text-decoration: none;
+            }
+        }
+    }
+}
