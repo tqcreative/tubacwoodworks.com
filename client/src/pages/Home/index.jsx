@@ -6,6 +6,10 @@ import Hero from "../../components/Hero";
 import Numbers from "../../components/Numbers";
 import Footer from "../../components/Footer";
 import Toast from "../../components/Toast";
+import Quote from "../../components/Quote";
+import Portfolio from '../../components/Portfolio';
+import Gallery from '../../components/Gallery';
+import Checkbox from '../../components/Checkbox';
 
 export default class Home extends Component {
 	constructor(props) {
@@ -39,6 +43,11 @@ export default class Home extends Component {
 					<Header user={this.state.user} />
 					<Hero />
 					<Numbers />
+					<Quote />
+					<Portfolio />
+					<Quote />
+					<Gallery />
+					<Checkbox />
 					<Signup submitResult={this.handleSignupResult}/>
 					<Footer />
 					<Toast message={this.state.toastMsg} show={this.state.toastShow} onClose={this.toggleToast} />
@@ -50,6 +59,11 @@ export default class Home extends Component {
 					<Header user={this.state.user} />
 					<Hero />
 					<Numbers />
+					<Quote />
+					<Portfolio />
+					<Quote />
+					<Gallery />
+					<Checkbox />
 					<Signup submitResult={this.handleSignupResult}/>
 					<Footer />
 					<Toast message={this.state.toastMsg} show={this.state.toastShow} onClose={this.toggleToast} />
