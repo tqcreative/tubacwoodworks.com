@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
 import API from "../../utils/API";
+import Toast from "../Toast";
 
 class Signup extends Component {
     constructor(props) {
@@ -38,9 +39,11 @@ class Signup extends Component {
                     email: "",
                     phoneNumber: ""
                 })
+                {this.props.submitResult("Success")};
             })
             .catch(err => {
                 console.log(err);
+                {this.props.submitResult("Error")};
             })
     };
 
@@ -60,6 +63,7 @@ class Signup extends Component {
                         <input type="text" placeholder="Phone Number" name="phoneNumber" value={this.state.phoneNumber} onChange={this.handleInputChange} />
                         <button className="btn btn-primary" type="submit" onClick={this.handleSubmit}>Submit</button>
                     </form>
+                    <Toast message="Test Message"/>
                 </div>
             </section>
         )
