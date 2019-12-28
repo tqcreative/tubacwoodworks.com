@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
 import API from "../../utils/API";
+import Toast from "../Toast";
 
 class Signup extends Component {
     constructor(props) {
@@ -38,9 +39,27 @@ class Signup extends Component {
                     email: "",
                     phoneNumber: ""
                 })
+                this.props.submitResult(["Thank you for signing up.  You will receive a confirmation email shortly."]);
             })
             .catch(err => {
-                console.log(err);
+                console.log(err.response.data);
+                let obj = err.response.data.errors;
+                let errors = ["Sorry, your request could not be completed due to the following issues:"];
+                if(obj){
+                    Object.keys(obj).forEach(key=>{
+                        errors.push(obj[key].message)
+                    })    
+                }
+                else if(!obj && err.response.data.name === "MongoError" && err.response.data.code == 11000){
+                    errors.push("You've already signed up for a quote.  We'll be in touch soon.")
+                }
+                else if(err.response.data.errmsg){
+                    errors.push(err.response.data.errmsg)
+                }
+                else{
+                    errors.push("Unknown error occurred.  Please try again.");
+                }
+                this.props.submitResult(errors);
             })
     };
 
@@ -60,6 +79,7 @@ class Signup extends Component {
                         <input type="text" placeholder="Phone Number" name="phoneNumber" value={this.state.phoneNumber} onChange={this.handleInputChange} />
                         <button className="btn btn-primary" type="submit" onClick={this.handleSubmit}>Submit</button>
                     </form>
+                    <Toast message="Test Message"/>
                 </div>
             </section>
         )
