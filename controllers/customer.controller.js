@@ -1,5 +1,6 @@
 const db = require("../models");
 const router = require("express").Router();
+const EmailAPI = require("../utils/api/EmailAPI");
 
 // /api/customers routes
 
@@ -17,6 +18,11 @@ router.route("/signup").post((req, res) => {
         .then(dbModel => {
             console.log(dbModel);
             res.json(dbModel);
+            EmailAPI.sendSignupEmail(email, firstName, lastName).then(info=>{
+                console.log(info);
+            }).catch(err=>{
+                console.log(err);
+            });
         })
         .catch(err => {
             console.log(err);
