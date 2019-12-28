@@ -5,6 +5,8 @@ import "./home.css";
 import Hero from "../../components/Hero";
 import Numbers from "../../components/Numbers";
 import Footer from "../../components/Footer";
+import Quote from "../../components/Quote";
+import Portfolio from '../../components/Portfolio';
 
 export default class Home extends Component {
 	constructor(props) {
@@ -25,6 +27,9 @@ export default class Home extends Component {
 					<Header user={this.state.user} />
 					<Hero />
 					<Numbers />
+					<Quote />
+					<Portfolio />
+					<Quote />
 					<Signup />
 					<Footer />
 				</div>
@@ -35,6 +40,9 @@ export default class Home extends Component {
 					<Header user={this.state.user} />
 					<Hero />
 					<Numbers />
+					<Quote />
+					<Portfolio />
+					<Quote />
 					<Signup />
 					<Footer />
 				</div>
