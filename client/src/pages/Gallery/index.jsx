@@ -7,7 +7,8 @@ export default class Gallery extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			user: props.user
+			user: props.user,
+			styleProp: 'absolute'
 		}
 	}
 
@@ -19,7 +20,7 @@ export default class Gallery extends Component {
 		if (this.props.user) {
 			return (
 				<div className="gallery_root">
-					<NavBar/>
+					<NavBar styleProp={this.state.styleProp} />
 					<Header user={this.state.user} />
                     <h1> Gallery </h1>
 				</div>
@@ -27,7 +28,7 @@ export default class Gallery extends Component {
 		} else {
 			return (
 				<div className="gallery_root">
-					<NavBar/>
+					<NavBar styleProp={this.state.styleProp}/>
 					<Header user={this.state.user} />
                     <h1> Gallery </h1>
 					{/* <p>Current User:</p>
