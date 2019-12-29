@@ -1,10 +1,16 @@
 .gallery_root {
+  display: grid;
+  align-items: center;
+}
+
+.gallery_container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     grid-gap: 10px;
-    grid-auto-rows: minmax(150px, auto);
+    grid-auto-rows: minmax(150px, 150px);
     grid-auto-flow: dense;
     padding: 10px;
+    margin: 2em 10em;
 }
 
 .item {
@@ -14,13 +20,13 @@
     text-transform: uppercase;
     color: #929796;
     background-color: #333;
-    border-radius: 5px;s
+    border-radius: 5px;
     background-size: cover;
 }
 
 .span-2 {
     grid-column-end: span 2;
-    grid-row-end: span 2;
+    grid-row-end: span 1;
 }
 
 .span-3 {
