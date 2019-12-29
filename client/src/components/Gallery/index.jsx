@@ -10,6 +10,8 @@ import foldingBed from './images/folding-bed.JPG';
 import Bed from './images/gar1.JPG';
 import woodenCabinets from './images/wooden.JPG';
 import whiteCabinets from './images/whiteCab.JPG';
+import bathroomCabinets from './images/bathroomCab.JPG'
+import greenKitchen from './images/green-kitchen.JPG'
 
 
 
@@ -40,8 +42,9 @@ export default class Gallery extends Component {
                     <div className="item item-9" style={{backgroundImage: `url(${woodenCabinets})`}}></div>
 
                     <div className="item  item-10" style={{backgroundImage: `url(${whiteCabinets})`}}></div>
-                    <div className="item item-11">item 11</div>
-                    <div className="item span-2 item-12">item 12</div>
+
+                    <div className="item item-11" style={{backgroundImage: `url(${bathroomCabinets})`}}></div>
+                    <div className="item span-2 item-12" style={{backgroundImage: `url(${greenKitchen})`}}></div>
 
 
                 </div>
