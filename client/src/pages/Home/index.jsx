@@ -10,6 +10,7 @@ import Quote from "../../components/Quote";
 import Portfolio from '../../components/Portfolio';
 import Gallery from '../../components/Gallery';
 import Checkbox from '../../components/Checkbox';
+import { NavBar } from '../../components/Navbar';
 
 export default class Home extends Component {
 	constructor(props) {
@@ -17,7 +18,8 @@ export default class Home extends Component {
 		this.state = {
 			user: props.user,
 			toastMsg: [],
-			toastShow: false
+			toastShow: false,
+			navPos: "absolute"
 		}
 		this.handleSignupResult = this.handleSignupResult.bind(this);
 		this.toggleToast = this.toggleToast.bind(this);
@@ -40,6 +42,7 @@ export default class Home extends Component {
 		if (this.props.user) {
 			return (
 				<div className="Home home_root">
+					<NavBar styleProp={this.state.navPos} />
 					<Header user={this.state.user} />
 					<Hero />
 					<Numbers />
@@ -60,6 +63,7 @@ export default class Home extends Component {
 		} else {
 			return (
 				<div className="Home home_root">
+					<NavBar styleProp={this.state.navPos} />
 					<Header user={this.state.user} />
 					<Hero />
 					<Numbers />

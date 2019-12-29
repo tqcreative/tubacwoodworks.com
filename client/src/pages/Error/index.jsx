@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Header } from '../../components';
 import './error.css';
+import { NavBar } from '../../components/Navbar';
 
 export default class Error extends Component {
 	constructor(props) {
@@ -18,6 +19,7 @@ export default class Error extends Component {
 		if (this.props.user) {
 			return (
 				<div className="error_root">
+					<NavBar/>
 					<Header user={this.state.user} />
                     <h1> 404 Error </h1>
 				</div>
@@ -25,6 +27,7 @@ export default class Error extends Component {
 		} else {
 			return (
 				<div className="error_root">
+					<NavBar/>
 					<Header user={this.state.user} />
                     <h1> 404 Error </h1>
 					{/* <p>Current User:</p>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Header } from '../../components';
 import "./kitchen_bath_vanity.css";
+import { NavBar } from '../../components/Navbar';
 
 export default class Kitchen_Bath_Vanity extends Component {
 	constructor(props) {
@@ -18,6 +19,7 @@ export default class Kitchen_Bath_Vanity extends Component {
 		if (this.props.user) {
 			return (
 				<div className="kitchen_root">
+					<NavBar/>
 					<Header user={this.state.user} />
 					{/* <p>Current User:</p>
 					<code>
@@ -28,6 +30,7 @@ export default class Kitchen_Bath_Vanity extends Component {
 		} else {
 			return (
 				<div className="kitchen_root">
+					<NavBar/>
 					<Header user={this.state.user} />
                     <h1>
                         kitchen_bath_vanity
