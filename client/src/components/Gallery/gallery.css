@@ -1,6 +1,6 @@
 .gallery_root {
   display: grid;
-  align-items: center;
+  margin: auto;
 }
 
 .gallery_container {

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './gallery.css';
+import bathroom from './images/bathroom.JPG';
+import kitchen1 from './images/kitchen1.JPG';
 
 export default class Gallery extends Component {
     render() {
@@ -8,9 +10,10 @@ export default class Gallery extends Component {
 
                 <div className="gallery_container">
 
-                    <div className="item item-1" style={{backgroundColor:""}}>
+                    <div className="item item-1" style={{backgroundImage: `url(${kitchen1})`}}>
+                        <span></span>
                     </div>
-                    <div className="item item-2"></div>
+                    <div className="item item-2" style={{backgroundImage: `url(${bathroom})`}}></div>
 
                     <div className="item span-3 item-3" >item 3</div>
 
