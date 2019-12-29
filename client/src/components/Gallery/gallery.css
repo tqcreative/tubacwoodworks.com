@@ -1,3 +1,30 @@
 .gallery_root {
-  width: 100%;
-  min-height: 80vh; }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 10px;
+    grid-auto-rows: minmax(150px, auto);
+    grid-auto-flow: dense;
+    padding: 10px;
+}
+
+.item {
+    padding: 1rem;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #929796;
+    background-color: #333;
+    border-radius: 5px;s
+    background-size: cover;
+}
+
+.span-2 {
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+}
+
+.span-3 {
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+}
+
