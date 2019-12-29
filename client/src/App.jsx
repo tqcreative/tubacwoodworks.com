@@ -73,10 +73,10 @@ class App extends Component {
 		return (
 			<div className="App_root">
 				{/* Navbar on every page */}
-				<NavBar
+				{/* <NavBar
 					_logout={this._logout}
 					loggedIn={this.state.loggedIn}
-				/>
+				/> */}
 				{/*  Individual Things */}
 				<Switch>
 					<Route
