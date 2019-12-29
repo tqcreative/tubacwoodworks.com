@@ -1,6 +1,40 @@
 @import "../../_scss/vars";
 
-.navpane_root{
+.crm_root{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    .top_root {
+        width: 100%;
+        min-height: 64px;
+        background-color: $dark;
+    }
+
+    .bottom_root {
+        width: 100%;
+        max-width: 1400px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: flex-start;
+        height: calc(100vh - 64px);
+        overflow: hidden;
+
+        .left_root {
+            width: 25%;
+            min-width: 256px;
+            height: calc(100vh - 64px);
+            background-color: #aaa;
+        }
+
+        .right_root {
+            width: 75%;
+            height: calc(100vh - 64px);
+            background-color: #f2f2f2;
+        }
+    }
+
 }

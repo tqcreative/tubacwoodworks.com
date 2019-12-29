@@ -5,27 +5,13 @@ import './style.css';
 class CRM extends Component {
     render() {
         return (
-            this.props.loggedIn ?
-                (
-                    <div>
-                        <nav className="navpane_root">
-                            <a href="/dashboard">Dashboard</a>
-                            <a href="/Customers">Customers</a>
-                            <a href="/email">Email</a>
-                        </nav>
-                    </div>
-                )
-                :
-                (
-                    <div>
-                        <p>Not logged in, will redirect</p>
-                    </div>
-                    // <Redirect
-                    //     to={{
-                    //         pathname: "/login"
-                    //     }}
-                    // />
-                )
+            <div className="crm_root">
+                <div className="top_root"></div>
+                <div className="bottom_root">
+                    <div className="left_root"></div>
+                    <div className="right_root"></div>
+                </div>
+            </div>
         )
     }
 }

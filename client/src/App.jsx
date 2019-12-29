@@ -11,6 +11,7 @@ import Furniture from './pages/Furniture/'
 import Pro_Tips from './pages/Pro_Tips/'
 import Gallery from './pages/Gallery/'
 import Error from './pages/Error/'
+import CRM from './pages/CRM'
 
 class App extends Component {
 	constructor(props) {
@@ -84,6 +85,10 @@ class App extends Component {
 						path="/"
 						render={() =>
 							<Home user={this.state.user} />} />
+					<Route
+						exact path="/crm"
+						render={() =>
+						<CRM />} />
 					<Route
 						exact
 						path="/kitchenbathvanity"
