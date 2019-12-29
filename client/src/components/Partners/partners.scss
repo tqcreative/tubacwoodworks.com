@@ -1,0 +1,22 @@
+@import "../../_scss/_vars";
+
+.partners_root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em 0;
+
+  .partners_deck {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .partners_card {
+        width: 256px;
+        height: 256px;
+        margin: 16px;
+        background-color: $dark;
+    }
+  }
+}

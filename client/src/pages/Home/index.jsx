@@ -11,6 +11,7 @@ import Portfolio from '../../components/Portfolio';
 import Gallery from '../../components/Gallery';
 import Checkbox from '../../components/Checkbox';
 import { NavBar } from '../../components/Navbar';
+import Partners from '../../components/Partners';
 
 export default class Home extends Component {
 	constructor(props) {
@@ -51,6 +52,7 @@ export default class Home extends Component {
 					<Quote />
 					<Gallery />
 					<Checkbox />
+					<Partners />
 					<Signup submitResult={this.handleSignupResult}/>
 					<Footer />
 					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
@@ -72,6 +74,7 @@ export default class Home extends Component {
 					<Quote />
 					<Gallery />
 					<Checkbox />
+					<Partners />
 					<Signup submitResult={this.handleSignupResult}/>
 					<Footer />
 					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
