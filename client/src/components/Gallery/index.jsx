@@ -44,7 +44,13 @@ export default class Gallery extends Component {
                     <div className="item  item-10" style={{backgroundImage: `url(${whiteCabinets})`}}></div>
 
                     <div className="item item-11" style={{backgroundImage: `url(${bathroomCabinets})`}}></div>
+
                     <div className="item span-2 item-12" style={{backgroundImage: `url(${greenKitchen})`}}></div>
+
+                    <div className="item span-2 item-12" style={{backgroundImage: `url(${greenKitchen})`}}></div>
+
+                    <div className="item item-11" style={{backgroundImage: `url(${bathroomCabinets})`}}></div>
+
 
 
                 </div>
