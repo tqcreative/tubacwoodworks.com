@@ -1,18 +1,14 @@
 import React from 'react';
 import './style.css';
+import {useHistory} from 'react-router-dom';
 
 function Navlink(props) {
-    const updateLinks = function(){
-        let a = document.getElementsByClassName("navlink-wrapper");
-        console.log(a);
-    };
+    let classes= (props.location.pathname === props.linkRef) ? "navlink active" : "navlink";
 
     return (
-        <div className="navlink">
-            <div className="navlink-wrapper" onClick={updateLinks}>
-                    <a className="navlink-link" href={props.linkRef}>{props.linkText}</a>
-                <span></span>
-            </div>
+        <div className={classes} id={props.id}>
+            <a className="navlink-link" href={props.linkRef}>{props.linkText}</a>
+            <span></span>
         </div>
     )
 }

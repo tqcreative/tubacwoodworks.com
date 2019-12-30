@@ -86,7 +86,7 @@ class App extends Component {
 						render={() =>
 							<Home user={this.state.user} />} />
 					<Route
-						exact path="/crm"
+					    path="/crm"
 						render={() =>
 						<CRM />} />
 					<Route
