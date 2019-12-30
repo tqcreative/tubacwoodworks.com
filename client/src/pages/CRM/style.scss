@@ -11,6 +11,8 @@
         width: 100%;
         min-height: 64px;
         background-color: $dark;
+        display: flex;
+        align-items: center;
     }
 
     .bottom_root {
@@ -28,6 +30,7 @@
             min-width: 256px;
             height: calc(100vh - 64px);
             background-color: #aaa;
+
         }
 
         .right_root {
@@ -37,4 +40,10 @@
         }
     }
 
+    ion-icon{
+        padding: 20px 0 20px 20px;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+    }
 }
