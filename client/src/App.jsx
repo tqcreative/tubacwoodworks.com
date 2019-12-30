@@ -12,12 +12,13 @@ import Pro_Tips from './pages/Pro_Tips/'
 import Gallery from './pages/Gallery/'
 import Error from './pages/Error/'
 import CRM from './pages/CRM'
+import PrivateRoute from './components/PrivateRoute';
 
 class App extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			loggedIn: false,
+			loggedIn: null,
 			user: null
 		}
 		this._logout = this._logout.bind(this);
@@ -53,6 +54,7 @@ class App extends Component {
 	}
 
 	_login(username, password) {
+		this.setState({loggedIn:null});
 		axios
 			.post('/auth/login', {
 				username,
@@ -85,10 +87,9 @@ class App extends Component {
 						path="/"
 						render={() =>
 							<Home user={this.state.user} />} />
-					<Route
-					    path="/crm"
-						render={() =>
-						<CRM />} />
+					<PrivateRoute path="/crm" loggedIn={this.state.loggedIn}>
+						<CRM logout={this._logout}/>
+					</PrivateRoute>
 					<Route
 						exact
 						path="/kitchenbathvanity"

@@ -1,11 +1,16 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom';
 import './style.css';
 import Navlink from '../../components/Navlink';
 
-function CRM() {
+function CRM(props) {
     return (
         <div className="crm_root">
-            <div className="top_root"></div>
+            <Redirect from="/crm" to="/crm/dashboard" />
+            <div className="top_root">
+                <a href="/"><ion-icon name="home"></ion-icon></a>
+                <ion-icon name="log-out" onClick={props.logout}></ion-icon>
+            </div>
             <div className="bottom_root">
                 <div className="left_root">
                     <Navlink
