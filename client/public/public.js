@@ -3,7 +3,7 @@
 ////////////
 
 let heroAnimationTrigger = false;
-let quoteInView = false;
+let quoteOneTrigger = false;
 
 ////////////
 // On Ready
@@ -61,22 +61,18 @@ window.addEventListener('scroll', function(event) {
     // GSAP Animations
     /////////////////////////////////////////
 
-    ////////////////
-    // animation based of display location
-    ////////////////
-
     // 1: is this element on the screen?
     if (document.getElementById("quote_1")) {
       // id="quote_1" is on the page somewhere.
 
-      // 2: is the quoteInView trigger true or false. If it is false then we want to fire the animation. if it is true we want to ignore the result.
-      if (elementInViewport(document.getElementById("quote_1")) && quoteInView === false){
-        quoteInView = true;
+      // 2: is the quoteOneTrigger trigger true or false. If it is false then we want to fire the animation. if it is true we want to ignore the result.
+      if (elementInViewport(document.getElementById("quote_1")) && quoteOneTrigger === false){
+        quoteOneTrigger = true;
         gsap.from("#quote_1", {duration: 2, opacity: 0, x: "-100%", ease: "power4"});
 
         // 3: if you are no longer in the view then we want to make sure that the animation trigger is reset to false.
-      } else if (!elementInViewport(document.getElementById("quote_1")) && quoteInView === true){
-        quoteInView = false;
+      } else if (!elementInViewport(document.getElementById("quote_1")) && quoteOneTrigger === true){
+        quoteOneTrigger = false;
       }
     }
 
