@@ -1,8 +1,13 @@
 ////////////
-// On Ready
+// Global Variables
 ////////////
 
-quoteInView = false;
+let heroAnimationTrigger = false;
+let quoteInView = false;
+
+////////////
+// On Ready
+////////////
 
 document.addEventListener("DOMContentLoaded", function(){
 console.log('DOM has finished loading.')
@@ -51,8 +56,13 @@ window.addEventListener('scroll', function(event) {
         }   
     }
 
+       
+    /////////////////////////////////////////
+    // GSAP Animations
+    /////////////////////////////////////////
+
     ////////////////
-    // animation 
+    // animation based of display location
     ////////////////
 
     // 1: is this element on the screen?
@@ -62,23 +72,39 @@ window.addEventListener('scroll', function(event) {
       // 2: is the quoteInView trigger true or false. If it is false then we want to fire the animation. if it is true we want to ignore the result.
       if (elementInViewport(document.getElementById("quote_1")) && quoteInView === false){
         quoteInView = true;
-        gsap.from("#quote_1", {duration: 1, opacity: 0, x: "-100%"});
-        
+        gsap.from("#quote_1", {duration: 2, opacity: 0, x: "-100%", ease: "power4"});
+
         // 3: if you are no longer in the view then we want to make sure that the animation trigger is reset to false.
       } else if (!elementInViewport(document.getElementById("quote_1")) && quoteInView === true){
         quoteInView = false;
       }
     }
+
+    if (document.getElementById('hero_quote')){
+      if (elementInViewport(document.getElementById("hero_quote")) && heroAnimationTrigger === false){
+        heroAnimationTrigger = true;
+        gsap.from("#hero_quote", {delay: .5, opacity: 0, duration:1, x:750, ease: "power4"});
+      } else if (!elementInViewport(document.getElementById("hero_quote")) && heroAnimationTrigger === true){
+        heroAnimationTrigger = false;
+      }
+    }
+
     
 });
 
-///////////
-// GSAP Animations
-///////////
-  if (document.getElementById('hero_quote')){
-    gsap.from("#hero_quote", {delay: .5, duration:1, x:750});
-  }
 
+////////////
+// On load 
+////////////
+
+if (document.getElementById('hero_quote')){
+  if (elementInViewport(document.getElementById("hero_quote")) && heroAnimationTrigger === false){
+    heroAnimationTrigger = true;
+    gsap.from("#hero_quote", {delay: .5, opacity: 0, duration:1, x:750, ease: "power4"});
+  } else if (!elementInViewport(document.getElementById("hero_quote")) && heroAnimationTrigger === true){
+    heroAnimationTrigger = false;
+  }
+}
 
 ///////////////////////////
 /////// ! WARNING ! ///////

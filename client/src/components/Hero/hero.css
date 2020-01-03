@@ -1,12 +1,8 @@
 .hero_root {
+  position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-image: url(./images/kitchen_black.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center right;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -42,3 +38,16 @@
     .hero_root div p {
       display: block;
       padding: 1em 2em; }
+  .hero_root .hero_background {
+    position: absolute;
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    max-height: 100%;
+    left: 0;
+    bottom: 0;
+    background-image: url(./images/kitchen_black.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center; }

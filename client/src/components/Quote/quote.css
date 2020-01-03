@@ -19,7 +19,7 @@
     left: 0;
     bottom: 0;
     background-image: url("./images/background_quotes.jpg");
-    background-position: top center;
+    background-position: bottom center;
     background-attachment: fixed;
     background-size: cover; }
   .quote_root .quote {

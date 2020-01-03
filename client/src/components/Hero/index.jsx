@@ -4,7 +4,8 @@ import './hero.css';
 function Hero() {
 
     return (
-        <div className="hero_root parallax" data-speed=".3">
+        <div className="hero_root">
+            <div className="parallax hero_background" data-speed=".3"></div>
             <div id="hero_quote" className="parallax" data-speed="-1">
                 <div>Tubac Woodworks img</div>
                 <p>
