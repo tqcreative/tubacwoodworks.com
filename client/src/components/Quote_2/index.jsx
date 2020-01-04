@@ -1,7 +1,7 @@
 import React from 'react'
-import './quote.css';
+import './quote_two.css';
 
-function Quote() {
+function QuoteTwo() {
 
     /*
         Next Step: Set so that the quote component can see how many quotes are being used on the page and fill its information based on that.
@@ -9,10 +9,10 @@ function Quote() {
     */
 
     return (
-        <div className="quote_root">
+        <div className="quote_two_root">
             <div className="background-img parallax" data-rellax-speed="-3"></div>
-            <div id="quote_1" className="quote">
-                <ion-icon name="quote"></ion-icon>
+            <div id="quote_2" className="quote_two">
+                <ion-icon name="quote_two"></ion-icon>
                 <p>
                     Tuboc Woodworks is the bee's knees. 
                     They did such an amazing job!
@@ -23,4 +23,4 @@ function Quote() {
     )
 }
 
-export default Quote;
+export default QuoteTwo;

@@ -1,6 +1,6 @@
 @import "../../_scss/_vars";
 
-.quote_root {
+.quote_two_root {
     position: relative;
     width: 100%;
     min-height: 40vh;
@@ -14,13 +14,13 @@
         width: 100%;
         height: 100vh;
         left: 0;
-        bottom: 10%;
+        bottom: 20%;
         background-image: url("./images/background_quotes.jpg");
         background-position: bottom center;
         background-size: cover;
     }
 
-    .quote {
+    .quote_two {
         position: relative;
         width: 35%;
         min-width: 256px; 
@@ -28,7 +28,7 @@
         background-color: rgba($main, .8);
         padding: 1em;
         color: #fff;
-        margin: 1em 0 1em 10%;
+        margin: 1em 0 1em 60%;
             
             ion-icon {
                 position: absolute;

@@ -19,7 +19,6 @@
     width: 40%;
     max-width: 768px;
     min-width: 356px;
-    height: 50%;
     min-height: 256px; }
     .hero_root div div {
       background: none;
@@ -49,4 +48,5 @@
     background-image: url(./images/kitchen_black.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center; }
+    background-position: center;
+    z-index: 0; }

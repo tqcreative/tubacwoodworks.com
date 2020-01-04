@@ -1,4 +1,4 @@
-.quote_root {
+.quote_two_root {
   position: relative;
   width: 100%;
   min-height: 40vh;
@@ -12,16 +12,16 @@
   -ms-flex-align: center;
   align-items: center;
   overflow: hidden; }
-  .quote_root .background-img {
+  .quote_two_root .background-img {
     position: absolute;
     width: 100%;
     height: 100vh;
     left: 0;
-    bottom: 10%;
+    bottom: 20%;
     background-image: url("./images/background_quotes.jpg");
     background-position: bottom center;
     background-size: cover; }
-  .quote_root .quote {
+  .quote_two_root .quote_two {
     position: relative;
     width: 35%;
     min-width: 256px;
@@ -29,18 +29,18 @@
     background-color: rgba(192, 57, 43, 0.8);
     padding: 1em;
     color: #fff;
-    margin: 1em 0 1em 10%; }
-    .quote_root .quote ion-icon {
+    margin: 1em 0 1em 60%; }
+    .quote_two_root .quote_two ion-icon {
       position: absolute;
       left: 16px;
       top: 16px;
       color: rgba(241, 241, 241, 0.6);
       font-size: 4em; }
-    .quote_root .quote p {
+    .quote_two_root .quote_two p {
       margin: 15% 0 0 10%;
       font-size: 1.5em;
       font-weight: 200; }
-      .quote_root .quote p span {
+      .quote_two_root .quote_two p span {
         font-size: .8em;
         text-shadow: none;
         position: absolute;

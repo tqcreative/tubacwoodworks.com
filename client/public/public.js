@@ -4,6 +4,7 @@
 
 let heroAnimationTrigger = false;
 let quoteOneTrigger = false;
+let quoteTwoTrigger = false;
 
 ////////////
 // On Ready
@@ -37,25 +38,9 @@ function elementInViewport(el) {
 
 
 ////////////
-// parallax
+// On scroll events
 ////////////
 window.addEventListener('scroll', function(event) {
-
-    // grab element on dom by class name (you could also do this by ID if you would like.)
-    const parallaxItem = document.querySelectorAll('.parallax');
-
-    let index = 0, length = parallaxItem.length;
-    for (index; index < length; index++){
-        // page offset Y in pixels times the speed placed into the parallax-speed. default is .3; 
-        let position = window.pageYOffset * parallaxItem[index].dataset.speed;
-
-        // change the parallaxItem's location on scroll.
-
-        if (elementInViewport(parallaxItem[index])){
-            parallaxItem[index].style.transform = `translate3d(0px, ${position}px, 0px)`;
-        }   
-    }
-
        
     /////////////////////////////////////////
     // GSAP Animations
@@ -85,6 +70,15 @@ window.addEventListener('scroll', function(event) {
       }
     }
 
+    if(document.getElementById('quote_2')){
+      if(elementInViewport(document.getElementById('quote_2')) && quoteTwoTrigger === false){
+        quoteTwoTrigger = true;
+        gsap.from("#quote_2", {duration: 2, opacity: 0, x: "200%", ease: "power4"});
+      } else if (!elementInViewport(document.getElementById("quote_2")) && quoteTwoTrigger === true){
+        quoteTwoTrigger = false;
+      }
+    }
+
     
 });
 
@@ -101,6 +95,8 @@ if (document.getElementById('hero_quote')){
     heroAnimationTrigger = false;
   }
 }
+
+const rellax = new Rellax('.parallax');
 
 ///////////////////////////
 /////// ! WARNING ! ///////

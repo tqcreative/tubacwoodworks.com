@@ -7,6 +7,7 @@ import Numbers from "../../components/Numbers";
 import Footer from "../../components/Footer";
 import Toast from "../../components/Toast";
 import Quote from "../../components/Quote";
+import QuoteTwo from "../../components/Quote_2";
 import Portfolio from '../../components/Portfolio';
 import Gallery from '../../components/Gallery';
 import Checkbox from '../../components/Checkbox';
@@ -49,7 +50,7 @@ export default class Home extends Component {
 					<Numbers />
 					<Quote />
 					<Portfolio />
-					<Quote />
+					<QuoteTwo />
 					<Gallery />
 					<Checkbox />
 					<Partners />
@@ -71,7 +72,7 @@ export default class Home extends Component {
 					<Numbers />
 					<Quote />
 					<Portfolio />
-					<Quote />
+					<QuoteTwo />
 					<Gallery />
 					<Checkbox />
 					<Partners />

@@ -5,8 +5,8 @@ function Hero() {
 
     return (
         <div className="hero_root">
-            <div className="parallax hero_background" data-speed=".3"></div>
-            <div id="hero_quote" className="parallax" data-speed="-1">
+            <div className="hero_background parallax" data-rellax-speed="-10"></div>
+            <div id="hero_quote">
                 <div>Tubac Woodworks img</div>
                 <p>
                     Tubac Woodworks Inc, building custom
