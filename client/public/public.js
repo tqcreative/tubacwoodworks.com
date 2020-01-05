@@ -11,7 +11,7 @@ let quoteTwoTrigger = false;
 ////////////
 
 document.addEventListener("DOMContentLoaded", function(){
-console.log('DOM has finished loading.')
+//console.log('DOM has finished loading.')
 
 ////////////
 // item in viewport
@@ -67,7 +67,7 @@ window.addEventListener('scroll', function(event) {
         gsap.from("#hero_quote", {delay: .5, opacity: 0, duration:1, x:750, ease: "power4"});
       } else if (!elementInViewport(document.getElementById("hero_quote")) && heroAnimationTrigger === true){
         heroAnimationTrigger = false;
-      }
+      }   
     }
 
     if(document.getElementById('quote_2')){

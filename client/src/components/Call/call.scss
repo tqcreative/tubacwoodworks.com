@@ -1,0 +1,14 @@
+@import "../../_scss/_vars";
+
+.call_root {
+    user-select: none;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    div {
+        position: absolute;
+        left: 0;
+        bottom: 1em;
+    }
+}
