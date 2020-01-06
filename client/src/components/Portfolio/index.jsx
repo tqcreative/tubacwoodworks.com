@@ -15,7 +15,7 @@ function Portfolio() {
     })
     .catch(error => {
         console.error(error);
-    })
+    });
 
     return (
         <div className="portfolio_root">
