@@ -10,7 +10,7 @@ function QuoteTwo() {
 
     return (
         <div className="quote_two_root">
-            <div className="background-img parallax" data-rellax-speed="-3"></div>
+            <div className="background-img parallax" data-rellax-speed="-2"></div>
             <div id="quote_2" className="quote_two">
                 <ion-icon name="quote_two"></ion-icon>
                 <p>
