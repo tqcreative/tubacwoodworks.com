@@ -71,6 +71,10 @@ const customerSchema = new Schema({
         zip4: {
           type: String
        },
+       isLead: {
+         type: Boolean,
+         default: true
+       },
        leadType: {
          type: String
        },

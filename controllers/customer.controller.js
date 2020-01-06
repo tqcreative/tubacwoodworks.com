@@ -30,4 +30,24 @@ router.route("/signup").post((req, res) => {
         });
 });
 
+// Get the list of current customer leads
+router.route("/leads").get((req,res) => {
+    db.Customer.find({isLead: true},(err,data)=>{
+        if(err) return res.status(500).json(err);
+        res.json(data);
+    })
+});
+
+// Update an existing customer's data
+router.route("/id/:id").put((req,res)=>{
+    db.Customer.findByIdAndUpdate(req.params.id,req.body.custObj)
+    .then(dbRes=>{
+        res.json(dbRes);
+    })
+    .catch(err=>{
+        res.status(500).json(err);
+    })
+});
+
+
 module.exports = router;
