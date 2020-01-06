@@ -5,7 +5,15 @@ const router = require("express").Router();
 // GET
 //////////
 router.route("/").get(function(req, res) {
-    res.send(`You're doing it, Peter!`);
+    //console.log(req.query)
+    db.Portfolio
+        .find()
+        .sort({ date: -1 })
+        .then(dbModel => {
+            console.log(dbModel)
+            res.json(dbModel)
+        })
+        .catch(err => res.status(422).json(err));
 });
 
 ///////////
