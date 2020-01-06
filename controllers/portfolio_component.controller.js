@@ -14,6 +14,7 @@ router.route("/").get(function(req, res) {
 /////////////////
 // ! WARNING ! //
 /////////////////
+// do not post to this route this is only for when you want to add to the database. 
 router.route("/").post((req, res) => {
     // db.Portfolio
     //     .create(req.body)
