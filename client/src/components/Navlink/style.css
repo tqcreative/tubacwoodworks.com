@@ -30,3 +30,6 @@
 
 .active a {
   color: red !important; }
+
+.active {
+  width: 90%; }

@@ -14,6 +14,7 @@
   .crm_root .top_root {
     width: 100%;
     min-height: 64px;
+    max-width: 1400px;
     background-color: #2d3436;
     display: -webkit-box;
     display: -ms-flexbox;
