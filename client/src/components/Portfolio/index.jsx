@@ -1,8 +1,22 @@
 import React from 'react'
 import './portfolio.css';
-import './portfolio.js';
+import axios from 'axios';
+
+// build an object from our mongo database.
 
 function Portfolio() {
+
+    axios
+    .get('/cms/portfolio_component', {
+
+    })
+    .then(response => {
+        console.log(response.data);
+    })
+    .catch(error => {
+        console.error(error);
+    })
+
     return (
         <div className="portfolio_root">
             <div className="portfolio_items_go_here">
