@@ -9,38 +9,42 @@ class Portfolio extends Component {
         this.state = {
             deck: [
                 {
-                    title: "",
-                    linkUrl: "",
+                    title: "Default 1",
+                    link: "www.google.com",
                     imgUrl: ""
                 },
                 {
-                    title: "",
-                    linkUrl: "",
+                    title: "Default 2",
+                    link: "www.google.com",
                     imgUrl: ""
                 },
                 {
-                    title: "",
-                    linkUrl: "",
+                    title: "Default 3",
+                    link: "www.google.com",
                     imgUrl: ""
                 },
                 {
-                    title: "",
-                    linkUrl: "",
+                    title: "Default 4",
+                    link: "www.google.com",
                     imgUrl: ""
                 },
                 {
-                    title: "",
-                    linkUrl: "",
+                    title: "Default 5",
+                    link: "www.google.com",
                     imgUrl: ""
                 },
                 {
-                    title: "",
-                    linkUrl: "",
+                    title: "Default 6",
+                    link: "www.google.com",
                     imgUrl: ""
                 }
             ]
         }
     };
+
+    componentDidMount(){
+        this.axiosCall();
+    }
 
     axiosCall(){
         axios
@@ -49,6 +53,9 @@ class Portfolio extends Component {
         })
         .then(response => {
             console.log(response.data[0].title);
+            this.setState({
+                deck : response.data
+            });
         })
         .catch(error => {
             console.error(error);
@@ -62,12 +69,12 @@ class Portfolio extends Component {
                 {/* see portfolio.js file for more info */}
                 {/* This is placeholder content while the app loads */}
                 <div className="deck">
-                    <div className="card"><p>{  }</p></div>
-                    <div className="card"></div>
-                    <div className="card"></div>
-                    <div className="card"></div>
-                    <div className="card"></div>
-                    <div className="card"></div>
+                    <div className="card" style={{background: `url(${this.state.deck[0].imgUrl})`}}><p>{this.state.deck[0].title}</p></div>
+                    <div className="card" style={{background: `url(${this.state.deck[1].imgUrl})`}}><p>{this.state.deck[1].title}</p></div>
+                    <div className="card" style={{background: `url(${this.state.deck[2].imgUrl})`}}><p>{this.state.deck[2].title}</p></div>
+                    <div className="card" style={{background: `url(${this.state.deck[3].imgUrl})`}}><p>{this.state.deck[3].title}</p></div>
+                    <div className="card" style={{background: `url(${this.state.deck[4].imgUrl})`}}><p>{this.state.deck[4].title}</p></div>
+                    <div className="card" style={{background: `url(${this.state.deck[5].imgUrl})`}}><p>{this.state.deck[5].title}</p></div>
                 </div>
             </div>
         </div>

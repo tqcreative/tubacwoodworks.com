@@ -9,7 +9,8 @@
   justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center; }
+  align-items: center;
+  color: #fff; }
   .portfolio_root .portfolio_items_go_here {
     width: 100%;
     max-width: 1200px;
