@@ -2,6 +2,7 @@ const db = require("../models");
 const router = require("express").Router();
 const EmailAPI = require("../utils/api/EmailAPI");
 const authenticateUser = require("../utils/passport/authenticateUser").authenticateUser;
+const moment = require('moment');
 
 // /api/customers routes
 
@@ -38,11 +39,35 @@ router.route("/signup").post((req, res) => {
 //*******************************************************************************
 
 // Get the list of current customer leads
-router.route("/leads").get(authenticateUser,(req,res) => {
+router.route("/leads/contact").get(authenticateUser,(req,res) => {
     db.Customer.find({isLead: true},(err,data)=>{
         if(err) return res.status(500).json(err);
         res.json(data);
     })
+});
+
+router.route("/leads/history/last7").get(authenticateUser,(req,res) => {
+    let momentObj = moment().subtract(7,'days').startOf('day');
+    let date = momentObj.toDate();
+
+    try{
+        db.Customer.aggregate([
+            { $match: { createdAt: { $gte: date } } },
+            {
+                $group:{
+                    _id: { $dateToString: { format: "%Y-%m-%d", date: "$createdAt"} },
+                    count:{$sum:1}
+                }
+            },
+            { $sort: { _id: 1} }
+        ],(err,data)=>{
+            if(err) return res.status(500).json(err);
+            res.json(data);
+        });    
+    }
+    catch(err){
+        res.status(500).json(err);
+    }
 });
 
 // Update an existing customer's data
