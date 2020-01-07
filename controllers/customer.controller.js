@@ -1,6 +1,7 @@
 const db = require("../models");
 const router = require("express").Router();
 const EmailAPI = require("../utils/api/EmailAPI");
+const authenticateUser = require("../utils/passport/authenticateUser").authenticateUser;
 
 // /api/customers routes
 
@@ -30,8 +31,14 @@ router.route("/signup").post((req, res) => {
         });
 });
 
+//*******************************************************************************
+//*
+//* Protected Routes - user must be logged in
+//*
+//*******************************************************************************
+
 // Get the list of current customer leads
-router.route("/leads").get((req,res) => {
+router.route("/leads").get(authenticateUser,(req,res) => {
     db.Customer.find({isLead: true},(err,data)=>{
         if(err) return res.status(500).json(err);
         res.json(data);
@@ -39,7 +46,7 @@ router.route("/leads").get((req,res) => {
 });
 
 // Update an existing customer's data
-router.route("/id/:id").put((req,res)=>{
+router.route("/id/:id").put(authenticateUser,(req,res)=>{
     db.Customer.findByIdAndUpdate(req.params.id,req.body.custObj)
     .then(dbRes=>{
         res.json(dbRes);
