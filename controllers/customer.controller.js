@@ -90,7 +90,8 @@ router.route("/leads/summary/last7").get(authenticateUser,(req,res) => {
 });
 
 // Update an existing customer's data
-router.route("/id/:id").put(authenticateUser,(req,res)=>{
+router.route("/id/:id")
+.put(authenticateUser,(req,res)=>{
     db.Customer.findByIdAndUpdate(req.params.id,req.body.custObj)
     .then(dbRes=>{
         res.json(dbRes);
@@ -98,7 +99,16 @@ router.route("/id/:id").put(authenticateUser,(req,res)=>{
     .catch(err=>{
         res.status(500).json(err);
     })
-});
+})
+// Get an existing customer's data
+.get(authenticateUser,(req,res)=>{
+    db.Customer.findById(req.params.id,(err,data)=>{
+        if(err) return res.status(500).json(err);
+        if(!data) return res.status(404).json({message: "ID not found", _id: req.params.id});
+        res.json(data);
+    })
+})
+;
 
 
 module.exports = router;

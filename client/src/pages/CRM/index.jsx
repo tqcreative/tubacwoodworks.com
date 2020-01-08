@@ -3,6 +3,7 @@ import { Redirect, useLocation, BrowserRouter as Router, Route } from 'react-rou
 import './style.css';
 import Navlink from '../../components/Navlink';
 import LeadWrapper from '../../components/LeadWrapper';
+import ContactWrapper from '../../components/ContactWrapper';
 
 function CRM(props) {
     const location = useLocation();
@@ -45,6 +46,9 @@ function CRM(props) {
                     <div className="right_root">
                         <Route exact path="/crm/dashboard">
                             <LeadWrapper />
+                        </Route>
+                        <Route exact path="/crm/customer">
+                            <ContactWrapper />
                         </Route>
                     </div>
                 </div>
