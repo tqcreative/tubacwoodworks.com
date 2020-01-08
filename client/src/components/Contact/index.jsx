@@ -8,7 +8,7 @@ class Contact extends Component {
         this.state = {
             contactUpdateBtnText: "Edit",
             contactIsReadOnly: true,
-            _id: props._id ? props._id : null,
+            id: props.id ? props.id : null,
             firstName: props.firstName ? props.firstName : "",
             lastName: props.lastName ? props.lastName : "",
             email: props.email ? props.email : "",
@@ -21,11 +21,11 @@ class Contact extends Component {
     }
 
     componentDidMount() {
-        if (this.state._id) {
-            axios.get(`/api/customers/id/${this.state._id}`)
+        if (this.state.id) {
+            axios.get(`/api/customers/id/${this.state.id}`)
                 .then(res => {
-                    const { _id, firstName, lastName, email, phoneNumber} = res.data;
-                    this.setState({ _id: _id, firstName: firstName, lastName: lastName, email: email,
+                    const { id, firstName, lastName, email, phoneNumber} = res.data;
+                    this.setState({ id: id, firstName: firstName, lastName: lastName, email: email,
                         phoneNumber: phoneNumber
                     })
                     console.log(res.data);
@@ -51,7 +51,7 @@ class Contact extends Component {
             phoneNumber: this.state.phoneNumber
         };
 
-        axios.put(`/api/customers/id/${this.state._id}`, {custObj:custObj})
+        axios.put(`/api/customers/id/${this.state.id}`, {custObj:custObj})
         .then(res=>{
             console.log(res);
             this.setState({contactIsReadOnly: !this.state.contactIsReadOnly,

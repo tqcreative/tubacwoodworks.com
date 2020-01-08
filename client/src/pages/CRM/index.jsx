@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect, useLocation, BrowserRouter as Router, Route } from 'react-router-dom';
+import { Redirect, useLocation, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './style.css';
 import Navlink from '../../components/Navlink';
 import LeadWrapper from '../../components/LeadWrapper';
@@ -28,11 +28,6 @@ function CRM(props) {
                             id="link-2"
                         />
                         <Navlink
-                            linkText="All Customers"
-                            linkRef="/crm/customers"
-                            id="link-3"
-                        />
-                        <Navlink
                             linkText="Email"
                             linkRef="/crm/email"
                             id="link-4"
@@ -44,12 +39,18 @@ function CRM(props) {
                         />
                     </div>
                     <div className="right_root">
-                        <Route exact path="/crm/dashboard">
-                            <LeadWrapper />
-                        </Route>
-                        <Route exact path="/crm/customer">
-                            <ContactWrapper />
-                        </Route>
+                        <Switch>
+                            <Route exact path="/crm/dashboard">
+                                <LeadWrapper />
+                            </Route>
+                            <Route exact path="/crm/customer">
+                                <ContactWrapper id={null}/>
+                            </Route>
+                            <Route path="/crm/customer/:id"
+                                render={(props)=>
+                                    <ContactWrapper id={props.match.params.id}/>
+                                }/>
+                        </Switch>
                     </div>
                 </div>
             </div>

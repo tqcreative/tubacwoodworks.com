@@ -5,12 +5,16 @@ import Contact from '../Contact';
 class ContactWrapper extends Component{
     constructor(props){
         super(props)
+        console.log(props)
+        this.state={
+            id:props.id
+        }
     }
 
     render(){
         return(
             <div>
-                <Contact _id="5e128404f5bcfb51402e972c"/>
+                <Contact id={this.state.id}/>
             </div>
         )
     }
