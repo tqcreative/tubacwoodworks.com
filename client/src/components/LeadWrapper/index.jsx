@@ -72,11 +72,11 @@ class LeadWrapper extends Component {
     }
 
     getChartData() {
-        axios.get('/api/customers/leads/history/last7')
+        axios.get('/api/customers/leads/summary/last7')
             .then(res => {
                 const { data } = res;
                 const chartData = data.map(lead => {
-                    return { t: moment(Date.parse(lead._id)).format('MM/DD/YYYY'), y: lead.count }
+                    return { t: moment(Date.parse(lead.date)).format('MM/DD/YYYY'), y: lead.count }
                 })
                 console.log(chartData);
                 this.setState({ chartData: chartData });

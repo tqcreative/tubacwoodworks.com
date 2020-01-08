@@ -46,8 +46,8 @@ router.route("/leads/contact").get(authenticateUser,(req,res) => {
     })
 });
 
-router.route("/leads/history/last7").get(authenticateUser,(req,res) => {
-    let momentObj = moment().subtract(7,'days').startOf('day');
+router.route("/leads/summary/last7").get(authenticateUser,(req,res) => {
+    let momentObj = moment().subtract(7-1,'days').startOf('day');
     let date = momentObj.toDate();
 
     try{
@@ -61,8 +61,27 @@ router.route("/leads/history/last7").get(authenticateUser,(req,res) => {
             },
             { $sort: { _id: 1} }
         ],(err,data)=>{
+            //Pre-fill an array for every day of the week since db will only return new customers
+            //If there were no customers for that day there will be missing data
+            const dateArr = [];
+            for(let i=0; i < 7; i++){
+                let tempDate = new moment(date).add(i,'days').startOf('day');
+                let stringDate = tempDate.format('YYYY-MM-DD');
+                dateArr.push({date: stringDate, count: 0})   
+            }
+
+            //Update the pre-filled array with counts for days that have data present
+            data.forEach(element => {
+                let obj = dateArr.find((o, i) => {
+                    if (o.date === element._id) {
+                        dateArr[i] = { date: element._id, count: element.count };
+                        return true; // stop searching
+                    }
+                });                    
+            });
+
             if(err) return res.status(500).json(err);
-            res.json(data);
+            res.json(dateArr);
         });    
     }
     catch(err){
