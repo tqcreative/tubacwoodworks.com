@@ -15,37 +15,37 @@ const portfolioSeed = [
   {
       title: "Kitchen & Bath",
       link: "localhost3000/kitchenbathvanity",
-      imgUrl: "static/media/kitchen_portfolio.jpg",
+      imgUrl: "https://lda.lowes.com/is/image/Lowes/DP18-143027_1-1_dt_KitchenCountertops_2col_hero?scl=1",
       date: new Date(Date.now())
   },
   {
       title: "Furniture",
       link: "localhost3000/furniture",
-      imgUrl: "static/media/furniture_portfolio.jpg",
+      imgUrl: "https://lda.lowes.com/is/image/Lowes/DP18-143027_1-1_dt_KitchenCountertops_2col_hero?scl=1",
       date: new Date(Date.now())
   },
   {
       title: "Commercial",
       link: "localhost3000/commercial",
-      imgUrl: "static/media/commercial_portfolio.jpg",
+      imgUrl: "https://lda.lowes.com/is/image/Lowes/DP18-143027_1-1_dt_KitchenCountertops_2col_hero?scl=1",
       date: new Date(Date.now())
   },
   {
       title: "Pro Tips",
       link: "localhost3000/protips",
-      imgUrl: "static/media/protips_portfolio.jpg",
+      imgUrl: "https://lda.lowes.com/is/image/Lowes/DP18-143027_1-1_dt_KitchenCountertops_2col_hero?scl=1",
       date: new Date(Date.now())
   },
   {
       title: "Gallery",
       link: "localhost3000/gallery",
-      imgUrl: "static/media/gallery_portfolio.jpg",
+      imgUrl: "https://lda.lowes.com/is/image/Lowes/DP18-143027_1-1_dt_KitchenCountertops_2col_hero?scl=1",
       date: new Date(Date.now())
   },
   {
       title: "Get A Quote!",
       link: "localhost3000/signup",
-      imgUrl: "static/media/quote_portfolio.jpg",
+      imgUrl: "https://lda.lowes.com/is/image/Lowes/DP18-143027_1-1_dt_KitchenCountertops_2col_hero?scl=1",
       date: new Date(Date.now())
   },
 ];

@@ -1,15 +1,22 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './footer.css';
 
-function Footer() {
-    return (
-        <div className="footer_root">
-            <div className="footer_one"></div>
-            <div className="footer_two"></div>
-            <div className="footer_three"></div>
-            <div className="footer_four"></div>
-        </div>
-    )
+export default class Footer extends Component {
+    render() {
+        return (
+            <div className="footer_root">
+                <div className="footer_wrap">
+                    <div className="top_wrap">
+                        <div><p>this will contain a user log in</p></div>
+                    </div>
+                    <div className="mid_wrap">
+                        <div><p>this will be four sections of links</p></div>
+                    </div>
+                    <div className="bottom_wrap">
+                        <p>Copyright &copy; 2019 Tubac Woodworks, Inc. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 }
-
-export default Footer;
