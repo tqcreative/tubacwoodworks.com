@@ -8,7 +8,6 @@ router.route("/").get(function(req, res) {
     //console.log(req.query)
     db.Portfolio
         .find()
-        .sort({ date: -1 })
         .then(dbModel => {
             console.log(dbModel)
             res.json(dbModel)
