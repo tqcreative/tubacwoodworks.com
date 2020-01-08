@@ -2,11 +2,23 @@ const router = require("express").Router();
 const bookController = require("./book.controller");
 const authController = require("./auth.controller");
 const kitchenController = require("./kitchen.controller");
+const customerController = require("./customer.controller");
+const portfolioController = require("./portfolio_component.controller");
 
-// API Routes
+////////////
+// root API Routes
+////////////
 router.use("/api/books", bookController);
+router.use("/api/customers", customerController);
 
+////////////
+// CMS API Routes
+////////////
+router.use("/cms/portfolio_component", portfolioController);
+
+////////////
 // Auth Routes
+////////////
 router.use("/auth", authController)
 
 module.exports = router;

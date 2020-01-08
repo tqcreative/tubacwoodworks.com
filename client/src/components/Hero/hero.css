@@ -1,0 +1,52 @@
+.hero_root {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  z-index: -1; }
+  .hero_root div {
+    background-color: rgba(192, 57, 43, 0.8);
+    color: #fff;
+    width: 40%;
+    max-width: 768px;
+    min-width: 356px;
+    min-height: 256px; }
+    .hero_root div div {
+      background: none;
+      width: 100%;
+      height: 50%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      overflow: hidden; }
+    .hero_root div p {
+      display: block;
+      padding: 1em 2em; }
+  .hero_root .hero_background {
+    position: absolute;
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    max-height: 100%;
+    left: 0;
+    bottom: 0;
+    background-image: url(./images/kitchen_black.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 0; }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Header } from '../../components';
 import './furniture.css';
+import { NavBar } from '../../components/Navbar';
 
 export default class Furniture extends Component {
 	constructor(props) {
@@ -18,6 +19,7 @@ export default class Furniture extends Component {
 		if (this.props.user) {
 			return (
 				<div className="furnitrue_root">
+					<NavBar/>
 					<Header user={this.state.user} />
                     <h1> Furniture </h1>
 				</div>
@@ -25,6 +27,7 @@ export default class Furniture extends Component {
 		} else {
 			return (
 				<div className="furnitrue_root">
+					<NavBar/>
 					<Header user={this.state.user} />
                     <h1> Furniture </h1>
 					{/* <p>Current User:</p>

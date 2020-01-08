@@ -2,30 +2,39 @@
 
 .nav_root {
     color: #fff;
-    background-color: $main;
+    background-color: rgba($main, .8);
     text-decoration: none;
     list-style: none;
     display: flex;
     justify-content: flex-start;
     text-transform: uppercase;
-    font-size: 1em;
+    font-size: 1.1em;
     font-weight: 700;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 1em;
 
     li {
-        padding: 12px;
-    }
+        border-right: 1px solid $light;
+        padding: .25em .5em;
 
-    a {
-        color: #fff;
-        text-decoration: none;
-
-        &:hover {
-            outline: 1px solid #fff;
+        &:last-child {
+            border: none;
         }
 
         &:active {
             color: #fff;
             transform: translateY(5px);
         }
+    }
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        padding: 4px;
+        margin: .25em;
+
     }
 }

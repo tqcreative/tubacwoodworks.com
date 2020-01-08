@@ -1,0 +1,5 @@
+.home_root {
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}

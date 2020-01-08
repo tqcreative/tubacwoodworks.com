@@ -1,0 +1,36 @@
+.checkbox_root {
+  width: 100%;
+  height: 100vh;
+  background-image: url("./images/background_checkbox.jpg");
+  background-position: center center;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end; }
+  .checkbox_root div {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end; }
+    .checkbox_root div p {
+      font-size: 3em;
+      line-height: 4em;
+      color: #fff;
+      text-transform: uppercase; }
+    .checkbox_root div div {
+      width: 3em;
+      height: 3em;
+      line-height: 4em;
+      background-color: rgba(192, 57, 43, 0.8); }

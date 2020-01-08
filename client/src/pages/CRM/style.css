@@ -1,0 +1,54 @@
+.crm_root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden; }
+  .crm_root .top_root {
+    width: 100%;
+    min-height: 64px;
+    max-width: 1400px;
+    background-color: #2d3436;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+  .crm_root .bottom_root {
+    width: 100%;
+    max-width: 1400px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    height: calc(100vh - 64px);
+    overflow: hidden; }
+    .crm_root .bottom_root .left_root {
+      width: 25%;
+      min-width: 256px;
+      height: calc(100vh - 64px);
+      background-color: #aaa; }
+    .crm_root .bottom_root .right_root {
+      width: 75%;
+      height: calc(100vh - 64px);
+      background-color: #f2f2f2; }
+  .crm_root ion-icon {
+    padding: 20px 0 20px 20px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer; }

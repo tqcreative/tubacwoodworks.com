@@ -20,6 +20,8 @@ This is the ( 1 of 2 ) README.md files. This file is to show the restrictions pl
 [MERN](#Mongo_db)
 
 [Style](#Style)
+
+[Animations](#Animations)
  
 ## Project *requirements 
  
@@ -60,6 +62,67 @@ The owner of the site will be able to login with a set of credentials. Once logg
 * bcryptjs (for hashing and salting password)
 * express-session (keeping track of user's authenticated session while browsing)
 * mysql2 and sequelize (to interact with the MySQL database storing user credentials)
+
+
+### Animations
+
+To add an animation follow these steps:
+
+1. In the root>client>public>public.js file
+
+2. Under `Global Variables` set a new variable for your trigger. *this is needed to know if the element has already performed the animation or not.*
+
+3. under the `parallax` section sub-section `GSAP Animations` you will see the following code.
+
+```javascript
+// 1: is this element on the screen?
+if (document.getElementById("quote_1")) {
+  // id="quote_1" is on the page somewhere.
+
+  // 2: is the quoteInView trigger true or false. If it is false then we want to fire the animation. if it is true we want to ignore the result.
+  if (elementInViewport(document.getElementById("quote_1")) && quoteInView === false){
+    quoteInView = true;
+    gsap.from("#quote_1", {duration: 2, opacity: 0, x: "-100%", ease: "power4"});
+
+    // 3: if you are no longer in the view then we want to make sure that the animation trigger is reset to false.
+  } else if (!elementInViewport(document.getElementById("quote_1")) && quoteInView === true){
+    quoteInView = false;
+  }
+}
+```
+
+4. Create an `if` statment to discover if the element you are searching for is actually on the DOM at all. **note**: *if you are searching through the DOM for class names you are returned a data structure and not an Array and the structure must be converted into an Array to use it with this function.*
+
+5. inside your `if` statment create a second condition `if` statment with two paramiters. 
+
+```javascript
+if (elementInViewport(el) && trigger === false){
+  // this is where the animation will go.
+}
+```
+
+6. Inside your statment be sure to set your `trigger` to true;
+
+7. GSAP structure is as follows
+
+```javascript
+gsap.from("#id", {duration: 1, delay: 0});
+gsap.to(".class", {duration: 2, delay: 1});
+
+/* see GSAP documentation videos for more details. 
+https://greensock.com/docs/
+*/
+```
+
+8. be sure to close your `if` statment with a final statment that checks to see "on scroll" if the element is no longer in the viewport.
+
+```javascript
+} else if (!elementInViewport(el) && trigger === true){
+  trigger = false;
+};
+```
+
+9. debug
 
 ### Routes and Middleware
 There is a middleware function applied to routes to validate if the user is logged in or not. If the user is not logged in, they will not be presented with the additional options to update photos.

@@ -1,12 +1,13 @@
-import React from "react"
-import { Link } from 'react-router-dom'
-import './navbar.css'
+import React from "react";
+import { Link } from 'react-router-dom';
+import './navbar.css';
 
-function NavBarComponent({ loggedIn, _logout }) {
+function NavBarComponent({ loggedIn, _logout, styleProp}) {
+
     return (
-        <nav className="">
+        <nav className="" >
             {loggedIn ?
-                <ul className="nav_root">
+                <ul className="nav_root" style={{position: styleProp}}>
                     <li className="nav-item">
                         <Link to="/" className="nav-link">
                             Home
@@ -44,7 +45,7 @@ function NavBarComponent({ loggedIn, _logout }) {
                     </li>
                 </ul>
                 :
-                <ul className="nav_root">
+                <ul className="nav_root" style={{position: styleProp}}>
                     <li className="nav-item">
                         <Link to="/" className="nav-link">
                             Home

@@ -24,6 +24,7 @@ router.get('/user',
     (req, res, next) => {
         if (req.user) {
             return res.json({ user: req.user })
+            console.log(req.body)
         } else {
             return res.json({ user: null })
         }

@@ -1,0 +1,50 @@
+@import "../../_scss/vars";
+
+.crm_root{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    .top_root {
+        width: 100%;
+        min-height: 64px;
+        max-width: 1400px;
+        background-color: $dark;
+        display: flex;
+        align-items: center;
+    }
+
+    .bottom_root {
+        width: 100%;
+        max-width: 1400px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: flex-start;
+        height: calc(100vh - 64px);
+        overflow: hidden;
+
+        .left_root {
+            width: 25%;
+            min-width: 256px;
+            height: calc(100vh - 64px);
+            background-color: #aaa;
+
+        }
+
+        .right_root {
+            width: 75%;
+            height: calc(100vh - 64px);
+            background-color: #f2f2f2;
+        }
+    }
+
+    ion-icon{
+        padding: 20px 0 20px 20px;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+    }
+}
