@@ -53,7 +53,7 @@ class Portfolio extends Component {
         })
         .then(response => {
             if (response.data[0].title){
-                console.log(response.data[0].title);
+                console.log(response);
                 this.setState({
                     deck : response.data
                 });
