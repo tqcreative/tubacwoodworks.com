@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+mongoose.set('useFindAndModify', false);
+
 const customerSchema = new Schema({
     firstName: {
         type: String,
@@ -15,7 +17,7 @@ const customerSchema = new Schema({
         required: "Last Name is Required",
         minlength: [1, 'Last name must be at least 1 character.']
       },
-        nickName: {
+        nickname: {
         type: String,
       },
         email: {
