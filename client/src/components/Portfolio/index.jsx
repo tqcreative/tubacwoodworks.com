@@ -52,10 +52,12 @@ class Portfolio extends Component {
     
         })
         .then(response => {
-            console.log(response.data[0].title);
-            this.setState({
-                deck : response.data
-            });
+            if (response.data[0].title){
+                console.log(response);
+                this.setState({
+                    deck : response.data
+                });
+            }
         })
         .catch(error => {
             console.error(error);
