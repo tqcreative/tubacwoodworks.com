@@ -111,4 +111,24 @@ router.route("/id/:id")
 ;
 
 
+// Search for a contact and return array of matches
+// Sorted by first name
+router.route('/search').get(authenticateUser,(req,res)=>{
+    const queryString = req.query.queryString;
+
+    if(!queryString) return res.status(400).json(res.data)
+
+    db.Customer.find({firstName: {$regex: queryString, $options: 'i'}},{firstName:1,lastName:1}).limit(25).sort({firstName:1})
+    .then(data=>{
+        console.log(data);
+        if(data.length === 0) return res.status(404).json({message: "No results found for query string.", queryString: queryString})
+        res.json(data);
+    })
+    .catch(err=>{
+        res.status(500).json(err);
+    })
+})
+;
+
+
 module.exports = router;

@@ -24,8 +24,8 @@ class Contact extends Component {
         if (this.state.id) {
             axios.get(`/api/customers/id/${this.state.id}`)
                 .then(res => {
-                    const { id, firstName, lastName, email, phoneNumber} = res.data;
-                    this.setState({ id: id, firstName: firstName, lastName: lastName, email: email,
+                    const { firstName, lastName, email, phoneNumber} = res.data;
+                    this.setState({ firstName: firstName, lastName: lastName, email: email,
                         phoneNumber: phoneNumber
                     })
                     console.log(res.data);
@@ -109,7 +109,7 @@ class Contact extends Component {
                             />
                         </div>
                     </div>
-                    <button className="btn btn-primary m-2" id="contact-update-btn" onClick={this.handleContactUpdate}>{this.state.contactUpdateBtnText}</button>
+                    <button className="btn btn-primary m-2" id="contact-update-btn" hidden={!this.state.id} onClick={this.handleContactUpdate}>{this.state.contactUpdateBtnText}</button>
                     <button className="btn btn-danger" id="contact-submit-btn" hidden={this.state.contactIsReadOnly} onClick={this.handleContactSubmit}>Submit</button>
                 </form>
             </div>

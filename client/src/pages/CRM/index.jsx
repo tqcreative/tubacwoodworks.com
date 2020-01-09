@@ -46,7 +46,7 @@ function CRM(props) {
                             <Route exact path="/crm/customer">
                                 <ContactWrapper id={null}/>
                             </Route>
-                            <Route path="/crm/customer/:id"
+                            <Route exact path="/crm/customer/:id"
                                 render={(props)=>
                                     <ContactWrapper id={props.match.params.id}/>
                                 }/>

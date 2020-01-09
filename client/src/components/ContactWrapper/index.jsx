@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './style.css';
 import Contact from '../Contact';
+import ContactSearch from '../ContactSearch';
 
 class ContactWrapper extends Component{
     constructor(props){
@@ -14,6 +15,7 @@ class ContactWrapper extends Component{
     render(){
         return(
             <div>
+                <ContactSearch/>
                 <Contact id={this.state.id}/>
             </div>
         )
