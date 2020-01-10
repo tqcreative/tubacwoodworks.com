@@ -3,7 +3,7 @@ import './portfolio.css';
 import axios from 'axios';
 
 // component variables
-let portfolioImagePath = "https://tubacwoodworks.herokuapp.com/cms/images/";
+let portfolioImagePath = "/cms/images/";
 
 // build an object from our mongo database.
 class Portfolio extends Component {
@@ -14,32 +14,32 @@ class Portfolio extends Component {
                 {
                     title: "Default 1",
                     link: "https",
-                    imgUrl: `${portfolioImagePath}portfolio_1.jpg`
+                    imgUrl: `${portfolioImagePath}portfolio_1.JPG`
                 },
                 {
                     title: "Default 2",
                     link: "www.google.com",
-                    imgUrl: `${portfolioImagePath}portfolio_2.jpg`
+                    imgUrl: `${portfolioImagePath}portfolio_2.JPG`
                 },
                 {
                     title: "Default 3",
                     link: "www.google.com",
-                    imgUrl: `${portfolioImagePath}portfolio_3.jpg`
+                    imgUrl: `${portfolioImagePath}portfolio_3.JPG`
                 },
                 {
                     title: "Default 4",
                     link: "www.google.com",
-                    imgUrl: `${portfolioImagePath}portfolio_4.jpg`
+                    imgUrl: `${portfolioImagePath}portfolio_4.JPG`
                 },
                 {
                     title: "Default 5",
                     link: "www.google.com",
-                    imgUrl: `${portfolioImagePath}portfolio_5.jpg`
+                    imgUrl: `${portfolioImagePath}portfolio_5.JPG`
                 },
                 {
                     title: "Default 6",
                     link: "www.google.com",
-                    imgUrl: `${portfolioImagePath}portfolio_6.jpg`
+                    imgUrl: `${portfolioImagePath}portfolio_6.JPG`
                 }
             ]
         }
@@ -74,12 +74,12 @@ class Portfolio extends Component {
                 {/* see portfolio.js file for more info */}
                 {/* This is placeholder content while the app loads */}
                 <div className="deck">
-                    <div className="card" style={{background: `url(${this.state.deck[0].imgUrl})`}}><p>{this.state.deck[0].title}</p></div>
-                    <div className="card" style={{background: `url(${this.state.deck[1].imgUrl})`}}><p>{this.state.deck[1].title}</p></div>
-                    <div className="card" style={{background: `url(${this.state.deck[2].imgUrl})`}}><p>{this.state.deck[2].title}</p></div>
-                    <div className="card" style={{background: `url(${this.state.deck[3].imgUrl})`}}><p>{this.state.deck[3].title}</p></div>
-                    <div className="card" style={{background: `url(${this.state.deck[4].imgUrl})`}}><p>{this.state.deck[4].title}</p></div>
-                    <div className="card" style={{background: `url(${this.state.deck[5].imgUrl})`}}><p>{this.state.deck[5].title}</p></div>
+                    <div className="card" style={{backgroundImage: `url(${this.state.deck[0].imgUrl})`}}><p>{this.state.deck[0].title}</p></div>
+                    <div className="card" style={{backgroundImage: `url(${this.state.deck[1].imgUrl})`}}><p>{this.state.deck[1].title}</p></div>
+                    <div className="card" style={{backgroundImage: `url(${this.state.deck[2].imgUrl})`}}><p>{this.state.deck[2].title}</p></div>
+                    <div className="card" style={{backgroundImage: `url(${this.state.deck[3].imgUrl})`}}><p>{this.state.deck[3].title}</p></div>
+                    <div className="card" style={{backgroundImage: `url(${this.state.deck[4].imgUrl})`}}><p>{this.state.deck[4].title}</p></div>
+                    <div className="card" style={{backgroundImage: `url(${this.state.deck[5].imgUrl})`}}><p>{this.state.deck[5].title}</p></div>
                 </div>
             </div>
         </div>
