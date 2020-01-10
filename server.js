@@ -15,7 +15,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const app = express()
 const routes = require("./controllers");
-const multer = require('multer');
+// const multer = require('multer');
 const PORT = process.env.PORT || 8080
 
 // ===== Middleware ==== //
@@ -59,14 +59,15 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // ====== Images ====== //
-app.get("/images/:fullname", (req, res) => {
+app.get("/cms/images/:fullname", (req, res) => {
+
 	try {
-		let imageName = req.params.fullname;
+		imageName = req.params.fullname;
 		// !!!! WARNING !!!! //
 		// include switch statmetn for .jpg .jpgs .png and .something else.
 		res.sendFile(path.join(__dirname, `./images/${imageName}.jpg`));
 	} catch (error) {
-		res.sendFile(path.join(__dirname, `./client/src/pages/Error/`));
+		res.sendFile(path.join(__dirname, `./client/src/pages/Home/`));
 	};
 });
 

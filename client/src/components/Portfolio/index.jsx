@@ -42,27 +42,27 @@ class Portfolio extends Component {
         }
     };
 
-    componentDidMount(){
-        this.axiosCall();
-    }
+    // componentDidMount(){
+    //     this.axiosCall();
+    // }
 
-    axiosCall(){
-        axios
-        .get('/cms/portfolio_component', {
+    // axiosCall(){
+    //     axios
+    //     .get('/cms/portfolio_component', {
     
-        })
-        .then(response => {
-            if (response.data[0].title){
-                console.log(response);
-                this.setState({
-                    deck : response.data
-                });
-            }
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    }
+    //     })
+    //     .then(response => {
+    //         if (response.data[0].title){
+    //             console.log(response);
+    //             this.setState({
+    //                 deck : response.data
+    //             });
+    //         }
+    //     })
+    //     .catch(error => {
+    //         console.error(error);
+    //     });
+    // }
 
     render() {
         return (
