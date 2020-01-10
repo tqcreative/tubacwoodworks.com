@@ -4,6 +4,22 @@ const EmailAPI = require("../utils/api/EmailAPI");
 const authenticateUser = require("../utils/passport/authenticateUser").authenticateUser;
 const moment = require('moment');
 
+
+const projectedContactFields={
+    firstName: 1,
+    middleName: 1,
+    lastName: 1,
+    email: 1,
+    phoneNumber: 1,
+    nickname: 1,
+    streetAddress: 1,
+    city: 1,
+    state: 1,
+    zipcode: 1,
+    zip4: 1,
+    isLead: 1
+}
+
 // /api/customers routes
 
 // Signup request for a quote - don't need to be logged in
@@ -90,15 +106,49 @@ router.route("/leads/summary/last7").get(authenticateUser,(req,res) => {
 });
 
 // Update an existing customer's data
-router.route("/id/:id").put(authenticateUser,(req,res)=>{
-    db.Customer.findByIdAndUpdate(req.params.id,req.body.custObj)
+router.route("/id/:id")
+.put(authenticateUser,(req,res)=>{
+    console.log(req.body)
+    db.Customer.findByIdAndUpdate(req.params.id,{$set: req.body.custObj})
     .then(dbRes=>{
         res.json(dbRes);
     })
     .catch(err=>{
         res.status(500).json(err);
     })
-});
+})
+// Get an existing customer's data
+.get(authenticateUser,(req,res)=>{
+    db.Customer.findById(req.params.id,projectedContactFields)
+    .then(data=>{
+        if(!data) return res.status(404).json({message: "ID not found", _id: req.params.id});
+        res.json(data);
+    })
+    .catch(err=>{
+        res.status(500).json(err);
+    })
+})
+;
+
+
+// Search for a contact and return array of matches
+// Sorted by first name
+router.route('/search').get(authenticateUser,(req,res)=>{
+    const queryString = req.query.queryString;
+
+    if(!queryString) return res.status(400).json(res.data)
+
+    db.Customer.find({firstName: {$regex: queryString, $options: 'i'}},{firstName:1,lastName:1}).limit(25).sort({firstName:1})
+    .then(data=>{
+        console.log(data);
+        if(data.length === 0) return res.status(404).json({message: "No results found for query string.", queryString: queryString})
+        res.json(data);
+    })
+    .catch(err=>{
+        res.status(500).json(err);
+    })
+})
+;
 
 
 module.exports = router;

@@ -1,8 +1,9 @@
 import React from 'react'
-import { Redirect, useLocation, BrowserRouter as Router, Route } from 'react-router-dom';
+import { Redirect, useLocation, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './style.css';
 import Navlink from '../../components/Navlink';
 import LeadWrapper from '../../components/LeadWrapper';
+import ContactWrapper from '../../components/ContactWrapper';
 
 function CRM(props) {
     const location = useLocation();
@@ -19,33 +20,47 @@ function CRM(props) {
                         <Navlink
                             linkText="Dashboard"
                             linkRef="/crm/dashboard"
-                            id="link-1"
+                            id="nav-dashboard"
+                        />
+                        <Navlink
+                            linkText="Employee"
+                            linkRef="/crm/employee"
+                            id="nav-employee"
                         />
                         <Navlink
                             linkText="Customer Info"
                             linkRef="/crm/customer"
-                            id="link-2"
+                            id="nav-customer"
                         />
                         <Navlink
-                            linkText="All Customers"
-                            linkRef="/crm/customers"
-                            id="link-3"
+                            linkText="Scheduler"
+                            linkRef="/crm/scheduler"
+                            id="nav-scheduler"
                         />
                         <Navlink
                             linkText="Email"
                             linkRef="/crm/email"
-                            id="link-4"
+                            id="nav-email"
                         />
                         <Navlink
                             linkText="Help"
                             linkRef="/crm/help"
-                            id="link-5"
+                            id="nav-help"
                         />
                     </div>
                     <div className="right_root">
-                        <Route exact path="/crm/dashboard">
-                            <LeadWrapper />
-                        </Route>
+                        <Switch>
+                            <Route exact path="/crm/dashboard">
+                                <LeadWrapper />
+                            </Route>
+                            <Route exact path="/crm/customer">
+                                <ContactWrapper id={null}/>
+                            </Route>
+                            <Route exact path="/crm/customer/:id"
+                                render={(props)=>
+                                    <ContactWrapper id={props.match.params.id}/>
+                                }/>
+                        </Switch>
                     </div>
                 </div>
             </div>

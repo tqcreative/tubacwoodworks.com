@@ -86,6 +86,10 @@ class LeadWrapper extends Component {
             })
     }
 
+    redirectToContact(id){
+        window.location.href=`/crm/customer/${id}`;
+    }
+
     render() {
         return (
             <div className="container">
@@ -122,7 +126,7 @@ class LeadWrapper extends Component {
                                     return (
                                         <Lead id={lead._id} onClick={this.updateLead}
                                             firstName={lead.firstName} lastName={lead.lastName}
-                                            signupDate={signupDate}
+                                            signupDate={signupDate} contactClick={this.redirectToContact}
                                         />
                                     )
                                 })}
