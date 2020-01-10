@@ -20,22 +20,32 @@ function CRM(props) {
                         <Navlink
                             linkText="Dashboard"
                             linkRef="/crm/dashboard"
-                            id="link-1"
+                            id="nav-dashboard"
+                        />
+                        <Navlink
+                            linkText="Employee"
+                            linkRef="/crm/employee"
+                            id="nav-employee"
                         />
                         <Navlink
                             linkText="Customer Info"
                             linkRef="/crm/customer"
-                            id="link-2"
+                            id="nav-customer"
+                        />
+                        <Navlink
+                            linkText="Scheduler"
+                            linkRef="/crm/scheduler"
+                            id="nav-scheduler"
                         />
                         <Navlink
                             linkText="Email"
                             linkRef="/crm/email"
-                            id="link-4"
+                            id="nav-email"
                         />
                         <Navlink
                             linkText="Help"
                             linkRef="/crm/help"
-                            id="link-5"
+                            id="nav-help"
                         />
                     </div>
                     <div className="right_root">
