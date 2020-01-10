@@ -60,7 +60,8 @@ app.use(routes);
 
 // ====== Images ====== //
 app.get("/cms/images/:fullname", (req, res) => {
-
+	/* This component will pull from the images route on the root level.
+	make sure the full name being entered is the tail of the image file. example hero.jpg or cat.png */
 	try {
 		imageName = req.params.fullname;
 		// !!!! WARNING !!!! //

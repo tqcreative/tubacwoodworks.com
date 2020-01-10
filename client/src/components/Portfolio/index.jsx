@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import './portfolio.css';
 import axios from 'axios';
 
+// component variables
+let portfolioImagePath = "https://tubacwoodworks.herokuapp.com/cms/images/";
+
 // build an object from our mongo database.
 class Portfolio extends Component {
     constructor(props) {
@@ -10,33 +13,33 @@ class Portfolio extends Component {
             deck: [
                 {
                     title: "Default 1",
-                    link: "www.google.com",
-                    imgUrl: ""
+                    link: "https",
+                    imgUrl: `${portfolioImagePath}portfolio_1.jpg`
                 },
                 {
                     title: "Default 2",
                     link: "www.google.com",
-                    imgUrl: ""
+                    imgUrl: `${portfolioImagePath}portfolio_2.jpg`
                 },
                 {
                     title: "Default 3",
                     link: "www.google.com",
-                    imgUrl: ""
+                    imgUrl: `${portfolioImagePath}portfolio_3.jpg`
                 },
                 {
                     title: "Default 4",
                     link: "www.google.com",
-                    imgUrl: ""
+                    imgUrl: `${portfolioImagePath}portfolio_4.jpg`
                 },
                 {
                     title: "Default 5",
                     link: "www.google.com",
-                    imgUrl: ""
+                    imgUrl: `${portfolioImagePath}portfolio_5.jpg`
                 },
                 {
                     title: "Default 6",
                     link: "www.google.com",
-                    imgUrl: ""
+                    imgUrl: `${portfolioImagePath}portfolio_6.jpg`
                 }
             ]
         }
