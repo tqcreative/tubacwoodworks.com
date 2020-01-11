@@ -12,7 +12,7 @@ function QuoteTwo() {
         <div className="quote_two_root">
             <div className="background-img parallax" data-rellax-speed="-2"></div>
             <div id="quote_2" className="quote_two">
-                <ion-icon name="quote_two"></ion-icon>
+                <ion-icon name="quote"></ion-icon>
                 <p>
                     Tuboc Woodworks is the bee's knees. 
                     They did such an amazing job!
