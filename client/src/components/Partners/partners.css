@@ -21,8 +21,23 @@
     align-items: center;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
-    .partners_root .partners_deck .partners_card {
+    .partners_root .partners_deck .partner_card {
       width: 256px;
       height: 256px;
       margin: 16px;
       background-color: #2d3436; }
+    .partners_root .partners_deck .partners_card_1,
+    .partners_root .partners_deck .partners_card_2,
+    .partners_root .partners_deck .partners_card_3,
+    .partners_root .partners_deck .partners_card_4 {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center; }
+    .partners_root .partners_deck .partners_card_1 {
+      background-image: url(/cms/images/partner_1); }
+    .partners_root .partners_deck .partners_card_1 {
+      background-image: url(/cms/images/partner_2); }
+    .partners_root .partners_deck .partners_card_1 {
+      background-image: url(/cms/images/partner_3); }
+    .partners_root .partners_deck .partners_card_1 {
+      background-image: url(/cms/images/partner_4); }

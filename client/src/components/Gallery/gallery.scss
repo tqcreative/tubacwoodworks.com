@@ -1,73 +1,73 @@
 .gallery_root {
-    width: 100%;
-    min-height: 80vh;
+    display: grid;
+    max-width: 1600px;
+    margin: 3em auto;
 
-    .gallery_root {
+    .gallery_container {
         display: grid;
-        margin: auto;
-      }
-      
-      .gallery_container {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-          grid-gap: 10px;
-          grid-auto-rows: minmax(150px, 150px);
-          grid-auto-flow: dense;
-          padding: 10px;
-          margin: 2em 10em;
-      }
-      
-      .item {
-          padding: 1rem;
-          font-size: 14px;
-          font-weight: bold;
-          text-transform: uppercase;
-          color: #929796;
-          background-color: #333;
-          border-radius: 5px;
-          background-size: cover;
-      }
-      
-      .span-2 {
-          grid-column-end: span 2;
-          grid-row-end: span 1;
-      }
-      
-      .span-3 {
-          grid-column-end: span 2;
-          grid-row-end: span 2;
-      }     
-      
-      /////////////////////////
-      // background images
-      /////////////////////////
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-gap: 10px;
+        grid-auto-rows: minmax(150px, 150px);
+        grid-auto-flow: dense;
+        padding: 10px;
+        margin: 2em 10em;
+    }
 
-      .item_1,
-      .item_2,
-      .item_3,
-      .item_4,
-      .item_5,
-      .item_6,
-      .item_7,
-      .item_8,
-      .item_9,
-      .item_10,
-      .item_11,
-      .item_12 {
+    .item {
+        padding: 1rem;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #929796;
+        background-color: #333;
+        border-radius: 5px;
+        background-size: cover;
+    }
+
+    .span-2 {
+        grid-column-end: span 2;
+        grid-row-end: span 1;
+    }
+
+    .span-3 {
+        grid-column-end: span 2;
+        grid-row-end: span 2;
+    }     
+
+    /////////////////////////
+    // background images
+    /////////////////////////
+
+    .item_1,
+    .item_2,
+    .item_3,
+    .item_4,
+    .item_5,
+    .item_6,
+    .item_7,
+    .item_8,
+    .item_9,
+    .item_10,
+    .item_11,
+    .item_12 {
         background-position: center center;
-        background-size: contain;
-      }
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 
-      .item_1 { background-image: url(/cms/images/gallery_1.jpg); }
-      .item_2 { background-image: url(/cms/images/gallery_2.jpg); }
-      .item_3 { background-image: url(/cms/images/gallery_3.jpg); }
-      .item_4 { background-image: url(/cms/images/gallery_4.jpg); }
-      .item_5 { background-image: url(/cms/images/gallery_5.jpg); }
-      .item_6 { background-image: url(/cms/images/gallery_6.jpg); }
-      .item_7 { background-image: url(/cms/images/gallery_7.jpg); }
-      .item_8 { background-image: url(/cms/images/gallery_8.jpg); }
-      .item_9 { background-image: url(/cms/images/gallery_9.jpg); }
-      .item_10 { background-image: url(/cms/images/gallery_10.jpg); }
-      .item_11 { background-image: url(/cms/images/gallery_11.jpg); }
-      .item_12 { background-image: url(/cms/images/gallery_12.jpg); }
+    .item_1 { background-image: url(/cms/images/gallery_1.jpg); }
+    .item_2 { background-image: url(/cms/images/gallery_2.jpg); }
+    .item_3 { background-image: url(/cms/images/gallery_3.jpg); }
+    .item_4 { background-image: url(/cms/images/gallery_4.jpg); }
+    .item_5 { background-image: url(/cms/images/gallery_5.jpg); }
+    .item_6 { background-image: url(/cms/images/gallery_6.jpg); }
+    .item_7 { background-image: url(/cms/images/gallery_7.jpg); }
+    .item_8 { background-image: url(/cms/images/gallery_8.jpg); }
+    .item_9 { background-image: url(/cms/images/gallery_9.jpg); }
+    .item_10 { background-image: url(/cms/images/gallery_10.jpg); }
+    .item_11 { background-image: url(/cms/images/gallery_11.jpg); }
+    .item_12 { background-image: url(/cms/images/gallery_12.jpg); }
+    .item_13 { background-image: url(/cms/images/gallery_13.jpg); }
+    .item_14 { background-image: url(/cms/images/gallery_14.jpg); }
+
 }

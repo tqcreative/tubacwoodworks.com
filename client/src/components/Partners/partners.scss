@@ -12,11 +12,36 @@
     align-items: center;
     flex-wrap: wrap;
 
-    .partners_card {
+    .partner_card {
         width: 256px;
         height: 256px;
         margin: 16px;
         background-color: $dark;
+    }
+
+    .partners_card_1,
+    .partners_card_2,
+    .partners_card_3,
+    .partners_card_4 {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .partners_card_1 {
+      background-image: url(/cms/images/partner_1);
+    }
+
+    .partners_card_1 {
+      background-image: url(/cms/images/partner_2);
+    }
+
+    .partners_card_1 {
+      background-image: url(/cms/images/partner_3);
+    }
+
+    .partners_card_1 {
+      background-image: url(/cms/images/partner_4);
     }
   }
 }

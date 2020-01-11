@@ -1,19 +1,5 @@
 import React from 'react';
 import './gallery.css';
-import bathroom from './images/bathroom.JPG';
-import kitchen1 from './images/kitchen1.JPG';
-import kitchen3 from './images/kitchen3.JPG';
-import kitchen4 from './images/kitchen4.JPG';
-import kitchen5 from './images/kitchen5.JPG';
-import woodenBar from './images/wooden-bar.JPG';
-import foldingBed from './images/folding-bed.JPG';
-import Bed from './images/gar1.JPG';
-import woodenCabinets from './images/wooden.JPG';
-import whiteCabinets from './images/whiteCab.JPG';
-import bathroomCabinets from './images/bathroomCab.JPG'
-import greenKitchen from './images/green-kitchen.JPG'
-
-
 
 export default function Gallery() {
 
@@ -43,6 +29,8 @@ export default function Gallery() {
                     */}
 
                     <div className="item item_12"></div>
+                    <div className="item item_13"></div>
+                    {/* <div className="item item_14"></div> */}
 
                 </div>
 

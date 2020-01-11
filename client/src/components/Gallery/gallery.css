@@ -1,10 +1,8 @@
 .gallery_root {
-  width: 100%;
-  min-height: 80vh; }
-  .gallery_root .gallery_root {
-    display: -ms-grid;
-    display: grid;
-    margin: auto; }
+  display: -ms-grid;
+  display: grid;
+  max-width: 1600px;
+  margin: 3em auto; }
   .gallery_root .gallery_container {
     display: -ms-grid;
     display: grid;
@@ -46,7 +44,8 @@
   .gallery_root .item_11,
   .gallery_root .item_12 {
     background-position: center center;
-    background-size: contain; }
+    background-size: cover;
+    background-repeat: no-repeat; }
   .gallery_root .item_1 {
     background-image: url(/cms/images/gallery_1.jpg); }
   .gallery_root .item_2 {
@@ -71,3 +70,7 @@
     background-image: url(/cms/images/gallery_11.jpg); }
   .gallery_root .item_12 {
     background-image: url(/cms/images/gallery_12.jpg); }
+  .gallery_root .item_13 {
+    background-image: url(/cms/images/gallery_13.jpg); }
+  .gallery_root .item_14 {
+    background-image: url(/cms/images/gallery_14.jpg); }
