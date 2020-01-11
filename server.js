@@ -15,9 +15,10 @@ const mongoose = require('mongoose');
 const path = require('path');
 const app = express()
 const routes = require("./controllers");
+// const multer = require('multer');
 const PORT = process.env.PORT || 8080
 
-// ===== Middleware ====
+// ===== Middleware ==== //
 app.use(morgan('dev'))
 app.use(
 	bodyParser.urlencoded({
@@ -43,35 +44,47 @@ app.use(
 	})
 )
 
-// ===== Passport ====
+// ===== Passport ==== //
 app.use(passport.initialize())
 app.use(passport.session()) // will call the deserializeUser
 
 
-// ==== if its production environment!
+// ==== if its production environment! //
 if (process.env.NODE_ENV === "production") {
 	console.log("Prod Mode Enabled")
 	app.use(express.static("client/build"));
 }
 
-// ====== Routing & Controllers =====
+// ====== Routing & Controllers ====== //
 app.use(routes);
 
-// ====== React App ======
+// ====== Images ====== //
+app.get("/cms/images/:fullname", (req, res) => {
+	/* This component will pull from the images route on the root level.
+	make sure the full name being entered is the tail of the image file. example hero.jpg or cat.png */
+	try {
+		imageName = req.params.fullname;
+		// !!!! WARNING !!!! //
+		// include switch statmetn for .jpg .jpgs .png and .something else.
+		res.sendFile(path.join(__dirname, `./images/${imageName}`));
+	} catch (error) {
+		res.sendFile(path.join(__dirname, `./client/src/pages/Home/`));
+	};
+});
+
+// ====== React App ====== //
 app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-// ====== Error handler ====
+// ====== Error handler ==== //
 app.use(function (err, req, res, next) {
 	console.log('====== ERROR =======')
 	console.error(err.stack)
 	res.status(500)
 })
 
-
-
-// ==== Starting Server =====
+// ==== Starting Server ===== //
 
 app.listen(PORT, () => {
 	console.log(`App listening on PORT: ${PORT}`)
