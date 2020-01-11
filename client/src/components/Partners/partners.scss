@@ -4,7 +4,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2em 0;
+  margin: 2em 0 3em 0;
+
+  h2 {
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1em;
+    color: $main2;
+  }
 
   .partners_deck {
     display: flex;
@@ -12,11 +19,30 @@
     align-items: center;
     flex-wrap: wrap;
 
-    .partners_card {
+    .partner_card {
         width: 256px;
         height: 256px;
         margin: 16px;
         background-color: $dark;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    #partner_card_1 {
+      background-image: url(/cms/images/partner_1.jpg);
+    }
+
+    #partner_card_2 {
+      background-image: url(/cms/images/partner_2.jpg);
+    }
+
+    #partner_card_3 {
+      background-image: url(/cms/images/partner_3.jpg);
+    }
+
+    #partner_card_4 {
+      background-image: url(/cms/images/partner_4.jpg);
     }
   }
 }

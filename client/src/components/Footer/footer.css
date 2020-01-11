@@ -38,9 +38,18 @@
     .footer_root .footer_wrap .top_wrap {
       min-height: 5em;
       padding: 1em;
-      background-color: #5f4f66; }
+      background-color: #a6988d; }
     .footer_root .footer_wrap .mid_wrap {
       min-height: 50%; }
     .footer_root .footer_wrap .bottom_wrap {
+      position: relative;
       text-align: center;
-      color: #535c68; }
+      color: #535c68;
+      min-height: 25vh; }
+      .footer_root .footer_wrap .bottom_wrap .legal {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        text-align: center; }

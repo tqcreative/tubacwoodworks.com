@@ -33,7 +33,7 @@
         .top_wrap {
             min-height: 5em;
             padding: 1em;
-            background-color: #5f4f66;
+            background-color: $main2;
         }
 
         .mid_wrap {
@@ -41,8 +41,19 @@
         }
 
         .bottom_wrap {
+            position: relative;
             text-align: center;
             color: $dark_highlight;
+            min-height: 25vh;
+
+            .legal {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: auto;
+                text-align: center;
+            }
         }
     }
 }
