@@ -20,7 +20,8 @@ class Contact extends Component {
             state: "",
             zipcode: "",
             zip4: "",
-            isLead: false
+            isLead: false,
+            notes: []
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -71,7 +72,8 @@ class Contact extends Component {
             state: this.state.state,
             zipcode: this.state.zipcode,
             zip4: this.state.zip4,
-            isLead: this.state.isLead
+            isLead: this.state.isLead,
+            notes: this.state.notes
         };
 
         axios.put(`/api/customers/id/${this.state.id}`, { custObj: custObj })
@@ -98,6 +100,9 @@ class Contact extends Component {
         let readOnly = this.state.contactIsReadOnly;
         return (
             <div className="container">
+                <button className="btn btn-dark mx-1"
+                onClick={(event)=>{event.preventDefault(); window.location.href=`/crm/notes/${this.state.id}`}}
+                >{ this.state.notes.length === 0 ? "Add a Note" : "View Notes"}</button>
                 <form className="mx-2 my-4">
                     <div className="form-group row">
                         <label htmlFor="customerFirstName" className="col-sm-3 col-form-label">First Name</label>
@@ -193,7 +198,6 @@ class Contact extends Component {
                             />
                         </div>
                     </div>
-
 
                     <button className="btn btn-primary m-2" id="contact-update-btn" hidden={!this.state.id} onClick={this.handleContactUpdate}>{this.state.contactUpdateBtnText}</button>
                     <button className="btn btn-danger" id="contact-submit-btn" hidden={this.state.contactIsReadOnly} onClick={this.handleContactSubmit}>Submit</button>

@@ -48,7 +48,7 @@ class ContactSearch extends Component {
 
     getContact(event){
         event.preventDefault();
-        window.location.href=`/crm/customer/${this.state.searchId}`
+        window.location.href=`${this.props.hrefOnClick}/${this.state.searchId}`
     }
 
     render() {

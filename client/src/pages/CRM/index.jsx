@@ -4,6 +4,7 @@ import './style.css';
 import Navlink from '../../components/Navlink';
 import LeadWrapper from '../../components/LeadWrapper';
 import ContactWrapper from '../../components/ContactWrapper';
+import NoteWrapper from '../../components/NoteWrapper';
 
 function CRM(props) {
     const location = useLocation();
@@ -33,6 +34,11 @@ function CRM(props) {
                             id="nav-customer"
                         />
                         <Navlink
+                            linkText="Notes"
+                            linkRef="/crm/notes"
+                            id="nav-notes"
+                        />
+                        <Navlink
                             linkText="Scheduler"
                             linkRef="/crm/scheduler"
                             id="nav-scheduler"
@@ -54,12 +60,19 @@ function CRM(props) {
                                 <LeadWrapper />
                             </Route>
                             <Route exact path="/crm/customer">
-                                <ContactWrapper id={null}/>
+                                <ContactWrapper id={null} />
                             </Route>
                             <Route exact path="/crm/customer/:id"
-                                render={(props)=>
-                                    <ContactWrapper id={props.match.params.id}/>
-                                }/>
+                                render={(props) =>
+                                    <ContactWrapper id={props.match.params.id} />
+                                } />
+                            <Route exact path="/crm/notes">
+                                <NoteWrapper id={null} />
+                            </Route>
+                            <Route exact path="/crm/notes/:id"
+                                render={(props) =>
+                                <NoteWrapper id={props.match.params.id} />
+                            } />
                         </Switch>
                     </div>
                 </div>

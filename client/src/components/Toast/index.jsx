@@ -6,8 +6,8 @@ function Toast(props) {
     props.show ? classes += " toast-show" : classes += " toast-hide";
 
     return (
-        <div className={classes} onClick={props.onClose}>
-            <div className="background">
+        <div className={classes}>
+            <div className="background" onClick={props.onClose}>
             </div>
             <div className="message">
                 <button type="button" className="close closeBtn" onClick={(event) => { event.preventDefault(); props.onClose() }}>
