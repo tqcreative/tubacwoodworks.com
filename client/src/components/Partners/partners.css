@@ -13,7 +13,8 @@
     text-transform: uppercase;
     text-align: center;
     padding: 1em;
-    color: #a6988d; }
+    color: #a6988d;
+    font-size: 3em; }
   .partners_root .partners_deck {
     display: -webkit-box;
     display: -ms-flexbox;
