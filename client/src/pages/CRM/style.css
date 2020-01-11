@@ -37,7 +37,7 @@
     -ms-flex-align: start;
     align-items: flex-start;
     height: calc(100vh - 64px);
-    overflow: hidden; }
+    overflow: scroll; }
     .crm_root .bottom_root .left_root {
       width: 25%;
       min-width: 256px;
