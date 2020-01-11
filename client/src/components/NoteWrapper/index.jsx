@@ -34,18 +34,18 @@ class NoteWrapper extends Component {
     }
 
     // Getting username of logged in user to add to note entry
-    getUsername(){
+    getUsername() {
         axios.get('/auth/user')
-        .then(res=>{
-            console.log(res.data);
-            if(res.data) this.setState({
-                username: res.data.user.local.username,
-                userid: res.data.user._id
+            .then(res => {
+                console.log(res.data);
+                if (res.data) this.setState({
+                    username: res.data.user.local.username,
+                    userid: res.data.user._id
+                })
             })
-        })
-        .catch(err=>{
-            console.log(err)
-        })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     handleInputChange(event) {
@@ -78,16 +78,16 @@ class NoteWrapper extends Component {
     addNote(event) {
         event.preventDefault();
         console.log("Submit Note")
-        axios.post(`/api/customers/id/${this.state.id}/note`,{
+        axios.post(`/api/customers/id/${this.state.id}/note`, {
             content: this.state.newNoteText,
             createdBy: this.state.userid,
         })
-        .then(res=>{
-            window.location.href=`/crm/notes/${this.state.id}`
-        })
-        .catch(err=>{
-            console.log(err)
-        })
+            .then(res => {
+                window.location.href = `/crm/notes/${this.state.id}`
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     render() {
@@ -97,6 +97,10 @@ class NoteWrapper extends Component {
                 <button type="button" className="btn btn-dark mt-3"
                     onClick={this.toggleToast} hidden={!this.state.id}
                 >Add a Note</button>
+                <div hidden={!this.state.id}>
+                    <hr />
+                    <h1>{this.state.firstName} {this.state.lastName}</h1>
+                </div>
                 <hr />
                 <h1>Notes</h1>
                 {this.state.notes.map(note => {

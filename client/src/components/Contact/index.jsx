@@ -100,6 +100,9 @@ class Contact extends Component {
         let readOnly = this.state.contactIsReadOnly;
         return (
             <div className="container">
+                <button className="btn btn-dark mx-1"
+                onClick={(event)=>{event.preventDefault(); window.location.href=`/crm/notes/${this.state.id}`}}
+                >{ this.state.notes.length === 0 ? "Add a Note" : "View Notes"}</button>
                 <form className="mx-2 my-4">
                     <div className="form-group row">
                         <label htmlFor="customerFirstName" className="col-sm-3 col-form-label">First Name</label>

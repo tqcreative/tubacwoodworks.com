@@ -1,22 +1,24 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './style.css';
 import Contact from '../Contact';
 import ContactSearch from '../ContactSearch';
 
-class ContactWrapper extends Component{
-    constructor(props){
+class ContactWrapper extends Component {
+    constructor(props) {
         super(props)
         console.log(props)
-        this.state={
-            id:props.id
+        this.state = {
+            id: props.id
         }
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                <ContactSearch hrefOnClick="/crm/customer" />
-                <Contact id={this.state.id}/>
+                <div className="m-3">
+                    <ContactSearch hrefOnClick="/crm/customer" />
+                </div>
+                <Contact id={this.state.id} />
             </div>
         )
     }
