@@ -5,6 +5,7 @@ import Navlink from '../../components/Navlink';
 import LeadWrapper from '../../components/LeadWrapper';
 import ContactWrapper from '../../components/ContactWrapper';
 import NoteWrapper from '../../components/NoteWrapper';
+import ScheduleWrapper from '../../components/ScheduleWrapper';
 
 function CRM(props) {
     const location = useLocation();
@@ -73,6 +74,9 @@ function CRM(props) {
                                 render={(props) =>
                                 <NoteWrapper id={props.match.params.id} />
                             } />
+                            <Route exact path="/crm/scheduler">
+                                <ScheduleWrapper />
+                            </Route>
                         </Switch>
                     </div>
                 </div>
