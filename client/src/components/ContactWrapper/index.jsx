@@ -15,7 +15,7 @@ class ContactWrapper extends Component{
     render(){
         return(
             <div>
-                <ContactSearch/>
+                <ContactSearch hrefOnClick="/crm/customer" />
                 <Contact id={this.state.id}/>
             </div>
         )

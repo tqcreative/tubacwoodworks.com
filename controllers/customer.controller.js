@@ -120,7 +120,15 @@ router.route("/id/:id")
     })
     // Get an existing customer's data
     .get(authenticateUser, (req, res) => {
-        db.Customer.findById(req.params.id, projectedContactFields).populate('notes')
+        db.Customer.findById(req.params.id, projectedContactFields)
+            .populate({
+                path: 'notes', model: 'Note',
+                populate: {
+                    path: 'createdBy',
+                    model: 'User',
+                    select: 'local.username'
+                }
+            })
             .then(data => {
                 if (!data) return res.status(404).json({ message: "ID not found", _id: req.params.id });
                 res.json(data);
@@ -145,11 +153,11 @@ router.route("/id/:id/note")
                         console.log(custRes);
                         res.json(noteRes);
                     })
-                    .catch(err=>{
+                    .catch(err => {
                         res.status(500).json(err);
                     })
             })
-            .catch(err=>{
+            .catch(err => {
                 res.status(500).json(err);
             })
     })
