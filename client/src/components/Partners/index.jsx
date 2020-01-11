@@ -9,6 +9,7 @@ function partners() {
         <div className="partners_root">
             <div className="partners_items_go_here">
                 {/* This is placeholder content while the app loads */}
+                <h2>Visit Our Partners</h2>
                 <div className="partners_deck">
                     <div id="partner_card_1" className="partner_card"></div>
                     <div id="partner_card_2" className="partner_card"></div>

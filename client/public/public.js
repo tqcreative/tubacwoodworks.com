@@ -5,6 +5,9 @@
 let heroAnimationTrigger = false;
 let quoteOneTrigger = false;
 let quoteTwoTrigger = false;
+let checkerOneTrigger = false;
+let checkerTwoTrigger = false;
+let checkerThreeTrigger = false;
 
 ////////////
 // On Ready
@@ -68,7 +71,7 @@ window.addEventListener('scroll', function(event) {
       } else if (!elementInViewport(document.getElementById("hero_quote")) && heroAnimationTrigger === true){
         heroAnimationTrigger = false;
       }   
-    }
+    };
 
     if(document.getElementById('quote_2')){
       if(elementInViewport(document.getElementById('quote_2')) && quoteTwoTrigger === false){
@@ -77,8 +80,34 @@ window.addEventListener('scroll', function(event) {
       } else if (!elementInViewport(document.getElementById("quote_2")) && quoteTwoTrigger === true){
         quoteTwoTrigger = false;
       }
-    }
+    };
 
+    if(document.getElementById('checkerbox_quote_2')){
+      if(elementInViewport(document.getElementById('checkerbox_quote_2')) && checkerTwoTrigger === false){
+        checkerTwoTrigger = true;
+        gsap.from("#checkerbox_quote_2", {duration: 1, opacity: 0, delay: .5, x:"101%"});
+      } else if (!elementInViewport(document.getElementById('checkerbox_quote_2')) && checkerTwoTrigger === true){
+        checkerTwoTrigger = false;
+      }
+    };
+
+    if(document.getElementById('checkerbox_quote_3')){
+      if(elementInViewport(document.getElementById('checkerbox_quote_3')) && checkerThreeTrigger === false){
+        checkerThreeTrigger = true;
+        gsap.from("#checkerbox_quote_3", {duration: 1, opacity: 0, delay: 1, x:"101%"});
+      } else if (!elementInViewport(document.getElementById('checkerbox_quote_3')) && checkerThreeTrigger === true){
+        checkerThreeTrigger = false;
+      }
+    };
+
+    if(document.getElementById('checkerbox_quote_1')){
+      if(elementInViewport(document.getElementById('checkerbox_quote_1')) && checkerOneTrigger === false){
+        checkerOneTrigger = true;
+        gsap.from("#checkerbox_quote_1", {duration: 1, opacity: 0, delay: 0, x:"101%"});
+      } else if (!elementInViewport(document.getElementById('checkerbox_quote_1')) && checkerOneTrigger === true){
+        checkerOneTrigger = false;
+      }
+    };
     
 });
 

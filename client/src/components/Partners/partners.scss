@@ -4,7 +4,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2em 0;
+  margin: 2em 0 3em 0;
+
+  h2 {
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1em;
+    color: $main2;
+  }
 
   .partners_deck {
     display: flex;
@@ -17,31 +24,25 @@
         height: 256px;
         margin: 16px;
         background-color: $dark;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
     }
 
-    .partners_card_1,
-    .partners_card_2,
-    .partners_card_3,
-    .partners_card_4 {
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center center;
+    #partner_card_1 {
+      background-image: url(/cms/images/partner_1.jpg);
     }
 
-    .partners_card_1 {
-      background-image: url(/cms/images/partner_1);
+    #partner_card_2 {
+      background-image: url(/cms/images/partner_2.jpg);
     }
 
-    .partners_card_1 {
-      background-image: url(/cms/images/partner_2);
+    #partner_card_3 {
+      background-image: url(/cms/images/partner_3.jpg);
     }
 
-    .partners_card_1 {
-      background-image: url(/cms/images/partner_3);
-    }
-
-    .partners_card_1 {
-      background-image: url(/cms/images/partner_4);
+    #partner_card_4 {
+      background-image: url(/cms/images/partner_4.jpg);
     }
   }
 }

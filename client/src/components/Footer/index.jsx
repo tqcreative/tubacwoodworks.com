@@ -13,7 +13,7 @@ export default class Footer extends Component {
                         <div><p>this will be four sections of links</p></div>
                     </div>
                     <div className="bottom_wrap">
-                        <p>Copyright &copy; 2019 Tubac Woodworks, Inc. All rights reserved.</p>
+                        <p className="legal">Copyright &copy; 2019 Tubac Woodworks, Inc. All rights reserved.</p>
                     </div>
                 </div>
             </div>
