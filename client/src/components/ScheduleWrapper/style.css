@@ -1,2 +1,32 @@
-.scheduler_root .header {
-  text-align: center; }
+.scheduler_root .time-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .scheduler_root .time-col .time-picker {
+    width: 90%;
+    text-align: center; }
+
+.scheduler_root .date-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  .scheduler_root .date-col .date-picker {
+    width: 90%;
+    text-align: center; }
+
+.scheduler_root .dropdown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.scheduler_root .btn-schedule {
+  width: 90%; }

@@ -72,11 +72,15 @@ function CRM(props) {
                             </Route>
                             <Route exact path="/crm/notes/:id"
                                 render={(props) =>
-                                <NoteWrapper id={props.match.params.id} />
-                            } />
+                                    <NoteWrapper id={props.match.params.id} />
+                                } />
                             <Route exact path="/crm/scheduler">
                                 <ScheduleWrapper />
                             </Route>
+                            <Route exact path="/crm/scheduler/:id"
+                                render={(props) =>
+                                    <ScheduleWrapper id={props.match.params.id} />
+                                } />
                         </Switch>
                     </div>
                 </div>

@@ -3,7 +3,32 @@
 .scheduler_root{
     // display:flex;
 
-    .header{
-        text-align:center;
+    .time-col{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .time-picker{
+            width: 90%;
+            text-align: center;
+        }    
+    }
+
+    .date-col{
+        display: flex;
+        justify-content: center;
+
+        .date-picker{
+            width:90%;
+            text-align: center;
+        }
+    }
+
+    .dropdown{
+        display:flex;
+    }
+
+    .btn-schedule{
+        width: 90%
     }
 }

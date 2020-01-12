@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ContactSearch from '../ContactSearch';
 import Calendar from 'react-calendar';
 import TimePicker from 'rc-time-picker';
 import 'rc-time-picker/assets/index.css';
@@ -14,12 +15,22 @@ class ScheduleWrapper extends Component {
             date: new Date(),
             time: moment(),
             userid: null,
-            username: "Select a user",
-            userList: []
+            username: "",
+            assignedId: null,
+            assignedUsername: "Select a user",
+            userList: [],
+            appointments: [],
+            id: props.id ? props.id : null,
+            firstName: "",
+            lastName: "",
+            email: ""
         }
         this.onDateChange = this.onDateChange.bind(this);
         this.onTimeChange = this.onTimeChange.bind(this);
         this.handleUserSelect = this.handleUserSelect.bind(this);
+        this.getCustomerInfo = this.getCustomerInfo.bind(this);
+        this.addToSchedule = this.addToSchedule.bind(this);
+        this.getUsername = this.getUsername.bind(this);
     }
 
     componentDidMount() {
@@ -27,7 +38,42 @@ class ScheduleWrapper extends Component {
             .then(res => {
                 this.setState({ userList: res.data })
             })
+
+        this.getUsername();
+
+        if (this.state.id) {
+            this.getCustomerInfo();
+        }
     }
+
+    getCustomerInfo() {
+        axios.get(`/api/customers/id/${this.state.id}`)
+            .then(res => {
+                console.log(res.data);
+                const { appointments, firstName, lastName, email } = res.data;
+                this.setState({ appointments, firstName, lastName, email })
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
+    }
+
+    // Getting username of logged in user to add to note entry
+    getUsername() {
+        axios.get('/auth/user')
+            .then(res => {
+                console.log(res.data);
+                if (res.data) this.setState({
+                    username: res.data.user.local.username,
+                    userid: res.data.user._id
+                })
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
 
     onDateChange(date) {
         this.setState({ date })
@@ -38,63 +84,150 @@ class ScheduleWrapper extends Component {
     }
 
     handleUserSelect(event) {
-        console.log(event);
-        this.setState({userid: event})
+        this.setState({ assignedUsername: event })
+    }
+
+    findUserId(username, objArr){
+        const obj = objArr.find(o => o.local.username === username);
+        return obj._id;
+    }
+
+    addToSchedule() {
+        let date = `${moment(moment(this.state.date).format('YYYY-MM-DD') + "T" + moment(this.state.time).format('HH:mm')).toDate()}`;
+        let assignedTo = this.findUserId(this.state.assignedUsername,this.state.userList);
+
+        axios.post(`/api/customers/id/${this.state.id}/appointment`,{
+            date: date,
+            assignedTo: assignedTo,
+            createdBy: this.state.userid,
+            updatedBy: this.state.userid,
+            detail: this.state.detail
+        })
+        .then(res=>{
+            window.location.href = `/crm/scheduler/${this.state.id}`
+        })
     }
 
     render() {
         return (
-            <div className="scheduler_root container m-3">
+            <div className="scheduler_root container m-0 p-3">
                 <div className="row">
                     <div className="col">
+                        <ContactSearch hrefOnClick="/crm/scheduler" />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <hr />
                         <h1 className="text-center">Scheduler</h1>
                     </div>
                 </div>
                 <div className="row">
+                    {/* Left side of screen to add a new date */}
                     <div className="col col-md-6">
-                        <div className="row">
-                            <h3>Pick a Date</h3>
-                        </div>
-                        <div className="row">
+                        <div className="row mt-3">
+                            <div className="col">
+                                <h3 className="text-center">Pick a Date</h3>
+                            </div>
 
-                            <Calendar
-                                calendarType="US"
-                                value={this.state.date}
-                                onChange={this.onDateChange}
-                            />
                         </div>
                         <div className="row">
-                            <h3>Pick a Time</h3>
+                            <div className="col date-col">
+                                <Calendar
+                                    className="date-picker"
+                                    calendarType="US"
+                                    value={this.state.date}
+                                    onChange={this.onDateChange}
+                                />
+                            </div>
                         </div>
-                        <div className="row">
-                            <TimePicker
-                                defaultValue={moment()}
-                                showSecond={false}
-                                minuteStep={15}
-                                value={this.state.time}
-                                onChange={this.onTimeChange}
-                            />
-                        </div>
-                        <div className="row">
-                            <h3>Pick an Employee</h3>
-                        </div>
-                        <div className="row">
-                            <Dropdown >
-                                <Dropdown.Toggle variant="dark" id="dropdown">
-                                    {this.state.username}
-                                </Dropdown.Toggle>
-                                <Dropdown.Menu>
-                                    {this.state.userList.map(user => {
-                                        return <Dropdown.Item as="button" onSelect={this.handleUserSelect} eventKey={user._id}
-                                        >{user.local.username}</Dropdown.Item>
-                                    })}
+                    </div>
+                    {/* Right side of screen to show already scheduled items */}
+                    <div className="col col-md-6">
+                        <div className="row h-100 d-flex align-items-center">
+                            <div className="col">
+                                <div className="row mt-3">
+                                    <div className="col col-md-6">
+                                        <div className="row">
+                                            <div className="col">
+                                                <h5 className="text-center">Pick a Time</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col col-md-6">
+                                        <div className="row">
+                                            <div className="col">
+                                                <h5 className="text-center">Employee</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col col-md-6 time-col">
+                                        <TimePicker
+                                            className="time-picker"
+                                            defaultValue={moment()}
+                                            use12Hours
+                                            inputReadOnly
+                                            showSecond={false}
+                                            minuteStep={15}
+                                            value={this.state.time}
+                                            onChange={this.onTimeChange}
+                                        />
+                                    </div>
+                                    <div className="col col-md-6 d-flex justify-content-center">
+                                        <Dropdown >
+                                            <Dropdown.Toggle variant="dark" id="dropdown">
+                                                {this.state.assignedUsername}
+                                            </Dropdown.Toggle>
+                                            <Dropdown.Menu>
+                                                {this.state.userList.map(user => {
+                                                    return <Dropdown.Item key={user._id} as="button" onSelect={this.handleUserSelect} eventKey={user.local.username}
+                                                    >{user.local.username}</Dropdown.Item>
+                                                })}
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                    </div>
+                                </div>
+                                <div className="row my-5">
+                                    <div className="col d-flex justify-content-center">
+                                        <button type="button" className="btn btn-success btn-schedule" onClick={this.addToSchedule}>Add to Schedule</button>
+                                    </div>
+                                </div>
 
-                                </Dropdown.Menu>
-                            </Dropdown>
+                            </div>
                         </div>
-                        <div className="row my-3">
-                            <button type="button" className="btn btn-dark">Add to Schedule</button>
-                        </div>
+                    </div>
+                </div>
+                <div className="row mt-5">
+                    <div className="col">
+                        <h3 className="text-center">Scheduled Appointments</h3>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col m-2">
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Assigned To</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.state.appointments.map(appointment => {
+                                    return (
+                                        <tr key={appointment._id}>
+                                            <td>{moment(appointment.date).format('MM/DD/YYYY')}</td>
+                                            <td>{moment(appointment.date).format('h:mm a')}</td>
+                                            <td>{appointment.assignedTo.local.username}</td>
+                                            <td>{appointment.detail}</td>
+                                        </tr>
+                                    )
+                                })}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
