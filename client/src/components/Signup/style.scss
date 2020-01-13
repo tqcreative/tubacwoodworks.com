@@ -9,7 +9,7 @@ $bg-color: #c23616;
     background: $dark;
     position: relative;
     z-index: 2;
-    min-height: 30vh;
+    min-height: 40vh;
 
     .background-img:before{
         content: ' ';
@@ -99,15 +99,7 @@ $bg-color: #c23616;
         form{
             flex-wrap: nowrap;
             padding-top: 1%;
-            padding-bottom: 3%;
-
-            :first-child{
-                margin-left: 10%;
-            }
-            
-            :last-child{
-                margin-right: 10%;
-            }    
+            padding-bottom: 3%;   
         }
 
         .banner{

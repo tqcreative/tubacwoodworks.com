@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { Header } from '../../components';
 import "./kitchen_bath_vanity.css";
 import { NavBar } from '../../components/Navbar';
+import HeroSmart from "../../components/HeroSmart";
+import Footer from '../../components/Footer';
 
 export default class Kitchen_Bath_Vanity extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			user: props.user
+			user: props.user,
+			navPos: "absolute"
 		}
 	}
 
@@ -19,26 +22,19 @@ export default class Kitchen_Bath_Vanity extends Component {
 		if (this.props.user) {
 			return (
 				<div className="kitchen_root">
-					<NavBar/>
+					<NavBar styleProp={this.state.navPos} />
 					<Header user={this.state.user} />
-					{/* <p>Current User:</p>
-					<code>
-						{JSON.stringify(this.props)}
-					</code> */}
+					<HeroSmart backgroundImage="check_1.jpg" title="Kitchen Bath &amp; Vanity" subTitle="Love your home."/>
+					<Footer />
 				</div>
 			)
 		} else {
 			return (
 				<div className="kitchen_root">
-					<NavBar/>
+					<NavBar styleProp={this.state.navPos} />
 					<Header user={this.state.user} />
-                    <h1>
-                        kitchen_bath_vanity
-                    </h1>
-					{/* <p>Current User:</p>
-					<code>
-						{JSON.stringify(this.props)}
-					</code> */}
+					<HeroSmart backgroundImage="check_1.jpg" title="Kitchen Bath &amp; Vanity" subTitle="Love your home."/>
+					<Footer />
 				</div>
 			)
 		}

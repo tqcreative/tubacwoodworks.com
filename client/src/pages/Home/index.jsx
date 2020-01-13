@@ -13,6 +13,7 @@ import Gallery from '../../components/Gallery';
 import Checkbox from '../../components/Checkbox';
 import { NavBar } from '../../components/Navbar';
 import Partners from '../../components/Partners';
+import gsap from "gsap";
 
 export default class Home extends Component {
 	constructor(props) {
@@ -21,7 +22,7 @@ export default class Home extends Component {
 			user: props.user,
 			toastMsg: [],
 			toastShow: false,
-			navPos: "absolute"
+			navPos: "absolute",
 		}
 		this.handleSignupResult = this.handleSignupResult.bind(this);
 		this.toggleToast = this.toggleToast.bind(this);
@@ -29,6 +30,7 @@ export default class Home extends Component {
 
 	componentDidMount() {
 		console.log("Home Component Mounted")
+		gsap.from("#hero_quote", {delay: .5, opacity: 0, duration:1, x:750, ease: "power4"});
 	}
 
 	handleSignupResult(msg){
