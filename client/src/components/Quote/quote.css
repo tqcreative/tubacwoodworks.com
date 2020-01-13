@@ -52,3 +52,34 @@
 @media (max-width: 768px) {
   .quote_root .background-img {
     background-attachment: inherit; } }
+
+.cms_gear {
+  font-size: 2em;
+  width: 1.5em;
+  height: 1.5em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  background-color: rgba(45, 52, 54, 0.8);
+  border-radius: 0 0 0 5px;
+  z-index: 64;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .cms_gear:active ion-icon {
+    -webkit-transform: translateY(2px);
+    -ms-transform: translateY(2px);
+    transform: translateY(2px); }
+  .cms_gear:hover {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }

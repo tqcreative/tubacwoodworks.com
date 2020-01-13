@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import { Header } from '../../components';
 import "./pro_tips.css";
 import { NavBar } from '../../components/Navbar';
+import HeroSmart from '../../components/HeroSmart';
+import Quote from '../../components/Quote';
+import Signup from '../../components/Signup';
 
 export default class Pro_Tips extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			user: props.user
+			user: props.user,
+			navPos: "absolute"
 		}
 	}
 
@@ -19,7 +23,7 @@ export default class Pro_Tips extends Component {
 		if (this.props.user) {
 			return (
 				<div className="pro_tips_root">
-					<NavBar/>
+					<NavBar styleProp={this.state.navPos}/>
 					<Header user={this.state.user} />
                     <h1> Pro_Tips </h1>
 				</div>
@@ -27,13 +31,12 @@ export default class Pro_Tips extends Component {
 		} else {
 			return (
 				<div className="pro_tips_root">
-					<NavBar/>
+					<NavBar styleProp={this.state.navPos}/>
 					<Header user={this.state.user} />
-                    <h1> Pro_Tips </h1>
-					{/* <p>Current User:</p>
-					<code>
-						{JSON.stringify(this.props)}
-					</code> */}
+                    <HeroSmart backgroundImage="gallery_7.jpg" title="Easy" subTitle="works like a dream"/>
+					<Quote />
+					<Signup />
+					<Quote />
 				</div>
 			)
 		}
