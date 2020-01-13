@@ -5,6 +5,7 @@ import { NavBar } from '../../components/Navbar';
 import gsap from "gsap";
 import HeroSmart from '../../components/HeroSmart';
 import Footer from '../../components/Footer';
+import Signup from '../../components/Signup';
 
 export default class Furniture extends Component {
 	constructor(props) {
@@ -27,7 +28,8 @@ export default class Furniture extends Component {
 				<div className="furnitrue_root">
 					<NavBar styleProp={this.state.navPos} />
 					<Header user={this.state.user} />
-					<HeroSmart backgroundImage="gallery_8.jpg" title="Furniture" subTitle="Woodworking, Wall Beds, Custom Mantels"/>
+					<HeroSmart backgroundImage="gallery_8.jpg" title="Furniture" subTitle="Woodworking, Wall Beds, Custom Mantels"/>					
+					<Signup />
 					<Footer />
 				</div>
 			)
@@ -37,6 +39,7 @@ export default class Furniture extends Component {
 					<NavBar styleProp={this.state.navPos} />
 					<Header user={this.state.user} />
 					<HeroSmart backgroundImage="gallery_8.jpg" title="Furniture" subTitle="Woodworking, Wall Beds, Custom Mantels"/>
+					<Signup />
 					<Footer />
 				</div>
 			)

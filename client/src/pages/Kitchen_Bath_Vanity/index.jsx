@@ -4,6 +4,7 @@ import "./kitchen_bath_vanity.css";
 import { NavBar } from '../../components/Navbar';
 import HeroSmart from "../../components/HeroSmart";
 import Footer from '../../components/Footer';
+import Signup from '../../components/Signup';
 
 export default class Kitchen_Bath_Vanity extends Component {
 	constructor(props) {
@@ -25,6 +26,7 @@ export default class Kitchen_Bath_Vanity extends Component {
 					<NavBar styleProp={this.state.navPos} />
 					<Header user={this.state.user} />
 					<HeroSmart backgroundImage="check_1.jpg" title="Kitchen Bath &amp; Vanity" subTitle="Love your home."/>
+					<Signup />
 					<Footer />
 				</div>
 			)
@@ -34,6 +36,7 @@ export default class Kitchen_Bath_Vanity extends Component {
 					<NavBar styleProp={this.state.navPos} />
 					<Header user={this.state.user} />
 					<HeroSmart backgroundImage="check_1.jpg" title="Kitchen Bath &amp; Vanity" subTitle="Love your home."/>
+					<Signup />
 					<Footer />
 				</div>
 			)

@@ -1,14 +1,23 @@
 .signupWrapper {
+  position: relative;
   width: 100%;
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
   background: #2d3436;
   position: relative;
   z-index: 2;
-  min-height: 40vh; }
+  min-height: 30vh; }
   .signupWrapper .background-img:before {
+    position: absolute;
+    top: 0;
+    left: 0;
     content: ' ';
     display: block;
     position: absolute;
@@ -105,3 +114,6 @@
     flex-basis: 20% !important; }
   .signupWrapper .btn {
     max-width: 120px; } }
+
+#middle_name {
+  display: none; }
