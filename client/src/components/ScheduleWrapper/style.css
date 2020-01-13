@@ -1,0 +1,37 @@
+.time-picker-popup li, .time-picker-popup input {
+  font-size: 18px; }
+
+.scheduler_root .time-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .scheduler_root .time-col .time-picker {
+    width: 90%;
+    text-align: center; }
+    .scheduler_root .time-col .time-picker input {
+      font-size: 18px; }
+
+.scheduler_root .date-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  .scheduler_root .date-col .date-picker {
+    width: 90%;
+    text-align: center; }
+
+.scheduler_root .dropdown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.scheduler_root .btn-schedule {
+  width: 90%; }
