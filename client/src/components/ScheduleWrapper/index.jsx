@@ -14,6 +14,7 @@ class ScheduleWrapper extends Component {
         this.state = {
             date: new Date(),
             time: moment(),
+            detail: "",
             userid: null,
             username: "",
             assignedId: null,
@@ -31,6 +32,7 @@ class ScheduleWrapper extends Component {
         this.getCustomerInfo = this.getCustomerInfo.bind(this);
         this.addToSchedule = this.addToSchedule.bind(this);
         this.getUsername = this.getUsername.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     componentDidMount() {
@@ -82,6 +84,11 @@ class ScheduleWrapper extends Component {
     onTimeChange(time) {
         this.setState({ time })
     }
+
+    handleInputChange(event) {
+        event.preventDefault();
+        this.setState({ [event.target.name]: event.target.value });
+    };
 
     handleUserSelect(event) {
         this.setState({ assignedUsername: event })
@@ -192,6 +199,16 @@ class ScheduleWrapper extends Component {
                                                 })}
                                             </Dropdown.Menu>
                                         </Dropdown>
+                                    </div>
+                                </div>
+                                <div className="row mt-5 mx-1">
+                                    <div className="col">
+                                        <h3 className="text-center">Appointment Details</h3>
+                                    </div>
+                                </div>
+                                <div className="row mt-2 mx-1">
+                                    <div className="col">
+                                        <textarea rows="4" className="form-control" name="detail" value={this.state.detail} onChange={this.handleInputChange}/>
                                     </div>
                                 </div>
                                 <div className="row my-5">
