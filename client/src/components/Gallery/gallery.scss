@@ -1,7 +1,18 @@
+@import "../../_scss/_vars";
+
 .gallery_root {
     display: grid;
-    max-width: 1600px;
-    margin: 3em auto;
+    max-width: 1200px;
+    margin: 2em auto;
+
+    h2 {
+        padding: .8em 0 1.2em 0;
+        width: 100%;
+        text-align: center;
+        color: $main2;
+        text-transform: uppercase;
+        font-size: 3em;
+    }
 
     .gallery_container {
         display: grid;
@@ -10,11 +21,10 @@
         grid-auto-rows: minmax(150px, 150px);
         grid-auto-flow: dense;
         padding: 10px;
-        margin: 2em 10em;
     }
 
     .item {
-        padding: 1rem;
+        padding: .5rem;
         font-size: 14px;
         font-weight: bold;
         text-transform: uppercase;

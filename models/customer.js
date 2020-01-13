@@ -98,6 +98,12 @@ const customerSchema = new Schema({
       // The ObjectIds will refer to the ids in the Note model
       ref: "Note"
     }
+  ],
+  appointments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Appointment"
+    }
   ]
 });
 

@@ -18,7 +18,8 @@ const projectedContactFields = {
     zipcode: 1,
     zip4: 1,
     isLead: 1,
-    notes: 1
+    notes: 1,
+    appointments: 1
 }
 
 // /api/customers routes
@@ -129,6 +130,25 @@ router.route("/id/:id")
                     select: 'local.username'
                 }
             })
+            .populate({
+                path: 'appointments', model: 'Appointment',
+                populate: [
+                    {
+                        path: 'createdBy',
+                        model: 'User',
+                        select: 'local.username'
+                    },
+                    {
+                        path: 'updatedBy',
+                        model: 'User',
+                        select: 'local.username'
+                    },
+                    {
+                        path: 'assignedTo',
+                        model: 'User',
+                        select: 'local.username'
+                    }]
+            })
             .then(data => {
                 if (!data) return res.status(404).json({ message: "ID not found", _id: req.params.id });
                 res.json(data);
@@ -162,6 +182,29 @@ router.route("/id/:id/note")
             })
     })
     ;
+
+// Add (post) an appointment for customer
+router.route("/id/:id/appointment")
+    .post(authenticateUser, (req, res) => {
+        console.log(req.body);
+        const appointment = req.body;
+
+        db.Appointment.create(appointment)
+            .then(apptRes => {
+                console.log(apptRes);
+                db.Customer.findByIdAndUpdate(req.params.id, { $push: { appointments: apptRes._id } })
+                    .then(custRes => {
+                        console.log(custRes);
+                        res.json(apptRes);
+                    })
+                    .catch(err => {
+                        res.status(500).json(err);
+                    })
+            })
+            .catch(err => {
+                res.status(500).json(err);
+            })
+    })
 
 
 // Search for a contact and return array of matches
