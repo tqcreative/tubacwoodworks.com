@@ -1,7 +1,7 @@
 import React from 'react'
 import { Redirect, useLocation, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './style.css';
-import Navlink from '../../components/Navlink';
+import NavlinkWrapper from '../../components/NavlinkWrapper';
 import LeadWrapper from '../../components/LeadWrapper';
 import ContactWrapper from '../../components/ContactWrapper';
 import NoteWrapper from '../../components/NoteWrapper';
@@ -19,41 +19,7 @@ function CRM(props) {
                 </div>
                 <div className="bottom_root">
                     <div className="left_root">
-                        <Navlink
-                            linkText="Dashboard"
-                            linkRef="/crm/dashboard"
-                            id="nav-dashboard"
-                        />
-                        <Navlink
-                            linkText="Employee"
-                            linkRef="/crm/employee"
-                            id="nav-employee"
-                        />
-                        <Navlink
-                            linkText="Customer Info"
-                            linkRef="/crm/customer"
-                            id="nav-customer"
-                        />
-                        <Navlink
-                            linkText="Notes"
-                            linkRef="/crm/notes"
-                            id="nav-notes"
-                        />
-                        <Navlink
-                            linkText="Scheduler"
-                            linkRef="/crm/scheduler"
-                            id="nav-scheduler"
-                        />
-                        <Navlink
-                            linkText="Email"
-                            linkRef="/crm/email"
-                            id="nav-email"
-                        />
-                        <Navlink
-                            linkText="Help"
-                            linkRef="/crm/help"
-                            id="nav-help"
-                        />
+                        <NavlinkWrapper/>
                     </div>
                     <div className="right_root">
                         <Switch>
