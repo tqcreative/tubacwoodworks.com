@@ -4,8 +4,10 @@ import './gallery.css';
 export default function Gallery() {
 
         return (
-            
+
             <div className="gallery_root">
+                
+                <h2>Gallery</h2>
 
                 <div className="gallery_container">
 
