@@ -1,3 +1,6 @@
+.time-picker-popup li, .time-picker-popup input {
+  font-size: 18px; }
+
 .scheduler_root .time-col {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11,6 +14,8 @@
   .scheduler_root .time-col .time-picker {
     width: 90%;
     text-align: center; }
+    .scheduler_root .time-col .time-picker input {
+      font-size: 18px; }
 
 .scheduler_root .date-col {
   display: -webkit-box;

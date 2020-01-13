@@ -109,6 +109,10 @@ class ScheduleWrapper extends Component {
     }
 
     render() {
+
+        let headerText = "Scheduled Appointments";
+        headerText += this.state.firstName ? ` for ${this.state.firstName} ${this.state.lastName}` : "";
+
         return (
             <div className="scheduler_root container m-0 p-3">
                 <div className="row">
@@ -166,6 +170,7 @@ class ScheduleWrapper extends Component {
                                     <div className="col col-md-6 time-col">
                                         <TimePicker
                                             className="time-picker"
+                                            popupClassName="time-picker-popup"
                                             defaultValue={moment()}
                                             use12Hours
                                             inputReadOnly
@@ -201,7 +206,7 @@ class ScheduleWrapper extends Component {
                 </div>
                 <div className="row mt-5">
                     <div className="col">
-                        <h3 className="text-center">Scheduled Appointments</h3>
+                        <h3 className="text-center">{headerText}</h3>
                     </div>
                 </div>
                 <div className="row">

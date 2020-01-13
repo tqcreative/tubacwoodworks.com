@@ -1,5 +1,11 @@
 @import '../../_scss/vars';
 
+.time-picker-popup{
+    li,input{
+        font-size: 18px;
+    }
+}
+
 .scheduler_root{
     // display:flex;
 
@@ -11,8 +17,13 @@
         .time-picker{
             width: 90%;
             text-align: center;
+
+            input{
+                font-size: 18px;
+            }
         }    
     }
+
 
     .date-col{
         display: flex;
