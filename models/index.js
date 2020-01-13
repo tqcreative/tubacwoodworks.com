@@ -4,5 +4,6 @@ module.exports = {
 	User: require("./user"),
 	Portfolio: require("./portfolio"),
 	Partners: require("./partners"),
-	Note: require("./note")
+	Note: require("./note"),
+	Appointment: require("./appointment")
   };
