@@ -20,11 +20,13 @@
     bottom: 5%;
     background-image: url("/cms/images/quote_1.jpg");
     background-position: center center;
-    background-size: cover; }
+    background-size: cover;
+    background-attachment: fixed; }
   .quote_two_root .quote_two {
     position: relative;
     width: 35%;
     min-width: 256px;
+    height: 20vh;
     min-height: 256px;
     background-color: rgba(173, 109, 45, 0.8);
     padding: 1em;
@@ -46,3 +48,7 @@
         position: absolute;
         bottom: 8px;
         right: 8px; }
+
+@media (max-width: 768px) {
+  .quote_two_root .background-img {
+    background-attachment: inherit; } }

@@ -18,12 +18,14 @@
         background-image: url("/cms/images/quote_1.jpg");
         background-position: center center;
         background-size: cover;
+        background-attachment: fixed;
     }
 
     .quote_two {
         position: relative;
         width: 35%;
         min-width: 256px; 
+        height: 20vh;
         min-height: 256px;
         background-color: rgba($main, .8);
         padding: 1em;
@@ -52,4 +54,19 @@
                 }
             }
     }
+}
+
+@media (max-width: #{$screen-sm}) {
+  
+    .quote_two_root {
+        .background-img {
+            background-attachment: inherit;
+        }
+    }
+
+}
+@media (min-width: #{$screen-md}) {
+ 
+}
+@media (min-width: #{$screen-lg}) {
 }
