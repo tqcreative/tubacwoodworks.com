@@ -4,7 +4,7 @@
     color: #fff;
     background-color: rgba($main, .8);
     text-decoration: none;
-    list-style: none;
+    list-style: none; 
     display: flex;
     justify-content: flex-start;
     text-transform: uppercase;
@@ -28,6 +28,10 @@
             color: #fff;
             transform: translateY(5px);
         }
+
+        ion-icon {
+            font-size: 2em;
+        }
     }
 
     a {
@@ -37,4 +41,48 @@
         margin: .25em;
 
     }
+
+    #mobile_menu {
+        display: none;
+    }
+}
+
+@media (max-width: #{$screen-sm}) {
+    .nav_root {
+
+        li {
+            display: none;
+        }
+
+        #mobile_menu{
+            display: block;
+        }
+    }   
+}
+
+@media (min-width: #{$screen-md}) {
+    .nav_root {
+
+        li {
+            display: none;
+        }
+
+        #mobile_menu{
+            display: block;
+        }
+    }   
+}
+
+@media (min-width: #{$screen-lg}) {
+    .nav_root {
+
+        li {
+            font-size: .8em;
+            display: block;
+        }
+
+        #mobile_menu{
+            display: none;
+        }
+    }   
 }

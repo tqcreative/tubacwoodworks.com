@@ -53,7 +53,7 @@ function NavBarComponent({ loggedIn, _logout, styleProp}) {
                     </li>
                     <li className="nav-item">
                         <Link to="/kitchenbathvanity" className="nav-link">
-                            Kitchen / Bath
+                            Kitchen &amp; Bath
                         </Link>
                     </li>
                     <li>
@@ -76,16 +76,9 @@ function NavBarComponent({ loggedIn, _logout, styleProp}) {
                             Gallery
                         </Link>
                     </li>
-                    {/* <li className="nav-item">
-                        <Link to="/login" className="nav-link">
-                            Login
-						</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/signup" className="nav-link">
-                            Sign Up
-						</Link>
-                    </li> */}
+                    <li id="mobile_menu">
+                        <ion-icon name="menu"></ion-icon>
+                        </li>
                 </ul>
             }
         </nav>

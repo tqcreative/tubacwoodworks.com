@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function(){
 //console.log('DOM has finished loading.')
 
 ////////////
-// item in viewport
+// is the item in viewport?
 ////////////
 function elementInViewport(el) {
     let top = el.offsetTop;
@@ -49,6 +49,10 @@ window.addEventListener('scroll', function(event) {
     // GSAP Animations
     /////////////////////////////////////////
 
+    let yOffset = window.pageYOffset;
+    let speed = 2;
+    document.getElementsByClassName("parallax")[0].style.backgroundPosition = "center "+ ((yOffset)/speed) +"px";
+
     // 1: is this element on the screen?
     if (document.getElementById("quote_1")) {
       // id="quote_1" is on the page somewhere.
@@ -56,22 +60,13 @@ window.addEventListener('scroll', function(event) {
       // 2: is the quoteOneTrigger trigger true or false. If it is false then we want to fire the animation. if it is true we want to ignore the result.
       if (elementInViewport(document.getElementById("quote_1")) && quoteOneTrigger === false){
         quoteOneTrigger = true;
-        gsap.from("#quote_1", {duration: 2, opacity: 0, x: "-100%", ease: "power4"});
+        gsap.from("#quote_1", {duration: 2, opacity: 0, x: "-101%", ease: "power4"});
 
         // 3: if you are no longer in the view then we want to make sure that the animation trigger is reset to false.
       } else if (!elementInViewport(document.getElementById("quote_1")) && quoteOneTrigger === true){
         quoteOneTrigger = false;
       }
     }
-
-    if (document.getElementById('hero_quote')){
-      if (elementInViewport(document.getElementById("hero_quote")) && heroAnimationTrigger === false){
-        heroAnimationTrigger = true;
-        gsap.from("#hero_quote", {delay: .5, opacity: 0, duration:1, x:750, ease: "power4"});
-      } else if (!elementInViewport(document.getElementById("hero_quote")) && heroAnimationTrigger === true){
-        heroAnimationTrigger = false;
-      }   
-    };
 
     if(document.getElementById('quote_2')){
       if(elementInViewport(document.getElementById('quote_2')) && quoteTwoTrigger === false){
@@ -82,9 +77,22 @@ window.addEventListener('scroll', function(event) {
       }
     };
 
+    if(document.getElementById('checkerbox_quote_1')){
+      if(elementInViewport(document.getElementById('checkerbox_quote_1')) && checkerOneTrigger === false){
+        checkerOneTrigger = true;
+        gsap.from("#checkerbox_quote_1", {duration: 1, opacity: 0, delay: 0, x:"101%"});
+      } else if (!elementInViewport(document.getElementById('checkerbox_quote_1')) && checkerOneTrigger === true){
+
+          checkerOneTrigger = false;
+
+      }
+    };
+
     if(document.getElementById('checkerbox_quote_2')){
       if(elementInViewport(document.getElementById('checkerbox_quote_2')) && checkerTwoTrigger === false){
-        checkerTwoTrigger = true;
+
+          checkerTwoTrigger = true;
+
         gsap.from("#checkerbox_quote_2", {duration: 1, opacity: 0, delay: .5, x:"101%"});
       } else if (!elementInViewport(document.getElementById('checkerbox_quote_2')) && checkerTwoTrigger === true){
         checkerTwoTrigger = false;
@@ -96,16 +104,9 @@ window.addEventListener('scroll', function(event) {
         checkerThreeTrigger = true;
         gsap.from("#checkerbox_quote_3", {duration: 1, opacity: 0, delay: 1, x:"101%"});
       } else if (!elementInViewport(document.getElementById('checkerbox_quote_3')) && checkerThreeTrigger === true){
-        checkerThreeTrigger = false;
-      }
-    };
 
-    if(document.getElementById('checkerbox_quote_1')){
-      if(elementInViewport(document.getElementById('checkerbox_quote_1')) && checkerOneTrigger === false){
-        checkerOneTrigger = true;
-        gsap.from("#checkerbox_quote_1", {duration: 1, opacity: 0, delay: 0, x:"101%"});
-      } else if (!elementInViewport(document.getElementById('checkerbox_quote_1')) && checkerOneTrigger === true){
-        checkerOneTrigger = false;
+          checkerThreeTrigger = false;
+
       }
     };
     
@@ -116,16 +117,19 @@ window.addEventListener('scroll', function(event) {
 // On load 
 ////////////
 
-if (document.getElementById('hero_quote')){
-  if (elementInViewport(document.getElementById("hero_quote")) && heroAnimationTrigger === false){
-    heroAnimationTrigger = true;
-    gsap.from("#hero_quote", {delay: .5, opacity: 0, duration:1, x:750, ease: "power4"});
-  } else if (!elementInViewport(document.getElementById("hero_quote")) && heroAnimationTrigger === true){
-    heroAnimationTrigger = false;
-  }
-}
+// on load events should happen in the componentDidMount() function. dont forget to @import gsap from 'gsap' for animation components;
 
-const rellax = new Rellax('.parallax');
+// if (document.getElementById('hero_quote')){
+//   if (elementInViewport(document.getElementById("hero_quote")) && heroAnimationTrigger === false){
+//     heroAnimationTrigger = true;
+//     gsap.from("#hero_quote", {delay: .5, opacity: 0, duration:1, x:750, ease: "power4"});
+//   } else if (!elementInViewport(document.getElementById("hero_quote")) && heroAnimationTrigger === true){
+//     heroAnimationTrigger = false;
+//   }
+// }
+
+//const rellax = new Rellax('.parallax');
+
 
 ///////////////////////////
 /////// ! WARNING ! ///////

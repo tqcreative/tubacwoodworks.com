@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import { Header } from '../../components';
 import "./commercial.css";
 import { NavBar } from '../../components/Navbar';
+import HeroSmart from '../../components/HeroSmart';
+import Footer from '../../components/Footer';
+import Signup from '../../components/Signup';
 
 export default class Commercial extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			user: props.user
+			user: props.user,
+			navPos: "absolute"
 		}
 	}
 
@@ -19,25 +23,21 @@ export default class Commercial extends Component {
 		if (this.props.user) {
 			return (
 				<div className="commercial_root">
-					<NavBar/>
+					<NavBar styleProp={this.state.navPos} />
 					<Header user={this.state.user} />
-					<h1> Commercial </h1>
-					{/* <p>Current User:</p>
-					<code>
-						{JSON.stringify(this.props)}
-					</code> */}
+					<HeroSmart backgroundImage="commercial_hero.jpg" title="Commercial" subTitle="From one local business to another"/>
+					<Signup />
+					<Footer />
 				</div>
 			)
 		} else {
 			return (
 				<div className="commercial_root">
-					<NavBar/>
+					<NavBar styleProp={this.state.navPos} />
 					<Header user={this.state.user} />
-					<h1> Commercial </h1>
-					{/* <p>Current User:</p>
-					<code>
-						{JSON.stringify(this.props)}
-					</code> */}
+					<HeroSmart backgroundImage="commercial_hero.jpg" title="Commercial" subTitle="From one local business to another"/>
+					<Signup />
+					<Footer />
 				</div>
 			)
 		}

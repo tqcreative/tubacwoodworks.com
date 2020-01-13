@@ -35,6 +35,7 @@ class Signup extends Component {
                 //Clear out the input fields
                 this.setState({
                     firstName: "",
+                    middleName: "",
                     lastName: "",
                     email: "",
                     phoneNumber: ""
@@ -74,6 +75,7 @@ class Signup extends Component {
                     </div>
                     <form>
                         <input type="text" placeholder="First Name" name="firstName" value={this.state.firstName} onChange={this.handleInputChange} />
+                        <input id="middle_name" type="text" placeholder="Middle Name" name="middleName" value={this.state.middleName} onChange={this.handleInputChange} />
                         <input type="text" placeholder="Last Name" name="lastName" value={this.state.lastName} onChange={this.handleInputChange} />
                         <input type="email" placeholder="Email Address" name="email" value={this.state.email} onChange={this.handleInputChange} />
                         <input type="text" placeholder="Phone Number" name="phoneNumber" value={this.state.phoneNumber} onChange={this.handleInputChange} />
