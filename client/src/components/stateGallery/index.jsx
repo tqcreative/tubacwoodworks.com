@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './stategallery.css';
+import ImageWrapper from '../../components/ImageWrapper';
+import ImageCard from '../../components/ImageCard';
 
 class StateGallery extends Component {
     constructor(props) {
@@ -22,14 +24,18 @@ class StateGallery extends Component {
             this.setState({arrayOfImages : collectData.data[0].imageArray});
         })
     };
-
+ 
     render(){
         return (
-
+            <ImageWrapper>
            <div className="stateGallery_root">
                 <p id="ptag">hello world</p>
-                <div className="image_div" style={{backgroundImage: `url(/cms/images/${this.state.arrayOfImages[0]}`}}></div>
+                {/* {this.state.arrayOfImages.map()} */}
+                <ImageCard arrayOfImages={this.state.arrayOfImages[0]}
+                />
+                 {/* <div className="image_div" style={{backgroundImage: `url(/cms/images/${this.state.arrayOfImages[0]}`}}></div> */}
             </div>
+            </ImageWrapper>
 
         )
     }
