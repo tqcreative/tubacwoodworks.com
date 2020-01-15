@@ -124,7 +124,7 @@ class LeadWrapper extends Component {
                                 this.state.leadsArr.map(lead => {
                                     const signupDate = moment(lead.createdAt).format('MM/DD/YYYY');
                                     return (
-                                        <Lead id={lead._id} onClick={this.updateLead}
+                                        <Lead key={lead._id} id={lead._id} onClick={this.updateLead}
                                             firstName={lead.firstName} lastName={lead.lastName}
                                             signupDate={signupDate} contactClick={this.redirectToContact}
                                         />
