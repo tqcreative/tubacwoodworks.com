@@ -6,6 +6,7 @@ import LeadWrapper from '../../components/LeadWrapper';
 import ContactWrapper from '../../components/ContactWrapper';
 import NoteWrapper from '../../components/NoteWrapper';
 import ScheduleWrapper from '../../components/ScheduleWrapper';
+import EmployeeWrapper from '../../components/EmployeeWrapper';
 
 function CRM(props) {
     const location = useLocation();
@@ -25,6 +26,9 @@ function CRM(props) {
                         <Switch>
                             <Route exact path="/crm/dashboard">
                                 <LeadWrapper />
+                            </Route>
+                            <Route exact path="/crm/employee">
+                                <EmployeeWrapper user={props.user}/>
                             </Route>
                             <Route exact path="/crm/customer">
                                 <ContactWrapper id={null} />
