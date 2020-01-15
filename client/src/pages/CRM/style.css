@@ -13,7 +13,7 @@
   overflow: hidden; }
   .crm_root .top_root {
     width: 100%;
-    min-height: 64px;
+    height: 64px;
     max-width: 1400px;
     background-color: #2d3436;
     display: -webkit-box;
@@ -46,7 +46,8 @@
     .crm_root .bottom_root .right_root {
       width: 75%;
       height: calc(100vh - 64px);
-      background-color: #f2f2f2; }
+      background-color: #f2f2f2;
+      overflow: scroll; }
   .crm_root ion-icon {
     padding: 20px 0 20px 20px;
     color: white;
