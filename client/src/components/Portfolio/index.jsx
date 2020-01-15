@@ -12,60 +12,62 @@ class Portfolio extends Component {
         this.state = {
             deck: [
                 {
-                    title: "Default 1",
-                    link: "https",
+                    title: "Woodwork",
+                    link: "#",
                     imgUrl: `${portfolioImagePath}portfolio_1.JPG`
                 },
                 {
-                    title: "Default 2",
-                    link: "www.google.com",
+                    title: "Furniture",
+                    link: "#",
                     imgUrl: `${portfolioImagePath}portfolio_2.JPG`
                 },
                 {
-                    title: "Default 3",
-                    link: "www.google.com",
+                    title: "Custom Cabinets",
+                    link: "#",
                     imgUrl: `${portfolioImagePath}portfolio_3.JPG`
                 },
                 {
-                    title: "Default 4",
-                    link: "www.google.com",
+                    title: "Kitchen",
+                    link: "#",
                     imgUrl: `${portfolioImagePath}portfolio_4.JPG`
                 },
                 {
-                    title: "Default 5",
-                    link: "www.google.com",
+                    title: "Counters",
+                    link: "#",
                     imgUrl: `${portfolioImagePath}portfolio_5.JPG`
                 },
                 {
-                    title: "Default 6",
-                    link: "www.google.com",
+                    title: "Islands",
+                    link: "#",
                     imgUrl: `${portfolioImagePath}portfolio_6.JPG`
                 }
             ]
         }
     };
 
-    // componentDidMount(){
-    //     this.axiosCall();
-    // }
+    componentWillMount(){
+        this.axiosCall();
+    }
 
-    // axiosCall(){
-    //     axios
-    //     .get('/cms/portfolio_component', {
+    axiosCall(){
+        axios
+        .get('/cms/portfolio_component', {
     
-    //     })
-    //     .then(response => {
-    //         if (response.data[0].title){
-    //             console.log(response);
-    //             this.setState({
-    //                 deck : response.data
-    //             });
-    //         }
-    //     })
-    //     .catch(error => {
-    //         console.error(error);
-    //     });
-    // }
+        })
+        .then(response => {
+            
+            console.log(response);
+
+            if (response.data[0].title){
+                this.setState({
+                    deck : response.data
+                });
+            }
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    }
 
     render() {
         return (
