@@ -48,14 +48,14 @@ export default class Home extends Component {
 				<div className="Home home_root">
 					<NavBar styleProp={this.state.navPos} />
 					<Header user={this.state.user} />
-					<Hero />
+					<Hero user={this.state.user} />
 					<Numbers />
-					<Quote />
-					<Portfolio />
-					<QuoteTwo />
-					<Gallery />
-					<Checkbox />
-					<Partners />
+					<Quote user={this.state.user} />
+					<Portfolio user={this.state.user} />
+					<QuoteTwo user={this.state.user} />
+					<Gallery user={this.state.user} />
+					<Checkbox user={this.state.user} />
+					<Partners user={this.state.user} />
 					<Signup submitResult={this.handleSignupResult}/>
 					<Footer />
 					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
@@ -72,7 +72,7 @@ export default class Home extends Component {
 					<Header user={this.state.user} />
 					<Hero />
 					<Numbers />
-					<Quote />
+					<Quote user={this.state.user} />
 					<Portfolio />
 					<QuoteTwo />
 					<Gallery />
