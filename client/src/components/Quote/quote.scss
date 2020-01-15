@@ -14,16 +14,18 @@
         width: 100%;
         height: 100vh;
         left: 0;
-        bottom: 10%;
-        background-image: url("./images/background_quotes.jpg");
-        background-position: bottom center;
+        bottom: 5%;
+        background-image: url("/cms/images/quote_2.jpg");
+        background-position: center center;
         background-size: cover;
+        background-attachment: fixed;
     }
 
     .quote {
         position: relative;
         width: 35%;
         min-width: 256px; 
+        height: 20vh;
         min-height: 256px;
         background-color: rgba($main, .8);
         padding: 1em;
@@ -51,5 +53,45 @@
                     right: 8px;
                 }
             }
+    }
+}
+
+@media (max-width: #{$screen-sm}) {
+  
+    .quote_root {
+        .background-img {
+            background-attachment: inherit;
+        }
+    }
+
+}
+@media (min-width: #{$screen-md}) {
+ 
+}
+@media (min-width: #{$screen-lg}) {
+}
+
+.cms_gear {
+    font-size: 2em;
+    width: 1.5em;
+    height: 1.5em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    background-color: rgba($dark, .8);
+    border-radius: 0 0 0 5px;
+    z-index: 64;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:active ion-icon {
+        transform: translateY(2px);
+    }
+
+    &:hover {
+        cursor: pointer;
+        user-select: none;
     }
 }

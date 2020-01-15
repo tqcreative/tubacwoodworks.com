@@ -3,8 +3,10 @@
 $bg-color: #c23616;
 
 .signupWrapper{
+    position: relative;
     width: 100%;
-    display: block;
+    display: flex;
+    align-items: center;
     justify-content: center;
     background: $dark;
     position: relative;
@@ -12,6 +14,9 @@ $bg-color: #c23616;
     min-height: 30vh;
 
     .background-img:before{
+        position: absolute;
+        top: 0;
+        left: 0;
         content: ' ';
         display: block;
         position: absolute;
@@ -99,15 +104,7 @@ $bg-color: #c23616;
         form{
             flex-wrap: nowrap;
             padding-top: 1%;
-            padding-bottom: 3%;
-
-            :first-child{
-                margin-left: 10%;
-            }
-            
-            :last-child{
-                margin-right: 10%;
-            }    
+            padding-bottom: 3%;   
         }
 
         .banner{
@@ -124,4 +121,8 @@ $bg-color: #c23616;
         }
 
     }
+}
+
+#middle_name {
+    display: none;
 }

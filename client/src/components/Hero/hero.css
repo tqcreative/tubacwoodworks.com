@@ -14,7 +14,7 @@
   align-items: center;
   z-index: -1; }
   .hero_root div {
-    background-color: rgba(192, 57, 43, 0.8);
+    background-color: rgba(173, 109, 45, 0.8);
     color: #fff;
     width: 40%;
     max-width: 768px;
@@ -34,6 +34,10 @@
       -ms-flex-align: center;
       align-items: center;
       overflow: hidden; }
+      .hero_root div div img {
+        width: 100%;
+        padding: 5%;
+        margin: 5%; }
     .hero_root div p {
       display: block;
       padding: 1em 2em; }
@@ -48,5 +52,5 @@
     background-image: url(/cms/images/hero.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center 0px;
     z-index: 0; }

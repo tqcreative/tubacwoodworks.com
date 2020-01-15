@@ -17,16 +17,18 @@
     width: 100%;
     height: 100vh;
     left: 0;
-    bottom: 10%;
-    background-image: url("./images/background_quotes.jpg");
-    background-position: bottom center;
-    background-size: cover; }
+    bottom: 5%;
+    background-image: url("/cms/images/quote_2.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed; }
   .quote_root .quote {
     position: relative;
     width: 35%;
     min-width: 256px;
+    height: 20vh;
     min-height: 256px;
-    background-color: rgba(192, 57, 43, 0.8);
+    background-color: rgba(173, 109, 45, 0.8);
     padding: 1em;
     color: #fff;
     margin: 1em 0 1em 10%; }
@@ -46,3 +48,38 @@
         position: absolute;
         bottom: 8px;
         right: 8px; }
+
+@media (max-width: 768px) {
+  .quote_root .background-img {
+    background-attachment: inherit; } }
+
+.cms_gear {
+  font-size: 2em;
+  width: 1.5em;
+  height: 1.5em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  background-color: rgba(45, 52, 54, 0.8);
+  border-radius: 0 0 0 5px;
+  z-index: 64;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .cms_gear:active ion-icon {
+    -webkit-transform: translateY(2px);
+    -ms-transform: translateY(2px);
+    transform: translateY(2px); }
+  .cms_gear:hover {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
