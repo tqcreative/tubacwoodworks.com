@@ -21,6 +21,12 @@ router.use("/cms/portfolio_component", portfolioController);
 ////////////
 // Auth Routes
 ////////////
-router.use("/auth", authController)
+router.use("/auth", authController);
+
+
+////////////
+// Images Routes
+////////////
+router.use("/cms/kitchenbathvanity", kitchenController);
 
 module.exports = router;

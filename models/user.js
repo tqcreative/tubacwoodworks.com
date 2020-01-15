@@ -9,6 +9,12 @@ const userSchema = new Schema({
 		username: { type: String, unique: false, required: false },
 		password: { type: String, unique: false, required: false }
 	},
+	role: {
+		type: String,
+		required: true,
+		default: "user",
+		enum: ["user","admin"]
+	},
 	google: {
 		googleId: { type: String, required: false }
 	},

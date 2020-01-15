@@ -1,4 +1,4 @@
-[
+let seed_portfolio = [
     {
         "title" : "Kitchen & Bath",
         "link" : "localhost3000/kitchenbathvanity",
@@ -30,3 +30,5 @@
         
     }
 ]
+
+module.exports = seed_portfolio;

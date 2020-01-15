@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { Header } from '../../components';
 import './gallery.css';
 import { NavBar } from '../../components/Navbar';
+import gsap from "gsap";
+import HeroSmart from '../../components/HeroSmart';
+import Footer from '../../components/Footer';
+import Signup from '../../components/Signup';
+import StateGallery from '../../components/stateGallery';
+
 
 export default class Gallery extends Component {
 	constructor(props) {
@@ -22,7 +28,10 @@ export default class Gallery extends Component {
 				<div className="gallery_root">
 					<NavBar styleProp={this.state.styleProp} />
 					<Header user={this.state.user} />
-                    <h1> Gallery </h1>
+					
+					<StateGallery/>
+					<Signup />
+					<Footer />
 				</div>
 			)
 		} else {
@@ -30,11 +39,14 @@ export default class Gallery extends Component {
 				<div className="gallery_root">
 					<NavBar styleProp={this.state.styleProp}/>
 					<Header user={this.state.user} />
-                    <h1> Gallery </h1>
+					
 					{/* <p>Current User:</p>
 					<code>
 						{JSON.stringify(this.props)}
 					</code> */}
+					<StateGallery/>
+					<Signup />
+					<Footer />
 				</div>
 			)
 		}

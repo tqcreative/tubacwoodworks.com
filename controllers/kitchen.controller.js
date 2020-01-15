@@ -1,11 +1,19 @@
-const express = require('express')
-const router = express.Router()
+const db = require("../models");
+const router = require("express").Router();
 
-// ========================= //
-// ===== Kitchen Route ===== //
-// ========================= //
+//////////
+// GET
+//////////
+router.route("/").get(function(req, res) {
+    //console.log(req.query)
+    db.Images
+        .find()
+        .then(dbModel => {
+            console.log(dbModel)
+            res.json(dbModel)
+        })
+        .catch(err => res.status(422).json(err));
+});
 
-router.get('/kitchenbathvanity',
-    (req, res, next) => {
-    
-    });
+
+module.exports = router;
