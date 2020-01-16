@@ -34,9 +34,9 @@ export default class Pro_Tips extends Component {
 					<NavBar styleProp={this.state.navPos}/>
 					<Header user={this.state.user} />
                     <HeroSmart backgroundImage="gallery_7.jpg" title="Easy" subTitle="works like a dream"/>
-					<Quote />
+					<Quote user={this.state.user} />
 					<Signup />
-					<Quote />
+					<Quote user={this.state.user} />
 				</div>
 			)
 		}

@@ -40,8 +40,13 @@
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "prod": "node server.js",
+<<<<<<< HEAD
+    "heroku-postbuild": "npm run build && npm run seed",
+    "seed": "node utils/scripts/seeds.js"
+=======
     "heroku-postbuild": "npm run build",
     "seed": "node utils/scripts/"
+>>>>>>> ebd0abfaa87b09af57ae6e8298ce77e124da90f0
   },
   "engines": {
     "node": "12.13.0"
