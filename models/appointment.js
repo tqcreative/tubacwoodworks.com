@@ -16,6 +16,11 @@ const appointmentSchema = new Schema({
     ref: "User",
     required: "Must be assigned to an employee"
   },
+  customer: {
+    type: Schema.Types.ObjectId,
+    ref: "Customer",
+    required: "Must assign appointment to a customer"
+  },
   createdAt: {
     type: Date,
     default: Date.now,

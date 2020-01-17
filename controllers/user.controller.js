@@ -18,4 +18,13 @@ get(authenticateUser,(req,res)=>{
     })
 });
 
+
+// get all appts for user indicated by id param
+router.route('/:id/appts').get(authenticateUser,(req,res)=>{
+    db.Appointment.find({assignedTo: req.params.id}).populate("customer").then(dbRes=>{
+        console.log(dbRes);
+        res.json(dbRes);
+    })
+});
+
 module.exports = router;

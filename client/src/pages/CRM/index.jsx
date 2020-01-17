@@ -28,7 +28,7 @@ function CRM(props) {
                                 <LeadWrapper />
                             </Route>
                             <Route exact path="/crm/employee">
-                                <EmployeeWrapper user={props.user}/>
+                                <EmployeeWrapper user={props.user} loggedIn={props.loggedIn}/>
                             </Route>
                             <Route exact path="/crm/customer">
                                 <ContactWrapper id={null} />
