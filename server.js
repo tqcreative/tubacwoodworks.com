@@ -1,9 +1,15 @@
 // Loading evnironmental variables here
 if (process.env.NODE_ENV !== 'production') {
-	console.log('loading dev environments')
+	// console.log('loading dev environments')
 	require('dotenv').config()
 }
 require('dotenv').config()
+
+
+// ======================= //
+// ===== Dependencies ==== //
+// ======================= //
+
 
 const express = require('express')
 const bodyParser = require('body-parser');
@@ -15,10 +21,21 @@ const mongoose = require('mongoose');
 const path = require('path');
 const app = express()
 const routes = require("./controllers");
-// const multer = require('multer');
+const multer = require("multer");
+
+// ======================= //
+// ======== Ports ======== //
+// ======================= //
+
+
 const PORT = process.env.PORT || 8080
 
+
+// ===================== //
 // ===== Middleware ==== //
+// ===================== //
+
+
 app.use(morgan('dev'))
 app.use(
 	bodyParser.urlencoded({
@@ -31,7 +48,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/projectthree",
 	{
 		useNewUrlParser: true,
 		useUnifiedTopology: true
-	}).catch(err=>{
+	}).catch(err => {
 		console.log(err);
 	})
 
@@ -44,21 +61,129 @@ app.use(
 	})
 )
 
+// =================== //
 // ===== Passport ==== //
+// =================== //
+
+
 app.use(passport.initialize())
 app.use(passport.session()) // will call the deserializeUser
 
 
+// =================================== //
 // ==== if its production environment! //
+// =================================== //
+
+
 if (process.env.NODE_ENV === "production") {
 	console.log("Prod Mode Enabled")
 	app.use(express.static("client/build"));
 }
 
+
+// =================================== //
 // ====== Routing & Controllers ====== //
+// =================================== //
+
+
 app.use(routes);
 
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+
+
+// Set The Storage Engine
+const storage = multer.diskStorage({
+	destination: './test',
+	filename: function (req, file, cb) {
+		// cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+		cb(null, file.fieldname + path.extname(file.originalname));
+	}
+});
+
+// Init Upload
+const upload = multer({
+	storage: storage,
+	limits: { fileSize: 1000000 },
+	fileFilter: function (req, file, cb) {
+		checkFileType(file, cb);
+	}
+}).single('myImage');
+
+// Check File Type
+function checkFileType(file, cb) {
+	// Allowed ext
+	const filetypes = /jpeg|jpg|png|gif/;
+	// Check ext
+	const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+	// Check mime
+	const mimetype = filetypes.test(file.mimetype);
+
+	if (mimetype && extname) {
+		return cb(null, true);
+	} else {
+		cb('Error: Images Only!');
+	}
+}
+
+
+app.post('/upload', (req, res) => {
+	console.log(req.body);
+	upload(req, res, (err) => {
+		if (err) {
+			res.send({
+				msg: err
+			});
+		} else {
+			if (req.file == undefined) {
+				res.send({
+					msg: 'Error: No File Selected!'
+				});
+			} else {
+				res.send({
+					msg: 'File Uploaded!',
+					file: `uploads/${req.file.filename}`
+				});
+			}
+		}
+	});
+});
+
+//////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ==================== //
 // ====== Images ====== //
+// ==================== //
+
+
 app.get("/cms/images/:fullname", (req, res) => {
 	/* This component will pull from the images route on the root level.
 	make sure the full name being entered is the tail of the image file. example hero.jpg or cat.png */
@@ -72,19 +197,32 @@ app.get("/cms/images/:fullname", (req, res) => {
 	};
 });
 
+
+// ======================= //
 // ====== React App ====== //
+// ======================= //
+
 app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
+
+// ========================= //
 // ====== Error handler ==== //
+// ========================= //
+
+
 app.use(function (err, req, res, next) {
 	console.log('====== ERROR =======')
 	console.error(err.stack)
 	res.status(500)
 })
 
+
+// ========================== //
 // ==== Starting Server ===== //
+// ========================== //
+
 
 app.listen(PORT, () => {
 	console.log(`App listening on PORT: ${PORT}`)
