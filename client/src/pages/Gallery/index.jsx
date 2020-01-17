@@ -4,6 +4,7 @@ import './gallery.css';
 import { NavBar } from '../../components/Navbar';
 import gsap from "gsap";
 import HeroSmart from '../../components/HeroSmart';
+import Slider from '../../components/Slider';
 import Footer from '../../components/Footer';
 import Signup from '../../components/Signup';
 import StateGallery from '../../components/stateGallery';
@@ -44,6 +45,7 @@ export default class Gallery extends Component {
 					<code>
 						{JSON.stringify(this.props)}
 					</code> */}
+					<Slider/>
 					<StateGallery/>
 					<Signup />
 					<Footer />
