@@ -22,17 +22,17 @@ class Quote extends Component {
     };
 
     submitPhotoForUpload(event) {
-
         const data = new FormData()
-        data.append('file', this.state.selectedFile)
-        axios.post("/upload", data, { 
-           // receive two    parameter endpoint url ,form data
-       })
-     
-     .then(res => { // then print response status
-         console.log(res.statusText)
-         console.log(res.data)
-      })
+        console.log("=========================================")
+        console.log(data);
+        data.set('file', this.state.selectedFile, "")
+        console.log(this.state.selectedFile);
+        console.log(data);
+        console.log("=========================================")
+        axios.post('/upload', data)
+        .then(res => {
+            console.log(res.statusText);
+        })
 
     };
 

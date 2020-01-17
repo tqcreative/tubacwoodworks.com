@@ -77,7 +77,6 @@ export default class Home extends Component {
 					<Gallery user={this.state.user} />
 					<Checkbox user={this.state.user} />
 					<Partners user={this.state.user} />
-					<Signup submitResult={this.handleSignupResult}/>
 					{/* This is where sign out would come into play. */}
 					<Footer user={this.state.user}/>
 					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
@@ -100,7 +99,6 @@ export default class Home extends Component {
 					<Gallery />
 					<Checkbox />
 					<Partners />
-					<Signup submitResult={this.handleSignupResult}/>
 
 					{/* login information hard coded into non-signed in user. */}
 					<div className="LoginForm">

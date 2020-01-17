@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Header } from '../../components';
 import "./pro_tips.css";
+import Quote from '../../components/Quote';
 
 export default class Pro_Tips extends Component {
 	constructor(props) {
@@ -19,13 +20,13 @@ export default class Pro_Tips extends Component {
 		if (this.props.user) {
 			return (
 				<div className="pro_tips_root">
-
+					<Quote user={this.state.user} />
 				</div>
 			)
 		} else {
 			return (
 				<div className="pro_tips_root">
-
+					<Quote user={this.state.user}/>
 				</div>
 			)
 		}
