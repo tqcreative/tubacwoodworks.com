@@ -1,47 +1,50 @@
 import React, { Component } from 'react'
 import './quote.css';
-
+import axios from 'axios';
 
 const Quote = props => {
     let editMenu;
 
-    function handleEdit(event) {
-        // from here you can call the multer route and replace the image.
-        // or if we want to get real fancy, lets call the toast and pass it some html to edit the image, quote, and who said it.
-        // <download button>
-        // <input field>
-        // <input field>
+    function uploadFileHandler(event) {
+        console.log(event.target.files);
+        event.preventDefault();
+        
+        axios.post('/upload', "werd").then(res => {
+            console.log(res)
+        })
     };
 
     //////////////////////////
     // !!!  SWAP THE TWO ELEMENTS do NOT DEPLOY
     /////////////////////////
 
+    // check to see if a user is signed into this components parent by viewing prop.user and seeing if it is still set to the default (App.jsx) of 'null';
     if (props.user === null) {
-        console.log("you're not signe in.")
-		editMenu = <div className="cms_gear" onClick={handleEdit}><ion-icon name="ios-cog"></ion-icon></div>
-	} else if (props.user.local.username) {
-        console.log("you're signed in.")
-		editMenu = (
-			<div className="cms_gear" onClick={handleEdit}>
-                <ion-icon name="ios-cog"></ion-icon>
+
+        // editMenu = <div></div>
+        editMenu =
+            <div className="cms_gear">
+                <form action="https:localhost:3000/upload" method="POST" enctype="multipart/form-data" >
+                    <input type="file" name="myImage" />
+                    <button type="submit" class="btn">submit</button>
+                </form>
             </div>
-		)
+
+    } else if (props.user.local.username) {
+
+        editMenu = <div className="cms_gear" onClick={uploadFileHandler}><ion-icon name="ios-cog"></ion-icon></div>
+
     };
-    
-    /*
-        Next Step: Set so that the quote component can see how many quotes are being used on the page and fill its information based on that.
-        Make an API call to fill quote from the database.
-    */
 
     return (
         <div className="quote_root">
+            {/* {console.log(props.user)} */}
             {editMenu};
             <div className="background-img parallax" data-rellax-speed="-3"></div>
             <div id="quote_1" className="quote">
                 <ion-icon name="quote"></ion-icon>
                 <p>
-                    Tuboc Woodworks is the bee's knees. 
+                    Tuboc Woodworks is the bee's knees.
                     They did such an amazing job!
                     <span>- "Matthew"</span>
                 </p>
