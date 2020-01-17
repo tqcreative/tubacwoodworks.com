@@ -1,15 +1,11 @@
 import React from "react";
-// import "./style.css";
+import "./imageCard.css";
 
 const ImageCard = ({arrayOfImages}) => {
   return (
     <div className="imagecard">
       <div className="img-container">
-        
-
-        <div className="image_div" style={{backgroundImage: `url(/cms/images/${arrayOfImages}`}}></div>
-          
-        
+        <div className="item" style={{backgroundImage: `url(/cms/images/${arrayOfImages}`}}></div>
       </div>
     </div>
   );
