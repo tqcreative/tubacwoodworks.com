@@ -95,7 +95,7 @@ app.use(routes);
 
 
 
-
+let floatingFileName = "error";
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -103,21 +103,13 @@ app.use(routes);
 
 // Set The Storage Engine
 const storage = multer.diskStorage({
-	destination: './test',
+	destination: './images',
 	filename: function (req, file, cb) {
 		// cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
 		cb(null, file.fieldname + path.extname(file.originalname));
 	}
 });
 
-// Init Upload
-const upload = multer({
-	storage: storage,
-	limits: { fileSize: 1000000 },
-	fileFilter: function (req, file, cb) {
-		checkFileType(file, cb);
-	}
-}).single('file');
 
 // Check File Type
 function checkFileType(file, cb) {
@@ -135,9 +127,21 @@ function checkFileType(file, cb) {
 	}
 }
 
+app.post('/cms/GD8PQX3UV18999AARONWITHANEY/filename', (req, res) => {
+		floatingFileName = req.body.body.toLowerCase().split(".")[0];
+		res.send('name collected');
+});
 
-app.post('/upload', (req, res) => {
-	console.log(req.body);
+app.post('/cms/GD8PQX3UV18999AARONWITHANEY/upload', (req, res) => {
+
+	let upload = multer({
+		storage: storage,
+		limits: { fileSize: 1000000 },
+		fileFilter: function (req, file, cb) {
+			checkFileType(file, cb);
+		}
+	}).single(floatingFileName);
+
 	upload(req, res, (err) => {
 		if (err) {
 			res.send({
@@ -157,6 +161,7 @@ app.post('/upload', (req, res) => {
 		}
 	});
 });
+
 
 //////////////////////////////////////////////////////////////////////////////
 

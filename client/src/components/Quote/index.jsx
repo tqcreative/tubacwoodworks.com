@@ -23,16 +23,25 @@ class Quote extends Component {
 
     submitPhotoForUpload(event) {
 
+        let thisFilesName = this.state.selectedFile.name.toLowerCase().split(".")[0];
         const data = new FormData()
-        data.append('file', this.state.selectedFile)
-        axios.post("/upload", data, { 
-           // receive two    parameter endpoint url ,form data
-       })
-     
-     .then(res => { // then print response status
-         console.log(res.statusText)
-         console.log(res.data)
-      })
+        data.append( thisFilesName, this.state.selectedFile)
+
+        axios.post('/cms/GD8PQX3UV18999AARONWITHANEY/filename', {
+            body: this.state.selectedFile.name
+        })
+        .then(returnedData => {
+            console.log(returnedData);
+            axios.post("/cms/GD8PQX3UV18999AARONWITHANEY/upload", data, { 
+                // receive two    parameter endpoint url ,form data
+            })
+          
+          .then(res => { // then print response status
+              console.log(res.statusText)
+              console.log(res.data)
+           })
+
+        })
 
     };
 
