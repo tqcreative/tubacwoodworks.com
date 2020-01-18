@@ -51,7 +51,7 @@ window.addEventListener('scroll', function(event) {
 
     let yOffset = window.pageYOffset;
     let speed = 2;
-    document.getElementsByClassName("parallax")[0].style.backgroundPosition = "center "+ ((yOffset)/speed) +"px";
+    if(document.getElementsByClassName("parallax")){document.getElementsByClassName("parallax")[0].style.backgroundPosition = "center "+ ((yOffset)/speed) +"px";}
 
     // 1: is this element on the screen?
     if (document.getElementById("quote_1")) {

@@ -15,7 +15,7 @@ export default class Gallery extends Component {
 		super(props)
 		this.state = {
 			user: props.user,
-			styleProp: 'block'
+			styleProp: 'absolute'
 		}
 	}
 
@@ -26,10 +26,9 @@ export default class Gallery extends Component {
 	render() {
 		if (this.props.user) {
 			return (
-				<div className="gallery_root">
+				<div className="gallery_page_root">
 					<NavBar styleProp={this.state.styleProp} />
-					<Header user={this.state.user} />
-					
+					<HeroSmart backgroundImage="gallery_hero.jpg" title="Gallery" subTitle="come see our work"/>	
 					<StateGallery/>
 					<Signup />
 					<Footer />
@@ -37,14 +36,9 @@ export default class Gallery extends Component {
 			)
 		} else {
 			return (
-				<div className="gallery_root">
+				<div className="gallery_page_root">
 					<NavBar styleProp={this.state.styleProp}/>
-					<Header user={this.state.user} />
-					
-					{/* <p>Current User:</p>
-					<code>
-						{JSON.stringify(this.props)}
-					</code> */}
+					<HeroSmart backgroundImage="gallery_hero.jpg" title="Gallery" subTitle="come see our work"/>	
 					<UploadBtn/>
 					<StateGallery/>
 					<Signup />
