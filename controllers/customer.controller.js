@@ -160,10 +160,16 @@ router.route("/id/:id")
     ;
 
 
+// Add a note for a customer
 router.route("/id/:id/note")
     .post(authenticateUser, (req, res) => {
         console.log(req.body);
         const note = req.body;
+        const id = req.params.id;
+
+        note["customer"] = id;
+
+        console.log(note);
 
         db.Note.create(note)
             .then(noteRes => {
@@ -182,6 +188,7 @@ router.route("/id/:id/note")
             })
     })
     ;
+
 
 // Add (post) an appointment for customer
 router.route("/id/:id/appointment")

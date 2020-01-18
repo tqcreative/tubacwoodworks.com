@@ -81,6 +81,7 @@ class NoteWrapper extends Component {
         axios.post(`/api/customers/id/${this.state.id}/note`, {
             content: this.state.newNoteText,
             createdBy: this.state.userid,
+            updatedBy: this.state.userid
         })
             .then(res => {
                 window.location.href = `/crm/notes/${this.state.id}`
