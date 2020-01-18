@@ -21,8 +21,7 @@ class EmployeeWrapper extends Component{
         })
     }
 
-    handleAddUser(event){
-        event.preventDefault();
+    handleAddUser(){
         this.setState({ showAddUser: !this.state.showAddUser});
     }
     
@@ -37,7 +36,7 @@ class EmployeeWrapper extends Component{
                     <button hidden={this.props.user.role != "admin"} className="btn btn-dark my-2 mr-2" onClick={this.handleAddUser}
                     >Add User</button>
                 </div>
-                {this.props.loggedIn && this.state.showAddUser ? <AddUser user={this.props.user} /> : null}
+                {this.props.loggedIn && this.state.showAddUser ? <AddUser user={this.props.user} handleAddUser={this.handleAddUser}/> : null}
             </div>
         )    
     }
