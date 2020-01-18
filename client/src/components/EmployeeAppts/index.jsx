@@ -6,7 +6,7 @@ function EmployeeAppts(props) {
         <div>
             <div className="row">
                 <div className="col m-2">
-                    <h3>Your Scheduled Appts</h3>
+                    <h1>Your Scheduled Appts</h1>
                 </div>
             </div>
             <div className="row">
