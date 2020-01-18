@@ -23,9 +23,8 @@ function AddUser(props) {
 
     return (
         <div className="container">
-            <h3>You are logged on as {props.user.local.username} with a role type of {props.user.role}</h3>
-            <hr/>
-            <h1>Add New User</h1>
+            <hr />
+            <h3>Add New User</h3>
             <hr/>
             <Form>
                 <Form.Row>
