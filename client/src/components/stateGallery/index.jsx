@@ -33,7 +33,7 @@ class StateGallery extends Component {
             <ImageWrapper>
                 <div className="stateGallery_root">
                 <div className="image-div">
-                    {this.state.arrayOfImages.slice(0,10).map(img => {
+                    {this.state.arrayOfImages.map(img => {
                         return (
                           
                     <ImageCard className="item" arrayOfImages={img}/>)})}
