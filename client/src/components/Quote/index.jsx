@@ -1,53 +1,76 @@
 import React, { Component } from 'react'
 import './quote.css';
+import axios from 'axios';
 
+class Quote extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedFile: null
+        }
 
-const Quote = props => {
-    let editMenu;
+        this.uploadFileHandler = this.uploadFileHandler.bind(this);
+        this.submitPhotoForUpload = this.submitPhotoForUpload.bind(this);
+    };
 
-    function handleEdit(event) {
-        // from here you can call the multer route and replace the image.
-        // or if we want to get real fancy, lets call the toast and pass it some html to edit the image, quote, and who said it.
-        // <download button>
-        // <input field>
-        // <input field>
+    uploadFileHandler(event) {
+        this.setState({
+            selectedFile: event.target.files[0],
+            loaded: 0,
+            editMenu: ""
+        })
+    };
+
+    submitPhotoForUpload(event) {
+
+        let thisFilesName = this.state.selectedFile.name.toLowerCase().split(".")[0];
+        const data = new FormData()
+        data.append( thisFilesName, this.state.selectedFile)
+
+        axios.post('/cms/GD8PQX3UV18999AARONWITHANEY/filename', {
+            body: this.state.selectedFile.name
+        })
+        .then(returnedData => {
+            console.log(returnedData);
+            axios.post("/cms/GD8PQX3UV18999AARONWITHANEY/upload", data, { 
+                // receive two    parameter endpoint url ,form data
+            })
+          
+          .then(res => { // then print response status
+              console.log(res.statusText)
+              console.log(res.data)
+           })
+
+        })
+
     };
 
     //////////////////////////
     // !!!  SWAP THE TWO ELEMENTS do NOT DEPLOY
     /////////////////////////
 
-    if (props.user === null) {
-        console.log("you're not signe in.")
-		editMenu = <div className="cms_gear" onClick={handleEdit}><ion-icon name="ios-cog"></ion-icon></div>
-	} else if (props.user.local.username) {
-        console.log("you're signed in.")
-		editMenu = (
-			<div className="cms_gear" onClick={handleEdit}>
-                <ion-icon name="ios-cog"></ion-icon>
-            </div>
-		)
-    };
-    
-    /*
-        Next Step: Set so that the quote component can see how many quotes are being used on the page and fill its information based on that.
-        Make an API call to fill quote from the database.
-    */
 
-    return (
-        <div className="quote_root">
-            {editMenu};
-            <div className="background-img parallax" data-rellax-speed="-3"></div>
-            <div id="quote_1" className="quote">
-                <ion-icon name="quote"></ion-icon>
-                <p>
-                    Tuboc Woodworks is the bee's knees. 
-                    They did such an amazing job!
-                    <span>- "Matthew"</span>
-                </p>
+    render() {
+        return (
+            <div className="quote_root">
+                <div className="cms_gear">
+
+                    <input type="file" name="file" onChange={this.uploadFileHandler} />
+                    <button type="button" className="button" onClick={this.submitPhotoForUpload}>Upload</button>
+
+                </div>
+                <div className="background-img parallax" data-rellax-speed="-3"></div>
+                <div id="quote_1" className="quote">
+                    <ion-icon name="quote"></ion-icon>
+                    <p>
+                        Tuboc Woodworks is the bee's knees.
+                        They did such an amazing job!
+                            <span>- "Matthew"</span>
+                    </p>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default Quote;

@@ -22,6 +22,7 @@ export default class LoginForm extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault()
+		//console.log('handleSubmit')
 		this.props._login(this.state.username, this.state.password)
 		this.setState({
 			redirectTo: '/crm'
@@ -34,7 +35,6 @@ export default class LoginForm extends Component {
 		} else {
 			return (
 				<div className="LoginForm">
-					<h1>Login form</h1>
 					<form>
 						<label htmlFor="username">Username: </label>
 						<input
