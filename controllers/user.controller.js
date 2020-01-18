@@ -1,6 +1,7 @@
 const db = require("../models");
 const router = require("express").Router();
-const authenticateUser = require("../utils/passport/authenticateUser").authenticateUser;
+const authenticateUser = require("../utils/passport/authenticateUser").authenticateUser;  //checks the incoming request to make sure the user object is valid
+const passport = require('../utils/passport');
 
 // /api/users routes to interact with users (employees)
 
@@ -68,7 +69,7 @@ router.route('/:id/password')
                     yourUserId: req.user.local.username,
                     theirUserId: id
             })
-
+            
             db.User.findByIdAndUpdate(id,{$set:{"local.password":newPassword}}).then(updateRes=>{
                 updateRes.save();  //save it to trigger the password hashing
                 res.json({message:"Password successfully changed", user: req.user.local.username});
