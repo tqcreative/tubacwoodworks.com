@@ -46,12 +46,20 @@ export default class UploadBtn extends Component {
 
                     // This returns the result
                     .then(res => { // then print response status
-                        console.log(res.statusText)
-                        console.log(res.data)
-                        console.log("File uploaded")
+                        console.log(res.statusText);
+                        console.log(res.data);
+                        console.log("File uploaded");
+
+                        axios.post(`/cms/uploadfile/hash43b4h234bhj/${thisFilesName}.jpg`, {
+
+                        })
+                        .then(returnFromCall => {
+                            console.log(returnFromCall);
+                        })
 
                         // Update the images array in the mongo database
                     })
+
 
             })
 

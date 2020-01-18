@@ -4,10 +4,10 @@ import './gallery.css';
 import { NavBar } from '../../components/Navbar';
 import gsap from "gsap";
 import HeroSmart from '../../components/HeroSmart';
-import Slider from '../../components/Slider';
 import Footer from '../../components/Footer';
 import Signup from '../../components/Signup';
 import StateGallery from '../../components/stateGallery';
+import UploadBtn from '../../sub_component/UploadButton';
 
 
 export default class Gallery extends Component {
@@ -15,7 +15,7 @@ export default class Gallery extends Component {
 		super(props)
 		this.state = {
 			user: props.user,
-			styleProp: 'absolute'
+			styleProp: 'block'
 		}
 	}
 
@@ -45,7 +45,7 @@ export default class Gallery extends Component {
 					<code>
 						{JSON.stringify(this.props)}
 					</code> */}
-					<Slider/>
+					<UploadBtn/>
 					<StateGallery/>
 					<Signup />
 					<Footer />
