@@ -21,7 +21,6 @@ export default class Pro_Tips extends Component {
 		if (this.props.user) {
 			return (
 				<div className="pro_tips_root">
-					
 					<UploadBtn/>
 				</div>
 			)

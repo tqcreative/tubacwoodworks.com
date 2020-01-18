@@ -48,6 +48,9 @@ export default class UploadBtn extends Component {
                     .then(res => { // then print response status
                         console.log(res.statusText)
                         console.log(res.data)
+                        console.log("File uploaded")
+
+                        // Update the images array in the mongo database
                     })
 
             })
