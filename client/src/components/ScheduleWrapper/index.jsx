@@ -7,6 +7,7 @@ import './style.css';
 import moment from 'moment';
 import axios from 'axios';
 import { Dropdown } from 'react-bootstrap';
+import ScheduledAppts from '../ScheduledAppts';
 
 class ScheduleWrapper extends Component {
     constructor(props) {
@@ -106,6 +107,7 @@ class ScheduleWrapper extends Component {
         axios.post(`/api/customers/id/${this.state.id}/appointment`,{
             date: date,
             assignedTo: assignedTo,
+            customer: this.state.id,
             createdBy: this.state.userid,
             updatedBy: this.state.userid,
             detail: this.state.detail
@@ -224,32 +226,7 @@ class ScheduleWrapper extends Component {
                 <div className="row mt-5">
                     <div className="col">
                         <h3 className="text-center">{headerText}</h3>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col m-2">
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Assigned To</th>
-                                    <th>Details</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {this.state.appointments.map(appointment => {
-                                    return (
-                                        <tr key={appointment._id}>
-                                            <td>{moment(appointment.date).format('MM/DD/YYYY')}</td>
-                                            <td>{moment(appointment.date).format('h:mm a')}</td>
-                                            <td>{appointment.assignedTo.local.username}</td>
-                                            <td>{appointment.detail}</td>
-                                        </tr>
-                                    )
-                                })}
-                            </tbody>
-                        </table>
+                        <ScheduledAppts appointments={this.state.appointments} />
                     </div>
                 </div>
             </div>

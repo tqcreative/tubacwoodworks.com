@@ -9,15 +9,26 @@ const noteSchema = new Schema({
     required: "Must have some notes saved",
     minlength: [1, 'Note must be at least 1 character.']
   },
+  customer: {
+    type: Schema.Types.ObjectId,
+    ref: "Customer", 
+    required: true
+  },
   createdBy: {
     type: Schema.Types.ObjectId,
-    ref: "User"
+    ref: "User",
+    required: true
   },
   createdAt: {
     type: Date,
     default: Date.now
   },
-  updateAt: {
+  updatedBy: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true
+  },
+  updatedAt: {
     type: Date,
     default: Date.now
   }
