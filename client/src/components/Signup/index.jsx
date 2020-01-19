@@ -35,7 +35,7 @@ class Signup extends Component {
                 //Clear out the input fields
                 this.setState({
                     firstName: "",
-                    middleName: "",
+                    // middleName: "",
                     lastName: "",
                     email: "",
                     phoneNumber: ""
@@ -43,7 +43,6 @@ class Signup extends Component {
                 this.props.submitResult(["Thank you for signing up.  You will receive a confirmation email shortly."]);
             })
             .catch(err => {
-                console.log(err.response.data);
                 let obj = err.response.data.errors;
                 let errors = ["Sorry, your request could not be completed due to the following issues:"];
                 if(obj){
