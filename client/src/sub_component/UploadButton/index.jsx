@@ -24,7 +24,6 @@ export default class UploadBtn extends Component {
 
     // This will send the file to the server
     submitPhotoForUpload(event) {
-
         // This assigns the file to a class object named FormData which is required to send the file
         // !!! WARNING !!! // 
         // You cannot console log form data on server or on client, because it is a class object 
@@ -50,6 +49,7 @@ export default class UploadBtn extends Component {
                         console.log(res.data);
                         console.log("File uploaded");
 
+                        // this should be on the back end. If the file does not upload then it should not add this to the image array.
                         axios.post(`/cms/uploadfile/hash43b4h234bhj/${thisFilesName}.jpg`, {
 
                         })

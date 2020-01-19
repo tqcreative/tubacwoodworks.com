@@ -12,6 +12,7 @@ function HeroSmart(props) {
     console.log(props);
 
     return (
+        
         <div className="herosmart_root">
             <div className="parallax" data-rellax-speed="-10" style={{backgroundImage: `url(/cms/images/${props.backgroundImage})`}}></div>
             <div>

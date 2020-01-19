@@ -5,19 +5,37 @@ import { NavBar } from '../../components/Navbar';
 import HeroSmart from "../../components/HeroSmart";
 import Footer from '../../components/Footer';
 import Signup from '../../components/Signup';
+import Toast from '../../components/Toast';
 
 export default class Kitchen_Bath_Vanity extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			user: props.user,
-			navPos: "absolute"
+			navPos: "absolute",
+			toastMsg: [],
+			toastShow: false
 		}
+
+		// bind signup and toast
+		this.handleSignupResult = this.handleSignupResult.bind(this);
+		this.toggleToast = this.toggleToast.bind(this);
+
 	}
 
 	componentDidMount() {
 		console.log("Kitchen_Bath_Vanity Component Mounted")
 	}
+
+	handleSignupResult(msg) {
+		console.log(msg);
+		this.setState({ toastMsg: msg, toastShow: true })
+	}
+
+	toggleToast() {
+		this.setState({ toastShow: !this.state.toastShow });
+	}
+
 
 	render() {
 		if (this.props.user) {
@@ -25,9 +43,14 @@ export default class Kitchen_Bath_Vanity extends Component {
 				<div className="kitchen_root">
 					<NavBar styleProp={this.state.navPos} />
 					<Header user={this.state.user} />
-					<HeroSmart backgroundImage="check_1.jpg" title="Kitchen Bath &amp; Vanity" subTitle="Love your home."/>
-					<Signup />
+					<HeroSmart backgroundImage="check_1.jpg" title="Kitchen Bath &amp; Vanity" subTitle="Love your home." />
+					<Signup  submitResult={this.handleSignupResult}/>
 					<Footer />
+					<Toast show={this.state.toastShow} onClose={this.toggleToast} >
+						{this.state.toastMsg.map(element => {
+							return <p>{element}</p>
+						})}
+					</Toast>
 				</div>
 			)
 		} else {
@@ -35,9 +58,14 @@ export default class Kitchen_Bath_Vanity extends Component {
 				<div className="kitchen_root">
 					<NavBar styleProp={this.state.navPos} />
 					<Header user={this.state.user} />
-					<HeroSmart backgroundImage="check_1.jpg" title="Kitchen Bath &amp; Vanity" subTitle="Love your home."/>
-					<Signup />
+					<HeroSmart backgroundImage="check_1.jpg" title="Kitchen Bath &amp; Vanity" subTitle="Love your home." />
+					<Signup  submitResult={this.handleSignupResult}/>
 					<Footer />
+					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
+						{this.state.toastMsg.map(element => {
+							return <p>{element}</p>
+						})}
+					</Toast>
 				</div>
 			)
 		}
