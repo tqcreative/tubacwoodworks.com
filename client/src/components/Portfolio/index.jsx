@@ -56,7 +56,7 @@ class Portfolio extends Component {
         })
         .then(response => {
             
-            console.log(response);
+            //console.log(response);
 
             if (response.data[0].title){
                 this.setState({
@@ -65,7 +65,7 @@ class Portfolio extends Component {
             }
         })
         .catch(error => {
-            console.error(error);
+            //console.error(error);
         });
     }
 

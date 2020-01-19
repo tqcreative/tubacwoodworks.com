@@ -12,7 +12,7 @@ class StateGallery extends Component {
         }
     };
 
-    componentWillMount() {
+    componentDidMount() {
         console.log("Component has mounted");
         axios
             .get("/cms/kitchenbathvanity")
@@ -32,14 +32,14 @@ class StateGallery extends Component {
         return (
             <ImageWrapper>
                 <div className="stateGallery_root">
-                <div className="image-div">
-                    {this.state.arrayOfImages.map(img => {
-                        return (
-                          
-                    <ImageCard className="item" arrayOfImages={img}/>)})}
+                    <div className="image-div">
+                        {this.state.arrayOfImages.map(img => {
+                            return (
+                                <ImageCard key={img + Math.floor(Math.random()*8000)+1} className="item" arrayOfImages={img} />)
+                        })}
+                    </div>
                 </div>
-                </div>
-               
+
             </ImageWrapper>
 
         )

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Header } from '../../components';
-import Signup from "../../components/Signup";
+// import Signup from "../../components/Signup";
 import "./home.css";
 import Hero from "../../components/Hero";
 import Numbers from "../../components/Numbers";
@@ -73,7 +73,7 @@ export default class Home extends Component {
 					<Numbers user={this.state.user}/>
 					<Quote user={this.state.user} />
 					<Portfolio user={this.state.user} />
-					<QuoteTwo user={this.state.user} />
+					<QuoteTwo login={"Peter"} __id={"landing_page_quote"} />
 					<Gallery user={this.state.user} />
 					<Checkbox user={this.state.user} />
 					<Partners user={this.state.user} />
@@ -91,14 +91,14 @@ export default class Home extends Component {
 				<div className="Home home_root">
 					<NavBar styleProp={this.state.navPos} />
 					<Header user={this.state.user} />
-					<Hero />
-					<Numbers />
-					<Quote user={this.state.user} />
-					<Portfolio />
-					<QuoteTwo />
-					<Gallery />
-					<Checkbox />
-					<Partners />
+					<Hero user={this.state.user} />
+					<Numbers user={this.state.user}/>
+					<Quote user={this.state.user} __id={"landing_page_quote"} />
+					<Portfolio user={this.state.user}/>
+					<QuoteTwo login={false} __id={"landing_page_quote"} />
+					<Gallery user={this.state.user}/>
+					<Checkbox user={this.state.user}/>
+					<Partners user={this.state.user}/>
 
 					{/* login information hard coded into non-signed in user. */}
 					<div className="LoginForm">
@@ -123,7 +123,7 @@ export default class Home extends Component {
 
 					{/* be sure to make a component out of this */}
 
-					<Footer />
+					<Footer user={this.state.user}/>
 					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
 						{this.state.toastMsg.map(element => {
 							return <p>{element}</p>
