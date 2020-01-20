@@ -93,10 +93,7 @@ app.use(routes);
 
 
 
-
-
 let floatingFileName = "error";
-
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -106,8 +103,11 @@ app.post('/cms/GD8PQX3UV18999AARONWITHANEY/filename', (req, res) => {
 });
 
 app.post('/cms/GD8PQX3UV18999AARONWITHANEY/upload', (req, res) => {
-
 		
+	console.log('heroku test: ')
+	console.log(floatingFileName);
+
+	
 	// Set The Storage Engine
 	const storage = multer.diskStorage({
 		destination: './images',
