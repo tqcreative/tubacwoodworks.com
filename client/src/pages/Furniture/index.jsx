@@ -5,6 +5,7 @@ import gsap from "gsap";
 import HeroSmart from '../../components/HeroSmart';
 import Footer from '../../components/Footer';
 import Signup from '../../components/Signup';
+import LayoutBasic from '../../components/LayoutBasic';
 
 export default class Furniture extends Component {
 	constructor(props) {
@@ -26,7 +27,8 @@ export default class Furniture extends Component {
 			return (
 				<div className="furnitrue_root">
 					<HeroSmart login={"Peter"} backgroundName={"furniture_hero"} title="Furniture" subTitle="Wall Beds, Desks, Mantels, and more"/>
-					<NavBar styleProp={this.state.navPos} />					
+					<NavBar styleProp={this.state.navPos} />	
+					<LayoutBasic />				
 					<Signup />
 					<Footer />
 				</div>
@@ -36,6 +38,7 @@ export default class Furniture extends Component {
 				<div className="furnitrue_root">
 					<HeroSmart login={false} backgroundName={"furniture_hero"} title="Furniture" subTitle="Wall Beds, Desks, Mantels, and more"/>	
 					<NavBar styleProp={this.state.navPos} />
+					<LayoutBasic />
 					<Signup />
 					<Footer />
 				</div>

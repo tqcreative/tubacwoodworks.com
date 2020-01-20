@@ -125,7 +125,7 @@ export default class Home extends Component {
 
 					{/* be sure to make a component out of this */}
 
-					<Footer user={this.state.user}/>
+					<Footer />
 					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
 						{this.state.toastMsg.map(element => {
 							return <p>{element}</p>

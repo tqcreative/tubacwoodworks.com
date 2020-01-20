@@ -4,6 +4,7 @@ import { NavBar } from '../../components/Navbar';
 import HeroSmart from '../../components/HeroSmart';
 import Footer from '../../components/Footer';
 import Signup from '../../components/Signup';
+import LayoutBasic from '../../components/LayoutBasic';
 
 export default class Pro_Tips extends Component {
 	constructor(props) {
@@ -24,6 +25,7 @@ export default class Pro_Tips extends Component {
 				<div className="pro_tips_root">
 					<HeroSmart login={"Peter"} backgroundName="pro_tips_hero" title="Pro Tips" subTitle="How to keep that like-new look"/>	
 					<NavBar styleProp={this.state.navPos} />
+					<LayoutBasic />
 					<Signup />
 					<Footer />
 				</div>
@@ -33,6 +35,7 @@ export default class Pro_Tips extends Component {
 				<div className="pro_tips_root">
 					<HeroSmart login={false} backgroundName="pro_tips_hero" title="Pro Tips" subTitle="How to keep that like-new look"/>	
 					<NavBar styleProp={this.state.navPos} />
+					<LayoutBasic />
 					<Signup />
 					<Footer />
 				</div>

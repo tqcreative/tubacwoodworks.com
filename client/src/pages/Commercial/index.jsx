@@ -5,6 +5,7 @@ import { NavBar } from '../../components/Navbar';
 import HeroSmart from '../../components/HeroSmart';
 import Footer from '../../components/Footer';
 import Signup from '../../components/Signup';
+import LayoutBasic from '../../components/LayoutBasic';
 
 export default class Commercial extends Component {
 	constructor(props) {
@@ -25,6 +26,7 @@ export default class Commercial extends Component {
 				<div className="commercial_root">
 					<HeroSmart login={"Peter"} backgroundName={"commercial_hero"} title="Commercial" subTitle="From on local business to another"/>
 					<NavBar styleProp={this.state.navPos} />
+					<LayoutBasic />
 					<Signup />
 					<Footer />
 				</div>
@@ -34,6 +36,7 @@ export default class Commercial extends Component {
 				<div className="commercial_root">
 					<HeroSmart login={false} backgroundName={"commercial_hero"} title="Commercial" subTitle="From on local business to another"/>
 					<NavBar styleProp={this.state.navPos} />
+					<LayoutBasic />
 					<Signup />
 					<Footer />
 				</div>
