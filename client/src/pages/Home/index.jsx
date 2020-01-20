@@ -15,6 +15,7 @@ import { NavBar } from '../../components/Navbar';
 import Partners from '../../components/Partners';
 import gsap from "gsap";
 import Phone from '../../sub_component/PhoneSlider';
+import Signup from '../../components/Signup';
 
 export default class Home extends Component {
 	constructor(props) {
@@ -78,6 +79,7 @@ export default class Home extends Component {
 					<Gallery user={this.state.user} />
 					<Checkbox login={"Peter"} __id={"checkbox_image_home"} />
 					<Partners login={"Peter"} />
+					<Signup user={this.state.user}/>
 					{/* This is where sign out would come into play. */}
 					<Footer user={this.state.user}/>
 					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
@@ -124,7 +126,7 @@ export default class Home extends Component {
 					</div>
 
 					{/* be sure to make a component out of this */}
-
+					<Signup user={this.state.user}/>
 					<Footer />
 					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
 						{this.state.toastMsg.map(element => {
