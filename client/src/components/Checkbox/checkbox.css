@@ -42,9 +42,10 @@
         color: #fff;
         text-transform: uppercase;
         display: inline-block;
-        text-shadow: 3px 3px 10px #4a5559; }
+        text-shadow: 3px 3px 10px #4a5559;
+        font-weight: 800; }
       .checkbox_root .checkbox_wrap div div {
         display: inline-block;
         width: 5em;
         height: 5em;
-        background-color: #4a5559; }
+        background-color: rgba(173, 109, 45, 0.7); }

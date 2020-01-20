@@ -28,6 +28,9 @@ export default class Gallery extends Component {
 				<div className="gallery_page_root">
 					<HeroSmart login={"Peter"} backgroundName={"gallery_hero"} title="Gallery" subTitle="come see our work"/>	
 					<NavBar styleProp={this.state.styleProp} />
+					<div style={{position: 'relative'}}>
+						<UploadBtn />
+					</div>
 					<StateGallery/>
 					<Signup />
 					<Footer />
@@ -38,7 +41,6 @@ export default class Gallery extends Component {
 				<div className="gallery_page_root">
 					<HeroSmart login={false} backgroundName={"gallery_hero"} title="Gallery" subTitle="come see our work"/>	
 					<NavBar styleProp={this.state.styleProp} />
-					<UploadBtn/>
 					<StateGallery/>
 					<Signup />
 					<Footer />

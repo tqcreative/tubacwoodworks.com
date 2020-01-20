@@ -39,7 +39,6 @@ class StateGallery extends Component {
                         })}
                     </div>
                 </div>
-
             </ImageWrapper>
 
         )

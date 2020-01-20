@@ -34,13 +34,14 @@
         text-transform: uppercase;
         display: inline-block;
         text-shadow: 3px 3px 10px $main4;
+        font-weight: 800;
       }
 
       div {
         display: inline-block;
         width: 5em;
         height: 5em;
-        background-color: $main4;
+        background-color: rgba($main, .7);
       }
     }
   }
