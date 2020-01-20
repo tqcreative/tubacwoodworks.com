@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './portfolio.css';
 import axios from 'axios';
+import UploadPhoto from '../../sub_component/UploadPhoto';
 
 // component variables
 let portfolioImagePath = "/cms/images/";
@@ -76,12 +77,42 @@ class Portfolio extends Component {
                 {/* see portfolio.js file for more info */}
                 {/* This is placeholder content while the app loads */}
                 <div className="deck">
-                    <div className="card" style={{backgroundImage: `url(${this.state.deck[0].imgUrl})`}}><p>{this.state.deck[0].title}</p></div>
-                    <div className="card" style={{backgroundImage: `url(${this.state.deck[1].imgUrl})`}}><p>{this.state.deck[1].title}</p></div>
-                    <div className="card" style={{backgroundImage: `url(${this.state.deck[2].imgUrl})`}}><p>{this.state.deck[2].title}</p></div>
-                    <div className="card" style={{backgroundImage: `url(${this.state.deck[3].imgUrl})`}}><p>{this.state.deck[3].title}</p></div>
-                    <div className="card" style={{backgroundImage: `url(${this.state.deck[4].imgUrl})`}}><p>{this.state.deck[4].title}</p></div>
-                    <div className="card" style={{backgroundImage: `url(${this.state.deck[5].imgUrl})`}}><p>{this.state.deck[5].title}</p></div>
+                    <div className="card" style={{backgroundImage: `url(${this.state.deck[0].imgUrl})`}}>
+                        {this.props.login === 'Peter' ?
+                        <UploadPhoto __parent_image_name={"portfolio_1"}/> :
+                        <noscript></noscript> }
+                        <p>{this.state.deck[0].title}</p>
+                    </div>
+                    <div className="card" style={{backgroundImage: `url(${this.state.deck[1].imgUrl})`}}>
+                    {this.props.login === 'Peter' ?
+                        <UploadPhoto __parent_image_name={"portfolio_2"}/> :
+                        <noscript></noscript> }
+                        <p>{this.state.deck[1].title}</p>
+                    </div>
+                    <div className="card" style={{backgroundImage: `url(${this.state.deck[2].imgUrl})`}}>
+                    {this.props.login === 'Peter' ?
+                        <UploadPhoto __parent_image_name={"portfolio_3"}/> :
+                        <noscript></noscript> }
+                        <p>{this.state.deck[2].title}</p>
+                    </div>
+                    <div className="card" style={{backgroundImage: `url(${this.state.deck[3].imgUrl})`}}>
+                    {this.props.login === 'Peter' ?
+                        <UploadPhoto __parent_image_name={"portfolio_4"}/> :
+                        <noscript></noscript> }
+                        <p>{this.state.deck[3].title}</p>
+                    </div>
+                    <div className="card" style={{backgroundImage: `url(${this.state.deck[4].imgUrl})`}}>
+                    {this.props.login === 'Peter' ?
+                        <UploadPhoto __parent_image_name={"portfolio_5"}/> :
+                        <noscript></noscript> }
+                        <p>{this.state.deck[4].title}</p>
+                    </div>
+                    <div className="card" style={{backgroundImage: `url(${this.state.deck[5].imgUrl})`}}>
+                    {this.props.login === 'Peter' ?
+                        <UploadPhoto __parent_image_name={"portfolio_6"}/> :
+                        <noscript></noscript> }
+                        <p>{this.state.deck[5].title}</p>
+                    </div>
                 </div>
             </div>
         </div>

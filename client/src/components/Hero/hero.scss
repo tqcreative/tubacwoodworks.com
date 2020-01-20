@@ -8,9 +8,13 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    z-index: -1;
 
-
+    span {
+        position: absolute;
+        bottom: 0;
+        width: 256px;
+        height: 128px;
+    }
 
     div {
         background-color: rgba($main, .8);
@@ -50,7 +54,6 @@
         max-height: 100%;
         left: 0;
         bottom: 0;
-        background-image: url(/cms/images/hero.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center 0px;

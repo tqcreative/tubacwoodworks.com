@@ -7,9 +7,11 @@ import axios from 'axios';
 //  !!! must have ID of parent to use this component !!! //
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
-// Requires props __parent_id                            //
+// Requires props __parent_id  &&  __parent_image_name   //
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
+//<UploadPhoto __parent_id={thisId} __parent_image_name={backgroundImageName}/>
+/////////////////////example/////////////////////////////////////
 
 // This needs to be a smart component so that it can store the file in state
 class UploadPhoto extends Component {
@@ -24,6 +26,11 @@ class UploadPhoto extends Component {
         this.uploadFileHandler = this.uploadFileHandler.bind(this);
         this.submitPhotoForUpload = this.submitPhotoForUpload.bind(this);
     };
+
+    ////////////////////////
+    // required props
+    // __parent_image_name
+    ////////////////////////
 
     /////////////////////////////////
     // to collect the image's name we 

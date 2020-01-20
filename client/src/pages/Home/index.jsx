@@ -67,16 +67,16 @@ export default class Home extends Component {
 		if (this.props.user) {
 			return (
 				<div className="Home home_root">
-					<NavBar styleProp={this.state.navPos} />
 					<Header user={this.state.user} />
-					<Hero user={this.state.user} />
+					<Hero login={"Peter"}/>
+					<NavBar styleProp={this.state.navPos} />
 					<Numbers user={this.state.user}/>
-					<Quote user={this.state.user} />
-					<Portfolio user={this.state.user} />
+					<Quote login={"Peter"} __id={"homepage_first_quote"} />
+					<Portfolio login={"Peter"} />
 					<QuoteTwo login={"Peter"} __id={"landing_page_quote"} />
 					<Gallery user={this.state.user} />
-					<Checkbox user={this.state.user} />
-					<Partners user={this.state.user} />
+					<Checkbox login={"Peter"} __id={"checkbox_image_home"} />
+					<Partners login={"Peter"} />
 					{/* This is where sign out would come into play. */}
 					<Footer user={this.state.user}/>
 					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
@@ -89,16 +89,16 @@ export default class Home extends Component {
 		} else {
 			return (
 				<div className="Home home_root">
-					<NavBar styleProp={this.state.navPos} />
 					<Header user={this.state.user} />
-					<Hero user={this.state.user} />
+					<Hero login={false} />
+					<NavBar styleProp={this.state.navPos} />
 					<Numbers user={this.state.user}/>
-					<Quote user={this.state.user} __id={"landing_page_quote"} />
-					<Portfolio user={this.state.user}/>
+					<Quote login={false} __id={"homepage_first_quote"} />
+					<Portfolio login={false} />
 					<QuoteTwo login={false} __id={"landing_page_quote"} />
 					<Gallery user={this.state.user}/>
-					<Checkbox user={this.state.user}/>
-					<Partners user={this.state.user}/>
+					<Checkbox login={false} __id={"checkbox_image_home"} />
+					<Partners login={false}/>
 
 					{/* login information hard coded into non-signed in user. */}
 					<div className="LoginForm">
