@@ -11,8 +11,12 @@
   justify-content: flex-end;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center;
-  z-index: -1; }
+  align-items: center; }
+  .hero_root span {
+    position: absolute;
+    bottom: 0;
+    width: 256px;
+    height: 128px; }
   .hero_root div {
     background-color: rgba(173, 109, 45, 0.8);
     color: #fff;
@@ -49,7 +53,6 @@
     max-height: 100%;
     left: 0;
     bottom: 0;
-    background-image: url(/cms/images/hero.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center 0px;

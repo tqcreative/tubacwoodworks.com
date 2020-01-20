@@ -27,41 +27,44 @@ export default class UploadBtn extends Component {
         // This assigns the file to a class object named FormData which is required to send the file
         // !!! WARNING !!! // 
         // You cannot console log form data on server or on client, because it is a class object 
-        let thisFilesName = this.state.selectedFile.name.toLowerCase().split(".")[0];
+        if (this.state.selectedFile === null || this.state.selectedFile === undefined) {
+            // dont do anything. the state is null or undefined. This can cause errors
+        } else {
+            // there is a file stored in state. Lets try and upload it.
+            let thisFilesName = this.state.selectedFile.name.toLowerCase().split(".")[0];
         const data = new FormData()
         data.append(thisFilesName, this.state.selectedFile)
-        
-        // This call is sending the name of the file before it sends the file
-        axios.post('/cms/GD8PQX3UV18999AARONWITHANEY/filename', {
-            body: this.state.selectedFile.name
-        })
-            .then(returnedData => {
-                console.log(returnedData);
 
+        // This call is sending the name of the file before it sends the file
+        if (thisFilesName != null) {
+            axios.post('/cms/GD8PQX3UV18999AARONWITHANEY/filename', {
+                body: this.state.selectedFile.name
+            })
+            .then(returnedData => {
+                //console.log(returnedData);
                 // This call sends the file 
                 axios.post("/cms/GD8PQX3UV18999AARONWITHANEY/upload", data, {
                     // receive two    parameter endpoint url ,form data
                 })
-
-                    // This returns the result
-                    .then(res => { // then print response status
-                        console.log(res.statusText);
-                        console.log(res.data);
-                        console.log("File uploaded");
-
-                        // this should be on the back end. If the file does not upload then it should not add this to the image array.
-                        axios.post(`/cms/uploadfile/hash43b4h234bhj/${thisFilesName}.jpg`, {
-
-                        })
-                        .then(returnFromCall => {
-                            console.log(returnFromCall);
-                        })
-
-                        // Update the images array in the mongo database
-                    })
-
-
+                // This returns the result
+                .then(res => { // then print response status
+                    // console.log(res.statusText);
+                    if (res.data.msg === "uploaded") {
+                        //if content uploaded successfully then add this to the image database.
+                        axios.post(`/cms/uploadfile/hash43b4h234bhj/${thisFilesName}.jpg`, {})
+                            .then(returnFromCall => {
+                                //console.log(returnFromCall);
+                                console.log('Uploaded');
+                                return;
+                            })
+                    } else {
+                        return;
+                    }
+                    // Update the images array in the mongo database
+                })
             })
+        } else { /* file name error */};
+        }
 
     };
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Header } from '../../components';
 import "./kitchen_bath_vanity.css";
 import { NavBar } from '../../components/Navbar';
 import HeroSmart from "../../components/HeroSmart";
@@ -41,9 +40,8 @@ export default class Kitchen_Bath_Vanity extends Component {
 		if (this.props.user) {
 			return (
 				<div className="kitchen_root">
+					<HeroSmart login={"Peter"} backgroundName={"kitchen_bath_vanity"} title="Kitchen Bath &amp; Vanity" subTitle="Love your home."/>
 					<NavBar styleProp={this.state.navPos} />
-					<Header user={this.state.user} />
-					<HeroSmart backgroundImage="check_1.jpg" title="Kitchen Bath &amp; Vanity" subTitle="Love your home." />
 					<Signup  submitResult={this.handleSignupResult}/>
 					<Footer />
 					<Toast show={this.state.toastShow} onClose={this.toggleToast} >
@@ -56,9 +54,8 @@ export default class Kitchen_Bath_Vanity extends Component {
 		} else {
 			return (
 				<div className="kitchen_root">
+					<HeroSmart login={false} backgroundName={"kitchen_bath_vanity"} title="Kitchen Bath &amp; Vanity" subTitle="Love your home."/>
 					<NavBar styleProp={this.state.navPos} />
-					<Header user={this.state.user} />
-					<HeroSmart backgroundImage="check_1.jpg" title="Kitchen Bath &amp; Vanity" subTitle="Love your home." />
 					<Signup  submitResult={this.handleSignupResult}/>
 					<Footer />
 					<Toast show={this.state.toastShow} onClose={this.toggleToast}>

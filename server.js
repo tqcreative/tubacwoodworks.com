@@ -110,11 +110,11 @@ const storage = multer.diskStorage({
 	}
 });
 
-
 // Check File Type
 function checkFileType(file, cb) {
 	// Allowed ext
-	const filetypes = /jpeg|jpg|png|gif/;
+	// const filetypes = /jpeg|jpg|png|gif/;  // this code is to restrict what kind of file types come to the server.
+	const filetypes = /jpeg|jpg/;
 	// Check ext
 	const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
 	// Check mime
@@ -136,7 +136,7 @@ app.post('/cms/GD8PQX3UV18999AARONWITHANEY/upload', (req, res) => {
 
 	let upload = multer({
 		storage: storage,
-		limits: { fileSize: 1000000 },
+		limits: { fileSize: 80000000 },
 		fileFilter: function (req, file, cb) {
 			checkFileType(file, cb);
 		}
@@ -154,7 +154,7 @@ app.post('/cms/GD8PQX3UV18999AARONWITHANEY/upload', (req, res) => {
 				});
 			} else {
 				res.send({
-					msg: 'File Uploaded!',
+					msg: 'uploaded',
 					file: `uploads/${req.file.filename}`
 				});
 			}
