@@ -1,11 +1,7 @@
-  .stateGallery_root {
-    display: -ms-grid;
-    display: inline-grid;
-    max-width: 1200px;
-    margin: 2em auto;
-     ;
-   }
-    
-  
-    
-  
+.stateGallery_root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1600px;
+  padding: 2em auto;
+  margin: 0 auto; }

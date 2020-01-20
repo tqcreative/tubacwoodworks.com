@@ -31,20 +31,100 @@
         }
 
         .top_wrap {
-            min-height: 5em;
+            min-height: 2em;
             padding: 1em;
             background-color: $main2;
         }
 
         .mid_wrap {
             min-height: 50%;
+            font-size: 1.3em;
+
+            a {
+                color: #fff;
+            }
+
+            div {
+                width: 100%;
+                display: flex;
+                flex-wrap: no-wrap;
+                justify-content: center;
+                align-items: flex-start;
+                padding: 1em 0;
+
+                div {
+                    width: 40vw;
+                    min-width: 256px;
+                    height: auto;
+                    padding: 0 1em 1em 1em;
+
+                    ul {
+
+                        li {
+                            padding: .25em;
+                        }
+                    }
+                }
+
+                .footer_section_1 {
+                    display: block;
+                }
+                .footer_section_2 {
+                    display: block;
+                }
+                .footer_section_3 {
+                    display: block;
+                    font-size: 2em;
+                    min-width: 200px;
+                    width: 20vw;
+
+                    ul {
+
+                        li{
+                            font-size: 1em;
+                            padding: 4px;
+                            display: inline-block;
+
+                            a {
+                                font-size: 1em;
+                                display: block;
+                                color: #fff;
+        
+                                &:visited,
+                                &:active {
+                                    color: #fff;
+                                }
+
+                                &:hover {
+                                    text-decoration: none;
+                                }
+                                
+                            }
+                        }
+                    }
+
+                    a {
+                        display: block;
+                        color: #fff;
+
+                        &:visited,
+                        &:active {
+                            color: #fff;
+                        }
+
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
         }
 
         .bottom_wrap {
             position: relative;
             text-align: center;
             color: $dark_highlight;
-            min-height: 25vh;
+            min-height: 5vh;
 
             .legal {
                 position: absolute;
