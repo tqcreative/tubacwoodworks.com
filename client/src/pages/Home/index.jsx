@@ -14,6 +14,7 @@ import Checkbox from '../../components/Checkbox';
 import { NavBar } from '../../components/Navbar';
 import Partners from '../../components/Partners';
 import gsap from "gsap";
+import Phone from '../../sub_component/PhoneSlider';
 
 export default class Home extends Component {
 	constructor(props) {
@@ -96,6 +97,7 @@ export default class Home extends Component {
 					<Quote login={false} __id={"homepage_first_quote"} />
 					<Portfolio login={false} />
 					<QuoteTwo login={false} __id={"landing_page_quote"} />
+					<Phone phoneNumber="5208405864" />
 					<Gallery user={this.state.user}/>
 					<Checkbox login={false} __id={"checkbox_image_home"} />
 					<Partners login={false}/>

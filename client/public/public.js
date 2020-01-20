@@ -109,6 +109,14 @@ window.addEventListener('scroll', function(event) {
 
       }
     };
+
+    if(document.getElementById('phone')) {
+      if(window.pageYOffset > 2000 && window.pageYOffset < 7000) {
+        gsap.to("#phone", {duration: 0, delay: .1, x:0});
+      } else if (window.pageYOffset < 1999 || window.pageYOffset > 7001) {
+        gsap.to("#phone", {duration: 0, delay: .1, x:-100});
+      }
+    }
     
 });
 
