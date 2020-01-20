@@ -23,9 +23,8 @@ export default class Commercial extends Component {
 		if (this.props.user) {
 			return (
 				<div className="commercial_root">
+					<HeroSmart login={"Peter"} backgroundName={"commercial_hero"} title="Commercial" subTitle="From on local business to another"/>
 					<NavBar styleProp={this.state.navPos} />
-					<Header user={this.state.user} />
-					<HeroSmart backgroundImage="commercial_hero.jpg" title="Commercial" subTitle="From one local business to another"/>
 					<Signup />
 					<Footer />
 				</div>
@@ -33,9 +32,8 @@ export default class Commercial extends Component {
 		} else {
 			return (
 				<div className="commercial_root">
+					<HeroSmart login={false} backgroundName={"commercial_hero"} title="Commercial" subTitle="From on local business to another"/>
 					<NavBar styleProp={this.state.navPos} />
-					<Header user={this.state.user} />
-					<HeroSmart backgroundImage="commercial_hero.jpg" title="Commercial" subTitle="From one local business to another"/>
 					<Signup />
 					<Footer />
 				</div>

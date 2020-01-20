@@ -22,8 +22,8 @@ export default class Pro_Tips extends Component {
 		if (this.props.user) {
 			return (
 				<div className="pro_tips_root">
-					<NavBar styleProp={this.state.navPos}/>
-					<HeroSmart backgroundImage="pro_tips_hero.jpg" title="Pro Tips" subTitle="How to keep that like-new look"/>	
+					<HeroSmart login={"Peter"} backgroundName="pro_tips_hero" title="Pro Tips" subTitle="How to keep that like-new look"/>	
+					<NavBar styleProp={this.state.navPos} />
 					<Signup />
 					<Footer />
 				</div>
@@ -31,8 +31,8 @@ export default class Pro_Tips extends Component {
 		} else {
 			return (
 				<div className="pro_tips_root">
-					<NavBar styleProp={this.state.navPos}/>
-					<HeroSmart backgroundImage="pro_tips_hero.jpg" title="Pro Tips" subTitle="How to keep that like-new look"/>	
+					<HeroSmart login={false} backgroundName="pro_tips_hero" title="Pro Tips" subTitle="How to keep that like-new look"/>	
+					<NavBar styleProp={this.state.navPos} />
 					<Signup />
 					<Footer />
 				</div>
