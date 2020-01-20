@@ -1,9 +1,55 @@
 @import "../../_scss/_vars";
 
 .nav_root {
+    color: #fff;
+    background-color: rgba($main, .8);
+    text-decoration: none;
+    list-style: none; 
+    display: flex;
+    justify-content: flex-start;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    font-weight: 700;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 1em;
+
+    li {
+        border-right: 1px solid $light;
+        padding: .25em .5em;
+
+        &:last-child {
+            border: none;
+        }
+
+        &:active {
+            color: #fff;
+            transform: translateY(5px);
+        }
+
+        ion-icon {
+            font-size: 2em;
+        }
+    }
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        padding: 4px;
+        margin: .25em;
+
+    }
+
+    #mobile_menu {
+        display: none;
+    }
+}
 
 @media (max-width: #{$screen-sm}) {
     .nav_root {
+        background-color: rgba($main, 0);
 
         li {
             display: none;
@@ -15,10 +61,12 @@
     }   
 }
 
-@media (min-width: #{$screen-md}) {
+@media (max-width: #{$screen-md}) {
     .nav_root {
+        background-color: rgba($main, 0);
 
         li {
+            font-size: .8em;
             display: none;
         }
 
@@ -29,50 +77,14 @@
 }
 
 @media (min-width: #{$screen-lg}) {
-    
-        color: #fff;
-        background-color: rgba($main, .8);
-        text-decoration: none;
-        list-style: none; 
-        display: flex;
-        justify-content: flex-start;
-        text-transform: uppercase;
-        font-size: 1.1em;
-        font-weight: 700;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        padding: 1em;
+    .nav_root {
 
         li {
-            border-right: 1px solid $light;
-            padding: .25em .5em;
-
-            &:last-child {
-                border: none;
-            }
-
-            &:active {
-                color: #fff;
-                transform: translateY(5px);
-            }
-
-            ion-icon {
-                font-size: 2em;
-            }
+            display: block;
         }
 
-        a {
-            color: #fff;
-            text-decoration: none;
-            padding: 4px;
-            margin: .25em;
-
-        }
-
-        #mobile_menu {
+        #mobile_menu{
             display: none;
         }
-    }
+    }   
 }
