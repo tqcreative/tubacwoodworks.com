@@ -100,39 +100,39 @@ let floatingFileName = "error";
 
 ///////////////////////////////////////////////////////////////////////////////
 
-
-// Set The Storage Engine
-const storage = multer.diskStorage({
-	destination: './images',
-	filename: function (req, file, cb) {
-		// cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-		cb(null, file.fieldname + path.extname(file.originalname));   
-	}
-});
-
-// Check File Type
-function checkFileType(file, cb) {
-	// Allowed ext
-	// const filetypes = /jpeg|jpg|png|gif/;  // this code is to restrict what kind of file types come to the server.
-	const filetypes = /jpeg|jpg/;
-	// Check ext
-	const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-	// Check mime
-	const mimetype = filetypes.test(file.mimetype);
-
-	if (mimetype && extname) {
-		return cb(null, true);
-	} else {
-		cb('Error: Images Only!');
-	}
-}
-
 app.post('/cms/GD8PQX3UV18999AARONWITHANEY/filename', (req, res) => {
 		floatingFileName = req.body.body.toLowerCase().split(".")[0];
 		res.send('name collected');
 });
 
 app.post('/cms/GD8PQX3UV18999AARONWITHANEY/upload', (req, res) => {
+
+		
+	// Set The Storage Engine
+	const storage = multer.diskStorage({
+		destination: './images',
+		filename: function (req, file, cb) {
+			// cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+			cb(null, file.fieldname + path.extname(file.originalname));   
+		}
+	});
+
+	// Check File Type
+	function checkFileType(file, cb) {
+		// Allowed ext
+		// const filetypes = /jpeg|jpg|png|gif/;  // this code is to restrict what kind of file types come to the server.
+		const filetypes = /jpeg|jpg/;
+		// Check ext
+		const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+		// Check mime
+		const mimetype = filetypes.test(file.mimetype);
+
+		if (mimetype && extname) {
+			return cb(null, true);
+		} else {
+			cb('Error: Images Only!');
+		}
+	}
 
 	let upload = multer({
 		storage: storage,
@@ -155,7 +155,7 @@ app.post('/cms/GD8PQX3UV18999AARONWITHANEY/upload', (req, res) => {
 			} else {
 				res.send({
 					msg: 'uploaded',
-					file: `uploads/${req.file.filename}`
+					file: `/cms/images/${req.file.filename}`
 				});
 			}
 		}
