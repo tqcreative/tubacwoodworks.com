@@ -10,6 +10,7 @@ import EmployeeWrapper from '../../components/EmployeeWrapper';
 
 function CRM(props) {
     const location = useLocation();
+    const user=props.user
     return (
         <Router>
             <div className="crm_root">
@@ -35,7 +36,7 @@ function CRM(props) {
                             </Route>
                             <Route exact path="/crm/customer/:id"
                                 render={(props) =>
-                                    <ContactWrapper id={props.match.params.id} />
+                                    <ContactWrapper id={props.match.params.id} user={user}/>
                                 } />
                             <Route exact path="/crm/notes">
                                 <NoteWrapper id={null} />

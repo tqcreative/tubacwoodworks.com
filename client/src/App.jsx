@@ -67,6 +67,17 @@ class App extends Component {
 						user: response.data.user
 					})
 				}
+				else{
+					this.setState({
+						loggedIn: false
+					})
+				}
+			})
+			.catch(err=>{
+				console.log(err)
+				this.setState({
+					loggedIn: false
+				})
 			})
 	}
 
@@ -88,7 +99,7 @@ class App extends Component {
 						render={() =>
 							<Home user={this.state.user} _login={this._login}/>} />
 					<PrivateRoute path="/crm" loggedIn={this.state.loggedIn} user={this.state.user}>
-						<CRM logout={this._logout}/>
+						<CRM logout={this._logout} user={this.state.user}/>
 					</PrivateRoute>
 					<Route
 						exact
