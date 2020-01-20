@@ -9,7 +9,8 @@
     text-align: center;
     color: #a6988d;
     text-transform: uppercase;
-    font-size: 3em; }
+    font-size: 3em;
+    font-weight: 800; }
   .gallery_root .gallery_container {
     display: -ms-grid;
     display: grid;

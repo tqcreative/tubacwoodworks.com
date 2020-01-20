@@ -36,16 +36,68 @@
         width: 100%;
         max-width: 1200px; }
     .footer_root .footer_wrap .top_wrap {
-      min-height: 5em;
+      min-height: 2em;
       padding: 1em;
       background-color: #a6988d; }
     .footer_root .footer_wrap .mid_wrap {
-      min-height: 50%; }
+      min-height: 50%;
+      font-size: 1.3em; }
+      .footer_root .footer_wrap .mid_wrap a {
+        color: #fff; }
+      .footer_root .footer_wrap .mid_wrap div {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: no-wrap;
+        flex-wrap: no-wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        padding: 1em 0; }
+        .footer_root .footer_wrap .mid_wrap div div {
+          width: 40vw;
+          min-width: 256px;
+          height: auto;
+          padding: 0 1em 1em 1em; }
+          .footer_root .footer_wrap .mid_wrap div div ul li {
+            padding: .25em; }
+        .footer_root .footer_wrap .mid_wrap div .footer_section_1 {
+          display: block; }
+        .footer_root .footer_wrap .mid_wrap div .footer_section_2 {
+          display: block; }
+        .footer_root .footer_wrap .mid_wrap div .footer_section_3 {
+          display: block;
+          font-size: 2em;
+          min-width: 200px;
+          width: 20vw; }
+          .footer_root .footer_wrap .mid_wrap div .footer_section_3 ul li {
+            font-size: 1em;
+            padding: 4px;
+            display: inline-block; }
+            .footer_root .footer_wrap .mid_wrap div .footer_section_3 ul li a {
+              font-size: 1em;
+              display: block;
+              color: #fff; }
+              .footer_root .footer_wrap .mid_wrap div .footer_section_3 ul li a:visited, .footer_root .footer_wrap .mid_wrap div .footer_section_3 ul li a:active {
+                color: #fff; }
+              .footer_root .footer_wrap .mid_wrap div .footer_section_3 ul li a:hover {
+                text-decoration: none; }
+          .footer_root .footer_wrap .mid_wrap div .footer_section_3 a {
+            display: block;
+            color: #fff; }
+            .footer_root .footer_wrap .mid_wrap div .footer_section_3 a:visited, .footer_root .footer_wrap .mid_wrap div .footer_section_3 a:active {
+              color: #fff; }
+            .footer_root .footer_wrap .mid_wrap div .footer_section_3 a:hover {
+              text-decoration: none; }
     .footer_root .footer_wrap .bottom_wrap {
       position: relative;
       text-align: center;
       color: #535c68;
-      min-height: 25vh; }
+      min-height: 5vh; }
       .footer_root .footer_wrap .bottom_wrap .legal {
         position: absolute;
         bottom: 0;
