@@ -7,6 +7,8 @@ import Footer from '../../components/Footer';
 import Signup from '../../components/Signup';
 import StateGallery from '../../components/stateGallery';
 import UploadBtn from '../../sub_component/UploadButton';
+import SimpleSlider from '../../components/SimpleSlider';
+import SmartSlider from '../../components/Slider';
 
 
 export default class Gallery extends Component {
@@ -41,6 +43,8 @@ export default class Gallery extends Component {
 				<div className="gallery_page_root">
 					<HeroSmart login={false} backgroundName={"gallery_hero"} title="Gallery" subTitle="come see our work"/>	
 					<NavBar styleProp={this.state.styleProp} />
+					{/* <SimpleSlider/> */}
+					<SmartSlider/>
 					<StateGallery/>
 					<Signup />
 					<Footer />

@@ -1,91 +1,150 @@
-import React, { useState } from 'react';
-import { Form, FormGroup, Button, Col } from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Container, FormGroup, FormLabel, Button, Col, Row } from 'react-bootstrap';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from 'yup';
 import axios from 'axios';
 
+// Adding to yup schema to compare fields (i.e. passwords match)
+function equalTo(ref, msg) {
+    return this.test({
+        name: 'equalTo',
+        exclusive: false,
+        message: msg || '${path} must be the same as ${reference}',
+        params: {
+            reference: ref.path
+        },
+        test: function (value) {
+            return value === this.resolve(ref)
+        }
+    })
+};
+Yup.addMethod(Yup.string, 'equalTo', equalTo);
 
-function AddUser(props) {
-    const [userState, setUserState] = useState({
-        firstName: "",
-        lastName: "",
-        username: "",
-        password: "",
-        confirmPassword: "",
-        role: "user"
-    });
+// Define yup schema for how to validate form fields
+const addUserSchema = Yup.object().shape({
+    firstName: Yup.string()
+        .required("First name is required"),
+    lastName: Yup.string()
+        .required("Last name is required"),
+    username: Yup.string()
+        .required("Username is required"),
+    password: Yup.string()
+        .required("Password is required"),
+    confirmPassword: Yup.string()
+        .required("Password is required")
+        .equalTo(Yup.ref('password'), "Passwords must match")
+});
 
-    function handleInputChange(event) {
-        setUserState({ ...userState, [event.target.name]: event.target.value });
+class AddUser extends Component {
+    constructor(props) {
+        super(props)
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        console.log("Submit Hit");
+    handleSubmit(values, actions) {
+        console.log(values);
+        console.log(actions);
+        const { firstName, lastName, username, password, role } = values;
+        const { setSubmitting } = actions;
+
         axios.post('/api/users', {
-            firstName: userState.firstName,
-            lastName: userState.lastName,
-            username: userState.username,
-            password: userState.password,
-            role: userState.role
+            firstName: firstName,
+            lastName: lastName,
+            username: username,
+            password: password,
+            role: role
         })
             .then(res => {
-                console.log(res.data)
-                props.handleAddUser();
+                setSubmitting(false);
+                this.props.handleAddUser();
             })
     }
 
-    return (
-        <div className="container">
-            <hr />
-            <h3>Add New User</h3>
-            <hr />
-            <Form>
-                <Form.Row>
-                    <Col>
-                        <FormGroup controlId="formGroupFirstName">
-                            <Form.Label className="pl-2">First Name</Form.Label>
-                            <Form.Control type="text" placeholder="First Name" name="firstName" value={userState.firstName} onChange={handleInputChange} />
-                        </FormGroup>
-                    </Col>
-                    <Col>
-                        <FormGroup controlId="formGroupLastName">
-                            <Form.Label className="pl-2">Last Name</Form.Label>
-                            <Form.Control type="text" placeholder="Last Name" name="lastName" value={userState.lastName} onChange={handleInputChange} />
-                        </FormGroup>
-                    </Col>
-                    <Col>
-                        <FormGroup controlId="formGroupUsername">
-                            <Form.Label className="pl-2">Username</Form.Label>
-                            <Form.Control type="text" placeholder="Username" name="username" value={userState.username} onChange={handleInputChange} />
-                        </FormGroup>
-                    </Col>
-                    <Col>
-                        <FormGroup controlId="formGroupPassword">
-                            <Form.Label className="pl-2">Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" name="password" value={userState.password} onChange={handleInputChange} />
-                        </FormGroup>
-                    </Col>
-                    <Col>
-                        <FormGroup controlId="formGroupConfirmPassword">
-                            <Form.Label className="pl-2">Confirm Password</Form.Label>
-                            <Form.Control type="password" placeholder="Confirm Password" name="confirmPassword" value={userState.confirmPassword} onChange={handleInputChange} />
-                        </FormGroup>
-                    </Col>
-                    <Col>
-                        <FormGroup controlId="formGroupRole">
-                            <Form.Label className="pl-2">Role</Form.Label>
-                            <Form.Control as="select" name="role" value={userState.role} onChange={handleInputChange}>
-                                <option>user</option>
-                                <option>admin</option>
-                            </Form.Control>
-                        </FormGroup>
-                    </Col>
-                    <Col>
-                        <Button onClick={handleSubmit}>Submit</Button>
-                    </Col>
-                </Form.Row>
-            </Form>
-        </div>
-    )
+    render() {
+        return (
+            <Container>
+                <hr />
+                <h3>Add New User</h3>
+                <hr />
+                <Formik
+                    initialValues={{
+                        firstName: "",
+                        lastName: "",
+                        username: "",
+                        password: "",
+                        confirmPassword: "",
+                        role: "user"
+                    }}
+                    validationSchema={addUserSchema}
+                    onSubmit={this.handleSubmit}
+                >
+                    {({ touched, errors, isSubmitting }) => (
+                        <Form>
+                            <FormGroup as={Row} controlId="formGroupFirstName">
+                                <FormLabel column sm="2">First Name</FormLabel>
+                                <Col sm="6">
+                                    <Field type="text" placeholder="First Name" name="firstName"
+                                        className={`form-control ${touched.firstName && errors.firstName ? "is-invalid" : ""}`}
+                                    />
+                                    <ErrorMessage name="firstName" className="invalid-feedback" />
+                                </Col>
+                            </FormGroup>
+                            <FormGroup as={Row} controlId="formGroupLastName">
+                                <FormLabel column sm="2">Last Name</FormLabel>
+                                <Col sm="6">
+                                    <Field type="text" placeholder="Last Name" name="lastName"
+                                        className={`form-control ${touched.lastName && errors.lastName ? "is-invalid" : ""}`}
+                                    />
+                                    <ErrorMessage name="lastName" className="invalid-feedback" />
+                                </Col>
+                            </FormGroup>
+                            <FormGroup as={Row} controlId="formGroupUsername">
+                                <FormLabel column sm="2">Username</FormLabel>
+                                <Col sm="6">
+                                    <Field type="text" placeholder="Username" name="username"
+                                        className={`form-control ${touched.username && errors.username ? "is-invalid" : ""}`}
+                                    />
+                                    <ErrorMessage name="username" className="invalid-feedback" />
+                                </Col>
+                            </FormGroup>
+                            <FormGroup as={Row} controlId="formGroupPassword">
+                                <FormLabel column sm="2">Password</FormLabel>
+                                <Col sm="6">
+                                    <Field type="password" placeholder="Password" name="password"
+                                        className={`form-control ${touched.password && errors.password ? "is-invalid" : ""}`}
+                                    />
+                                    <ErrorMessage name="password" className="invalid-feedback" />
+                                </Col>
+                            </FormGroup>
+                            <FormGroup as={Row} controlId="formGroupConfirmPassword">
+                                <FormLabel column sm="2">Confirm Password</FormLabel>
+                                <Col sm="6">
+                                    <Field type="password" placeholder="Confirm Password" name="confirmPassword"
+                                        className={`form-control ${touched.confirmPassword && errors.confirmPassword ? "is-invalid" : ""}`}
+                                    />
+                                    <ErrorMessage name="confirmPassword" className="invalid-feedback" />
+                                </Col>
+                            </FormGroup>
+                            <FormGroup as={Row} controlId="formGroupRole">
+                                <FormLabel column sm="2">Role</FormLabel>
+                                <Col sm="6">
+                                    <Field as="select" name="role" >
+                                        <option>user</option>
+                                        <option>admin</option>
+                                    </Field>
+                                </Col>
+                            </FormGroup>
+                            <Row>
+                                <Col sm={{ span: 8, offset: 2 }}>
+                                    <Button variant="success" type="submit">Submit</Button>
+                                </Col>
+                            </Row>
+                        </Form>
+                    )}
+                </Formik>
+            </Container>
+        )
+    }
 }
 
 export default AddUser;

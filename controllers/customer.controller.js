@@ -58,12 +58,17 @@ router.route("/signup").post((req, res) => {
 
 // Get the list of current customer leads
 router.route("/leads/contact").get(authenticateUser, (req, res) => {
-    db.Customer.find({ isLead: true }, (err, data) => {
-        if (err) return res.status(500).json(err);
+    db.Customer.find({ isLead: true }).sort({createdAt: 1})
+    .then(data=>{
         res.json(data);
     })
+    .catch(err=>{
+        res.status(500).json(err);
+    });
 });
 
+
+// Return a count of leads for each day for the last 7 days (based on system date)
 router.route("/leads/summary/last7").get(authenticateUser, (req, res) => {
     let momentObj = moment().subtract(7 - 1, 'days').startOf('day');
     let date = momentObj.toDate();
@@ -156,6 +161,13 @@ router.route("/id/:id")
             .catch(err => {
                 res.status(500).json(err);
             })
+    })
+    .delete(authenticateUser,(req,res)=>{
+        const id = req.params.id;
+        db.Customer.findOneAndRemove(id).then(custRes=>{
+            console.log(custRes);
+            res.json({message: "Customer successfully removed from database", id:id})
+        })
     })
     ;
 

@@ -17,7 +17,7 @@ class LeadWrapper extends Component {
                     text: "New Leads: Last 7 Days",
                     display: true
                 },
-                legend:{
+                legend: {
                     display: false
                 },
                 scales: {
@@ -63,7 +63,6 @@ class LeadWrapper extends Component {
     getLeads() {
         axios.get('/api/customers/leads/contact')
             .then(res => {
-                console.log(res.data);
                 this.setState({ leadsArr: res.data })
             })
             .catch(err => {
@@ -76,9 +75,8 @@ class LeadWrapper extends Component {
             .then(res => {
                 const { data } = res;
                 const chartData = data.map(lead => {
-                    return { t: moment(Date.parse(lead.date)).format('MM/DD/YYYY'), y: lead.count }
+                    return { t: moment(lead.date), y: lead.count }
                 })
-                console.log(chartData);
                 this.setState({ chartData: chartData });
             })
             .catch(err => {
@@ -86,18 +84,26 @@ class LeadWrapper extends Component {
             })
     }
 
-    redirectToContact(id){
-        window.location.href=`/crm/customer/${id}`;
+    redirectToContact(id) {
+        window.location.href = `/crm/customer/${id}`;
     }
 
     render() {
         return (
             <div className="container">
                 <div className="row py-3">
-                    <div className="col-4 text-center align-middle">
-                        <h3>Leads in Queue</h3>
-                        <h1>{this.state.leadsArr.length}</h1>
-                        <p>Not Yet Contacted</p>
+                    <div className="col-4  d-flex align-items-center">
+                        <div className="row justify-content-center">
+                            <div className="col-12 text-center">
+                                <h3>Leads in Queue</h3>
+                            </div>
+                            <div className="col-12 text-center">
+                                <h1>{this.state.leadsArr.length}</h1>
+                            </div>
+                            <div className="col-12 text-center">
+                                <p>Not Yet Contacted</p>
+                            </div>
+                        </div>
                     </div>
                     <div className="col-8">
                         <Line data={{

@@ -71,6 +71,7 @@ router.route('/:id/password')
             })
             
             db.User.findByIdAndUpdate(id,{$set:{"local.password":newPassword}}).then(updateRes=>{
+                updateRes.local.password = newPassword;
                 updateRes.save();  //save it to trigger the password hashing
                 res.json({message:"Password successfully changed", user: req.user.local.username});
             }).catch(err=>{
