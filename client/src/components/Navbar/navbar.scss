@@ -49,6 +49,7 @@
 
 @media (max-width: #{$screen-sm}) {
     .nav_root {
+        background-color: rgba($main, 0);
 
         li {
             display: none;
@@ -60,10 +61,12 @@
     }   
 }
 
-@media (min-width: #{$screen-md}) {
+@media (max-width: #{$screen-md}) {
     .nav_root {
+        background-color: rgba($main, 0);
 
         li {
+            font-size: .8em;
             display: none;
         }
 
@@ -77,7 +80,6 @@
     .nav_root {
 
         li {
-            font-size: .8em;
             display: block;
         }
 

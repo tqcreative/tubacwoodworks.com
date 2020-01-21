@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Header } from '../../components';
 import './furniture.css';
 import { NavBar } from '../../components/Navbar';
 import gsap from "gsap";
 import HeroSmart from '../../components/HeroSmart';
 import Footer from '../../components/Footer';
 import Signup from '../../components/Signup';
+import LayoutBasic from '../../components/LayoutBasic';
 
 export default class Furniture extends Component {
 	constructor(props) {
@@ -26,9 +26,9 @@ export default class Furniture extends Component {
 		if (this.props.user) {
 			return (
 				<div className="furnitrue_root">
-					<NavBar styleProp={this.state.navPos} />
-					<Header user={this.state.user} />
-					<HeroSmart backgroundImage="gallery_8.jpg" title="Furniture" subTitle="Woodworking, Wall Beds, Custom Mantels"/>					
+					<HeroSmart login={"Peter"} backgroundName={"furniture_hero"} title="Furniture" subTitle="Wall Beds, Desks, Mantels, and more"/>
+					<NavBar styleProp={this.state.navPos} />	
+					<LayoutBasic />				
 					<Signup />
 					<Footer />
 				</div>
@@ -36,9 +36,9 @@ export default class Furniture extends Component {
 		} else {
 			return (
 				<div className="furnitrue_root">
+					<HeroSmart login={false} backgroundName={"furniture_hero"} title="Furniture" subTitle="Wall Beds, Desks, Mantels, and more"/>	
 					<NavBar styleProp={this.state.navPos} />
-					<Header user={this.state.user} />
-					<HeroSmart backgroundImage="gallery_8.jpg" title="Furniture" subTitle="Woodworking, Wall Beds, Custom Mantels"/>
+					<LayoutBasic />
 					<Signup />
 					<Footer />
 				</div>

@@ -1,0 +1,33 @@
+@import '../../_scss/vars';
+
+.phone_slider_root {
+    display: none;
+    position: fixed;
+    left: 0;
+    bottom: 2em;
+    justify-content: center;
+    align-items: center;
+    background-color: $success;
+    z-index: 9999;
+    border-radius: 0 5px 5px 0;
+    transform: translateX(-100px);
+    transition: transform .5s;
+
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .5em;
+
+        ion-icon {
+            font-size: 2em;
+            color: #fff;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .phone_slider_root {
+        display: flex;
+    }
+}

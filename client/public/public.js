@@ -83,7 +83,7 @@ window.addEventListener('scroll', function(event) {
         gsap.from("#checkerbox_quote_1", {duration: 1, opacity: 0, delay: 0, x:"101%"});
       } else if (!elementInViewport(document.getElementById('checkerbox_quote_1')) && checkerOneTrigger === true){
 
-          checkerOneTrigger = false;
+          // checkerOneTrigger = false;
 
       }
     };
@@ -93,22 +93,30 @@ window.addEventListener('scroll', function(event) {
 
           checkerTwoTrigger = true;
 
-        gsap.from("#checkerbox_quote_2", {duration: 1, opacity: 0, delay: .5, x:"101%"});
+        gsap.from("#checkerbox_quote_2", {duration: 1, opacity: 0, delay: .3, x:"101%"});
       } else if (!elementInViewport(document.getElementById('checkerbox_quote_2')) && checkerTwoTrigger === true){
-        checkerTwoTrigger = false;
+        // checkerTwoTrigger = false;
       }
     };
 
     if(document.getElementById('checkerbox_quote_3')){
       if(elementInViewport(document.getElementById('checkerbox_quote_3')) && checkerThreeTrigger === false){
         checkerThreeTrigger = true;
-        gsap.from("#checkerbox_quote_3", {duration: 1, opacity: 0, delay: 1, x:"101%"});
+        gsap.from("#checkerbox_quote_3", {duration: 1, opacity: 0, delay: .7, x:"101%"});
       } else if (!elementInViewport(document.getElementById('checkerbox_quote_3')) && checkerThreeTrigger === true){
 
-          checkerThreeTrigger = false;
+          // checkerThreeTrigger = false;
 
       }
     };
+
+    if(document.getElementById('phone')) {
+      if(window.pageYOffset > 2000 && window.pageYOffset < 7000) {
+        gsap.to("#phone", {duration: 0, delay: .1, x:0});
+      } else if (window.pageYOffset < 1999 || window.pageYOffset > 7001) {
+        gsap.to("#phone", {duration: 0, delay: .1, x:-100});
+      }
+    }
     
 });
 

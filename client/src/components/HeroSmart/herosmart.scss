@@ -10,7 +10,6 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    z-index: -1;
 
     div:first-child {
         position: absolute;
@@ -44,4 +43,11 @@
             font-size: 3em;
         }
     }
+    
+    span {
+        position: absolute;
+        left: 0;
+        z-index: 8;
+    }
+
 }

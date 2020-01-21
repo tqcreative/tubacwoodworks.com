@@ -1,0 +1,30 @@
+@import '../../_scss/vars';
+
+.layout_basic_root {
+    width: 100%;
+    min-height: 30vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+
+    div {
+        max-width: 1200px;
+        min-width: 80vw;
+        min-height: 30vh;
+        height: 100%;
+        background-color: #fff;
+        padding: 2em;
+
+        h2 {
+            font-weight: 800;
+            font-size: 3em;
+            color: $main2;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.2em;
+            font-weight: 400;
+        }
+    }
+}
