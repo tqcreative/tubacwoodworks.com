@@ -45,6 +45,7 @@ class AddUser extends Component {
         console.log(values);
         console.log(actions);
         const { firstName, lastName, username, password, role } = values;
+        const { setSubmitting } = actions;
 
         axios.post('/api/users', {
             firstName: firstName,
@@ -54,7 +55,7 @@ class AddUser extends Component {
             role: role
         })
             .then(res => {
-                console.log(res)
+                setSubmitting(false);
                 this.props.handleAddUser();
             })
     }
