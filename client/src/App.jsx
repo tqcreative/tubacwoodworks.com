@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Route, BrowserRouter, Link, Switch } from 'react-router-dom'
+import { Route, BrowserRouter, Link, Switch, Redirect } from 'react-router-dom'
 import LoginForm from './pages/LoginForm'
 import SignupForm from './pages/SignupForm'
 import { NavBar } from './components'
@@ -54,7 +54,7 @@ class App extends Component {
 	}
 
 	_login(username, password) {
-		this.setState({loggedIn:null});
+		this.setState({ loggedIn: null });
 		axios
 			.post('/auth/login', {
 				username,
@@ -67,13 +67,13 @@ class App extends Component {
 						user: response.data.user
 					})
 				}
-				else{
+				else {
 					this.setState({
 						loggedIn: false
 					})
 				}
 			})
-			.catch(err=>{
+			.catch(err => {
 				console.log(err)
 				this.setState({
 					loggedIn: false
@@ -97,51 +97,48 @@ class App extends Component {
 						exact
 						path="/"
 						render={() =>
-							<Home user={this.state.user} _login={this._login}/>} />
+							<Home user={this.state.user} _login={this._login} />}
+					/>
 					<PrivateRoute path="/crm" loggedIn={this.state.loggedIn} user={this.state.user}>
-						<CRM logout={this._logout} user={this.state.user}/>
+						<CRM logout={this._logout} user={this.state.user} />
 					</PrivateRoute>
 					<Route
 						exact
 						path="/kitchenbathvanity"
-						render={() => 
-							<Kitchen_Bath_Vanity user={this.state.user} /> } />
+						render={() =>
+							<Kitchen_Bath_Vanity user={this.state.user} />} />
 					<Route
 						exact
 						path="/furniture"
 						render={() =>
-							<Furniture user={this.state.user} /> } />
+							<Furniture user={this.state.user} />} />
 					<Route
 						exact
 						path="/commercial"
 						render={() =>
-							<Commercial user={this.state.user} /> } />
+							<Commercial user={this.state.user} />} />
 					<Route
 						exact
 						path="/protips"
 						render={() =>
-							<Pro_Tips user={this.state.user} /> } />
+							<Pro_Tips user={this.state.user} />} />
 					<Route
 						exact
 						path="/gallery"
 						render={() =>
-							<Gallery user={this.state.user} /> } />
-					<Route
-						exact
-						path="/login"
-						render={() =>
-							<LoginForm
-								_login={this._login}
-								_googleSignin={this._googleSignin}
-							/>}
-					/>
+							<Gallery user={this.state.user} />} />
+					<Route exact path="/login">
+						{this.state.loggedIn ? <Redirect to="/crm" /> : (
+							<LoginForm _login={this._login} _googleSignin={this._googleSignin} />
+						)}
+					</Route>
 					<Route
 						exact path="/signup"
 						component={SignupForm}
 					/>
 					<Route
 						render={() =>
-							<Error user={this.state.user} /> } />
+							<Error user={this.state.user} />} />
 				</Switch>
 			</div>
 		)

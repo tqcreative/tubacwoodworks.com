@@ -157,6 +157,13 @@ router.route("/id/:id")
                 res.status(500).json(err);
             })
     })
+    .delete(authenticateUser,(req,res)=>{
+        const id = req.params.id;
+        db.Customer.findOneAndRemove(id).then(custRes=>{
+            console.log(custRes);
+            res.json({message: "Customer successfully removed from database", id:id})
+        })
+    })
     ;
 
 
