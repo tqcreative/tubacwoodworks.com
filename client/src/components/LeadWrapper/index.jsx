@@ -63,7 +63,6 @@ class LeadWrapper extends Component {
     getLeads() {
         axios.get('/api/customers/leads/contact')
             .then(res => {
-                console.log(res.data);
                 this.setState({ leadsArr: res.data })
             })
             .catch(err => {
@@ -76,9 +75,8 @@ class LeadWrapper extends Component {
             .then(res => {
                 const { data } = res;
                 const chartData = data.map(lead => {
-                    return { t: moment(Date.parse(lead.date)).format('MM/DD/YYYY'), y: lead.count }
+                    return { t: moment(lead.date), y: lead.count }
                 })
-                console.log(chartData);
                 this.setState({ chartData: chartData });
             })
             .catch(err => {
