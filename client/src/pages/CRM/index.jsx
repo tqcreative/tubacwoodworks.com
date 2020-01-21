@@ -1,6 +1,7 @@
 import React from 'react'
 import { Redirect, useLocation, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './style.css';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import NavlinkWrapper from '../../components/NavlinkWrapper';
 import LeadWrapper from '../../components/LeadWrapper';
 import ContactWrapper from '../../components/ContactWrapper';
@@ -8,20 +9,41 @@ import NoteWrapper from '../../components/NoteWrapper';
 import ScheduleWrapper from '../../components/ScheduleWrapper';
 import EmployeeWrapper from '../../components/EmployeeWrapper';
 
+
+// function renderTooltip(props) {
+//     return <Tooltip {...props}>Simple tooltip</Tooltip>;
+// }
+
+// const Example = () => (
+//     <OverlayTrigger
+//         placement="right"
+//         delay={{ show: 250, hide: 400 }}
+//         overlay={renderTooltip}
+//     >
+//         <Button variant="success">Hover me to see</Button>
+//     </OverlayTrigger>
+// );
+
+
+
 function CRM(props) {
     const location = useLocation();
-    const user=props.user
+    const user = props.user
     return (
         <Router>
             <div className="crm_root">
                 {location.pathname === "/crm" ? <Redirect to="/crm/dashboard" /> : null}
                 <div className="top_root">
-                    <a href="/"><ion-icon name="home"></ion-icon></a>
-                    <ion-icon name="log-out" onClick={props.logout}></ion-icon>
+                    <OverlayTrigger placement="right" overlay={<Tooltip>Home Page</Tooltip>} >
+                        <a href="/"><ion-icon name="home"></ion-icon></a>
+                    </OverlayTrigger>
+                    <OverlayTrigger placement="right" overlay={<Tooltip>Logout</Tooltip>}>
+                        <ion-icon name="log-out" onClick={props.logout}></ion-icon>
+                    </OverlayTrigger>
                 </div>
                 <div className="bottom_root">
                     <div className="left_root">
-                        <NavlinkWrapper/>
+                        <NavlinkWrapper />
                     </div>
                     <div className="right_root">
                         <Switch>
@@ -29,14 +51,14 @@ function CRM(props) {
                                 <LeadWrapper />
                             </Route>
                             <Route exact path="/crm/employee">
-                                <EmployeeWrapper user={props.user} loggedIn={props.loggedIn}/>
+                                <EmployeeWrapper user={props.user} loggedIn={props.loggedIn} />
                             </Route>
                             <Route exact path="/crm/customer">
                                 <ContactWrapper id={null} />
                             </Route>
                             <Route exact path="/crm/customer/:id"
                                 render={(props) =>
-                                    <ContactWrapper id={props.match.params.id} user={user}/>
+                                    <ContactWrapper id={props.match.params.id} user={user} />
                                 } />
                             <Route exact path="/crm/notes">
                                 <NoteWrapper id={null} />
