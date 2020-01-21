@@ -4,6 +4,7 @@ import EmployeeNav from '../EmployeeNav';
 import EmployeeAppts from '../EmployeeAppts';
 import ChangePassword from '../ChangePassword';
 import axios from 'axios';
+// import './style.css'
 
 class EmployeeWrapper extends Component {
     constructor(props) {
@@ -28,14 +29,18 @@ class EmployeeWrapper extends Component {
         this.setState({ showAddUser: !this.state.showAddUser });
     }
 
-    handleChangePassword(){
+    handleChangePassword() {
         this.setState({ showChangePassword: !this.state.showChangePassword });
     }
 
     render() {
         return (
-            <div class="container">
-                <EmployeeNav loggedIn={this.props.loggedIn} user={this.props.user} />
+            <div className="container">
+                <div className="m-2 d-flex justify-content-center">
+                    <h1>Hello, {this.props.user.firstName}</h1>
+                </div>
+
+                {/* <EmployeeNav loggedIn={this.props.loggedIn} user={this.props.user} /> */}
                 <EmployeeAppts appointments={this.state.appointments} />
                 <div>
                     <h1>Admin</h1>

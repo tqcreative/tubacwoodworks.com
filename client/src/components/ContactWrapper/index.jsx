@@ -18,7 +18,7 @@ class ContactWrapper extends Component {
                 <div className="m-3">
                     <ContactSearch hrefOnClick="/crm/customer" />
                 </div>
-                <Contact id={this.state.id} />
+                <Contact id={this.state.id} user={this.props.user}/>
             </div>
         )
     }
