@@ -1,6 +1,6 @@
 .nav_root {
   color: #fff;
-  background-color: rgba(173, 109, 45, 0.8);
+  background-color: #e98d62;
   text-decoration: none;
   list-style: none;
   display: -webkit-box;
@@ -39,7 +39,7 @@
 
 @media (max-width: 768px) {
   .nav_root {
-    background-color: rgba(173, 109, 45, 0); }
+    background-color: rgba(233, 141, 98, 0); }
     .nav_root li {
       display: none; }
     .nav_root #mobile_menu {
@@ -47,7 +47,7 @@
 
 @media (max-width: 769px) {
   .nav_root {
-    background-color: rgba(173, 109, 45, 0); }
+    background-color: rgba(233, 141, 98, 0); }
     .nav_root li {
       font-size: .8em;
       display: none; }
