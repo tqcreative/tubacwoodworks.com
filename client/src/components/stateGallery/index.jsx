@@ -3,6 +3,7 @@ import axios from 'axios';
 import './stategallery.css';
 import ImageWrapper from '../../components/ImageWrapper';
 import ImageCard from '../../components/ImageCard';
+import Toast from '../../components/Toast';
 
 class StateGallery extends Component {
     constructor(props) {
@@ -38,9 +39,10 @@ class StateGallery extends Component {
                                 <ImageCard key={img + Math.floor(Math.random()*8000)+1} className="item" arrayOfImages={img} />)
                         })}
                     </div>
+                    
                 </div>
             </ImageWrapper>
-
+         
         )
     }
 
