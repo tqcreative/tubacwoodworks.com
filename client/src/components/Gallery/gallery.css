@@ -81,6 +81,9 @@
     background-image: url(/cms/images/gallery_13.jpg); }
   .gallery_root .item_14 {
     background-image: url(/cms/images/gallery_14.jpg); }
-  .item:hover {
-      -webkit-transform: scale(2,2);
-  }
+    .item {
+      transition: transform .3s;
+    }
+     .item:hover {
+      -webkit-transform: scale(1.1);
+    }
