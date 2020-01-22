@@ -41,12 +41,12 @@ const customerSchema = new Schema({
   promoContactByEmail: {
     type: Boolean,
     required: "",
-    default: false
+    default: true
   },
   promoContactBySMS: {
     type: Boolean,
     required: "",
-    default: false
+    default: true
   },
   appContactByEmail: {
     type: Boolean,
@@ -56,7 +56,7 @@ const customerSchema = new Schema({
   appContactBySMS: {
     type: Boolean,
     required: "",
-    default: false
+    default: true
   },
   streetAddress: {
     type: String
