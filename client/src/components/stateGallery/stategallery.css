@@ -5,6 +5,11 @@
   max-width: 1600px;
   padding: 2em auto;
   margin: 0 auto;
+  margin-left: 10%;
  }
+
+ .item:hover {
+  -webkit-transform: scale(2,2);
+}
 
 
