@@ -33,6 +33,7 @@ export default class Gallery extends Component {
 					<div style={{position: 'relative'}}>
 						<UploadBtn />
 					</div>
+					<SmartSlider/>
 					<StateGallery/>
 					<Signup />
 					<Footer />
