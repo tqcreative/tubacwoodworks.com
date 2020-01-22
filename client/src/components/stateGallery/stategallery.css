@@ -7,4 +7,8 @@
   margin: 0 auto;
  }
 
+ .item:hover {
+  -webkit-transform: scale(2,2);
+}
+
 
