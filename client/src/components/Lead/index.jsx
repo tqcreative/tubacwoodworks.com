@@ -9,7 +9,7 @@ function Lead(props) {
             <td>{props.signupDate}</td>
             <td>
                 <button className="btn btn-dark m-2" onClick={()=>props.onClick(props.id,{isLead:false})}>Ignore</button>
-                <button className="btn btn-dark m-2" onClick={()=>props.contactClick(props.id)}>Contact</button>
+                <button className="btn btn-dark m-2" onClick={()=>props.contactClick(props.id)}>View Contact</button>
             </td>
         </tr>
     )

@@ -104,19 +104,23 @@ app.post('/cms/GD8PQX3UV18999AARONWITHANEY/filename', (req, res) => {
 
 app.post('/cms/GD8PQX3UV18999AARONWITHANEY/upload', (req, res) => {
 		
-	console.log('heroku test: ')
-	console.log(floatingFileName);
-
+	console.log('heroku test: ');
+	// console.log(floatingFileName);
+	// console.log(__dirname + '/images');
+	// console.log('/app/images');
 
 	// Set The Storage Engine
 	const storage = multer.diskStorage({
 		// destination: './images',
-		destination: function(req, file, cb) {
-			cb(null, __dirname + '/images')
-		},
+		// destination: function(req, file, cb) {
+		// 	cb(null, `${__dirname}/images`);
+		// 	console.log(`Storage post to ${__dirname}/images`)
+		destination:  `${__dirname}/images`,
 		filename: function (req, file, cb) {
 			// cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
 			cb(null, file.fieldname + path.extname(file.originalname));   
+			console.log(`!!! ${file.originalname} !!!`);
+			console.log(`!!! ${file.fieldname} !!!`);
 		}
 	});
 

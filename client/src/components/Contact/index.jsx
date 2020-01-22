@@ -27,6 +27,7 @@ class Contact extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleContactSubmit = this.handleContactSubmit.bind(this);
         this.handleContactUpdate = this.handleContactUpdate.bind(this);
+        this.handleContactDelete = this.handleContactDelete.bind(this);
         this.handleCheck = this.handleCheck.bind(this);
     }
 
@@ -94,6 +95,14 @@ class Contact extends Component {
             contactIsReadOnly: !this.state.contactIsReadOnly,
             contactUpdateBtnText: this.state.contactUpdateBtnText === "Edit" ? "Cancel" : "Edit"
         });
+    }
+
+    handleContactDelete(event){
+        event.preventDefault();
+        axios.delete(`/api/customers/id/${this.state.id}`).then(res=>{
+            console.log(res);
+            window.location.href="/crm/customer"
+        })
     }
 
     render() {
@@ -204,8 +213,10 @@ class Contact extends Component {
                         </div>
                     </div>
 
-                    <button className="btn btn-primary m-2" id="contact-update-btn" hidden={!this.state.id} onClick={this.handleContactUpdate}>{this.state.contactUpdateBtnText}</button>
-                    <button className="btn btn-danger" id="contact-submit-btn" hidden={this.state.contactIsReadOnly} onClick={this.handleContactSubmit}>Submit</button>
+                    <button className="btn btn-dark my-2 mr-2" id="contact-update-btn" hidden={!this.state.id} onClick={this.handleContactUpdate}>{this.state.contactUpdateBtnText}</button>
+                    <button className="btn btn-success my-2 mr-2" id="contact-submit-btn" hidden={this.state.contactIsReadOnly} onClick={this.handleContactSubmit}>Submit</button>
+                    <button className="btn btn-danger my-2 mr-2" id="contact-delete-btn" hidden={!this.state.id || this.props.user.role != "admin"} onClick={this.handleContactDelete}
+                    >Delete Customer</button>
                 </form>
             </div>
         )
