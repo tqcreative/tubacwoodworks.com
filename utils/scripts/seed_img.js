@@ -15,7 +15,12 @@ let seed_imgs = [
             "gallery_12.jpg",
             "gallery_13.jpg",    
             "gallery_14.jpg"    
-            ]
+            ],
+
+        kitchenTable : [
+            "kitchentable_1.jpg",
+        ]
+        
     }
 ]
 
