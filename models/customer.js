@@ -29,7 +29,7 @@ const customerSchema = new Schema({
   phoneNumber: {
     type: String,
     required: "Phone number is Required",
-    match: [/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b$/, "Please enter a valid phone "],
+    match: [/\(\d{3}\) \d{3}-\d{4}/, "Please enter a valid phone number"],
   },
   numberType: {
     type: String
@@ -41,12 +41,12 @@ const customerSchema = new Schema({
   promoContactByEmail: {
     type: Boolean,
     required: "",
-    default: false
+    default: true
   },
   promoContactBySMS: {
     type: Boolean,
     required: "",
-    default: false
+    default: true
   },
   appContactByEmail: {
     type: Boolean,
@@ -56,7 +56,7 @@ const customerSchema = new Schema({
   appContactBySMS: {
     type: Boolean,
     required: "",
-    default: false
+    default: true
   },
   streetAddress: {
     type: String

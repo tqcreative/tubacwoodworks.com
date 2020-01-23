@@ -31,7 +31,7 @@ const sendEmail = function (mailOptions) {
 const EmailAPI = {
     sendSignupEmail: function (emailAddr, firstName, lastName) {
         const subject = `Thank You for Signing Up for a Quote from ${companyName}`;
-        const bodyHtml = `<p>Hello ${firstName} ${lastName},<br><br>Thank you for contacting ${companyName} regarding a quote.  We have received your request and someone will be in contact with you shortly.</p>`;
+        const bodyHtml = `<p>Hello ${firstName} ${lastName},<br><br>Thank you for contacting ${companyName} regarding a quote.  We have received your request and someone will be in contact with you shortly.</p><h5>To unsubscribe from this email click <a target="_blank" href="localhost:3000//crm/unsubscribe/${emailAddr}">here</a> and you will not receive emails in the future.</h5>`;
 
         const mailOptions = configMailOptions(emailAddr, subject, bodyHtml);
         return sendEmail(mailOptions)

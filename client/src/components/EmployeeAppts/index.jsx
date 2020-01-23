@@ -27,8 +27,8 @@ function EmployeeAppts(props) {
                                     <tr key={appointment._id}>
                                         <td>{moment(appointment.date).format('MM/DD/YYYY')}</td>
                                         <td>{moment(appointment.date).format('h:mm a')}</td>
-                                        <td>{appointment.customer.firstName}</td>
-                                        <td>{appointment.customer.lastName}</td>
+                                        <td>{appointment.customer ? appointment.customer.firstName : ""}</td>
+                                        <td>{appointment.customer ? appointment.customer.lastName : ""}</td>
                                         <td>{appointment.detail}</td>
                                     </tr>
                                 )
