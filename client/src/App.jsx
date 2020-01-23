@@ -129,7 +129,7 @@ class App extends Component {
 							<Gallery user={this.state.user} />} />
 					<Route exact path="/login">
 						{this.state.loggedIn ? <Redirect to="/crm" /> : (
-							<LoginForm _login={this._login} _googleSignin={this._googleSignin} />
+							<LoginForm _login={this._login} />
 						)}
 					</Route>
 					<Route

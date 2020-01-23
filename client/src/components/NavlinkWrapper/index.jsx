@@ -15,6 +15,11 @@ function NavlinkWrapper(props) {
                 id="nav-employee"
             />
             <Navlink
+                linkText="All Customers"
+                linkRef="/crm/allcustomers"
+                id="nav-all-customers"
+            />
+            <Navlink
                 linkText="Customer Info"
                 linkRef="/crm/customer"
                 id="nav-customer"
@@ -34,12 +39,6 @@ function NavlinkWrapper(props) {
                 linkRef="/crm/email"
                 id="nav-email"
             />
-            <Navlink
-                linkText="Help"
-                linkRef="/crm/help"
-                id="nav-help"
-            />
-
         </div>
     )
 }
