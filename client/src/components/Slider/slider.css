@@ -4,6 +4,9 @@
     background: #f4f6f9;
     color: #222;
   }
+.image-gallery-bullet.active {
+  max-width: 10px;
+}
   
   
   

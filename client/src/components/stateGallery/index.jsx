@@ -3,13 +3,18 @@ import axios from 'axios';
 import './stategallery.css';
 import ImageWrapper from '../../components/ImageWrapper';
 import ImageCard from '../../components/ImageCard';
+import Toast from "../../components/Toast";
 
 class StateGallery extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            arrayOfImages: ["/images/check_1.jpg"]
+            arrayOfImages: ["/images/check_1.jpg"],
+            // toastMsg: [], 
+			// toastShow: false,
         }
+        // this.showImageToast = this.handleSignupResult.bind(this);
+		// this.toggleToast = this.toggleToast.bind(this);
     };
 
     componentDidMount() {
@@ -25,11 +30,22 @@ class StateGallery extends Component {
             })
     };
 
+    // showImageToast(img){
+	// 	console.log(img);
+	// 	this.setState({toastMsg: img, toastShow: true})
+    // };
+
+    // toggleToast(){
+	// 	this.setState({toastShow: !this.state.toastShow});
+	// }
+
     render() {
         // console.log(this.state.arrayOfImages.length)
         // for (let i = 0; i < this.state.arrayOfImages.length; i++){
         //     console.log(this.state.arrayOfImages[i])
         return (
+           
+            
             <ImageWrapper>
                 <div className="stateGallery_root">
                     <div className="image-div">
@@ -38,12 +54,9 @@ class StateGallery extends Component {
                                 <ImageCard key={img + Math.floor(Math.random()*8000)+1} className="item" arrayOfImages={img} />)
                         })}
                     </div>
-                </div>
+                    </div>
             </ImageWrapper>
-
         )
     }
-
 }
-
 export default StateGallery;

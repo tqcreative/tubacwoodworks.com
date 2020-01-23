@@ -14,7 +14,7 @@ router.route("/:id")
         .then(dbReturns => {
             // console.log(dbReturns[0]._id);
             console.log(dbReturns);
-            let thisArrayId = dbReturns[0]._id;
+            // let thisArrayId = dbReturns[0]._id;
 
             db.Images.update(
                 { $push: { imageArray: [imageNameToBeAddedToTheArray   ]}}
