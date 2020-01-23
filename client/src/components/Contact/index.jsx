@@ -1,6 +1,24 @@
 import React, { Component } from 'react';
 import './style.css';
 import axios from 'axios';
+import MaskedInput from "react-text-mask";
+
+const phoneNumberMask = [
+    "(",
+    /[1-9]/,
+    /\d/,
+    /\d/,
+    ")",
+    " ",
+    /\d/,
+    /\d/,
+    /\d/,
+    "-",
+    /\d/,
+    /\d/,
+    /\d/,
+    /\d/
+];
 
 class Contact extends Component {
     constructor(props) {
@@ -97,11 +115,11 @@ class Contact extends Component {
         });
     }
 
-    handleContactDelete(event){
+    handleContactDelete(event) {
         event.preventDefault();
-        axios.delete(`/api/customers/id/${this.state.id}`).then(res=>{
+        axios.delete(`/api/customers/id/${this.state.id}`).then(res => {
             console.log(res);
-            window.location.href="/crm/customer"
+            window.location.href = "/crm/customer"
         })
     }
 
@@ -153,8 +171,9 @@ class Contact extends Component {
                     <div className="form-group row">
                         <label htmlFor="customerPhoneNumber" className="col-sm-3 col-form-label">Phone Number</label>
                         <div className="col-sm-6">
-                            <input type="text" className="form-control" id="customerPhoneNumber" name="phoneNumber" readOnly={readOnly}
+                            <MaskedInput type="text" className="form-control" id="customerPhoneNumber" name="phoneNumber" readOnly={readOnly}
                                 value={this.state.phoneNumber} onChange={this.handleInputChange}
+                                mask={phoneNumberMask}
                             />
                         </div>
                     </div>
