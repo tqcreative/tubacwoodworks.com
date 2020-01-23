@@ -100,7 +100,9 @@ class ContactList extends Component {
                                     <td>
                                         <button className="btn btn-dark my-2 mr-2" onClick={() => this.goToDetailsPage(contact._id)}>View Details</button>
                                         <button className="btn btn-call my-2 mr-2" onClick={() => this.handleCallClick(contact.phoneNumber, contact.firstName, contact.lastName)}><ion-icon name="ios-call"></ion-icon></button>
+                                        { this.props.user.role === "admin" ? (
                                         <button className="btn btn-del my-2" onClick={() => this.handleDeleteClick(contact._id)}><ion-icon name="trash"></ion-icon></button>
+                                        ) : null }
                                     </td>
                                 </tr>
                             )
