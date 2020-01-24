@@ -62,7 +62,7 @@ $bg-color: #c23616;
         padding-bottom: 5%;
         position: relative;
         background-color: transparent;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         z-index: 99;
         // adding max width and margins
         max-width: 1200px;
@@ -73,27 +73,17 @@ $bg-color: #c23616;
             flex-direction: column;
             margin: 8px;
             flex-grow: 1;
-            flex-shrink: 1;
-            
-            padding-left: 1em;
-
-            input{
-                display: inline-flex;
-                // flex-basis: 100%;
-            }
-
-            span{
-                display: block;
-            }
-
+            flex-shrink: 1;   
+            flex-basis: 100%;         
         }
 
         .btn{
-            // display: inline-block;
+            display: inline-block;
             // width: 100%;
-            flex-grow: 0;
+            // flex-basis: 100%;
+            flex-grow: 1;
             flex-shrink: 0;
-            // margin: 8px;
+            margin: 8px;
             min-width: 120px;
             justify-content: center;
             background-color: $bg-color;
@@ -103,7 +93,6 @@ $bg-color: #c23616;
 
         .invalid-feedback{
             color:white;
-            // margin-left: 8px;
             padding-left: 14px;
         }
         
@@ -111,37 +100,40 @@ $bg-color: #c23616;
 }
 
 
-// @media screen and (min-width:768px){
-//     .signupWrapper{
-//         input{
-//             flex-basis: 33% !important;
-//         }
-//     }
-// }
+@media screen and (min-width:768px){
+    .signupWrapper{
+        form{
+            .form-group{
+                flex-basis: 45% !important;
+            }
+        }
+    }
+}
 
-// @media screen and (min-width:992px){
-//     .signupWrapper{
-//         form{
-//             flex-wrap: nowrap;
-//             padding-top: 1%;
-//             padding-bottom: 3%;   
-//         }
+@media screen and (min-width:992px){
+    .signupWrapper{
+        form{
+            flex-wrap: nowrap;
+            padding-top: 1%;
+            padding-bottom: 3%;   
+        }
 
-//         .banner{
-//             padding-top: 3%;
-//             padding-bottom: 1%;
-//         }
+        .banner{
+            padding-top: 3%;
+            padding-bottom: 1%;
+        }
 
-//         input{
-//             flex-basis: 20% !important;
-//         }
+        .form-group{
+            flex-basis: 20% !important;
+        }
 
-//         .btn{
-//             max-width: 120px;
-//         }
+        .btn{
+            max-width: 120px;
+            max-height: 38px;
+        }
 
-//     }
-// }
+    }
+}
 
 #middle_name {
     display: none;
