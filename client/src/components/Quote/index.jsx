@@ -1,7 +1,7 @@
 import React from 'react'
 import './quote.css';
 import UploadPhoto from '../../sub_component/UploadPhoto';
-// import axios from 'axios';
+import axios from 'axios';
 
 function Quote(props) {
 
@@ -15,6 +15,8 @@ function Quote(props) {
     props.login === 'Peter' ?
     uploadPhotoElement = <UploadPhoto __parent_id={thisId} __parent_image_name={nameOfImage}/> :
     uploadPhotoElement = <noscript></noscript>
+
+    
 
     return (
         <div className="quote_root">
