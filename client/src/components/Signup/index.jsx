@@ -42,20 +42,8 @@ const signupSchema = Yup.object().shape({
 class Signup extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            firstName: "",
-            lastName: "",
-            email: "",
-            phoneNumber: ""
-        }
 
-        this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    };
-
-    handleInputChange(event) {
-        event.preventDefault();
-        this.setState({ [event.target.name]: event.target.value });
     };
 
     handleSubmit(values, actions) {
@@ -68,20 +56,11 @@ class Signup extends Component {
             email: email,
             phoneNumber: phoneNumber
         })
-            .then(res => {
-                console.log(res);
-                //Clear out the input fields
-                // this.setState({
-                //     firstName: "",
-                //     // middleName: "",
-                //     lastName: "",
-                //     email: "",
-                //     phoneNumber: ""
-                // })
-                this.props.submitResult(["Thank you for signing up.  You will receive a confirmation email shortly."]);
+            .then(() => {
                 setSubmitting(false);
                 setStatus({ success: true })
                 resetForm();
+                this.props.submitResult(["Thank you for signing up.  You will receive a confirmation email shortly."]);
             })
             .catch(err => {
                 let obj = err.response.data.errors;
@@ -100,9 +79,9 @@ class Signup extends Component {
                 else {
                     errors.push("Unknown error occurred.  Please try again.");
                 }
-                this.props.submitResult(errors);
                 setSubmitting(false);
                 setStatus({ success: false })
+                this.props.submitResult(errors);
             })
     };
 
@@ -135,7 +114,7 @@ class Signup extends Component {
                                     <ErrorMessage component="span" name="firstName" className="invalid-feedback" />
                                 </FormGroup>
 
-                                <input id="middle_name" type="text" placeholder="Middle Name" name="middleName" value={this.state.middleName} onChange={this.handleInputChange} />
+                                <input id="middle_name" type="text" placeholder="Middle Name" name="middleName" />
 
                                 <FormGroup controlId="formLastName">
                                     <FormLabel hidden={true}>Last Name</FormLabel>
