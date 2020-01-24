@@ -63,8 +63,8 @@
     padding-bottom: 5%;
     position: relative;
     background-color: transparent;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
     z-index: 99;
     max-width: 1200px;
     margin: auto; }
@@ -82,19 +82,16 @@
       flex-grow: 1;
       -ms-flex-negative: 1;
       flex-shrink: 1;
-      padding-left: 1em; }
-      .signupWrapper form .form-group input {
-        display: -webkit-inline-box;
-        display: -ms-inline-flexbox;
-        display: inline-flex; }
-      .signupWrapper form .form-group span {
-        display: block; }
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%; }
     .signupWrapper form .btn {
-      -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-      flex-grow: 0;
+      display: inline-block;
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
       -ms-flex-negative: 0;
       flex-shrink: 0;
+      margin: 8px;
       min-width: 120px;
       -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -104,6 +101,27 @@
     .signupWrapper form .invalid-feedback {
       color: white;
       padding-left: 14px; }
+
+@media screen and (min-width: 768px) {
+  .signupWrapper form .form-group {
+    -ms-flex-preferred-size: 45% !important;
+    flex-basis: 45% !important; } }
+
+@media screen and (min-width: 992px) {
+  .signupWrapper form {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    padding-top: 1%;
+    padding-bottom: 3%; }
+  .signupWrapper .banner {
+    padding-top: 3%;
+    padding-bottom: 1%; }
+  .signupWrapper .form-group {
+    -ms-flex-preferred-size: 20% !important;
+    flex-basis: 20% !important; }
+  .signupWrapper .btn {
+    max-width: 120px;
+    max-height: 38px; } }
 
 #middle_name {
   display: none; }

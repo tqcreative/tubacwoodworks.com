@@ -4,7 +4,7 @@ import Toast from "../Toast";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import MaskedInput from "react-text-mask";
-import { FormGroup} from 'react-bootstrap';
+import { FormGroup } from 'react-bootstrap';
 import axios from 'axios';
 
 const phoneNumberMask = [
@@ -35,7 +35,7 @@ const signupSchema = Yup.object().shape({
         .email("Must be an email address"),
     phoneNumber: Yup.string()
         .required("Phone number is required")
-        .matches(/\([1-9]\d\d\) \d\d\d-\d\d\d\d/, "Must enter a valid U.S. phone number")
+        .matches(/\([1-9]\d\d\) \d\d\d-\d\d\d\d/, "Must enter a valid phone number")
 });
 
 
@@ -163,9 +163,7 @@ class Signup extends Component {
                                     />
                                     <ErrorMessage component="span" name="phoneNumber" className="invalid-feedback" />
                                 </FormGroup>
-                                <FormGroup>
-                                    <button className="btn btn-primary" type="submit">Submit</button>
-                                </FormGroup>
+                                <button className="btn btn-primary" type="submit">Submit</button>
                             </Form>
                         )}
                     </Formik>
