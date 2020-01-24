@@ -4,7 +4,7 @@ import Toast from "../Toast";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import MaskedInput from "react-text-mask";
-import { FormGroup } from 'react-bootstrap';
+import { FormGroup, FormLabel } from 'react-bootstrap';
 import axios from 'axios';
 
 const phoneNumberMask = [
@@ -127,8 +127,9 @@ class Signup extends Component {
                     >
                         {({ touched, errors, isSubmitting }) => (
                             <Form>
-                                <FormGroup>
-                                    <Field type="text" placeholder="First Name" name="firstName"
+                                <FormGroup controlId="formFirstName">
+                                    <FormLabel hidden={true}>First Name</FormLabel>
+                                    <Field id="formFirstName" type="text" placeholder="First Name" name="firstName"
                                         className={`form-control ${touched.firstName && errors.firstName ? "is-invalid" : ""}`}
                                     />
                                     <ErrorMessage component="span" name="firstName" className="invalid-feedback" />
@@ -136,21 +137,24 @@ class Signup extends Component {
 
                                 <input id="middle_name" type="text" placeholder="Middle Name" name="middleName" value={this.state.middleName} onChange={this.handleInputChange} />
 
-                                <FormGroup>
-                                    <Field type="text" placeholder="Last Name" name="lastName"
+                                <FormGroup controlId="formLastName">
+                                    <FormLabel hidden={true}>Last Name</FormLabel>
+                                    <Field id="formLastName" type="text" placeholder="Last Name" name="lastName"
                                         className={`form-control ${touched.lastName && errors.lastName ? "is-invalid" : ""}`}
                                     />
                                     <ErrorMessage component="span" name="lastName" className="invalid-feedback" />
                                 </FormGroup>
 
-                                <FormGroup>
-                                    <Field type="email" placeholder="Email Address" name="email"
+                                <FormGroup controlId="formEmail">
+                                    <FormLabel hidden={true}>Email Address</FormLabel>
+                                    <Field id="formEmail" type="email" placeholder="Email Address" name="email"
                                         className={`form-control ${touched.email && errors.email ? "is-invalid" : ""}`}
                                     />
                                     <ErrorMessage component="span" name="email" className="invalid-feedback" />
                                 </FormGroup>
-                                <FormGroup>
-                                    <Field name="phoneNumber"
+                                <FormGroup controlId="formPhoneNumber">
+                                    <FormLabel hidden={true}>Phone Number</FormLabel>
+                                    <Field name="phoneNumber" id="formPhoneNumber"
                                         render={({ field }) => (
                                             <MaskedInput
                                                 {...field}
