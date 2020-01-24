@@ -16,12 +16,19 @@ export default class Gallery extends Component {
 		super(props)
 		this.state = {
 			user: props.user,
-			styleProp: 'absolute'
+			styleProp: 'absolute',
+			galleryType: []
 		}
 	}
 
 	componentDidMount() {
 		console.log("Gallery Component Mounted")
+		// Set initial state to the whole gallery seed object
+	}
+
+	kitchenGallery () {
+		// Function to set state to kitchen images from kitchen seed object
+
 	}
 
 	render() {
@@ -46,6 +53,7 @@ export default class Gallery extends Component {
 					<NavBar styleProp={this.state.styleProp} />
 					{/* <SimpleSlider/> */}
 					<SmartSlider/>
+					{/* Button with kitchen/bath/furniture options that call their subsequent functions that set the state on click  */}
 					<StateGallery/>
 					<Signup />
 					<Footer />

@@ -22,7 +22,7 @@ export default class SmartSlider extends React.Component {
             slideInterval: 2000,
             slideOnThumbnailOver: false,
             thumbnailPosition: 'bottom',
-            arrayOfImages: [],
+            arrayOfImages: []
         };
     }
 
@@ -31,21 +31,20 @@ export default class SmartSlider extends React.Component {
         axios
             .get("/cms/kitchenbathvanity")
             .then(collectData => {
-                console.log(collectData.data[0])
+                // console.log(collectData.data[0])
                 // console.log(collectData.data[0].imageArray);
                 // console.log(collectData.data[0].imageArray.length);
                 // console.log(collectData.data[0].imageArray[2]);
                 // console.log(`state: ${this.state.arrayOfImages[0].original}`)
                 // this.setState({ arrayOfImages: collectData.data[0].imageArray });
                 let newArray = Array.from(collectData.data[0].imageArray);
-                console.log(newArray);
+                // console.log(newArray);
                 let arrayOfObjects = []
                 for(let i=0; i < newArray.length; i++){
                     let newObjectItem = { original: `/cms/images/${newArray[i]}`, thumbnail: `/cms/images/${newArray[i]}`};
                     arrayOfObjects.push(newObjectItem);
                 }
                 this.setState({arrayOfImages: arrayOfObjects});
-
             })
     }
 
@@ -57,10 +56,14 @@ export default class SmartSlider extends React.Component {
             this._imageGallery.play();
         }
     }
+    // kitchenSlider() => {
+    //     console.log(collectData.data[0])
+    // }
 
     render() {
-        console.log(Array.from(this.state.arrayOfImages));
+        // console.log(Array.from(this.state.arrayOfImages));
         return (
+            <div>
             <section className='smartslider_root'>
                 <ImageGallery
                     items={this.state.arrayOfImages}
@@ -78,6 +81,12 @@ export default class SmartSlider extends React.Component {
                     slideOnThumbnailOver={this.state.slideOnThumbnailOver}
                 />
             </section>
+            {/* <div className="buttons">
+                 <button type="button" class="btn btn-warning" onclick="kitchenSlider()">Kitchen & Bath </button>
+                 <button type="button" class="btn btn-warning" onclick="furnitureSlider()">Furniture</button>
+            </div> */}
+            </div>
+
         )
     
     }

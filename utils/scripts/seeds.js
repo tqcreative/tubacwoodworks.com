@@ -3,6 +3,7 @@ const db = require("../../models");
 let seed_imgs = require ("./seed_img")
 let seed_portfolio = require ('./seed_portfolio');
 let seed_partners = require ('./seed_partner');
+let seed_text = require ('./seed_text');
 
 // This file empties the collections
 
