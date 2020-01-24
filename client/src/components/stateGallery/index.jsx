@@ -10,11 +10,12 @@ class StateGallery extends Component {
         super(props)
         this.state = {
             arrayOfImages: ["/images/check_1.jpg"],
-            // toastMsg: [], 
-			// toastShow: false,
-        }
-        // this.showImageToast = this.handleSignupResult.bind(this);
-		// this.toggleToast = this.toggleToast.bind(this);
+        },
+        this.allGallery = this.allGallery.bind(this),
+        this.kitchenGallery = this.kitchenGallery.bind(this),
+        this.bathGallery = this.bathGallery.bind(this),
+        this.furnitureGallery = this.furnitureGallery.bind(this)
+        
     };
 
     componentDidMount() {
@@ -30,14 +31,54 @@ class StateGallery extends Component {
             })
     };
 
-    // showImageToast(img){
-	// 	console.log(img);
-	// 	this.setState({toastMsg: img, toastShow: true})
-    // };
+    allGallery(){
+        axios
+            .get("/cms/kitchenbathvanity")
+            .then(collectData => {
+                console.log(collectData.data[0].imageArray)
+                // console.log(collectData.data[0].imageArray);
+                // console.log(collectData.data[0].imageArray.length);
+                // console.log(collectData.data[0].imageArray[2]);
+                this.setState({ arrayOfImages: collectData.data[0].imageArray });
+            })
+    };
 
-    // toggleToast(){
-	// 	this.setState({toastShow: !this.state.toastShow});
-	// }
+    kitchenGallery(){
+        axios
+            .get("/cms/kitchenbathvanity")
+            .then(collectData => {
+                console.log(collectData.data[1].kitchenTable)
+                // console.log(collectData.data[0].imageArray);
+                // console.log(collectData.data[0].imageArray.length);
+                // console.log(collectData.data[0].imageArray[2]);
+                this.setState({ arrayOfImages: collectData.data[1].kitchenTable });
+            })
+    };
+
+    bathGallery(){
+        axios
+            .get("/cms/kitchenbathvanity")
+            .then(collectData => {
+                // console.log(collectData.data[1].kitchenTable)
+                // console.log(collectData.data[0].imageArray);
+                // console.log(collectData.data[0].imageArray.length);
+                // console.log(collectData.data[0].imageArray[2]);
+                this.setState({ arrayOfImages: collectData.data[2].bathTable });
+            })
+    };
+
+    furnitureGallery(){
+        axios
+            .get("/cms/kitchenbathvanity")
+            .then(collectData => {
+                // console.log(collectData.data[1].kitchenTable)
+                // console.log(collectData.data[0].imageArray);
+                // console.log(collectData.data[0].imageArray.length);
+                // console.log(collectData.data[0].imageArray[2]);
+                this.setState({ arrayOfImages: collectData.data[3].furnitureTable });
+            })
+    }
+
 
     render() {
         // console.log(this.state.arrayOfImages.length)
@@ -47,13 +88,20 @@ class StateGallery extends Component {
            
             
             <ImageWrapper>
+                <button type='button' className="btn btn-primary" onClick={this.allGallery}>All Images</button>
+                <button type='button' className="btn btn-primary" onClick={this.kitchenGallery}>Kitchen Images</button>
+                <button type='button' className="btn btn-primary" onClick={this.bathGallery}>Bath Images</button>
+                <button type='button' className="btn btn-primary" onClick={this.furnitureGallery}>Furniture Images</button>
                 <div className="stateGallery_root">
+                    
                     <div className="image-div">
                         {this.state.arrayOfImages.map(img => {
                             return (
                                 <ImageCard key={img + Math.floor(Math.random()*8000)+1} className="item" arrayOfImages={img} />)
                         })}
+                        
                     </div>
+                  
                     </div>
             </ImageWrapper>
         )

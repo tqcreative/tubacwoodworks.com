@@ -7,6 +7,7 @@ const portfolioController = require("./portfolio_component.controller");
 const userController = require("./user.controller");
 const readTheDatabase = require("./upload.controller");
 const unSubscribe = require("./unsubscribe.controller");
+const uploadPhoto = require("./uploadImage.controller");
 
 ////////////
 // root API Routes
@@ -34,6 +35,11 @@ router.use("/cms/kitchenbathvanity", kitchenController);
 // unsubscribe toggle
 /////////////
 router.use("/crm/unsubscribe", unSubscribe);
+
+/////////////
+// image uploads
+/////////////
+router.use("/cms/GD8PQX3UV18999AARONWITHANEY", uploadPhoto);
 
 /////////////
 // upload file route to target image folder in the root level, update array in database
