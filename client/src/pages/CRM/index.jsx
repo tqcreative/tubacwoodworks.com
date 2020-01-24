@@ -8,6 +8,7 @@ import ContactWrapper from '../../components/ContactWrapper';
 import NoteWrapper from '../../components/NoteWrapper';
 import ScheduleWrapper from '../../components/ScheduleWrapper';
 import EmployeeWrapper from '../../components/EmployeeWrapper';
+import ContactList from '../../components/ContactList';
 
 
 // function renderTooltip(props) {
@@ -52,6 +53,9 @@ function CRM(props) {
                             </Route>
                             <Route exact path="/crm/employee">
                                 <EmployeeWrapper user={props.user} loggedIn={props.loggedIn} />
+                            </Route>
+                            <Route exact path="/crm/allcustomers">
+                                <ContactList user={props.user}/>
                             </Route>
                             <Route exact path="/crm/customer">
                                 <ContactWrapper id={null} />

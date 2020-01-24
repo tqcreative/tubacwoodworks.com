@@ -29,7 +29,7 @@ const customerSchema = new Schema({
   phoneNumber: {
     type: String,
     required: "Phone number is Required",
-    match: [/^\b\d{3}[-.]?\d{3}[-.]?\d{4}\b$/, "Please enter a valid phone "],
+    match: [/\(\d{3}\) \d{3}-\d{4}/, "Please enter a valid phone number"],
   },
   numberType: {
     type: String

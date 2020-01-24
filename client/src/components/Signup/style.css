@@ -63,57 +63,47 @@
     padding-bottom: 5%;
     position: relative;
     background-color: transparent;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
     z-index: 99;
     max-width: 1200px;
     margin: auto; }
-    .signupWrapper form input {
+    .signupWrapper form .form-group {
       display: -webkit-inline-box;
       display: -ms-inline-flexbox;
       display: inline-flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
       margin: 8px;
       -webkit-box-flex: 1;
       -ms-flex-positive: 1;
       flex-grow: 1;
       -ms-flex-negative: 1;
       flex-shrink: 1;
-      -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
       padding-left: 1em; }
+      .signupWrapper form .form-group input {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex; }
+      .signupWrapper form .form-group span {
+        display: block; }
     .signupWrapper form .btn {
-      display: inline-block;
-      width: 100%;
-      -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-      flex-grow: 1;
-      margin: 8px;
+      -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+      flex-grow: 0;
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
       min-width: 120px;
       -webkit-box-pack: center;
       -ms-flex-pack: center;
       justify-content: center;
       background-color: #c23616;
       border-color: #2d3436; }
-
-@media screen and (min-width: 768px) {
-  .signupWrapper input {
-    -ms-flex-preferred-size: 33% !important;
-    flex-basis: 33% !important; } }
-
-@media screen and (min-width: 992px) {
-  .signupWrapper form {
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    padding-top: 1%;
-    padding-bottom: 3%; }
-  .signupWrapper .banner {
-    padding-top: 3%;
-    padding-bottom: 1%; }
-  .signupWrapper input {
-    -ms-flex-preferred-size: 20% !important;
-    flex-basis: 20% !important; }
-  .signupWrapper .btn {
-    max-width: 120px; } }
+    .signupWrapper form .invalid-feedback {
+      color: white;
+      padding-left: 14px; }
 
 #middle_name {
   display: none; }

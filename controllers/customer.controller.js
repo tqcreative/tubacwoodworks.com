@@ -24,6 +24,29 @@ const projectedContactFields = {
 
 // /api/customers routes
 
+// Return list of all customers
+router.route("/").get(authenticateUser, (req, res) => {
+    const { sort } = req.query;
+    let sortObj = {};
+
+    switch (sort) {
+        case "lastName":
+            sortObj = {lastName:1,firstName:1};
+            break;
+        case "firstName":
+        default:
+            sortObj = { firstName: 1, lastName: 1 };
+    }
+
+    db.Customer.find({}, projectedContactFields).sort(sortObj)
+        .then(custRes => {
+            res.json(custRes)
+        })
+        .catch(err => {
+            res.status(500).json(err)
+        })
+});
+
 // Signup request for a quote - don't need to be logged in
 router.route("/signup").post((req, res) => {
     const { firstName, lastName, email, phoneNumber } = req.body;
@@ -58,13 +81,13 @@ router.route("/signup").post((req, res) => {
 
 // Get the list of current customer leads
 router.route("/leads/contact").get(authenticateUser, (req, res) => {
-    db.Customer.find({ isLead: true }).sort({createdAt: 1})
-    .then(data=>{
-        res.json(data);
-    })
-    .catch(err=>{
-        res.status(500).json(err);
-    });
+    db.Customer.find({ isLead: true }).sort({ createdAt: 1 })
+        .then(data => {
+            res.json(data);
+        })
+        .catch(err => {
+            res.status(500).json(err);
+        });
 });
 
 
@@ -162,11 +185,12 @@ router.route("/id/:id")
                 res.status(500).json(err);
             })
     })
-    .delete(authenticateUser,(req,res)=>{
-        const id = req.params.id;
-        db.Customer.findOneAndRemove(id).then(custRes=>{
+    .delete(authenticateUser, (req, res) => {
+        const {id} = req.params;
+        console.log(id);
+        db.Customer.findByIdAndRemove(id).then(custRes => {
             console.log(custRes);
-            res.json({message: "Customer successfully removed from database", id:id})
+            res.json({ message: "Customer successfully removed from database", id: id })
         })
     })
     ;
