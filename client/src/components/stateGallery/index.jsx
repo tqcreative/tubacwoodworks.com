@@ -10,11 +10,14 @@ class StateGallery extends Component {
         super(props)
         this.state = {
             arrayOfImages: ["/images/check_1.jpg"],
+            toastShow: false,
+            toastImage: ""
         }
         this.allGallery = this.allGallery.bind(this);
         this.kitchenGallery = this.kitchenGallery.bind(this);
         this.bathGallery = this.bathGallery.bind(this);
         this.furnitureGallery = this.furnitureGallery.bind(this);
+        this.toggleToast = this.toggleToast.bind(this);
         
     };
 
@@ -79,6 +82,10 @@ class StateGallery extends Component {
             })
     }
 
+    toggleToast(imgURL) {
+        this.setState({ toastShow: !this.state.toastShow, toastImage: imgURL})
+    }
+
 
     render() {
         console.log(this.props)
@@ -86,8 +93,7 @@ class StateGallery extends Component {
         // for (let i = 0; i < this.state.arrayOfImages.length; i++){
         //     console.log(this.state.arrayOfImages[i])
         return (
-           
-            
+           <div>
             <ImageWrapper>
                 
                 {/* <button type='button' className="btn btn-primary" onClick={this.allGallery}>All Images</button>
@@ -99,13 +105,21 @@ class StateGallery extends Component {
                     <div className="image-div">
                         {this.state.arrayOfImages.map(img => {
                             return (
-                                <ImageCard key={img + Math.floor(Math.random()*8000)+1} className="item" arrayOfImages={img} />)
+                                <ImageCard key={img + Math.floor(Math.random()*8000)+1} onClick={this.toggleToast} className="item" arrayOfImages={img} />)
                         })}
                         
                     </div>
                   
                     </div>
             </ImageWrapper>
+            <Toast show={this.state.toastShow} onClose={this.toggleToast}>
+            <div>
+                <h1>Hello</h1>
+                
+                <img src={this.state.toastImage} alt="image" />
+            </div>
+        </Toast>
+        </div>
         )
     }
 }
