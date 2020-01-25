@@ -87,8 +87,8 @@ class StateGallery extends Component {
     }
 
 
-    render() {
-        console.log(this.props.theArray)
+    render(theArray) {
+        // console.log(this.props.theArray)
         // console.log(this.state.arrayOfImages.length)
         // for (let i = 0; i < this.state.arrayOfImages.length; i++){
         //     console.log(this.state.arrayOfImages[i])
@@ -103,7 +103,7 @@ class StateGallery extends Component {
                 <div className="stateGallery_root" >
                     
                     <div className="image-div">
-                        {this.state.arrayOfImages.map((img, index) => {
+                        {this.props.theArray.map((img, index) => {
                             return (
                                 <ImageCard key={img + Math.floor(Math.random()*8000)+1} onClick={this.toggleToast} className="item" arrayOfImages={img} />)
                         })}
