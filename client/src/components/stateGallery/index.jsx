@@ -10,11 +10,22 @@ class StateGallery extends Component {
         super(props)
         this.state = {
             arrayOfImages: ["/images/check_1.jpg"],
+<<<<<<< HEAD
         },
         this.allGallery = this.allGallery.bind(this),
         this.kitchenGallery = this.kitchenGallery.bind(this),
         this.bathGallery = this.bathGallery.bind(this),
         this.furnitureGallery = this.furnitureGallery.bind(this)
+=======
+            toastShow: false,
+            toastImage: ""
+        }
+        this.allGallery = this.allGallery.bind(this);
+        this.kitchenGallery = this.kitchenGallery.bind(this);
+        this.bathGallery = this.bathGallery.bind(this);
+        this.furnitureGallery = this.furnitureGallery.bind(this);
+        this.toggleToast = this.toggleToast.bind(this);
+>>>>>>> e9b95b60decdb6de48fb83f28c49f7ce9cff9ea5
         
     };
 
@@ -79,31 +90,48 @@ class StateGallery extends Component {
             })
     }
 
+    toggleToast(imgURL) {
+        this.setState({ toastShow: !this.state.toastShow, toastImage: imgURL})
+    }
+
 
     render() {
+        console.log(this.props)
         // console.log(this.state.arrayOfImages.length)
         // for (let i = 0; i < this.state.arrayOfImages.length; i++){
         //     console.log(this.state.arrayOfImages[i])
         return (
-           
-            
+           <div>
             <ImageWrapper>
-                <button type='button' className="btn btn-primary" onClick={this.allGallery}>All Images</button>
+                
+                {/* <button type='button' className="btn btn-primary" onClick={this.allGallery}>All Images</button>
                 <button type='button' className="btn btn-primary" onClick={this.kitchenGallery}>Kitchen Images</button>
                 <button type='button' className="btn btn-primary" onClick={this.bathGallery}>Bath Images</button>
-                <button type='button' className="btn btn-primary" onClick={this.furnitureGallery}>Furniture Images</button>
+                <button type='button' className="btn btn-primary" onClick={this.furnitureGallery}>Furniture Images</button> */}
                 <div className="stateGallery_root">
                     
                     <div className="image-div">
                         {this.state.arrayOfImages.map((img, index) => {
                             return (
+<<<<<<< HEAD
                                 <ImageCard key={img + Math.floor(Math.random()*8000)+1} imageNumber={index} className="item" arrayOfImages={img} />)
+=======
+                                <ImageCard key={img + Math.floor(Math.random()*8000)+1} onClick={this.toggleToast} className="item" arrayOfImages={img} />)
+>>>>>>> e9b95b60decdb6de48fb83f28c49f7ce9cff9ea5
                         })}
                         
                     </div>
                   
                     </div>
             </ImageWrapper>
+            <Toast show={this.state.toastShow} onClose={this.toggleToast}>
+            <div>
+                <h1>Hello</h1>
+                
+                <img src={this.state.toastImage} alt="image" />
+            </div>
+        </Toast>
+        </div>
         )
     }
 }
