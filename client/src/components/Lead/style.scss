@@ -1,7 +1,22 @@
-td{
-    vertical-align: middle !important;
-}
+@import '../../_scss/vars';
 
-tr{
-    height: 40px;
+.lead_root{
+    td{
+        vertical-align: middle !important;    
+    }
+
+    .btn-call{
+        background: $success;
+    }
+
+    ion-icon{
+        font-size: 20px;
+        padding: 0px;
+        margin: 0px;
+        color: white;
+    }
+    
+    tr{
+        height: 40px;
+    }
 }

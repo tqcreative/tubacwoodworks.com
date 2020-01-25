@@ -113,7 +113,7 @@ class ContactList extends Component {
                 <Toast show={this.state.toastShow} onClose={this.toggleToast}>
                     <Fragment>
                         <h1>{this.state.toastFirstName} {this.state.toastLastName}</h1>
-                        <h1>{this.state.toastPhoneNumber}</h1>
+                        <h1 className="mb-4">{this.state.toastPhoneNumber}</h1>
                         <img src={`https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=${this.state.toastPhoneNumber}`} alt="Phone Number QR Code" />
                     </Fragment>
                 </Toast>
