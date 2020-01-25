@@ -4,9 +4,13 @@ const Schema = mongoose.Schema;
 mongoose.set('useFindAndModify', false);
 
 const appointmentSchema = new Schema({
-  date: {
+  startDatetime: {
     type: Date,
-    required: "Must have a date and time scheduled for appointment",
+    required: "Must have a start date and time scheduled for appointment"
+  },
+  endDatetime: {
+    type: Date,
+    required: "Must have an end date and time scheduled for appointment"
   },
   detail: {
     type: String
