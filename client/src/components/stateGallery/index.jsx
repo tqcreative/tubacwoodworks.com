@@ -23,63 +23,63 @@ class StateGallery extends Component {
 
     componentDidMount() {
         console.log("Component has mounted");
-        axios
-            .get("/cms/kitchenbathvanity")
-            .then(collectData => {
-                // console.log(collectData.data)
-                // console.log(collectData.data[0].imageArray);
-                // console.log(collectData.data[0].imageArray.length);
-                // console.log(collectData.data[0].imageArray[2]);
-                this.setState({ arrayOfImages: collectData.data[0].imageArray });
-            })
+        // axios
+        //     .get("/cms/kitchenbathvanity")
+        //     .then(collectData => {
+        //         // console.log(collectData.data)
+        //         // console.log(collectData.data[0].imageArray);
+        //         // console.log(collectData.data[0].imageArray.length);
+        //         // console.log(collectData.data[0].imageArray[2]);
+        //         this.setState({ arrayOfImages: collectData.data[0].imageArray });
+        //     })
     };
 
     allGallery(){
-        axios
-            .get("/cms/kitchenbathvanity")
-            .then(collectData => {
-                console.log(collectData.data[0].imageArray)
-                // console.log(collectData.data[0].imageArray);
-                // console.log(collectData.data[0].imageArray.length);
-                // console.log(collectData.data[0].imageArray[2]);
-                this.setState({ arrayOfImages: collectData.data[0].imageArray });
-            })
+        // axios
+        //     .get("/cms/kitchenbathvanity")
+        //     .then(collectData => {
+        //         console.log(collectData.data[0].imageArray)
+        //         // console.log(collectData.data[0].imageArray);
+        //         // console.log(collectData.data[0].imageArray.length);
+        //         // console.log(collectData.data[0].imageArray[2]);
+        //         this.setState({ arrayOfImages: collectData.data[0].imageArray });
+        //     })
     };
 
     kitchenGallery(){
-        axios
-            .get("/cms/kitchenbathvanity")
-            .then(collectData => {
-                console.log(collectData.data[1].kitchenTable)
-                // console.log(collectData.data[0].imageArray);
-                // console.log(collectData.data[0].imageArray.length);
-                // console.log(collectData.data[0].imageArray[2]);
-                this.setState({ arrayOfImages: collectData.data[1].kitchenTable });
-            })
+        // axios
+        //     .get("/cms/kitchenbathvanity")
+        //     .then(collectData => {
+        //         console.log(collectData.data[1].kitchenTable)
+        //         // console.log(collectData.data[0].imageArray);
+        //         // console.log(collectData.data[0].imageArray.length);
+        //         // console.log(collectData.data[0].imageArray[2]);
+        //         this.setState({ arrayOfImages: collectData.data[1].kitchenTable });
+        //     })
     };
 
     bathGallery(){
-        axios
-            .get("/cms/kitchenbathvanity")
-            .then(collectData => {
-                // console.log(collectData.data[1].kitchenTable)
-                // console.log(collectData.data[0].imageArray);
-                // console.log(collectData.data[0].imageArray.length);
-                // console.log(collectData.data[0].imageArray[2]);
-                this.setState({ arrayOfImages: collectData.data[2].bathTable });
-            })
+        // axios
+        //     .get("/cms/kitchenbathvanity")
+        //     .then(collectData => {
+        //         // console.log(collectData.data[1].kitchenTable)
+        //         // console.log(collectData.data[0].imageArray);
+        //         // console.log(collectData.data[0].imageArray.length);
+        //         // console.log(collectData.data[0].imageArray[2]);
+        //         this.setState({ arrayOfImages: collectData.data[2].bathTable });
+        //     })
     };
 
     furnitureGallery(){
-        axios
-            .get("/cms/kitchenbathvanity")
-            .then(collectData => {
-                // console.log(collectData.data[1].kitchenTable)
-                // console.log(collectData.data[0].imageArray);
-                // console.log(collectData.data[0].imageArray.length);
-                // console.log(collectData.data[0].imageArray[2]);
-                this.setState({ arrayOfImages: collectData.data[3].furnitureTable });
-            })
+        // axios
+        //     .get("/cms/kitchenbathvanity")
+        //     .then(collectData => {
+        //         // console.log(collectData.data[1].kitchenTable)
+        //         // console.log(collectData.data[0].imageArray);
+        //         // console.log(collectData.data[0].imageArray.length);
+        //         // console.log(collectData.data[0].imageArray[2]);
+        //         this.setState({ arrayOfImages: collectData.data[3].furnitureTable });
+        //     })
     }
 
     toggleToast(imgURL) {
@@ -88,7 +88,7 @@ class StateGallery extends Component {
 
 
     render() {
-        console.log(this.props)
+        console.log(this.props.theArray)
         // console.log(this.state.arrayOfImages.length)
         // for (let i = 0; i < this.state.arrayOfImages.length; i++){
         //     console.log(this.state.arrayOfImages[i])
@@ -100,10 +100,10 @@ class StateGallery extends Component {
                 <button type='button' className="btn btn-primary" onClick={this.kitchenGallery}>Kitchen Images</button>
                 <button type='button' className="btn btn-primary" onClick={this.bathGallery}>Bath Images</button>
                 <button type='button' className="btn btn-primary" onClick={this.furnitureGallery}>Furniture Images</button> */}
-                <div className="stateGallery_root">
+                <div className="stateGallery_root" >
                     
                     <div className="image-div">
-                        {this.state.arrayOfImages.map(img => {
+                        {this.props.theArray.map(img => {
                             return (
                                 <ImageCard key={img + Math.floor(Math.random()*8000)+1} onClick={this.toggleToast} className="item" arrayOfImages={img} />)
                         })}
@@ -114,9 +114,7 @@ class StateGallery extends Component {
             </ImageWrapper>
             <Toast show={this.state.toastShow} onClose={this.toggleToast}>
             <div>
-                <h1>Hello</h1>
-                
-                <img src={this.state.toastImage} alt="image" />
+                <img src={this.state.toastImage} alt="image" style={{maxWidth:"100%"}}/>
             </div>
         </Toast>
         </div>

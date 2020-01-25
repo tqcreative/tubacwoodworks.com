@@ -55,7 +55,7 @@ export default class Gallery extends Component {
         axios
             .get("/cms/kitchenbathvanity")
             .then(collectData => {
-                console.log(collectData.data[1].kitchenTable)
+                // console.log(collectData.data[1].kitchenTable)
                 // console.log(collectData.data[0].imageArray);
                 // console.log(collectData.data[0].imageArray.length);
                 // console.log(collectData.data[0].imageArray[2]);
@@ -118,7 +118,7 @@ export default class Gallery extends Component {
                 <button type='button' className="btn btn-primary" onClick={this.kitchenGallery}>Kitchen Images</button>
                 <button type='button' className="btn btn-primary" onClick={this.bathGallery}>Bath Images</button>
                 <button type='button' className="btn btn-primary" onClick={this.furnitureGallery}>Furniture Images</button>
-					<StateGallery/>
+					<StateGallery theArray={this.state.arrayOfImages}/>
 					<Signup />
 					<Footer />
 				</div>
