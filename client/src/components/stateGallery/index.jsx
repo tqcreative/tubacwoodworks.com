@@ -10,11 +10,11 @@ class StateGallery extends Component {
         super(props)
         this.state = {
             arrayOfImages: ["/images/check_1.jpg"],
-        },
-        this.allGallery = this.allGallery.bind(this),
-        this.kitchenGallery = this.kitchenGallery.bind(this),
-        this.bathGallery = this.bathGallery.bind(this),
-        this.furnitureGallery = this.furnitureGallery.bind(this)
+        }
+        this.allGallery = this.allGallery.bind(this);
+        this.kitchenGallery = this.kitchenGallery.bind(this);
+        this.bathGallery = this.bathGallery.bind(this);
+        this.furnitureGallery = this.furnitureGallery.bind(this);
         
     };
 
