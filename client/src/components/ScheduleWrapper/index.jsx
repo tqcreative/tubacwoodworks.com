@@ -8,13 +8,16 @@ import moment from 'moment';
 import axios from 'axios';
 import { Dropdown } from 'react-bootstrap';
 import ScheduledAppts from '../ScheduledAppts';
+import AddToCalendar from '../AddToCalendar';
 
 class ScheduleWrapper extends Component {
     constructor(props) {
         super(props)
         this.state = {
             date: new Date(),
-            time: moment(),
+            startTime: moment(),
+            endTime: moment(),
+            location: "",
             detail: "",
             userid: null,
             username: "",
@@ -28,7 +31,8 @@ class ScheduleWrapper extends Component {
             email: ""
         }
         this.onDateChange = this.onDateChange.bind(this);
-        this.onTimeChange = this.onTimeChange.bind(this);
+        this.onStartTimeChange = this.onStartTimeChange.bind(this);
+        this.onEndTimeChange = this.onEndTimeChange.bind(this);
         this.handleUserSelect = this.handleUserSelect.bind(this);
         this.getCustomerInfo = this.getCustomerInfo.bind(this);
         this.addToSchedule = this.addToSchedule.bind(this);
@@ -54,7 +58,9 @@ class ScheduleWrapper extends Component {
             .then(res => {
                 console.log(res.data);
                 const { appointments, firstName, lastName, email } = res.data;
-                this.setState({ appointments, firstName, lastName, email })
+                const { streetAddress, city, state, zipcode, zip4 } = res.data;
+                const location = `${streetAddress?streetAddress:""} ${city?city:""} ${state?state:""} ${zipcode?zipcode:""}`;
+                this.setState({ appointments, firstName, lastName, email, location  })
             })
             .catch(err => {
                 console.log(err);
@@ -82,8 +88,12 @@ class ScheduleWrapper extends Component {
         this.setState({ date })
     }
 
-    onTimeChange(time) {
-        this.setState({ time })
+    onStartTimeChange(time) {
+        this.setState({ startTime: time })
+    }
+
+    onEndTimeChange(time) {
+        this.setState({ endTime: time })
     }
 
     handleInputChange(event) {
@@ -95,26 +105,28 @@ class ScheduleWrapper extends Component {
         this.setState({ assignedUsername: event })
     }
 
-    findUserId(username, objArr){
+    findUserId(username, objArr) {
         const obj = objArr.find(o => o.local.username === username);
         return obj._id;
     }
 
     addToSchedule() {
-        let date = `${moment(moment(this.state.date).format('YYYY-MM-DD') + "T" + moment(this.state.time).format('HH:mm')).toDate()}`;
-        let assignedTo = this.findUserId(this.state.assignedUsername,this.state.userList);
+        let startDatetime = `${moment(moment(this.state.date).format('YYYY-MM-DD') + "T" + moment(this.state.startTime).format('HH:mm')).toDate()}`;
+        let endDatetime = `${moment(moment(this.state.date).format('YYYY-MM-DD') + "T" + moment(this.state.endTime).format('HH:mm')).toDate()}`;
+        let assignedTo = this.findUserId(this.state.assignedUsername, this.state.userList);
 
-        axios.post(`/api/customers/id/${this.state.id}/appointment`,{
-            date: date,
+        axios.post(`/api/customers/id/${this.state.id}/appointment`, {
+            startDatetime: startDatetime,
+            endDatetime: endDatetime,
             assignedTo: assignedTo,
             customer: this.state.id,
             createdBy: this.state.userid,
             updatedBy: this.state.userid,
             detail: this.state.detail
         })
-        .then(res=>{
-            window.location.href = `/crm/scheduler/${this.state.id}`
-        })
+            .then(res => {
+                window.location.href = `/crm/scheduler/${this.state.id}`
+            })
     }
 
     render() {
@@ -163,7 +175,7 @@ class ScheduleWrapper extends Component {
                                     <div className="col col-md-6">
                                         <div className="row">
                                             <div className="col">
-                                                <h5 className="text-center">Pick a Time</h5>
+                                                <h5 className="text-center">Start Time</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -185,8 +197,9 @@ class ScheduleWrapper extends Component {
                                             inputReadOnly
                                             showSecond={false}
                                             minuteStep={15}
-                                            value={this.state.time}
-                                            onChange={this.onTimeChange}
+                                            name="startTime"
+                                            value={this.state.startTime}
+                                            onChange={this.onStartTimeChange}
                                         />
                                     </div>
                                     <div className="col col-md-6 d-flex justify-content-center">
@@ -203,14 +216,39 @@ class ScheduleWrapper extends Component {
                                         </Dropdown>
                                     </div>
                                 </div>
-                                <div className="row mt-5 mx-1">
+                                <div className="row mt-2">
+                                    <div className="col col-md-6">
+                                        <div className="row">
+                                            <div className="col">
+                                                <h5 className="text-center">End Time</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col col-md-6 time-col">
+                                        <TimePicker
+                                            className="time-picker"
+                                            popupClassName="time-picker-popup"
+                                            defaultValue={moment()}
+                                            use12Hours
+                                            inputReadOnly
+                                            showSecond={false}
+                                            minuteStep={15}
+                                            name="endTime"
+                                            value={this.state.endTime}
+                                            onChange={this.onEndTimeChange}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="row mt-4 mx-1">
                                     <div className="col">
                                         <h3 className="text-center">Appointment Details</h3>
                                     </div>
                                 </div>
                                 <div className="row mt-2 mx-1">
                                     <div className="col">
-                                        <textarea rows="4" className="form-control" name="detail" value={this.state.detail} onChange={this.handleInputChange}/>
+                                        <textarea rows="4" className="form-control" name="detail" value={this.state.detail} onChange={this.handleInputChange} />
                                     </div>
                                 </div>
                                 <div className="row my-5">
@@ -226,7 +264,11 @@ class ScheduleWrapper extends Component {
                 <div className="row mt-5" hidden={!this.state.id}>
                     <div className="col">
                         <h3 className="text-center">{headerText}</h3>
-                        <ScheduledAppts appointments={this.state.appointments} />
+                        <ScheduledAppts appointments={this.state.appointments} 
+                            firstName={this.state.firstName} 
+                            lastName={this.state.lastName} 
+                            location={this.state.location}
+                        />
                     </div>
                 </div>
             </div>
