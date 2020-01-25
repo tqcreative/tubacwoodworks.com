@@ -31,7 +31,7 @@ router.route("/").get(authenticateUser, (req, res) => {
 
     switch (sort) {
         case "lastName":
-            sortObj = {lastName:1,firstName:1};
+            sortObj = { lastName: 1, firstName: 1 };
             break;
         case "firstName":
         default:
@@ -185,13 +185,47 @@ router.route("/id/:id")
                 res.status(500).json(err);
             })
     })
+    // Delete all customer data from database
     .delete(authenticateUser, (req, res) => {
-        const {id} = req.params;
+        const { id } = req.params;
         console.log(id);
-        db.Customer.findByIdAndRemove(id).then(custRes => {
-            console.log(custRes);
-            res.json({ message: "Customer successfully removed from database", id: id })
-        })
+
+        // First delete the customer record
+        db.Customer.findByIdAndRemove(id)
+            .then(custRes => {
+                // Then delete any associated appointments for that customer
+                db.Appointment.deleteMany({ customer: id })
+                    .then(apptRes => {
+                        //Then delete any associated notes for that customer
+                        db.Note.deleteMany({ customer: id })
+                            .then(noteRes => {
+                                // All customer data deleted from database, respond back with message
+                                res.json({
+                                    message: "Customer successfully removed from database", id: id,
+                                    results: [
+                                        { collection: "Customer", deleteCount: 1 },
+                                        { collection: "Note", deleteCount: noteRes.deletedCount },
+                                        { collection: "Appointment", deleteCount: apptRes.deletedCount }
+                                    ]
+                                })
+                            })
+                            .catch(err => {
+                                console.log("Error deleting notes for customer")
+                                console.log(err)
+                                res.status(420).json({ message: "Error while trying to delete records for customer.  Customer info was only partially deleted.  Recommend trying to delete again.", collection: "Note", status: 420 })
+                            })
+                    })
+                    .catch(err => {
+                        console.log("Error deleting appointments for customer")
+                        console.log(err)
+                        res.status(420).json({ message: "Error while trying to delete records for customer.  Customer info was only partially deleted.  Recommend trying to delete again.", collection: "Appointment", status: 420 })
+                    })
+            })
+            .catch(err => {
+                console.log("Error deleting appointments for customer")
+                console.log(err)
+                res.status(420).json({ message: "Error while trying to delete records for customer.  Customer info was only partially deleted.  Recommend trying to delete again.", collection: "Customer", status: 420 })
+            })
     })
     ;
 
