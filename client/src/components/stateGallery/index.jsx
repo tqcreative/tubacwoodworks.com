@@ -105,7 +105,7 @@ class StateGallery extends Component {
                     <div className="image-div">
                         {this.props.theArray.map((img, index) => {
                             return (
-                                <ImageCard key={img + Math.floor(Math.random()*8000)+1} onClick={this.toggleToast} className="item" arrayOfImages={img} />)
+                                <ImageCard imageNumber={index} key={img + Math.floor(Math.random()*8000)+1} onClick={this.toggleToast} className="item" arrayOfImages={img} />)
                         })}
                         
                     </div>

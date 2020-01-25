@@ -2,4 +2,6 @@
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 8; }
+  z-index: 64;
+  color: #fff;
+  background-color: rgba(45, 52, 54, 0.7); }

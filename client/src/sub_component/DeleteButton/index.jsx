@@ -9,20 +9,18 @@ function DeleteButton(props) {
 
     ////////////////////////
     // required props
-    // __parent_image_name
+    // props are passed to the delete button from the ImageCard component
+    // imageIndexNumber
+    // imageIsInTable
     ////////////////////////
 
-    /////////////////////////////////
-    // to collect the image's name we 
-    // will grab it from the id being passed.
-    /////////////////////////////////
-
-    };
+    const deleteThisItemFromThisArray = () => {
+        console.log(props);
+    }
 
     return (
-        <div className="upload_img_root">
-            <input type="file" name={this.props.__parent_image_name} onChange={this.uploadFileHandler} />
-            <button type="button" className="button" onClick={this.submitPhotoForUpload}><ion-icon name="ios-save"></ion-icon></button>
+        <div className="delete_button_root">
+            <button type="button" className="button" onClick={deleteThisItemFromThisArray}><ion-icon name="ios-trash"></ion-icon></button>
         </div>
     )
 }
