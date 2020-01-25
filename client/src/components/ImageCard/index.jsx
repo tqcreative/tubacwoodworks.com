@@ -1,5 +1,6 @@
 import React from "react";
 import "./imageCard.css";
+import DeleteButton from '../../sub_component/DeleteButton';
 
 /////////////////
 // Props
@@ -15,10 +16,11 @@ import "./imageCard.css";
 //////////////////////////////////////////////////
 
 
-const ImageCard = ({arrayOfImages, onClick, imageNumber}) => {
+const ImageCard = ({arrayOfImages, imageNumber, onClick, tableNameProp}) => {
   return (
-    <div className="imagecard" image_number={imageNumber} onClick={()=> onClick(`/cms/images/${arrayOfImages}`)}>
+    <div tablename={tableNameProp} className="imagecard" image_number={imageNumber} onClick={()=> onClick(`/cms/images/${arrayOfImages}`)}>
       <div className="img-container">
+        <DeleteButton tableName={tableNameProp} imageIndexNumber={imageNumber} imageIsInTable={"TableName"} />
         <div className="item" style={{backgroundImage: `url(/cms/images/${arrayOfImages}`}}></div>
       </div>
     </div>

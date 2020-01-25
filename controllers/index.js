@@ -8,6 +8,7 @@ const userController = require("./user.controller");
 const readTheDatabase = require("./upload.controller");
 const unSubscribe = require("./unsubscribe.controller");
 const uploadPhoto = require("./uploadImage.controller");
+const deleteImageController = require("./deleteImage.controller");
 
 ////////////
 // root API Routes
@@ -30,6 +31,11 @@ router.use("/auth", authController);
 // Images Routes
 ////////////
 router.use("/cms/kitchenbathvanity", kitchenController);
+
+////////////
+// Delete Images using delete button component 
+////////////
+router.use("/cms/deletebuttonroute", deleteImageController);
 
 /////////////
 // unsubscribe toggle

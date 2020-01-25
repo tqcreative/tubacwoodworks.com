@@ -1,0 +1,10 @@
+@import '../../_scss/vars';
+
+.delete_button_root {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 64;
+    color: #fff;
+    background-color: rgba($dark, .7);
+}
