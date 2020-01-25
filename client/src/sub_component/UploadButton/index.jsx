@@ -55,6 +55,7 @@ export default class UploadBtn extends Component {
                             .then(returnFromCall => {
                                 //console.log(returnFromCall);
                                 console.log('Uploaded');
+                                this.props.refreshTable();
                                 return;
                             })
                     } else {

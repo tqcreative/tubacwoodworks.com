@@ -17,7 +17,7 @@ router.route("/:id")
             // let thisArrayId = dbReturns[0]._id;
 
             db.Images.update(
-                { $push: { imageArray: [imageNameToBeAddedToTheArray   ]}}
+                { $push: { imageArray: imageNameToBeAddedToTheArray}}
             )
             .then(
                 lastCall => {

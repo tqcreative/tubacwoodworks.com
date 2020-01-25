@@ -11,11 +11,11 @@ router.route("/").get((req, res) => {
 })
 
 // update the array in a database
-router.route("/put/:id").put((req, res) => {
-    console.log('req.body = ')
-    console.log(req.body);
-    console.log('_id =');
-    console.log(req.params.id);
+router.route("/put/:id").put(authenticateUser, (req, res) => {
+    // console.log('req.body = ')
+    // console.log(req.body);
+    // console.log('_id =');
+    // console.log(req.params.id);
 
     db.Images
         .findByIdAndUpdate(req.params.id, { $set: req.body })
