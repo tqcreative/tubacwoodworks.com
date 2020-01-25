@@ -77,7 +77,7 @@ class ContactList extends Component {
         return (
             <div className="container cl_root">
                 {this.state.redirectTo ? <Redirect to={`/crm/customer/${this.state.redirectTo}`} /> : null}
-                <h1>All Customers</h1>
+                <h1 className="text-center p-3">All Customers</h1>
                 <table className="table">
                     <thead>
                         <tr>

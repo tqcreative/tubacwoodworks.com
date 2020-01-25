@@ -26,19 +26,7 @@ const projectedContactFields = {
 
 // Return list of all customers
 router.route("/").get(authenticateUser, (req, res) => {
-    const { sort } = req.query;
-    let sortObj = {};
-
-    switch (sort) {
-        case "lastName":
-            sortObj = { lastName: 1, firstName: 1 };
-            break;
-        case "firstName":
-        default:
-            sortObj = { firstName: 1, lastName: 1 };
-    }
-
-    db.Customer.find({}, projectedContactFields).sort(sortObj)
+    db.Customer.find({}, projectedContactFields).sort({lastName:1,firstName:1})
         .then(custRes => {
             res.json(custRes)
         })
@@ -192,7 +180,7 @@ router.route("/id/:id")
 
         // First delete the customer record
         db.Customer.findByIdAndRemove(id)
-            .then(custRes => {
+            .then(() => {
                 // Then delete any associated appointments for that customer
                 db.Appointment.deleteMany({ customer: id })
                     .then(apptRes => {

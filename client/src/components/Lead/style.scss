@@ -2,11 +2,16 @@
 
 .lead_root{
     td{
+        padding: 4px 12px;
         vertical-align: middle !important;    
     }
 
     .btn-call{
         background: $success;
+    }
+
+    .btn-check{
+        background: $fail;
     }
 
     ion-icon{
