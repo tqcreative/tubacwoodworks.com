@@ -81,6 +81,7 @@ class StateGallery extends Component {
 
 
     render() {
+        console.log(this.props)
         // console.log(this.state.arrayOfImages.length)
         // for (let i = 0; i < this.state.arrayOfImages.length; i++){
         //     console.log(this.state.arrayOfImages[i])
@@ -88,10 +89,11 @@ class StateGallery extends Component {
            
             
             <ImageWrapper>
-                <button type='button' className="btn btn-primary" onClick={this.allGallery}>All Images</button>
+                
+                {/* <button type='button' className="btn btn-primary" onClick={this.allGallery}>All Images</button>
                 <button type='button' className="btn btn-primary" onClick={this.kitchenGallery}>Kitchen Images</button>
                 <button type='button' className="btn btn-primary" onClick={this.bathGallery}>Bath Images</button>
-                <button type='button' className="btn btn-primary" onClick={this.furnitureGallery}>Furniture Images</button>
+                <button type='button' className="btn btn-primary" onClick={this.furnitureGallery}>Furniture Images</button> */}
                 <div className="stateGallery_root">
                     
                     <div className="image-div">
