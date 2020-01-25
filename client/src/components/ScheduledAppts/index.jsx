@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import AddToCalendar from '../AddToCalendar';
+import './style.css';
 
 function ScheduledAppts(props) {
     return (
