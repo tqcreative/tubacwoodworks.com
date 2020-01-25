@@ -10,11 +10,11 @@ class StateGallery extends Component {
         super(props)
         this.state = {
             arrayOfImages: ["/images/check_1.jpg"],
-        }
-        this.allGallery = this.allGallery.bind(this);
-        this.kitchenGallery = this.kitchenGallery.bind(this);
-        this.bathGallery = this.bathGallery.bind(this);
-        this.furnitureGallery = this.furnitureGallery.bind(this);
+        },
+        this.allGallery = this.allGallery.bind(this),
+        this.kitchenGallery = this.kitchenGallery.bind(this),
+        this.bathGallery = this.bathGallery.bind(this),
+        this.furnitureGallery = this.furnitureGallery.bind(this)
         
     };
 
@@ -95,9 +95,9 @@ class StateGallery extends Component {
                 <div className="stateGallery_root">
                     
                     <div className="image-div">
-                        {this.state.arrayOfImages.map(img => {
+                        {this.state.arrayOfImages.map((img, index) => {
                             return (
-                                <ImageCard key={img + Math.floor(Math.random()*8000)+1} className="item" arrayOfImages={img} />)
+                                <ImageCard key={img + Math.floor(Math.random()*8000)+1} imageNumber={index} className="item" arrayOfImages={img} />)
                         })}
                         
                     </div>
