@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import axios from 'axios';
 import './style.css';
 import Lead from '../Lead';
 import moment from 'moment';
 import { Line } from 'react-chartjs-2';
+import Toast from '../Toast';
 
 
 class LeadWrapper extends Component {
@@ -39,9 +40,15 @@ class LeadWrapper extends Component {
                         }
                     }]
                 }
-            }
+            },
+            toastShow: false,
+            toastPhoneNumber: "",
+            toastFirstName: "",
+            toastLastName: ""
         }
         this.updateLead = this.updateLead.bind(this);
+        this.handleCallClick = this.handleCallClick.bind(this);
+        this.toggleToast = this.toggleToast.bind(this);
     }
 
     componentDidMount() {
@@ -82,6 +89,22 @@ class LeadWrapper extends Component {
             .catch(err => {
                 console.log(err);
             })
+    }
+
+    handleCallClick(phoneNumber, firstName, lastName) {
+        this.setState({
+            toastPhoneNumber: phoneNumber,
+            toastFirstName: firstName,
+            toastLastName: lastName
+        })
+        this.toggleToast()
+    }
+
+    toggleToast() {
+        if(this.state.toastShow){
+            this.setState({ toastFirstName: "", toastLastName: "", toastPhoneNumber: ""})
+        }
+        this.setState({ toastShow: !this.state.toastShow })
     }
 
     redirectToContact(id) {
@@ -132,14 +155,21 @@ class LeadWrapper extends Component {
                                     return (
                                         <Lead key={lead._id} id={lead._id} onClick={this.updateLead}
                                             firstName={lead.firstName} lastName={lead.lastName}
-                                            signupDate={signupDate} contactClick={this.redirectToContact}
+                                            phoneNumber={lead.phoneNumber} signupDate={signupDate} 
+                                            contactClick={this.redirectToContact} handleCallClick={this.handleCallClick}
                                         />
                                     )
                                 })}
-
                         </tbody>
                     </table>
                 </div>
+                <Toast show={this.state.toastShow} onClose={this.toggleToast}>
+                    <Fragment>
+                        <h1>{this.state.toastFirstName} {this.state.toastLastName}</h1>
+                        <h1 className="mb-4">{this.state.toastPhoneNumber}</h1>
+                        <img src={`https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=${this.state.toastPhoneNumber}`} alt="Phone Number QR Code" />
+                    </Fragment>
+                </Toast>
             </div>
         )
     }

@@ -92,18 +92,17 @@ class NoteWrapper extends Component {
     }
 
     render() {
+        let header = "Notes";
+        if(this.state.id) header += ` for ${this.state.firstName} ${this.state.lastName}`
+
         return (
             <div className="m-3">
                 <ContactSearch hrefOnClick="/crm/notes" />
+                <hr />
+                <h1 className="text-center ">{header}</h1>
                 <button type="button" className="btn btn-dark mt-3"
                     onClick={this.toggleToast} hidden={!this.state.id}
                 >Add a Note</button>
-                <div hidden={!this.state.id}>
-                    <hr />
-                    <h1>{this.state.firstName} {this.state.lastName}</h1>
-                </div>
-                <hr />
-                <h1>Notes</h1>
                 {this.state.notes.map(note => {
                     return <Note note={note} />
                 })}

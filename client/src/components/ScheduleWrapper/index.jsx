@@ -135,7 +135,7 @@ class ScheduleWrapper extends Component {
                         <h1 className="text-center">Scheduler</h1>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row" hidden={!this.state.id}>
                     {/* Left side of screen to add a new date */}
                     <div className="col col-md-6">
                         <div className="row mt-3">
@@ -223,7 +223,7 @@ class ScheduleWrapper extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="row mt-5">
+                <div className="row mt-5" hidden={!this.state.id}>
                     <div className="col">
                         <h3 className="text-center">{headerText}</h3>
                         <ScheduledAppts appointments={this.state.appointments} />
