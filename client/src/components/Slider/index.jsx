@@ -27,7 +27,7 @@ export default class SmartSlider extends React.Component {
     }
 
     componentWillMount() {
-        console.log("Component has mounted");
+        // console.log("Component has mounted");
         axios
             .get("/cms/kitchenbathvanity")
             .then(collectData => {
@@ -62,7 +62,7 @@ export default class SmartSlider extends React.Component {
 
     render() {
         // console.log(Array.from(this.state.arrayOfImages));
-        console.log(this.props.theArray)
+        // console.log(this.props.theArray)
         return (
             <div>
             <section className='smartslider_root'>

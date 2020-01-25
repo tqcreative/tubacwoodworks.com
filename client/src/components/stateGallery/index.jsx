@@ -22,7 +22,7 @@ class StateGallery extends Component {
     };
 
     componentDidMount() {
-        console.log("Component has mounted");
+        // console.log("Component has mounted");
         // axios
         //     .get("/cms/kitchenbathvanity")
         //     .then(collectData => {
@@ -105,7 +105,7 @@ class StateGallery extends Component {
                     <div className="image-div">
                         {this.props.theArray.map((img, index) => {
                             return (
-                                <ImageCard imageNumber={index} key={img + Math.floor(Math.random()*8000)+1} onClick={this.toggleToast} className="item" arrayOfImages={img} />)
+                                <ImageCard tableNameProp={this.props.tableNameProp} imageNumber={index} key={img + Math.floor(Math.random()*8000)+1} onClick={this.toggleToast} className="item" arrayOfImages={img} />)
                         })}
                         
                     </div>
