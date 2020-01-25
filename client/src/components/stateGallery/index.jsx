@@ -10,13 +10,6 @@ class StateGallery extends Component {
         super(props)
         this.state = {
             arrayOfImages: ["/images/check_1.jpg"],
-<<<<<<< HEAD
-        },
-        this.allGallery = this.allGallery.bind(this),
-        this.kitchenGallery = this.kitchenGallery.bind(this),
-        this.bathGallery = this.bathGallery.bind(this),
-        this.furnitureGallery = this.furnitureGallery.bind(this)
-=======
             toastShow: false,
             toastImage: ""
         }
@@ -25,7 +18,6 @@ class StateGallery extends Component {
         this.bathGallery = this.bathGallery.bind(this);
         this.furnitureGallery = this.furnitureGallery.bind(this);
         this.toggleToast = this.toggleToast.bind(this);
->>>>>>> e9b95b60decdb6de48fb83f28c49f7ce9cff9ea5
         
     };
 
