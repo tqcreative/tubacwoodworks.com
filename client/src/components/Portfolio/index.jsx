@@ -15,38 +15,45 @@ class Portfolio extends Component {
                 {
                     title: "Woodwork",
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_1.JPG`
+                    imgUrl: `${portfolioImagePath}portfolio_1.JPG`,
+                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor." 
                 },
                 {
                     title: "Furniture",
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_2.JPG`
+                    imgUrl: `${portfolioImagePath}portfolio_2.JPG`,
+                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor."
                 },
                 {
                     title: "Custom Cabinets",
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_3.JPG`
+                    imgUrl: `${portfolioImagePath}portfolio_3.JPG`,
+                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor."
                 },
                 {
                     title: "Kitchen",
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_4.JPG`
+                    imgUrl: `${portfolioImagePath}portfolio_4.JPG`,
+                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor."
                 },
                 {
                     title: "Counters",
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_5.JPG`
+                    imgUrl: `${portfolioImagePath}portfolio_5.JPG`,
+                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor."
                 },
                 {
                     title: "Islands",
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_6.JPG`
+                    imgUrl: `${portfolioImagePath}portfolio_6.JPG`,
+                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor."
                 }
-            ]
+            ],
+            lastItemUpdated: null
         }
     };
 
-    componentWillMount(){
+    componentDidMount(){
         this.axiosCall();
     }
 
@@ -74,44 +81,60 @@ class Portfolio extends Component {
         return (
         <div className="portfolio_root">
             <div className="portfolio_items_go_here">
-                {/* see portfolio.js file for more info */}
-                {/* This is placeholder content while the app loads */}
                 <div className="deck">
-                    <div className="card" style={{backgroundImage: `url(${this.state.deck[0].imgUrl})`}}>
+                    <div id="card0" className="card" style={{backgroundImage: `url(${this.state.deck[0].imgUrl})`}}>
                         {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_1"}/> :
                         <noscript></noscript> }
-                        <p>{this.state.deck[0].title}</p>
+                        <div id="textbox0">
+                            <p>{this.state.deck[0].title}</p>
+                            <p>{this.state.deck[0].description}</p>
+                        </div>
                     </div>
-                    <div className="card" style={{backgroundImage: `url(${this.state.deck[1].imgUrl})`}}>
+                    <div id="card1" className="card" style={{backgroundImage: `url(${this.state.deck[1].imgUrl})`}}>
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_2"}/> :
                         <noscript></noscript> }
-                        <p>{this.state.deck[1].title}</p>
+                        <div id="textbox1">
+                            <p>{this.state.deck[1].title}</p>
+                            <p>{this.state.deck[1].description}</p>
+                        </div>
                     </div>
-                    <div className="card" style={{backgroundImage: `url(${this.state.deck[2].imgUrl})`}}>
+                    <div id="card2" className="card" style={{backgroundImage: `url(${this.state.deck[2].imgUrl})`}}>
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_3"}/> :
                         <noscript></noscript> }
-                        <p>{this.state.deck[2].title}</p>
+                        <div id="textbox2">
+                            <p>{this.state.deck[2].title}</p>
+                            <p>{this.state.deck[2].description}</p>
+                        </div>
                     </div>
-                    <div className="card" style={{backgroundImage: `url(${this.state.deck[3].imgUrl})`}}>
+                    <div id="card3" className="card" style={{backgroundImage: `url(${this.state.deck[3].imgUrl})`}}>
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_4"}/> :
                         <noscript></noscript> }
-                        <p>{this.state.deck[3].title}</p>
+                        <div id="textbox3">
+                            <p>{this.state.deck[3].title}</p>
+                            <p>{this.state.deck[3].description}</p>
+                        </div>
                     </div>
-                    <div className="card" style={{backgroundImage: `url(${this.state.deck[4].imgUrl})`}}>
+                    <div id="card4" className="card" style={{backgroundImage: `url(${this.state.deck[4].imgUrl})`}}>
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_5"}/> :
                         <noscript></noscript> }
-                        <p>{this.state.deck[4].title}</p>
+                        <div id="textbox4">
+                            <p>{this.state.deck[4].title}</p>
+                            <p>{this.state.deck[4].description}</p>
+                        </div>
                     </div>
-                    <div className="card" style={{backgroundImage: `url(${this.state.deck[5].imgUrl})`}}>
+                    <div id="card5" className="card" style={{backgroundImage: `url(${this.state.deck[5].imgUrl})`}}>
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_6"}/> :
                         <noscript></noscript> }
-                        <p>{this.state.deck[5].title}</p>
+                        <div id="textbox5">
+                            <p>{this.state.deck[5].title}</p>
+                            <p>{this.state.deck[5].description}</p>
+                        </div>
                     </div>
                 </div>
             </div>
