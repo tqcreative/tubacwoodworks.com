@@ -24,13 +24,22 @@
   .quote_root .quote {
     position: relative;
     width: 35%;
-    min-width: 256px;
+    min-width: 356px;
     height: 20vh;
     min-height: 256px;
     background-color: rgba(192, 57, 43, 0.8);
     padding: 1em;
     color: #fff;
-    margin: 1em 0 1em 10%; }
+    margin: 1em 0 1em 10%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
     .quote_root .quote ion-icon {
       position: absolute;
       left: 16px;
@@ -38,7 +47,7 @@
       color: rgba(241, 241, 241, 0.6);
       font-size: 4em; }
     .quote_root .quote p {
-      margin: 15% 0 0 10%;
+      margin: 5% 0 0 10%;
       font-size: 1.5em;
       font-weight: 200; }
       .quote_root .quote p span {
@@ -49,8 +58,41 @@
         right: 8px; }
 
 @media (max-width: 768px) {
-  .quote_root .background-img {
-    background-attachment: inherit; } }
+  .quote_root {
+    height: 50vh; }
+    .quote_root .background-img {
+      background-attachment: inherit; }
+    .quote_root .quote {
+      width: 80%;
+      height: auto;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .quote_root .quote p {
+        line-height: 1.2em;
+        font-size: 1.3em;
+        font-weight: 2em; } }
+
+@media (min-width: 769px) and (max-width: 1025px) {
+  .quote_root {
+    height: 50vh; }
+    .quote_root .quote {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      height: 35vh; } }
 
 .cms_gear {
   font-size: 2em;
