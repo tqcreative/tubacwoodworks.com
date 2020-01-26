@@ -16,6 +16,7 @@ let seed_imgs = [
             "gallery_13.jpg",    
             "gallery_14.jpg"    
             ],
+            name: "imageArray"
         },
         {
         kitchenTable : [
@@ -26,15 +27,16 @@ let seed_imgs = [
             "gallery_11.jpg",
             "gallery_12.jpg"
         ],
+        name: "kitchenTable"
     },
     {
         bathTable: [
             "gallery_3.jpg",
             "kbv3.jpg",
-            "layout3_kbv_default_11.jpg",
             "portfolio_5.JPG",
 
         ],
+        name: "bathTable"
     },
     {
         furnitureTable: [
@@ -43,7 +45,8 @@ let seed_imgs = [
             "gallery_5.jpg",
             "gallery_7.jpg",
             "gallery_9.jpg",
-        ] 
+        ] ,
+        name: "furnitureTable"
     },
     {
         showcase: [
@@ -57,7 +60,8 @@ let seed_imgs = [
             "gallery_8.jpg",
             "gallery_9.jpg",
             "gallery_10.jpg"
-        ]
+        ],
+        name: "showcase"
     }
 ]
 

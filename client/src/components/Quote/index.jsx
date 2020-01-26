@@ -10,6 +10,8 @@ function Quote(props) {
     let nameOfImage = 'quote_2'
     let uploadPhotoElement;
     let thisId = props.__id;
+    let theH2 = props.textContent.h2;
+    let theP = props.textContent.p;
 
     // check for signed in
     props.login === 'Peter' ?
@@ -25,9 +27,8 @@ function Quote(props) {
             <div id="quote_1" className="quote">
                 <ion-icon name="quote"></ion-icon>
                 <p>
-                    Tuboc Woodworks is the bee's knees.
-                    They did such an amazing job!
-                        <span>- "Matthew"</span>
+                    {theP}
+                    <span>- "{theH2}"</span>
                 </p>
             </div>
         </div>
