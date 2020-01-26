@@ -60,3 +60,20 @@
         z-index: 0; 
     }
 }
+
+@media (max-width: #{$screen-sm}) {
+    .hero_root {
+
+        div {
+            background-color: rgba($main, .7);
+        color: #fff;
+        width: 100%;
+        max-width: auto;
+        min-width: auto;
+        min-height: 256px;
+        }
+    }
+}
+
+@media (max-width: #{$screen-md}) {}
+@media (max-width: #{$screen-lg}) {}
