@@ -88,7 +88,7 @@ export default class Home extends Component {
 				<div className="Home home_root">
 					<Header user={this.state.user} />
 					<Hero login={"Peter"}/>
-					<NavBar styleProp={this.state.navPos} />
+					<NavBar loggedIn={true} styleProp={this.state.navPos} />
 					<Numbers user={this.state.user}/>
 					<Quote textContent={this.state.textInfoFromDatabase.quoteTop} login={this.props.user} __id={"homepage_first_quote"} />
 					<Portfolio login={"Peter"} />

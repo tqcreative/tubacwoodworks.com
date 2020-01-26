@@ -120,6 +120,9 @@ window.addEventListener('scroll', function(event) {
     
 });
 
+////////////
+// On click
+////////////
 
 ////////////
 // On load 
