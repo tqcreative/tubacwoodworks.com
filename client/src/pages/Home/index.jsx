@@ -29,7 +29,8 @@ export default class Home extends Component {
 			redirectTo: null,
 			textInfoFromDatabase: {
 									quoteTop: { h2: "Matthew Carpenter", p: "I am just stunned at how amazing my kitchen looks!", url: "tubacwoodworks.herokuapp.com/images/quote_2.jpg"},
-									quoteBottom: {  h2: "Elena Borne", p: "Fast, Cheap, and Right. We found all three.", url: "tubacwoodworks.herokuapp.com/images/quote_1.jpg"}
+									quoteBottom: {  h2: "Elena Borne", p: "Fast, Cheap, and Right. We found all three.", url: "tubacwoodworks.herokuapp.com/images/quote_1.jpg"},
+									checkerBox: { slotOne: "licenced", slotTwo: "bonded", slotThree: "insured" }
 								  }
 		}
 		// bind signup and toast
@@ -47,7 +48,6 @@ export default class Home extends Component {
 		axios
 		.get('/cms/homepage')
 		.then(data => {
-			// console.log(data.data[0]);
 			this.setState({textInfoFromDatabase: data.data[0]});
 		})
 	}
@@ -94,7 +94,7 @@ export default class Home extends Component {
 					<Portfolio login={"Peter"} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={"Peter"} __id={"landing_page_quote"} />
 					<Gallery user={this.state.user} />
-					<Checkbox login={"Peter"} __id={"checkbox_image_home"} />
+					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={"Peter"} __id={"checkbox_image_home"} />
 					<Partners login={"Peter"} />
 					<Signup user={this.state.user}/>
 					{/* This is where sign out would come into play. */}
@@ -118,7 +118,7 @@ export default class Home extends Component {
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={false} __id={"landing_page_quote"} />
 					<Phone phoneNumber="5208405864" />
 					<Gallery user={this.state.user}/>
-					<Checkbox login={false} __id={"checkbox_image_home"} />
+					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={false} __id={"checkbox_image_home"} />
 					<Partners login={false}/>
 
 					{/* login information hard coded into non-signed in user. */}
