@@ -70,7 +70,7 @@ function DeleteButton(props) {
 
                     axios
                     .put(`/cms/deletebuttonroute/put/${theId}`, mongoObject)
-                    .then(returnedData => { console.log(returnedData);}).catch(err => { console.error(err); })
+                    .then(returnedData => { console.log(returnedData); props.refreshTable();}).catch(err => { console.error(err); })
 
                     // remove that item from the array and console log the new array.
                 } else { /* do nothing could not find the item in the array. */}

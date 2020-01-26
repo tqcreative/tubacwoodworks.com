@@ -3,7 +3,7 @@ const db = require("../../models");
 let seed_imgs = require ("./seed_img")
 let seed_portfolio = require ('./seed_portfolio');
 let seed_partners = require ('./seed_partner');
-let seed_quotes = require ('./seed_quote');
+let seed_homepage = require ('./seed_homepage');
 
 // This file empties the collections
 
@@ -34,14 +34,15 @@ db.Portfolio
     .then(data => {
       console.log(data.result.n + " images seeded.")
       
-      db.Quote
-    })
-    
-  })
-
-
-
-
+      db.Homepage
+      .remove({})
+      .then(() => db.Homepage.collection.insertMany(seed_homepage))
+      .then(data => {
+        console.log(data.result.n + " home page items seeded.")
+        process.exit(0);
+      });
+    });
+  });
 })
 .catch(err => {
   console.error(err);
