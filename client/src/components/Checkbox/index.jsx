@@ -32,17 +32,17 @@ function Checkbox(props) {
 
                 <div id="checkerbox_quote_1">
                     <h3>{slotOne}</h3>
-                    <div></div>
+                    <div><ion-icon name="checkbox-outline"></ion-icon></div>
                 </div>
 
                 <div id="checkerbox_quote_2">
                     <h3>{slotTwo}</h3>
-                    <div></div>
+                    <div><ion-icon name="checkbox-outline"></ion-icon></div>
                 </div>
 
                 <div id="checkerbox_quote_3">
                     <h3>{slotThree}</h3>
-                    <div></div>
+                    <div><ion-icon name="checkbox-outline"></ion-icon></div>
                 </div>
 
             </div>
