@@ -18,7 +18,7 @@ import DeleteButton from '../../sub_component/DeleteButton';
 
 const ImageCard = ({theArray, imageNumber, onClick, tableNameProp, logedIn}) => {
   return (
-    <div tablename={tableNameProp} className="imagecard" image_number={imageNumber} onClick={()=> onClick(`/cms/images/${theArray}`)}>4
+    <div tablename={tableNameProp} className="imagecard" image_number={imageNumber} onClick={()=> onClick(`/cms/images/${theArray}`)}>
     {console.log(theArray)}
       <div className="img-container">
         {logedIn === "Peter" ?

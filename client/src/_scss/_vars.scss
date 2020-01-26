@@ -20,3 +20,7 @@ $font: "comic sans";
 $screen-sm: 768px;
 $screen-md: 769px;
 $screen-lg: 1025px;
+
+@media (max-width: #{$screen-sm}) {}
+@media (max-width: #{$screen-md}) {}
+@media (max-width: #{$screen-lg}) {}

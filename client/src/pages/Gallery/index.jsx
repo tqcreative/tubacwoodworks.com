@@ -84,7 +84,7 @@ export default class Gallery extends Component {
 					<HeroSmart login={"Peter"} backgroundName={"gallery_hero"} title="Gallery" subTitle="come see our work"/>	
 					<NavBar styleProp={this.state.styleProp} />
 					<div style={{position: 'relative'}}>
-						<UploadBtn  refreshTable={this.callTableToLoad} />
+						<UploadBtn  tableNameProp={this.state.tableName} refreshTable={this.callTableToLoad} />
 					</div>
 					<SmartSlider/>
 					<button type='button' name="imageArray" className="btn btn-primary" onClick={this.changeTableName}>All Images</button>

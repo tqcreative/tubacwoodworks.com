@@ -6,19 +6,15 @@ const router = require("express").Router();
 // root level of the router
 router.route("/:id")
     .post((req, res) => {
-        //console.log(req.params.id);
-        let imageNameToBeAddedToTheArray = req.params.id;
-        console.log(imageNameToBeAddedToTheArray);
+
+        let tableName = req.params.id;
+
         db.Images
         .find()
+        .distinct(tableName)
         .then(dbReturns => {
-            // console.log(dbReturns[0]._id);
-            console.log(dbReturns);
-            // let thisArrayId = dbReturns[0]._id;
-
-            db.Images.update(
-                { $push: { imageArray: imageNameToBeAddedToTheArray}}
-            )
+            db.Images
+            .findOneAndUpdate({ name: tableName }, {$push: req.body})
             .then(
                 lastCall => {
                     console.log("worked?")

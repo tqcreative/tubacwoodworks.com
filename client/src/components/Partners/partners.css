@@ -38,3 +38,11 @@
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center center; }
+
+@media (max-width: 769px) {
+  .partners_root .partners_deck .partner_card {
+    width: 50%; } }
+
+@media (max-width: 768px) {
+  .partners_root .partners_deck .partner_card {
+    width: 100%; } }

@@ -3,7 +3,7 @@ const db = require("../../models");
 let seed_imgs = require ("./seed_img")
 let seed_portfolio = require ('./seed_portfolio');
 let seed_partners = require ('./seed_partner');
-let seed_text = require ('./seed_text');
+let seed_quotes = require ('./seed_quote');
 
 // This file empties the collections
 
@@ -33,7 +33,8 @@ db.Portfolio
     .then(() => db.Images.collection.insertMany(seed_imgs))
     .then(data => {
       console.log(data.result.n + " images seeded.")
-      process.exit(0);
+      
+      db.Quote
     })
     
   })

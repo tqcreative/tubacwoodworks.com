@@ -34,3 +34,26 @@
     }
   }
 }
+
+
+@media (max-width: #{$screen-lg}) {
+
+}
+@media (max-width: #{$screen-md}) {
+  .partners_root{
+    .partners_deck {
+      .partner_card {
+        width: 50%;
+      }
+    }
+  }
+} 
+@media (max-width: #{$screen-sm}) {
+  .partners_root{
+    .partners_deck {
+      .partner_card {
+        width: 100%;
+      }
+    }
+  }
+}

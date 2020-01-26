@@ -7,7 +7,8 @@ export default class UploadBtn extends Component {
         super(props);
         this.state = {
             // This file starts at null because no files are selected at default
-            selectedFile: null
+            selectedFile: null,
+            tableName: props.tableNameProp
         }
         this.uploadFileHandler = this.uploadFileHandler.bind(this);
         this.submitPhotoForUpload = this.submitPhotoForUpload.bind(this);
@@ -34,6 +35,33 @@ export default class UploadBtn extends Component {
             let thisFilesName = this.state.selectedFile.name.toLowerCase().split(".")[0];
         const data = new FormData()
         data.append(thisFilesName, this.state.selectedFile)
+        let theTablesName = "";
+        let uploadThisObject = {}
+
+        switch (this.props.tableNameProp) {
+            case "imageArray":
+                uploadThisObject = { imageArray : thisFilesName + ".jpg"};
+                theTablesName = "imageArray"
+                break;
+            case "kitchenTable":
+                uploadThisObject = { kitchenTable : thisFilesName + ".jpg"};
+                theTablesName = "kitchenTable";
+                break;
+            case "bathTable":
+                uploadThisObject = { bathTable : thisFilesName + ".jpg"};
+                theTablesName = "bathTable";
+                break;
+            case "furnitureTable":
+                uploadThisObject = { furnitureTable : thisFilesName + ".jpg"};
+                theTablesName = "furnitureTable";
+                break;
+            case "showcase":
+                uploadThisObject = { showcase : thisFilesName + ".jpg"};
+                theTablesName = "showcase";
+                break;
+            default:
+                break;
+        }
 
         // This call is sending the name of the file before it sends the file
         if (thisFilesName != null) {
@@ -43,15 +71,19 @@ export default class UploadBtn extends Component {
             .then(returnedData => {
                 //console.log(returnedData);
                 // This call sends the file 
-                axios.post("/cms/GD8PQX3UV18999AARONWITHANEY/upload", data, {
+                axios.post("/cms/GD8PQX3UV18999AARONWITHANEY/upload", data, 
+                    uploadThisObject
                     // receive two    parameter endpoint url ,form data
-                })
+                )
                 // This returns the result
                 .then(res => { // then print response status
                     // console.log(res.statusText);
                     if (res.data.msg === "uploaded") {
                         //if content uploaded successfully then add this to the image database.
-                        axios.post(`/cms/uploadfile/hash43b4h234bhj/${thisFilesName}.jpg`, {})
+                        
+                        
+
+                        axios.post(`/cms/uploadfile/hash43b4h234bhj/${theTablesName}`, uploadThisObject)
                             .then(returnFromCall => {
                                 //console.log(returnFromCall);
                                 console.log('Uploaded');
