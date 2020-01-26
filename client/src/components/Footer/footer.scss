@@ -78,8 +78,6 @@
                 .footer_section_3 {
                     display: block;
                     font-size: 2em;
-                    min-width: 200px;
-                    width: 20vw;
 
                     ul {
 
@@ -95,7 +93,7 @@
                                 align-items: flex-start;
                                 font-size: 1em;
                                 color: #fff;
-        
+         
                                 &:visited,
                                 &:active {
                                     color: #fff;
@@ -149,9 +147,9 @@
 }
 
 @media (max-width: #{$screen-sm}) {
-    .footer_root{
+    .footer_root {
 
-        .footer_wrap{
+        .footer_wrap {
 
             .top_wrap,
             .mid_wrap,
@@ -165,8 +163,8 @@
                     justify-content: center;
                     align-items: center;
                     margin: 1em 0;
-                    font-size: .85em;
-
+                    font-size: .9em;
+                    
                     ul {
                         li {
                             ion-icon {
@@ -190,7 +188,28 @@
             }
 
             .mid_wrap {
-                flex-wrap: wrap;
+                    
+                h3 {
+                    text-align: center;
+                }
+
+                .footer_section_3 {
+                    ul {
+                        display: flex;
+                        justify-content: center;
+                        padding-left: 1em;
+    
+                        li {
+    
+                            a{
+                                ion-icon {
+                                    pad: 0 .5em;
+                                }
+                            }
+                        }
+                    }
+                }
+               
 
                 div {
                     flex-wrap: wrap;

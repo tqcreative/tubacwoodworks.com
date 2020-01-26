@@ -74,9 +74,7 @@
           display: block; }
         .footer_root .footer_wrap .mid_wrap div .footer_section_3 {
           display: block;
-          font-size: 2em;
-          min-width: 200px;
-          width: 20vw; }
+          font-size: 2em; }
           .footer_root .footer_wrap .mid_wrap div .footer_section_3 ul li {
             font-size: 1em;
             padding: 4px;
@@ -139,7 +137,7 @@
     -ms-flex-align: center;
     align-items: center;
     margin: 1em 0;
-    font-size: .85em; }
+    font-size: .9em; }
     .footer_root .footer_wrap .top_wrap div ul li ion-icon,
     .footer_root .footer_wrap .mid_wrap div ul li ion-icon,
     .footer_root .footer_wrap .bottom_wrap div ul li ion-icon {
@@ -150,9 +148,18 @@
     border: none; }
   .footer_root .footer_wrap .bottom_wrap div h3 {
     text-align: center; }
-  .footer_root .footer_wrap .mid_wrap {
+  .footer_root .footer_wrap .mid_wrap h3 {
+    text-align: center; }
+  .footer_root .footer_wrap .mid_wrap .footer_section_3 ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-left: 1em; }
+    .footer_root .footer_wrap .mid_wrap .footer_section_3 ul li a ion-icon {
+      pad: 0 .5em; }
+  .footer_root .footer_wrap .mid_wrap div {
     -ms-flex-wrap: wrap;
-    flex-wrap: wrap; }
-    .footer_root .footer_wrap .mid_wrap div {
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap; } }
+    flex-wrap: wrap; } }
