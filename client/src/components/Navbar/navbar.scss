@@ -63,7 +63,7 @@
         border-radius: 0 0 5px 0;
         margin: 0;
         display: none;
-        background-color: rgba($main, .9);
+        background-color: rgba($main, .7);
     }
 }
 
@@ -75,7 +75,6 @@
     .nav_root {
         flex-wrap: wrap;
         transform: translateY(-82%);
-        background-color: rgba($main, .8);
         transition: transform .3s;
         position: fixed;
 
@@ -86,6 +85,13 @@
                 display: block;
                 width: 100%;
                 border: none;
+
+                a{
+
+                    div{
+                        text-shadow: 1px 1px 8px $dark;
+                    }
+                }
             }
         }
 
@@ -107,5 +113,5 @@
 
 .positionZero {
     transform: translateY(0);
-    background-color: (rgba($main, 1))
+    background: rgba($main, .7);
 }
