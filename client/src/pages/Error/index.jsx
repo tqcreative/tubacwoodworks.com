@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Header } from '../../components';
 import './error.css';
 import { NavBar } from '../../components/Navbar';
+import HeroSmart from '../../components/HeroSmart';
 
 export default class Error extends Component {
 	constructor(props) {
@@ -18,7 +19,7 @@ export default class Error extends Component {
 	render() {
 		return (
 			<div className="error_root">
-				<HeroSmart login={"Peter"} backgroundName={"gallery_11"} title="404 Error Page Not Found" subTitle="oops! Somethings gone wrong."/>
+				<HeroSmart login={false} backgroundName={"error"} title="404 Error Page Not Found" subTitle="oops! Somethings gone wrong."/>
 				<NavBar/>
 			</div>
 		)
