@@ -4,7 +4,8 @@
   height: 100vh;
   background-position: center center;
   background-size: cover;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  overflow: hidden; }
   .checkbox_root .checkbox_wrap {
     position: absolute;
     bottom: 0;
@@ -45,7 +46,26 @@
         text-shadow: 3px 3px 10px #4a5559;
         font-weight: 800; }
       .checkbox_root .checkbox_wrap div div {
+        position: relative;
         display: inline-block;
         width: 5em;
         height: 5em;
-        background-color: rgba(173, 109, 45, 0.7); }
+        background-color: rgba(192, 57, 43, 0.7); }
+        .checkbox_root .checkbox_wrap div div ion-icon {
+          position: absolute;
+          font-size: 5em;
+          color: #fff; }
+
+@media (max-width: 768px) {
+  .checkbox_root .checkbox_wrap {
+    padding: 0;
+    margin: 0; }
+    .checkbox_root .checkbox_wrap div h3 {
+      font-size: 1.5em; }
+    .checkbox_root .checkbox_wrap div div {
+      width: 2.5em;
+      height: 2.5em; }
+      .checkbox_root .checkbox_wrap div div ion-icon {
+        position: absolute;
+        font-size: 2.5em;
+        color: #fff; } }

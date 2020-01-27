@@ -27,17 +27,26 @@
         background: white; 
         min-height: 25%;
         min-width: 25%;
-        max-height: 80%;
-        max-width: 80%;
+        padding: 1em;
+        max-height: 90%;
+        max-width: 100%;
         text-align: center;
         align-items: center;
         justify-content: center;
         color: black;
-
+        overflow: hidden;
+ 
         .body{
             display: block;
             padding: 20px;
             padding-top: 40px;
+
+            div {
+                img{
+                    max-height: 80vh;
+                }
+            }
+
         }
         p{
             display: block;

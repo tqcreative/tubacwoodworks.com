@@ -6,5 +6,6 @@ module.exports = {
 	Partners: require("./partners"),
 	Note: require("./note"),
 	Appointment: require("./appointment"),
-	Images: require("./images")
+	Images: require("./images"),
+	Homepage: require("./homepage")
   };

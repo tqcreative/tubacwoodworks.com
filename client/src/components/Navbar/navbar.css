@@ -1,61 +1,104 @@
 .nav_root {
+  position: absolute;
+  top: 0;
+  left: 0;
   color: #fff;
-  background-color: rgba(192, 57, 43, 0.7);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(192, 57, 43, 0.9)), color-stop(rgba(192, 57, 43, 0.8)), to(rgba(192, 57, 43, 0)));
+  background: -webkit-linear-gradient(rgba(192, 57, 43, 0.9), rgba(192, 57, 43, 0.8), rgba(192, 57, 43, 0));
+  background: -o-linear-gradient(rgba(192, 57, 43, 0.9), rgba(192, 57, 43, 0.8), rgba(192, 57, 43, 0));
+  background: linear-gradient(rgba(192, 57, 43, 0.9), rgba(192, 57, 43, 0.8), rgba(192, 57, 43, 0));
   text-decoration: none;
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: .5em 0 0 0;
   text-transform: uppercase;
   font-size: 1.1em;
   font-weight: 700;
-  top: 0;
-  left: 0;
   width: 100%;
   height: auto;
-  padding: 1em; }
-  .nav_root li {
-    border-right: 1px solid #f1f1f1;
-    padding: .25em .5em; }
-    .nav_root li:last-child {
-      border: none; }
-    .nav_root li:active {
+  max-width: 100%;
+  z-index: 9999;
+  max-width: 100%;
+  overflow: hidden; }
+  .nav_root ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap; }
+    .nav_root ul li {
+      border-right: 2px solid #f1f1f1;
+      margin: 0 .5em .5em .5em;
+      padding: 0 1em 0 0; }
+      .nav_root ul li:last-child {
+        border: none; }
+      .nav_root ul li:active div {
+        color: #fff;
+        -webkit-transform: translateY(5px);
+        -ms-transform: translateY(5px);
+        transform: translateY(5px); }
+      .nav_root ul li ion-icon {
+        font-size: 2em; }
+    .nav_root ul a {
       color: #fff;
-      -webkit-transform: translateY(5px);
-      -ms-transform: translateY(5px);
-      transform: translateY(5px); }
-    .nav_root li ion-icon {
-      font-size: 2em; }
-  .nav_root a {
-    color: #fff;
-    text-decoration: none;
-    padding: 4px;
-    margin: .25em; }
+      text-decoration: none;
+      padding: 4px;
+      margin: .25em; }
   .nav_root #mobile_menu {
-    display: none; }
+    z-index: 9999;
+    font-size: 2em;
+    padding: 2px .3em 0 .3em;
+    border-radius: 0 0 5px 0;
+    margin: 0;
+    display: none;
+    background-color: rgba(192, 57, 43, 0.7); }
+
+.positionZero {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0); }
 
 @media (max-width: 768px) {
   .nav_root {
-    background-color: rgba(192, 57, 43, 0); }
-    .nav_root li {
-      display: none; }
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-transform: translateY(-82%);
+    -ms-transform: translateY(-82%);
+    transform: translateY(-82%);
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    -o-transition: transform .3s;
+    transition: transform .3s;
+    transition: transform .3s, -webkit-transform .3s;
+    position: fixed; }
+    .nav_root ul {
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+      .nav_root ul li {
+        display: block;
+        width: 100%;
+        border: none; }
+        .nav_root ul li a div {
+          text-shadow: 1px 1px 8px #2d3436; }
     .nav_root #mobile_menu {
+      font-size: 2.8em;
       display: block; } }
 
-@media (max-width: 769px) {
-  .nav_root {
-    background-color: rgba(192, 57, 43, 0); }
-    .nav_root li {
-      font-size: .8em;
-      display: none; }
-    .nav_root #mobile_menu {
-      display: block; } }
-
-@media (min-width: 1025px) {
-  .nav_root li {
-    display: block; }
-  .nav_root #mobile_menu {
-    display: none; } }
+.positionZero {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  background: rgba(192, 57, 43, 0.7); }

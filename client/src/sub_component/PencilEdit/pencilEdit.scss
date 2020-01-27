@@ -1,0 +1,23 @@
+@import '../../_scss/vars';
+
+.pencil_edit_root {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    padding: .2em;
+    background-color: rgba($dark, .7);
+    border-radius: 0 0 8px 0;
+
+    ion-icon {
+        color: #fff;
+    }
+
+    &:hover ion-icon{
+        transform: translateY(2px);
+    } 
+
+    &:active ion-icon{
+        transform: translateY(5px);
+    }
+}

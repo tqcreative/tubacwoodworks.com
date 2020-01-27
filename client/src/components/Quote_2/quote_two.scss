@@ -56,16 +56,29 @@
 }
 
 @media (max-width: #{$screen-sm}) {
-  
     .quote_two_root {
+        height: 50vh;
+
         .background-img {
             background-attachment: inherit;
         }
-    }
 
+        .quote_two {
+            width: 80%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 0;
+            margin: auto;
+
+            p {
+                line-height: 1.2em;
+                font-size: 1.3em;
+                font-weight: 2em;
+            }
+        }
+    }
 }
-@media (min-width: #{$screen-md}) {
- 
-}
-@media (min-width: #{$screen-lg}) {
-}
+@media (min-width: #{$screen-md}) and (max-width: #{$screen-lg}) {}
+@media (max-width: #{$screen-lg}) {}

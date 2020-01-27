@@ -8,8 +8,9 @@ export default function Gallery() {
             <div className="gallery_root">
                 
                 <h2>Gallery</h2>
+                <h3> <a href="/gallery"><ion-icon name="ios-camera"></ion-icon></a></h3>
 
-                <div className="gallery_container">
+                <div id="gallery_container" className="gallery_container">
 
                     <div className="item item_1"></div>
                     <div className="item item_2"></div>

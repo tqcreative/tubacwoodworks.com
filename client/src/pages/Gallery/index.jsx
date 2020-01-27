@@ -83,15 +83,13 @@ export default class Gallery extends Component {
 				<div className="gallery_page_root">
 					<HeroSmart login={"Peter"} backgroundName={"gallery_hero"} title="Gallery" subTitle="come see our work"/>	
 					<NavBar styleProp={this.state.styleProp} />
-					<div style={{position: 'relative'}}>
-						<UploadBtn />
-					</div>
 					<SmartSlider/>
 					<button type='button' name="imageArray" className="btn btn-primary" onClick={this.changeTableName}>All Images</button>
                     <button type='button' name="kitchenTable" className="btn btn-primary" onClick={this.changeTableName}>Kitchen Images</button>
                     <button type='button' name="bathTable" className="btn btn-primary" onClick={this.changeTableName}>Bath Images</button>
                     <button type='button' name="furnitureTable" className="btn btn-primary" onClick={this.changeTableName}>Furniture Images</button>
-					<StateGallery tableNameProp={this.state.tableName} theArray={this.state.arrayOfImages}/>
+                    <div style={{position: 'relative'}}><UploadBtn  tableNameProp={this.state.tableName} refreshTable={this.callTableToLoad} /></div>
+					<StateGallery logedIn={"Peter"} tableNameProp={this.state.tableName} theArray={this.state.arrayOfImages} refreshTable={this.callTableToLoad} />
 					<Signup />
 					<Footer />
 				</div>
@@ -108,7 +106,7 @@ export default class Gallery extends Component {
                         <button type='button' name="kitchenTable" className="btn btn-primary" onClick={this.changeTableName}>Kitchen Images</button>
                         <button type='button' name="bathTable" className="btn btn-primary" onClick={this.changeTableName}>Bath Images</button>
                         <button type='button' name="furnitureTable" className="btn btn-primary" onClick={this.changeTableName}>Furniture Images</button>
-					<StateGallery tableNameProp={this.state.tableName} theArray={this.state.arrayOfImages}/>
+					<StateGallery logedIn={false} tableNameProp={this.state.tableName} theArray={this.state.arrayOfImages}/>
 					<Signup />
 					<Footer />
 				</div>

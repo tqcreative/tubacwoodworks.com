@@ -9,6 +9,7 @@ const readTheDatabase = require("./upload.controller");
 const unSubscribe = require("./unsubscribe.controller");
 const uploadPhoto = require("./uploadImage.controller");
 const deleteImageController = require("./deleteImage.controller");
+const homePage = require("./homepage.controller");
 
 ////////////
 // root API Routes
@@ -51,6 +52,11 @@ router.use("/cms/GD8PQX3UV18999AARONWITHANEY", uploadPhoto);
 // upload file route to target image folder in the root level, update array in database
 /////////////
 router.use("/cms/uploadfile/hash43b4h234bhj", readTheDatabase );
+
+/////////////
+// home page homepage
+/////////////
+router.use("/cms/homepage", homePage);
 
 // router.use("/cms/upload", uploadController);
 

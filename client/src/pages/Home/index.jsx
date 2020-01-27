@@ -13,9 +13,10 @@ import Gallery from '../../components/Gallery';
 import Checkbox from '../../components/Checkbox';
 import { NavBar } from '../../components/Navbar';
 import Partners from '../../components/Partners';
-import gsap from "gsap";
 import Phone from '../../sub_component/PhoneSlider';
 import Signup from '../../components/Signup';
+import axios from "axios";
+import gsap from "gsap";
 
 export default class Home extends Component {
 	constructor(props) {
@@ -25,7 +26,12 @@ export default class Home extends Component {
 			toastMsg: [],
 			toastShow: false,
 			navPos: "absolute",
-			redirectTo: null
+			redirectTo: null,
+			textInfoFromDatabase: {
+									quoteTop: { h2: "Matthew Carpenter", p: "I am just stunned at how amazing my kitchen looks!", url: "tubacwoodworks.herokuapp.com/images/quote_2.jpg"},
+									quoteBottom: {  h2: "Elena Borne", p: "Fast, Cheap, and Right. We found all three.", url: "tubacwoodworks.herokuapp.com/images/quote_1.jpg"},
+									checkerBox: { slotOne: "licenced", slotTwo: "bonded", slotThree: "insured" }
+								  }
 		}
 		// bind signup and toast
 		this.handleSignupResult = this.handleSignupResult.bind(this);
@@ -33,6 +39,17 @@ export default class Home extends Component {
 		// bind login
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
+		// bind axios call to fill home page data.
+		this.callForHomepageData = this.callForHomepageData.bind(this);
+	}
+
+	// make an axios call to fill home page data.
+	callForHomepageData() {
+		axios
+		.get('/cms/homepage')
+		.then(data => {
+			this.setState({textInfoFromDatabase: data.data[0]});
+		})
 	}
 
 	// login change event for updating state.
@@ -52,7 +69,7 @@ export default class Home extends Component {
 	}
 
 	componentDidMount() {
-		console.log("Home Component Mounted")
+		this.callForHomepageData();
 		gsap.from("#hero_quote", {delay: .5, opacity: 0, duration:1, x:750, ease: "power4"});
 	}
 
@@ -71,13 +88,13 @@ export default class Home extends Component {
 				<div className="Home home_root">
 					<Header user={this.state.user} />
 					<Hero login={"Peter"}/>
-					<NavBar styleProp={this.state.navPos} />
+					<NavBar loggedIn={true} styleProp={this.state.navPos} />
 					<Numbers user={this.state.user}/>
-					<Quote login={this.props.user} __id={"homepage_first_quote"} />
+					<Quote textContent={this.state.textInfoFromDatabase.quoteTop} login={this.props.user} __id={"homepage_first_quote"} />
 					<Portfolio login={"Peter"} />
-					<QuoteTwo login={"Peter"} __id={"landing_page_quote"} />
+					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={"Peter"} __id={"landing_page_quote"} />
 					<Gallery user={this.state.user} />
-					<Checkbox login={"Peter"} __id={"checkbox_image_home"} />
+					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={"Peter"} __id={"checkbox_image_home"} />
 					<Partners login={"Peter"} />
 					<Signup user={this.state.user}/>
 					{/* This is where sign out would come into play. */}
@@ -96,16 +113,16 @@ export default class Home extends Component {
 					<Hero login={false} />
 					<NavBar styleProp={this.state.navPos} />
 					<Numbers user={this.state.user}/>
-					<Quote login={false} __id={"homepage_first_quote"} />
+					<Quote textContent={this.state.textInfoFromDatabase.quoteTop} login={false} __id={"homepage_first_quote"} />
 					<Portfolio login={false} />
-					<QuoteTwo login={false} __id={"landing_page_quote"} />
+					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={false} __id={"landing_page_quote"} />
 					<Phone phoneNumber="5208405864" />
 					<Gallery user={this.state.user}/>
-					<Checkbox login={false} __id={"checkbox_image_home"} />
+					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={false} __id={"checkbox_image_home"} />
 					<Partners login={false}/>
 
 					{/* login information hard coded into non-signed in user. */}
-					<div className="LoginForm">
+					<div className="LoginForm" style={{display: "none"}}>
 						<form>
 							<label htmlFor="username">Username: </label>
 							<input

@@ -49,6 +49,9 @@ function QuoteTwo(props) {
     // whatever has the background should get the id
     ////////////////////
 
+    // content fill from database
+    let theH2 = props.textContent.h2;
+    let theP = props.textContent.p;
 
     return (
         <div className="quote_two_root">
@@ -58,9 +61,8 @@ function QuoteTwo(props) {
             <div id="quote_2" className="quote_two">
                 <ion-icon name="quote"></ion-icon>
                 <p>
-                    Tuboc Woodworks is the bee's knees. 
-                    They did such an amazing job!
-                    <span>- "Matthew"</span>
+                    {theP}
+                    <span>- "{theH2}"</span>
                 </p>
             </div>
         </div>

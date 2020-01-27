@@ -7,6 +7,7 @@
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  overflow: hidden;
   
   .checkbox_wrap {
     position: absolute;
@@ -38,11 +39,44 @@
       }
 
       div {
+        position: relative;
         display: inline-block;
         width: 5em;
         height: 5em;
         background-color: rgba($main, .7);
+
+        ion-icon {
+          position: absolute;
+          font-size: 5em;
+          color: #fff;
+        }
       }
     }
   }
 }
+
+@media (max-width: #{$screen-sm}) {
+  .checkbox_root {
+    .checkbox_wrap {
+      padding: 0;
+      margin: 0;
+      div {
+        h3{
+          font-size: 1.5em;
+        }
+        div {
+          width: 2.5em;
+          height: 2.5em;
+
+          ion-icon {
+            position: absolute;
+            font-size: 2.5em;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: #{$screen-md}) {}
+@media (max-width: #{$screen-lg}) {}

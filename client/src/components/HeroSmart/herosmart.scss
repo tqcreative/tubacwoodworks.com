@@ -30,6 +30,7 @@
             font-weight: 900;
             color: #fff;
             text-shadow: 0 0 28px $dark;
+            user-select: none;
         }
     
         h1 {
@@ -49,5 +50,21 @@
         left: 0;
         z-index: 8;
     }
-
 }
+
+@media (max-width: #{$screen-sm}) {
+    .herosmart_root {
+        div:last-child {
+            h1 {
+                font-size: 3em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    }
+}
+
+@media (min-width: #{$screen-md}) and (max-width: #{$screen-lg}) {}
+@media (max-width: #{$screen-lg}) {}
