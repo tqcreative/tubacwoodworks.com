@@ -67,6 +67,17 @@
             font-size: 1em;
             text-align: center;
             padding: 1em; }
+            .portfolio_root .portfolio_items_go_here .deck .card div p:first-child ion-icon {
+              font-size: 1.6em;
+              position: absolute;
+              right: 0;
+              top: 0;
+              padding: .5em;
+              -webkit-transition: -webkit-transform .3s;
+              transition: -webkit-transform .3s;
+              -o-transition: transform .3s;
+              transition: transform .3s;
+              transition: transform .3s, -webkit-transform .3s; }
           .portfolio_root .portfolio_items_go_here .deck .card div p:last-child {
             padding: 1em; }
         .portfolio_root .portfolio_items_go_here .deck .card:hover {

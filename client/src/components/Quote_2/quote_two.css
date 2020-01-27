@@ -47,3 +47,27 @@
         position: absolute;
         bottom: 8px;
         right: 8px; }
+
+@media (max-width: 768px) {
+  .quote_two_root {
+    height: 50vh; }
+    .quote_two_root .background-img {
+      background-attachment: inherit; }
+    .quote_two_root .quote_two {
+      width: 80%;
+      height: auto;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      min-width: 0;
+      margin: auto; }
+      .quote_two_root .quote_two p {
+        line-height: 1.2em;
+        font-size: 1.3em;
+        font-weight: 2em; } }
