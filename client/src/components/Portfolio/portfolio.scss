@@ -49,6 +49,15 @@
                         font-size: 1em;
                         text-align: center;
                         padding: 1em;
+
+                        ion-icon {
+                            font-size: 1.6em;
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            padding: .5em;
+                            transition: transform .3s;
+                        }
                     }
                     p:last-child {
                         padding: 1em;
