@@ -10,6 +10,7 @@ let checkerTwoTrigger = false;
 let checkerThreeTrigger = false;
 let portfolioTriggers = false;
 let portfolioTriggersTwo = false;
+let galleryTrigger = false;
 
 ////////////
 // On Ready
@@ -62,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // 2: is the quoteOneTrigger trigger true or false. If it is false then we want to fire the animation. if it is true we want to ignore the result.
       if (elementInViewport(document.getElementById("quote_1")) && quoteOneTrigger === false) {
         quoteOneTrigger = true;
-        gsap.from("#quote_1", { duration: 2, opacity: 0, x: "-101%"});
+        gsap.from("#quote_1", { duration: 1, opacity: 0, x: "-101%", ease: "power4"});
 
         // 3: if you are no longer in the view then we want to make sure that the animation trigger is reset to false.
       } else if (!elementInViewport(document.getElementById("quote_1")) && quoteOneTrigger === true) {
@@ -111,16 +112,41 @@ document.addEventListener("DOMContentLoaded", function () {
     if (document.getElementById('quote_2')) {
       if (elementInViewport(document.getElementById('quote_2')) && quoteTwoTrigger === false) {
         quoteTwoTrigger = true;
-        gsap.from("#quote_2", { duration: 2, opacity: 0, x: "200%"});
+        gsap.from("#quote_2", { duration: 1, opacity: 0, x: "150%", ease: "power4"});
       } else if (!elementInViewport(document.getElementById("quote_2")) && quoteTwoTrigger === true) {
         quoteTwoTrigger = false;
+      }
+    };
+
+    if (document.getElementById('gallery_container')) {
+      if (elementInViewport(document.getElementById('gallery_container')) && galleryTrigger === false) {
+        galleryTrigger = true;
+        // gsap.from("#gallery_container", { duration: 1, delay: 0, opacity: 0 });
+        gsap.to(".item_1", { duration: .3, opacity: 1, delay: 1});
+        gsap.to(".item_2", { duration: 2.5, opacity: 1, delay: .3});
+        gsap.to(".item_3", { duration: 1.7, opacity: 1, delay: .3});
+        gsap.to(".item_4", { duration: .9, opacity: 1, delay: .3});
+        gsap.to(".item_5", { duration: 1.5, opacity: 1, delay: .3});
+        gsap.to(".item_6", { duration: 1.1, opacity: 1, delay: .5});
+        gsap.to(".item_7", { duration: 1.3, opacity: 1, delay: 1.8});
+        gsap.to(".item_8", { duration: 1.4, opacity: 1, delay: .3});
+        gsap.to(".item_9", { duration: 1, opacity: 1, delay: .3});
+        gsap.to(".item_10", { duration: 1.2, opacity: 1, delay: .5});
+        gsap.to(".item_11", { duration: 1.3, opacity: 1, delay: .3});
+        gsap.to(".item_12", { duration: 1.5, opacity: 1, delay: 1});
+        gsap.to(".item_13", { duration: .5, opacity: 1, delay: .3});
+        gsap.to(".item_14", { duration: 1.5, opacity: 1, delay: 1});
+        gsap.to(".item_15", { duration: 2.5, opacity: 1, delay: .3});
+        gsap.to(".item_16", { duration: 2, opacity: 1, delay: 1});
+      } else if (!elementInViewport(document.getElementById("gallery_container")) && galleryTrigger === true) {
+        //galleryTrigger = false;
       }
     };
 
     if (document.getElementById('checkerbox_quote_1')) {
       if (elementInViewport(document.getElementById('checkerbox_quote_1')) && checkerOneTrigger === false) {
         checkerOneTrigger = true;
-        gsap.from("#checkerbox_quote_1", { duration: 1, opacity: 0, delay: 0, x: "101%" });
+        gsap.from("#checkerbox_quote_1", { duration: 1, opacity: 0, delay: 0, x: "101%", ease: "power4" });
       } else if (!elementInViewport(document.getElementById('checkerbox_quote_1')) && checkerOneTrigger === true) {
 
         // checkerOneTrigger = false;
