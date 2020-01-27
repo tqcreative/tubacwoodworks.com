@@ -27,7 +27,7 @@
     min-width: 256px;
     height: 20vh;
     min-height: 256px;
-    background-color: rgba(173, 109, 45, 0.8);
+    background-color: rgba(192, 57, 43, 0.8);
     padding: 1em;
     color: #fff;
     margin: 1em 0 1em 60%; }
@@ -47,7 +47,3 @@
         position: absolute;
         bottom: 8px;
         right: 8px; }
-
-@media (max-width: 768px) {
-  .quote_two_root .background-img {
-    background-attachment: inherit; } }

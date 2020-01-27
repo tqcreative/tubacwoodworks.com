@@ -22,5 +22,5 @@ $screen-md: 769px;
 $screen-lg: 1025px;
 
 @media (max-width: #{$screen-sm}) {}
-@media (max-width: #{$screen-md}) {}
+@media (min-width: #{$screen-md}) and (max-width: #{$screen-lg}) {}
 @media (max-width: #{$screen-lg}) {}

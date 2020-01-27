@@ -29,7 +29,11 @@
   .herosmart_root div:last-child h2 {
     font-weight: 900;
     color: #fff;
-    text-shadow: 0 0 28px #2d3436; }
+    text-shadow: 0 0 28px #2d3436;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
   .herosmart_root div:last-child h1 {
     width: 100%;
     font-size: 5em; }
@@ -41,3 +45,9 @@
     position: absolute;
     left: 0;
     z-index: 8; }
+
+@media (max-width: 768px) {
+  .herosmart_root div:last-child h1 {
+    font-size: 3em; }
+  .herosmart_root div:last-child h2 {
+    font-size: 1.5em; } }

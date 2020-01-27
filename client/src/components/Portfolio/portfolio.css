@@ -45,12 +45,33 @@
         background-size: cover;
         background-position: center center;
         overflow: hidden; }
-        .portfolio_root .portfolio_items_go_here .deck .card p {
+        .portfolio_root .portfolio_items_go_here .deck .card div {
+          overflow: hidden;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(192, 57, 43, 0.7);
           position: absolute;
           bottom: 0;
           left: 0;
-          text-align: center;
           color: #fff;
-          width: 100%;
-          background-color: rgba(192, 57, 43, 0.8);
-          padding: 1em; }
+          -webkit-transform: translateY(230px);
+          -ms-transform: translateY(230px);
+          transform: translateY(230px);
+          -webkit-transition: -webkit-transform .3s;
+          transition: -webkit-transform .3s;
+          -o-transition: transform .3s;
+          transition: transform .3s;
+          transition: transform .3s, -webkit-transform .3s; }
+          .portfolio_root .portfolio_items_go_here .deck .card div p:first-child {
+            font-weight: 800;
+            font-size: 1em;
+            text-align: center;
+            padding: 1em; }
+          .portfolio_root .portfolio_items_go_here .deck .card div p:last-child {
+            padding: 1em; }
+        .portfolio_root .portfolio_items_go_here .deck .card:hover {
+          cursor: pointer; }
+        .portfolio_root .portfolio_items_go_here .deck .card .slideUp {
+          -webkit-transform: translateY(0);
+          -ms-transform: translateY(0);
+          transform: translateY(0); }
