@@ -1,18 +1,22 @@
-.cal_root .dropdown {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  background: white; }
-  .cal_root .dropdown a {
-    text-decoration: none;
-    margin: 6px;
-    color: #2d3436; }
-  .cal_root .dropdown a:hover {
-    background: lightgray; }
-
-.cal_root ion-icon {
-  font-size: 20px;
-  padding: 0px;
-  margin: 0px;
-  color: white; }
+.cal_root {
+  position: relative; }
+  .cal_root button {
+    position: relative; }
+  .cal_root .dropdown-menu {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 120px;
+    background: white; }
+    .cal_root .dropdown-menu a {
+      text-decoration: none;
+      margin: 6px;
+      color: #2d3436; }
+    .cal_root .dropdown-menu a:hover {
+      background: lightgray; }
+  .cal_root ion-icon {
+    font-size: 18px;
+    padding: 0px;
+    margin: 0px;
+    color: white; }

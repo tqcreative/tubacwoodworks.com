@@ -7,21 +7,25 @@ import './style.css';
 function AddToCalendar(props) {
     const { duration, title, startDatetime, endDatetime, description, location } = props;
 
-    const event = { duration, title, description, 
-        startDatetime: startDatetime, 
-        endDatetime: endDatetime, 
-        location };
-
-        console.log(event)
+    const event = {
+        duration, title, description,
+        startDatetime: startDatetime,
+        endDatetime: endDatetime,
+        location
+    };
 
     const AddToCalendarDropdown = AddToCalendarHOC(Button, Dropdown);
     return (
-        <AddToCalendarDropdown
-            event={event}
-            className="cal_root"
-            buttonText={<ion-icon name="calendar"></ion-icon>}
-            buttonProps={{ className: "btn btn-dark" }}
-        />
+        <div className="dropleft">
+            <AddToCalendarDropdown
+                event={event}
+                className="cal_root"
+                buttonText={<ion-icon name="calendar"></ion-icon>}
+                buttonProps={{ className: "btn btn-dark" }}
+                dropdownProps={{ className: "dropdown-menu" }}
+                linkProps={{ className: "dropdown-item" }}
+            />
+        </div>
     )
 }
 

@@ -72,11 +72,11 @@ function CRM(props) {
                                     <NoteWrapper id={props.match.params.id} />
                                 } />
                             <Route exact path="/crm/scheduler">
-                                <ScheduleWrapper />
+                                <ScheduleWrapper user={user} />
                             </Route>
                             <Route exact path="/crm/scheduler/:id"
                                 render={(props) =>
-                                    <ScheduleWrapper id={props.match.params.id} />
+                                    <ScheduleWrapper user={user} id={props.match.params.id} />
                                 } />
                         </Switch>
                     </div>
