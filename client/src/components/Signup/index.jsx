@@ -92,7 +92,7 @@ class Signup extends Component {
                 </div>
                 <div className="body">
                     <div className="banner">
-                        <h1>Sign Up Now For Your Free Consultation Today!</h1>
+                        <h1>Sign Up Today For Your Free Consultation!</h1>
                     </div>
                     <Formik
                         initialValues={{
