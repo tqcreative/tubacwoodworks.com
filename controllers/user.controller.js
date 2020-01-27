@@ -8,7 +8,7 @@ const passport = require('../utils/passport');
 // /api/users base route
 router.route('/')
     .get(authenticateUser, (req, res) => {
-        db.User.find({}, { "local.password": 0 })
+        db.User.find({}, { "local.password": 0 }).sort({firstName:1,lastName:1})
             .then(dbRes => {
                 console.log(dbRes);
                 res.json(dbRes);

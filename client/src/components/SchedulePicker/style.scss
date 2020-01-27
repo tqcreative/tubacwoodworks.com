@@ -1,0 +1,34 @@
+@import '../../_scss/vars';
+
+.schedule-picker{
+    .date-col{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .date-picker{
+            width:90%;
+            text-align: center;
+        }
+    }
+
+    .time-col{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .time-picker{
+            width: 90%;
+            text-align: center;
+
+            input{
+                font-size: 18px;
+            }
+        }    
+    }
+
+    .btn-schedule{
+        width: 100%;
+        margin: 18px 0px 0px 0px;
+    }
+}
