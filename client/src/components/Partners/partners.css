@@ -91,6 +91,18 @@
           padding: 8px;
           text-shadow: 1px 1px 5px #2d3436; }
 
+#partner_card_1:hover,
+#partner_card_2:hover,
+#partner_card_3:hover {
+  cursor: pointer; }
+
+#partner_card_1:active,
+#partner_card_2:active,
+#partner_card_3:active {
+  -webkit-transform: translateY(5px);
+  -ms-transform: translateY(5px);
+  transform: translateY(5px); }
+
 @media (max-width: 768px) {
   .partners_root .partners_deck {
     display: -webkit-box;

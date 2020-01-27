@@ -55,17 +55,6 @@
     }
 }
 
-@media (max-width: #{$screen-sm}) {
-  
-    .quote_two_root {
-        .background-img {
-            background-attachment: inherit;
-        }
-    }
-
-}
-@media (min-width: #{$screen-md}) {
- 
-}
-@media (min-width: #{$screen-lg}) {
-}
+@media (max-width: #{$screen-sm}) {}
+@media (min-width: #{$screen-md}) and (max-width: #{$screen-lg}) {}
+@media (max-width: #{$screen-lg}) {}

@@ -73,9 +73,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (document.getElementById('card0')) {
       if (elementInViewport(document.getElementById('card0')) && portfolioTriggers === false) {
         portfolioTriggers = true;
-        gsap.from("#card0", { duration: 1, delay: .5, opacity: 0, y: "100%"});
-        gsap.from("#card1", { duration: 1.5, delay: .5, opacity: 0, y: "100%"});
-        gsap.from("#card2", { duration: 2, delay: .5, opacity: 0, y: "100%"});
+        gsap.from("#card0", { duration: 1, delay: 0, opacity: 0, y: "100%"});
+        gsap.from("#card1", { duration: 1.5, delay: 0, opacity: 0, y: "100%"});
+        gsap.from("#card2", { duration: 2, delay: 0, opacity: 0, y: "100%"});
       } else if (!elementInViewport(document.getElementById("card0")) && portfolioTriggers === true) {
         // portfolioTriggers = false;
       }
@@ -98,9 +98,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (document.getElementById('card3')) {
       if (elementInViewport(document.getElementById('card3')) && portfolioTriggersTwo === false) {
         portfolioTriggersTwo = true;
-        gsap.from("#card3", { duration: 1, delay: .7, opacity: 0, y: 300});
-        gsap.from("#card4", { duration: 1.5, delay: .7, opacity: 0, y: 300});
-        gsap.from("#card5", { duration: 2, delay: .7, opacity: 0, y: 300});
+        gsap.from("#card3", { duration: 1, delay: .2, opacity: 0, y: 300});
+        gsap.from("#card4", { duration: 1.5, delay: .2, opacity: 0, y: 300});
+        gsap.from("#card5", { duration: 2, delay: .2, opacity: 0, y: 300});
       } else if (!elementInViewport(document.getElementById("card3")) && portfolioTriggersTwo === true) {
         // portfolioTriggersTwo = false;
       }
@@ -124,7 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (!elementInViewport(document.getElementById('checkerbox_quote_1')) && checkerOneTrigger === true) {
 
         // checkerOneTrigger = false;
-
       }
     };
 
@@ -163,14 +162,6 @@ document.addEventListener("DOMContentLoaded", function () {
   ////////////
   // On click
   ////////////
-
-  // $('#card0').on("click", function () { console.log('click'); if ($('#textbox0').hasClass('slideUp')) { $('#textbox0').removeClass('slideUp'); } else { $('#textbox0').addClass('slideUp'); } });
-  // $('#card1').on("click", function () { if ($('#textbox1').hasClass('slideUp')) { $('#textbox1').removeClass('slideUp'); } else { $('#textbox1').addClass('slideUp'); } });
-  // $('#card2').on("click", function () { if ($('#textbox2').hasClass('slideUp')) { $('#textbox2').removeClass('slideUp'); } else { $('#textbox2').addClass('slideUp'); } });
-  // $('#card3').on("click", function () { if ($('#textbox3').hasClass('slideUp')) { $('#textbox3').removeClass('slideUp'); } else { $('#textbox3').addClass('slideUp'); } });
-  // $('#card4').on("click", function () { if ($('#textbox4').hasClass('slideUp')) { $('#textbox4').removeClass('slideUp'); } else { $('#textbox4').addClass('slideUp'); } });
-  // $('#card5').on("click", function () { if ($('#textbox5').hasClass('slideUp')) { $('#textbox5').removeClass('slideUp'); } else { $('#textbox5').addClass('slideUp'); } });
-
 
   ////////////
   // On load 

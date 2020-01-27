@@ -122,7 +122,7 @@ export default class Home extends Component {
 					<Partners login={false}/>
 
 					{/* login information hard coded into non-signed in user. */}
-					<div className="LoginForm">
+					<div className="LoginForm" style={{display: "none"}}>
 						<form>
 							<label htmlFor="username">Username: </label>
 							<input

@@ -96,6 +96,19 @@
   }
 }
 
+#partner_card_1,
+#partner_card_2,
+#partner_card_3 {
+  
+  &:hover {
+    cursor: pointer;
+  }
+  
+  &:active {
+    transform: translateY(5px);
+  }
+}
+
 @media (max-width: #{$screen-sm}) {
   .partners_root{
     .partners_deck {
