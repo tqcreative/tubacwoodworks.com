@@ -38,6 +38,12 @@ function ScheduledApptWrapper(props) {
             })
     }
 
+    function handleDeletedAppt(apptId){
+        const tempArray = [...customer.appointments];
+        tempArray.splice(tempArray.find(e=>e._id === apptId),1);
+        setCustomer({...customer, appointments: tempArray })
+    }
+
     return (
         <section hidden={hidden} {...rest}>
             <Row><Col><h3 className="text-center">{headerText}</h3></Col></Row>
@@ -58,7 +64,7 @@ function ScheduledApptWrapper(props) {
                             {customer.appointments.map(appointment => {
                                 return (
                                     <ScheduledAppt key={appointment._id} appointment={appointment} location={customer.location}
-                                        firstName={customer.firstName} lastName={customer.lastName}
+                                        firstName={customer.firstName} lastName={customer.lastName} handleDeletedAppt={handleDeletedAppt}
                                     />
                                 )
                             })}

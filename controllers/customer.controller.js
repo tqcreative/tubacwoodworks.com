@@ -26,7 +26,7 @@ const projectedContactFields = {
 
 // Return list of all customers
 router.route("/").get(authenticateUser, (req, res) => {
-    db.Customer.find({}, projectedContactFields).sort({lastName:1,firstName:1})
+    db.Customer.find({}, projectedContactFields).sort({ lastName: 1, firstName: 1 })
         .then(custRes => {
             res.json(custRes)
         })
@@ -272,24 +272,63 @@ router.route("/id/:id/appointment")
     })
 
 
+// delete an appointment for a customer
+// need to remove row from Appointment collection
+// and then that appointment from the array within the Customer collection
+router.route("/id/:id/appointment/:appt")
+    .delete(authenticateUser, (req, res) => {
+        const { id, appt } = req.params;
+
+        db.Appointment.findByIdAndDelete(appt)
+            .then(apptRes => {
+                console.log(apptRes);
+                db.Customer.findByIdAndUpdate(id, { $pull: { appointments: appt } })
+                    .then(custRes => {
+                        console.log(custRes)
+                        res.json({
+                            message: "Appointment successfully deleted",
+                            customerId: id,
+                            appointmentId: appt
+                        })
+                    })
+                    .catch(err => {
+                        console.log(err)
+                        res.status(420).json({
+                            message: "Failed to remove appointment from customer entry",
+                            customerId: id,
+                            appointmentId: appt
+                        })
+                    })
+            })
+            .catch(err => {
+                console.log(err)
+                res.status(420).json({
+                    message: "Failed to remove appointment entry",
+                    customerId: id,
+                    appointmentId: appt
+                })
+            })
+    });
+
+
 // Search for a contact and return array of matches
 // Sorted by first name
-router.route('/search').get(authenticateUser, (req, res) => {
-    const queryString = req.query.queryString;
+router.route('/search')
+    .get(authenticateUser, (req, res) => {
+        const queryString = req.query.queryString;
 
-    if (!queryString) return res.status(400).json(res.data)
+        if (!queryString) return res.status(400).json(res.data)
 
-    db.Customer.find({ firstName: { $regex: queryString, $options: 'i' } }, { firstName: 1, lastName: 1 }).limit(25).sort({ firstName: 1 })
-        .then(data => {
-            console.log(data);
-            if (data.length === 0) return res.status(404).json({ message: "No results found for query string.", queryString: queryString })
-            res.json(data);
-        })
-        .catch(err => {
-            res.status(500).json(err);
-        })
-})
-    ;
+        db.Customer.find({ firstName: { $regex: queryString, $options: 'i' } }, { firstName: 1, lastName: 1 }).limit(25).sort({ firstName: 1 })
+            .then(data => {
+                console.log(data);
+                if (data.length === 0) return res.status(404).json({ message: "No results found for query string.", queryString: queryString })
+                res.json(data);
+            })
+            .catch(err => {
+                res.status(500).json(err);
+            })
+    });
 
 
 module.exports = router;
