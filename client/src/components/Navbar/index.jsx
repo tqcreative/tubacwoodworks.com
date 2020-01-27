@@ -20,7 +20,7 @@ function NavBarComponent({ loggedIn, _logout, styleProp }) {
     }
 
     return (
-        <nav className="" >
+        <nav id="nav" className="" >
             {loggedIn ?
                 <div id="nav_root" className="nav_root" >
                     <ul>
