@@ -123,5 +123,13 @@
     max-width: 120px;
     max-height: 38px; } }
 
+@media (max-width: 768px) {
+  .signupWrapper form {
+    max-width: 80%; }
+    .signupWrapper form button {
+      width: 50%;
+      max-width: 50%;
+      margin: 1em auto !important; } }
+
 #middle_name {
-  display: none; }
+  display: none !important; }

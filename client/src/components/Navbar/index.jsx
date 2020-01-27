@@ -7,15 +7,22 @@ function NavBarComponent({ loggedIn, _logout, styleProp }) {
     function toggleMobileMenu() {
         let theMenu, name, arr;
         theMenu = document.getElementById("nav_root");
+        let menuButton = document.getElementById("mobile_menu");
+        let closeButton = document.getElementById("menu_close");
+        let openButton = document.getElementById("menu_open");
         name = "positionZero";
         arr = theMenu.className.split(" ");
 
         if (arr.indexOf(name) == -1){
-            console.log('toggle on');
             theMenu.classList.add("positionZero");
+            menuButton.classList.add("noBackground");
+            closeButton.classList.remove("displayNone");
+            openButton.classList.add("displayNone");
         } else {
             theMenu.classList.remove("positionZero");
-            console.log('toggle off');
+            menuButton.classList.remove("noBackground");
+            closeButton.classList.add("displayNone");
+            openButton.classList.remove("displayNone");
         }
     }
 
@@ -60,8 +67,9 @@ function NavBarComponent({ loggedIn, _logout, styleProp }) {
                             </Link>
                         </li>
                     </ul>
-                    <div id="mobile_menu">
-                        <ion-icon name="menu" onClick={toggleMobileMenu}></ion-icon>
+                    <div id="mobile_menu" onClick={toggleMobileMenu}>
+                    <span id="menu_open"><ion-icon name="menu"></ion-icon></span>
+                        <span id="menu_close" className="displayNone" ><ion-icon name="close"></ion-icon></span>
                     </div>
                 </div>
                 :
@@ -99,7 +107,8 @@ function NavBarComponent({ loggedIn, _logout, styleProp }) {
                         </li>
                     </ul>
                     <div id="mobile_menu" onClick={toggleMobileMenu}>
-                        <ion-icon name="menu"></ion-icon>
+                        <span id="menu_open"><ion-icon name="menu"></ion-icon></span>
+                        <span id="menu_close" className="displayNone" ><ion-icon name="close"></ion-icon></span>
                     </div>
                 </div>
             }

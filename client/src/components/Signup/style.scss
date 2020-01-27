@@ -103,6 +103,7 @@ $bg-color: #c23616;
 @media screen and (min-width:768px){
     .signupWrapper{
         form{
+            
             .form-group{
                 flex-basis: 45% !important;
             }
@@ -135,6 +136,21 @@ $bg-color: #c23616;
     }
 }
 
+@media (max-width: #{$screen-sm}) {
+    .signupWrapper {
+
+        form {
+            max-width: 80%;
+
+            button {
+            width: 50%;
+            max-width: 50%;
+            margin: 1em auto !important;
+            }
+        }
+    }
+}
+
 #middle_name {
-    display: none;
+    display: none !important;
 }
