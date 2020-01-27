@@ -16,15 +16,12 @@ import DeleteButton from '../../sub_component/DeleteButton';
 //////////////////////////////////////////////////
 
 
-const ImageCard = ({refreshTable, theArray, imageNumber, onClick, tableNameProp, logedIn}) => {
+const ImageCard = ({theArray, imageNumber, onClick, tableNameProp}) => {
   return (
     <div tablename={tableNameProp} className="imagecard" image_number={imageNumber} onClick={()=> onClick(`/cms/images/${theArray}`)}>
-    {console.log(theArray)}
       <div className="img-container">
-        {logedIn === "Peter" ?
-        <DeleteButton refreshTable={refreshTable} tableName={tableNameProp} imageIndexNumber={imageNumber} imageIsInTable={"TableName"} /> :
-        <noscript></noscript>}
-        <div className="item" test="true" style={{backgroundImage: `url(/cms/images/${theArray}`}}></div>
+        <DeleteButton tableName={tableNameProp} imageIndexNumber={imageNumber} imageIsInTable={"TableName"} />
+        <div className="item" style={{backgroundImage: `url(/cms/images/${theArray}`}}></div>
       </div>
     </div>
   );
