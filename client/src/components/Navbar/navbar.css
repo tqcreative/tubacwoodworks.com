@@ -64,7 +64,7 @@
     border-radius: 0 0 5px 0;
     margin: 0;
     display: none;
-    background-color: rgba(192, 57, 43, 0.9); }
+    background-color: rgba(192, 57, 43, 0.7); }
 
 .positionZero {
   -webkit-transform: translateY(0);
@@ -78,7 +78,6 @@
     -webkit-transform: translateY(-82%);
     -ms-transform: translateY(-82%);
     transform: translateY(-82%);
-    background-color: rgba(192, 57, 43, 0.8);
     -webkit-transition: -webkit-transform .3s;
     transition: -webkit-transform .3s;
     -o-transition: transform .3s;
@@ -92,6 +91,8 @@
         display: block;
         width: 100%;
         border: none; }
+        .nav_root ul li a div {
+          text-shadow: 1px 1px 8px #2d3436; }
     .nav_root #mobile_menu {
       font-size: 2.8em;
       display: block; } }
@@ -100,4 +101,4 @@
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
-  background-color: #c0392b; }
+  background: rgba(192, 57, 43, 0.7); }
