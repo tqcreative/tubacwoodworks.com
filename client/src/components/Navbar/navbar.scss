@@ -75,6 +75,7 @@
     .nav_root {
         flex-wrap: wrap;
         transform: translateY(-82%);
+        background-color: rgba($main, .8);
         transition: transform .3s;
         position: fixed;
 
