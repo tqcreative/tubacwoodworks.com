@@ -109,13 +109,13 @@ export default class Home extends Component {
 					<Gallery user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
 					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={"Peter"} __id={"checkbox_image_home"} />
 					<Partners login={"Peter"} />
-					<Signup user={this.state.user}/>
+					<Signup submitResult={this.handleSignupResult}/>
 					{/* This is where sign out would come into play. */}
 					<Footer user={this.state.user}/>
 					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
 						{this.state.toastMsg.map(element => {
-							return <p>element</p>
-						})};
+							return <p>{element}</p>
+						})}
 					</Toast>
 				</div>
 			)
@@ -156,7 +156,7 @@ export default class Home extends Component {
 					</div>
 
 					{/* be sure to make a component out of this */}
-					<Signup user={this.state.user}/>
+					<Signup submitResult={this.handleSignupResult}/>
 					<Footer />
 					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
 						{this.state.toastMsg.map(element => {

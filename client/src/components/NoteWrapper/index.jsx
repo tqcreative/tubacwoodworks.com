@@ -100,6 +100,7 @@ class NoteWrapper extends Component {
                 <ContactSearch hrefOnClick="/crm/notes" />
                 <hr />
                 <h1 className="text-center ">{header}</h1>
+                <hr />
                 <button type="button" className="btn btn-dark mt-3"
                     onClick={this.toggleToast} hidden={!this.state.id}
                 >Add a Note</button>
