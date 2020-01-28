@@ -31,9 +31,8 @@ export default class Gallery extends Component {
         this.toggleToast = this.toggleToast.bind(this);
     };
 
-
     componentDidMount() {
-        // console.log("Gallery Component Mounted")
+        window.scrollTo(0,0);
         this.callTableToLoad();
     }
 
@@ -103,7 +102,9 @@ export default class Gallery extends Component {
                     <button type='button' name="kitchenTable" className="btn btn-primary" onClick={this.changeTableName}>Kitchen Images</button>
                     <button type='button' name="bathTable" className="btn btn-primary" onClick={this.changeTableName}>Bath Images</button>
                     <button type='button' name="furnitureTable" className="btn btn-primary" onClick={this.changeTableName}>Furniture Images</button>
-                    <div style={{ position: 'relative' }}><UploadBtn tableNameProp={this.state.tableName} refreshTable={this.callTableToLoad} /></div>
+                    <div style={{ position: 'relative' }}>
+                        <UploadBtn tableNameProp={this.state.tableName} refreshTable={this.callTableToLoad} />
+                    </div>
                     <StateGallery logedIn={"Peter"} tableNameProp={this.state.tableName} theArray={this.state.arrayOfImages} refreshTable={this.callTableToLoad} />
                     <Signup submitResult={this.handleSignupResult} />
                     <Footer />

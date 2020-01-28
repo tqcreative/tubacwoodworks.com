@@ -31,7 +31,13 @@ export default class Home extends Component {
 			textInfoFromDatabase: {
 									quoteTop: { h2: "Matthew Carpenter", p: "I am just stunned at how amazing my kitchen looks!", url: "tubacwoodworks.herokuapp.com/images/quote_2.jpg"},
 									quoteBottom: {  h2: "Elena Borne", p: "Fast, Cheap, and Right. We found all three.", url: "tubacwoodworks.herokuapp.com/images/quote_1.jpg"},
-									checkerBox: { slotOne: "licenced", slotTwo: "bonded", slotThree: "insured" }
+									checkerBox: { slotOne: "licenced", slotTwo: "bonded", slotThree: "insured" },
+									partners: { 
+										partner_1: { name: " ", description: " ", url:"#", picture: "#" },
+										partner_2: { name: " ", description: " ", url:"#", picture: "#" },
+										partner_3: { name: " ", description: " ", url:"#", picture: "#" },
+										partner_text: { text: " ", backgroundImage: "#" }
+										}
 								  }
 		}
 		// bind signup and toast
@@ -81,6 +87,7 @@ export default class Home extends Component {
 	}
 
 	componentDidMount() {
+		window.scrollTo(0,0);
 		this.callForHomepageData();
 		this.callImagesToLoad();
 		gsap.from("#hero_quote", {delay: .5, opacity: 0, duration:1, x:750, ease: "power4"});
@@ -106,10 +113,10 @@ export default class Home extends Component {
 					<Quote textContent={this.state.textInfoFromDatabase.quoteTop} login={this.props.user} __id={"homepage_first_quote"} />
 					<Portfolio login={"Peter"} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={"Peter"} __id={"landing_page_quote"} />
-					<Gallery user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
+					<Gallery login={"Peter"} user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
 					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={"Peter"} __id={"checkbox_image_home"} />
-					<Partners login={"Peter"} />
-					<Signup submitResult={this.handleSignupResult}/>
+					<Partners textContent={this.state.textInfoFromDatabase.partners} login={"Peter"} />
+					<Signup user={this.state.user}/>
 					{/* This is where sign out would come into play. */}
 					<Footer user={this.state.user}/>
 					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
@@ -130,9 +137,9 @@ export default class Home extends Component {
 					<Portfolio login={false} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={false} __id={"landing_page_quote"} />
 					<Phone phoneNumber="5208405864" />
-					<Gallery user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
+					<Gallery login={false} user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
 					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={false} __id={"checkbox_image_home"} />
-					<Partners login={false}/>
+					<Partners textContent={this.state.textInfoFromDatabase.partners} login={false}/>
 
 					{/* login information hard coded into non-signed in user. */}
 					<div className="LoginForm" style={{display: "none"}}>

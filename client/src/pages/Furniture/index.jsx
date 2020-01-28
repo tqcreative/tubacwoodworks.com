@@ -24,7 +24,7 @@ export default class Furniture extends Component {
 	}
 
 	componentDidMount() {
-		console.log("Furniture Component Mounted")
+		window.scrollTo(0,0);
 		gsap.from("#furniture_h1", { duration: 2, x: 200, opacity: 0 });
 	}
 

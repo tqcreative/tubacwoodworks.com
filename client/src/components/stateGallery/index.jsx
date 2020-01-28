@@ -14,12 +14,12 @@ class StateGallery extends Component {
             toastImage: ""
         }
         this.toggleToast = this.toggleToast.bind(this);
-        
+
     };
 
 
     toggleToast(imgURL) {
-        this.setState({ toastShow: !this.state.toastShow, toastImage: imgURL})
+        this.setState({ toastShow: !this.state.toastShow, toastImage: imgURL })
     }
 
 
@@ -29,26 +29,26 @@ class StateGallery extends Component {
         // for (let i = 0; i < this.state.arrayOfImages.length; i++){
         //     console.log(this.state.arrayOfImages[i])
         return (
-           <div>
-            <ImageWrapper>
-                <div className="stateGallery_root" >
-                    
-                    <div className="image-div">
-                        {this.props.theArray.map((img, index) => {
-                            return (
-                                <ImageCard refreshTable={this.props.refreshTable} logedIn={this.props.logedIn} tableNameProp={this.props.tableNameProp} imageNumber={index} key={img + Math.floor(Math.random()*8000)+1} onClick={this.toggleToast} className="item" theArray={img} />)
-                                })}
-                        
-                    </div>
-                  
-                    </div>
-            </ImageWrapper>
-            <Toast show={this.state.toastShow} onClose={this.toggleToast}>
             <div>
-                <img src={this.state.toastImage} alt="image" style={{maxWidth:"100%"}}/>
+                <ImageWrapper>
+                    <div className="stateGallery_root" >
+
+                        <div className="image-div">
+                            {this.props.theArray.map((img, index) => {
+                                return (
+                                    <ImageCard refreshTable={this.props.refreshTable} logedIn={this.props.logedIn} tableNameProp={this.props.tableNameProp} imageNumber={index} key={img + Math.floor(Math.random() * 8000) + 1} onClick={this.toggleToast} className="item" theArray={img} />)
+                            })}
+
+                        </div>
+
+                    </div>
+                </ImageWrapper>
+                <Toast show={this.state.toastShow} onClose={this.toggleToast}>
+                    <div>
+                        <img src={this.state.toastImage} alt="image" style={{ maxWidth: "100%" }} />
+                    </div>
+                </Toast>
             </div>
-        </Toast>
-        </div>
         )
     }
 }
