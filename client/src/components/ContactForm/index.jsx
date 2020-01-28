@@ -6,22 +6,9 @@ import * as Yup from 'yup';
 import MaskedInput from "react-text-mask";
 import axios from 'axios';
 
-const phoneNumberMask = [
-    "(",
-    /[1-9]/,
-    /\d/,
-    /\d/,
-    ")",
-    " ",
-    /\d/,
-    /\d/,
-    /\d/,
-    "-",
-    /\d/,
-    /\d/,
-    /\d/,
-    /\d/
-];
+const phoneNumberMask = ["(", /[1-9]/, /\d/, /\d/, ")", " ", /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/, /\d/];
+const zipcodeMask = [/\d/, /\d/, /\d/, /\d/, /\d/];
+const zip4Mask = [/\d/, /\d/, /\d/, /\d/];
 
 // Define yup schema for how to validate form fields
 const contactSchema = Yup.object().shape({
@@ -34,47 +21,47 @@ const contactSchema = Yup.object().shape({
         .required("Email address is required"),
     phoneNumber: Yup.string()
         .required("Phone number is required")
-        .matches(/\([1-9]\d\d\) \d\d\d-\d\d\d\d/, "Must enter a valid phone number")
+        .matches(/\([1-9]\d\d\) \d\d\d-\d\d\d\d/, "Must enter a valid phone number"),
+    zipcode: Yup.string()
+        .matches(/^\d{5}$/, "Zipcode must be 5 digits"),
+    zip4: Yup.string()
+        .matches(/^\d{4}$/, "Zip+4 must be 4 digits")
 });
 
 function ContactForm(props) {
     const { id, contact, role } = props;
     const [readOnly, setReadOnly] = useState(true);
-    const [ updateBtnText, setUpdateBtnText ] = useState("Edit");
-    const [ redirectPath, setRedirectPath ] = useState("");
+    const [updateBtnText, setUpdateBtnText] = useState("Edit");
+    const [redirectPath, setRedirectPath] = useState("");
 
-    function toggleEdit(){
+    function toggleEdit() {
         setReadOnly(!readOnly);
-        setUpdateBtnText( updateBtnText === "Edit" ? "Cancel" : updateBtnText );
+        setUpdateBtnText(updateBtnText === "Edit" ? "Cancel" : updateBtnText);
     }
 
     function handleContactUpdate(event) {
-        // console.log("Update");
-        // console.log(event);
         event.preventDefault();
         toggleEdit();
     }
 
-    function handleContactSave(values){
-        // console.log("Saving contact");
-        // console.log(values);
-        axios.put(`/api/customers/id/${id}`,{custObj: values})
-        .then(res=>{
-            console.log(res.data);
-            toggleEdit();
-        })
-        .catch(err=>{
-            console.log(err);
-        })
+    function handleContactSave(values) {
+        axios.put(`/api/customers/id/${id}`, { custObj: values })
+            .then(res => {
+                console.log(res.data);
+                toggleEdit();
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     function handleContactDelete(event) {
         event.preventDefault();
         axios.delete(`/api/customers/id/${id}`)
-        .then(res => {
-            console.log(res.data);
-            setRedirectPath("/crm/customer");
-        })
+            .then(res => {
+                console.log(res.data);
+                setRedirectPath("/crm/customer");
+            })
     }
 
     return (
@@ -84,9 +71,9 @@ function ContactForm(props) {
             validationSchema={contactSchema}
             onSubmit={handleContactSave}
         >
-            {({ touched, errors, isSubmitting }) => (
+            {({ touched, errors, handleReset }) => (
                 <Form className="mx-2 my-4">
-                    { redirectPath ? <Redirect to={redirectPath} /> : null }
+                    {redirectPath ? <Redirect to={redirectPath} /> : null}
                     <FormGroup as={Row} controlId="customerFirstName">
                         <Col sm={3}><FormLabel className="col-form-label">First Name</FormLabel></Col>
                         <Col sm={6}>
@@ -172,8 +159,14 @@ function ContactForm(props) {
                     <FormGroup as={Row} controlId="customerZipcode">
                         <Col sm={3}><FormLabel className="col-form-label">Zipcode</FormLabel></Col>
                         <Col sm={2}>
-                            <Field id="customerZipcode" name="zipcode" readOnly={readOnly}
-                                className={`form-control ${touched.zipcode && errors.zipcode ? "is-invalid" : ""}`}
+                            <Field id="customerZipcode" name="zipcode"
+                                render={({ field }) => (
+                                    <MaskedInput {...field}
+                                        mask={zipcodeMask}
+                                        readOnly={readOnly}
+                                        className={`form-control ${touched.zipcode && errors.zipcode ? "is-invalid" : ""}`}
+                                    />
+                                )}
                             />
                             <ErrorMessage name="zipcode" className="invalid-feedback" />
                         </Col>
@@ -181,8 +174,14 @@ function ContactForm(props) {
                     <FormGroup as={Row} controlId="customerZip4">
                         <Col sm={3}><FormLabel className="col-form-label">Zip+4</FormLabel></Col>
                         <Col sm={2}>
-                            <Field id="customerZip4" name="zip4" readOnly={readOnly}
-                                className={`form-control ${touched.zip4 && errors.zip4 ? "is-invalid" : ""}`}
+                            <Field id="customerZip4" name="zip4"
+                                render={({ field }) => (
+                                    <MaskedInput {...field}
+                                        mask={zip4Mask}
+                                        readOnly={readOnly}
+                                        className={`form-control ${touched.zip4 && errors.zip4 ? "is-invalid" : ""}`}
+                                    />
+                                )}
                             />
                             <ErrorMessage name="zip4" className="invalid-feedback" />
                         </Col>
