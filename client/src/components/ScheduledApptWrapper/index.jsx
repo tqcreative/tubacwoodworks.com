@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Dropdown } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import './style.css';
 import axios from 'axios';
 import ScheduledAppt from '../ScheduledAppt';

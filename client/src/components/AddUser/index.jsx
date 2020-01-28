@@ -9,7 +9,7 @@ function equalTo(ref, msg) {
     return this.test({
         name: 'equalTo',
         exclusive: false,
-        message: msg || '${path} must be the same as ${reference}',
+        message: msg || 'Values must be the same',
         params: {
             reference: ref.path
         },

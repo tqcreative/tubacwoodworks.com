@@ -56,34 +56,6 @@
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat; }
-  .gallery_root .item_1 {
-    background-image: url(/cms/images/gallery_1.jpg); }
-  .gallery_root .item_2 {
-    background-image: url(/cms/images/gallery_2.jpg); }
-  .gallery_root .item_3 {
-    background-image: url(/cms/images/gallery_3.jpg); }
-  .gallery_root .item_4 {
-    background-image: url(/cms/images/gallery_4.jpg); }
-  .gallery_root .item_5 {
-    background-image: url(/cms/images/gallery_5.jpg); }
-  .gallery_root .item_6 {
-    background-image: url(/cms/images/gallery_6.jpg); }
-  .gallery_root .item_7 {
-    background-image: url(/cms/images/gallery_7.jpg); }
-  .gallery_root .item_8 {
-    background-image: url(/cms/images/gallery_8.jpg); }
-  .gallery_root .item_9 {
-    background-image: url(/cms/images/gallery_9.jpg); }
-  .gallery_root .item_10 {
-    background-image: url(/cms/images/gallery_10.jpg); }
-  .gallery_root .item_11 {
-    background-image: url(/cms/images/gallery_11.jpg); }
-  .gallery_root .item_12 {
-    background-image: url(/cms/images/gallery_12.jpg); }
-  .gallery_root .item_13 {
-    background-image: url(/cms/images/gallery_13.jpg); }
-  .gallery_root .item_14 {
-    background-image: url(/cms/images/gallery_14.jpg); }
 
 @media (max-width: 768px) {
   .gallery_root h2 {
