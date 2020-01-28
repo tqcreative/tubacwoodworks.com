@@ -27,6 +27,7 @@ export default class Home extends Component {
 			toastShow: false,
 			navPos: "absolute",
 			redirectTo: null,
+			staticGalleryImages: ["/images/check_1.jpg"],
 			textInfoFromDatabase: {
 									quoteTop: { h2: "Matthew Carpenter", p: "I am just stunned at how amazing my kitchen looks!", url: "tubacwoodworks.herokuapp.com/images/quote_2.jpg"},
 									quoteBottom: {  h2: "Elena Borne", p: "Fast, Cheap, and Right. We found all three.", url: "tubacwoodworks.herokuapp.com/images/quote_1.jpg"},
@@ -41,6 +42,7 @@ export default class Home extends Component {
 		this.handleChange = this.handleChange.bind(this)
 		// bind axios call to fill home page data.
 		this.callForHomepageData = this.callForHomepageData.bind(this);
+		this.callImagesToLoad = this.callImagesToLoad.bind(this);
 	}
 
 	// make an axios call to fill home page data.
@@ -51,6 +53,16 @@ export default class Home extends Component {
 			this.setState({textInfoFromDatabase: data.data[0]});
 		})
 	}
+
+	callImagesToLoad(){
+        axios
+        .get("/cms/kitchenbathvanity")
+        .then(collectData => {
+			// console.log(collectData.data[5].static)
+            this.setState({ staticGalleryImages: collectData.data[5].static });
+            })
+        }
+    
 
 	// login change event for updating state.
 	handleChange(event) {
@@ -70,6 +82,7 @@ export default class Home extends Component {
 
 	componentDidMount() {
 		this.callForHomepageData();
+		this.callImagesToLoad();
 		gsap.from("#hero_quote", {delay: .5, opacity: 0, duration:1, x:750, ease: "power4"});
 	}
 
@@ -93,7 +106,7 @@ export default class Home extends Component {
 					<Quote textContent={this.state.textInfoFromDatabase.quoteTop} login={this.props.user} __id={"homepage_first_quote"} />
 					<Portfolio login={"Peter"} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={"Peter"} __id={"landing_page_quote"} />
-					<Gallery user={this.state.user} />
+					<Gallery user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
 					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={"Peter"} __id={"checkbox_image_home"} />
 					<Partners login={"Peter"} />
 					<Signup user={this.state.user}/>
@@ -117,7 +130,7 @@ export default class Home extends Component {
 					<Portfolio login={false} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={false} __id={"landing_page_quote"} />
 					<Phone phoneNumber="5208405864" />
-					<Gallery user={this.state.user}/>
+					<Gallery user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
 					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={false} __id={"checkbox_image_home"} />
 					<Partners login={false}/>
 

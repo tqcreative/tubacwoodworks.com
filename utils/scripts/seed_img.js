@@ -62,6 +62,24 @@ let seed_imgs = [
             "gallery_10.jpg"
         ],
         name: "showcase"
+    },
+        {
+        static: [
+            "gallery_1.jpg",
+            "gallery_2.jpg",
+            "gallery_3.jpg",
+            "gallery_4.jpg",
+            "gallery_5.jpg",
+            "gallery_6.jpg",
+            "gallery_7.jpg",
+            "gallery_8.jpg",
+            "gallery_9.jpg",
+            "gallery_10.jpg",
+            "gallery_11.jpg",
+            "gallery_12.jpg",
+            "gallery_13.jpg"
+        ],
+        name: "static"
     }
 ]
 
