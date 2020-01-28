@@ -48,14 +48,15 @@ document.addEventListener("DOMContentLoaded", function () {
   ////////////
   window.addEventListener('scroll', function (event) {
 
+    let intViewportWidth = window.innerWidth;
+
     /////////////////////////////////////////
     // GSAP Animations
     /////////////////////////////////////////
 
     let yOffset = window.pageYOffset;
     let speed = 2;
-    if (document.getElementsByClassName("parallax") && window.screen.width >= 900) { document.getElementsByClassName("parallax")[0].style.backgroundPosition = "center " + ((yOffset) / speed) + "px"; }
-    if (document.getElementsByClassName("hero_parallax") && window.screen.width < 899) { document.getElementsByClassName("parallax")[0].style.backgroundPosition = "center " + ((yOffset) / speed) + "px"; }
+    if (document.getElementsByClassName("parallax") && intViewportWidth >= 900) { document.getElementsByClassName("parallax")[0].style.backgroundPosition = "center " + ((yOffset) / speed) + "px"; console.log("parallaxing") } else if (document.getElementsByClassName("hero_parallax") && intViewportWidth < 899) { document.getElementsByClassName("parallax")[0].style.backgroundPosition = "center " + ((yOffset) / speed) + "px";console.log("not parallaxing")  } else {};
     // if (document.getElementsByClassName("parallax")) { document.getElementsByClassName("parallax")[0].style.transform = `translateY(${yOffset / speed}px)` }
 
     // 1: is this element on the screen?
