@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import './style.css';
 import axios from 'axios';
 
@@ -9,7 +10,8 @@ class ContactSearch extends Component {
             resultsArr: [],
             searchString: "",
             searchId: null,
-            dropdownClass: "dropdown-menu"
+            dropdownClass: "dropdown-menu",
+            redirectPath: ""
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -48,13 +50,14 @@ class ContactSearch extends Component {
 
     getContact(event){
         event.preventDefault();
-        window.location.href=`${this.props.hrefOnClick}/${this.state.searchId}`
+        if(this.state.searchId)
+            window.location.href=`${this.props.hrefOnClick}/${this.state.searchId}`
     }
 
     render() {
         return (
             <div className="search_root">
-                <form className="form-inline my-2 my-lg-0">
+                <form className="form-inline mx-sm-4 mx-lg-0 my-2 my-lg-0">
                     <div className="dropdown">
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" name="searchString"
                             value={this.state.searchString} aria-label="Search" onChange={this.handleInputChange}

@@ -46,7 +46,7 @@ $bg-color: #c23616;
         display: flex;
         justify-content: center;
         color: $text;
-        font-family: $font;
+        font-family: 'Bebas Neue', cursive;
         padding-top: 5%;
         padding-bottom: 2%;
         padding-left: 20px;
@@ -54,6 +54,10 @@ $bg-color: #c23616;
         z-index: 99;
         position: relative;
         text-align: center;
+
+        h1{
+            font-size: 2.4rem;
+        }
     }
 
     form{
@@ -79,8 +83,6 @@ $bg-color: #c23616;
 
         .btn{
             display: inline-block;
-            // width: 100%;
-            // flex-basis: 100%;
             flex-grow: 1;
             flex-shrink: 0;
             margin: 8px;
@@ -102,6 +104,11 @@ $bg-color: #c23616;
 
 @media screen and (min-width:768px){
     .signupWrapper{
+        .banner{
+            h1{
+                font-size: 3rem;
+            }
+        }
         form{
             
             .form-group{

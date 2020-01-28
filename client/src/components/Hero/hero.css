@@ -44,7 +44,31 @@
         margin: 5%; }
     .hero_root div p {
       display: block;
-      padding: 1em 2em; }
+      padding: 1em 2em;
+      font-size: 1.2em;
+      line-height: 1.3em;
+      padding: 0 1em 1em 1em;
+      font-weight: 200;
+      text-shadow: 1px 1px 5px #2d3436; }
+    .hero_root div .pencil_edit_root {
+      position: absolute;
+      top: -0;
+      left: 0;
+      z-index: 9999;
+      padding: .2em;
+      font-size: 2em;
+      background-color: rgba(45, 52, 54, 0.7);
+      border-radius: 0 8px 8px 0; }
+      .hero_root div .pencil_edit_root ion-icon {
+        color: #fff; }
+      .hero_root div .pencil_edit_root:hover ion-icon {
+        -webkit-transform: translateY(2px);
+        -ms-transform: translateY(2px);
+        transform: translateY(2px); }
+      .hero_root div .pencil_edit_root:active ion-icon {
+        -webkit-transform: translateY(5px);
+        -ms-transform: translateY(5px);
+        transform: translateY(5px); }
   .hero_root .hero_background {
     position: absolute;
     width: 100vw;

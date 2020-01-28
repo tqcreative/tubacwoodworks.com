@@ -29,6 +29,7 @@ export default class Home extends Component {
 			redirectTo: null,
 			staticGalleryImages: ["/images/check_1.jpg"],
 			textInfoFromDatabase: {
+									_id: "5e2fb19cbf1a343bc0ddd739",
 									quoteTop: { h2: "Matthew Carpenter", p: "I am just stunned at how amazing my kitchen looks!", url: "tubacwoodworks.herokuapp.com/images/quote_2.jpg"},
 									quoteBottom: {  h2: "Elena Borne", p: "Fast, Cheap, and Right. We found all three.", url: "tubacwoodworks.herokuapp.com/images/quote_1.jpg"},
 									checkerBox: { slotOne: "licenced", slotTwo: "bonded", slotThree: "insured" },
@@ -37,7 +38,8 @@ export default class Home extends Component {
 										partner_2: { name: " ", description: " ", url:"#", picture: "#" },
 										partner_3: { name: " ", description: " ", url:"#", picture: "#" },
 										partner_text: { text: " ", backgroundImage: "#" }
-										}
+										},
+									hero: { h2: "#"}
 								  }
 		}
 		// bind signup and toast
@@ -49,7 +51,30 @@ export default class Home extends Component {
 		// bind axios call to fill home page data.
 		this.callForHomepageData = this.callForHomepageData.bind(this);
 		this.callImagesToLoad = this.callImagesToLoad.bind(this);
+		this.updateTextDatabase = this.updateTextDatabase.bind(this);
+		this.updateStateTest = this.updateStateTest.bind(this);
 	}
+
+	//update text site wide.
+	updateTextDatabase(event) {
+		event.preventDefault();
+		// console.log("=================================");
+		// console.log(event.target);
+		// console.log(this.state.textInfoFromDatabase);
+		// console.log("=================================");
+		axios
+		.put(`/cms/homepage/text/${this.state.textInfoFromDatabase._id}`, this.state.textInfoFromDatabase )
+		.then(data => {
+			console.log(data);
+		})
+	}
+
+	// update state button
+	updateStateTest(newTextObject) {
+		// now lets set the state from the HOME level.
+		// the newTextObject must contain the full state for this.state.textInfoFromDatabase
+		this.setState({textInfoFromDatabase : newTextObject});
+	};
 
 	// make an axios call to fill home page data.
 	callForHomepageData() {
@@ -107,15 +132,16 @@ export default class Home extends Component {
 			return (
 				<div className="Home home_root">
 					<Header user={this.state.user} />
-					<Hero login={"Peter"}/>
+					<Hero theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} login={"Peter"}/>
 					<NavBar loggedIn={true} styleProp={this.state.navPos} />
 					<Numbers user={this.state.user}/>
-					<Quote textContent={this.state.textInfoFromDatabase.quoteTop} login={this.props.user} __id={"homepage_first_quote"} />
+						<button onClick={this.updateTextDatabase} style={ {position : "fixed", right: "0", top: "10%", color: "#fff", backgroundColor: "rgba(0,0,0,.6)", fontSize: "2em", zIndex: "10000" } }><ion-icon name="ios-save"></ion-icon></button>
+					<Quote theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} textContent={this.state.textInfoFromDatabase.quoteTop} login={"Peter"} __id={"homepage_first_quote"} />
 					<Portfolio login={"Peter"} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={"Peter"} __id={"landing_page_quote"} />
 					<Gallery login={"Peter"} user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
 					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={"Peter"} __id={"checkbox_image_home"} />
-					<Partners textContent={this.state.textInfoFromDatabase.partners} login={"Peter"} />
+					<Partners textContent={this.state.textInfoFromDatabase.partners} login={"Peter"} /> 
 					<Signup user={this.state.user}/>
 					{/* This is where sign out would come into play. */}
 					<Footer user={this.state.user}/>
@@ -130,10 +156,10 @@ export default class Home extends Component {
 			return (
 				<div className="Home home_root">
 					<Header user={this.state.user} />
-					<Hero login={false} />
+					<Hero theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} login={false} />
 					<NavBar styleProp={this.state.navPos} />
 					<Numbers user={this.state.user}/>
-					<Quote textContent={this.state.textInfoFromDatabase.quoteTop} login={false} __id={"homepage_first_quote"} />
+					<Quote theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} textContent={this.state.textInfoFromDatabase.quoteTop} login={false} __id={"homepage_first_quote"} />
 					<Portfolio login={false} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={false} __id={"landing_page_quote"} />
 					<Phone phoneNumber="5208405864" />

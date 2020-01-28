@@ -27,7 +27,11 @@ let seed_homepage = [
                 text: "take a look at our partners",
                 backgroundImage: "/cms/images/partner_0.jpg"
             }
-        }
+        },
+        hero: { logo: "Tubac Woodworks LLC", h2: `Tubac Woodworks Inc, building custom
+        cabinetry, etertainment center, bookcases,
+        desks, and a variety of other wood products
+        for home, office, or business.`}
     }
 ]
 

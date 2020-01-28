@@ -20,14 +20,9 @@ function Checkbox(props) {
     uploadPhotoElement = <UploadPhoto __parent_id={thisId} __parent_image_name={nameOfImage}/> :
     uploadPhotoElement = <noscript></noscript>
 
-    // check for pencil edit
-    props.login === 'Peter' ?
-    uploadPhotoElement = <PencilEdit /> :
-    uploadPhotoElement = <noscript></noscript>
-
     return (
         <div id={thisId} className="checkbox_root" style={{ backgroundImage: `url(/cms/images/${backgroundImageForCheckbox})`}}>
-            {uploadPhotoElement}
+
             <div className="checkbox_wrap">
 
                 <div id="checkerbox_quote_1">

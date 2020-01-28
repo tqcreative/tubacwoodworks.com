@@ -34,11 +34,6 @@ function NavlinkWrapper(props) {
                 linkRef="/crm/scheduler"
                 id="nav-scheduler"
             />
-            <Navlink
-                linkText="Email"
-                linkRef="/crm/email"
-                id="nav-email"
-            />
         </div>
     )
 }

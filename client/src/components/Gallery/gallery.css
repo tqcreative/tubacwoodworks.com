@@ -31,16 +31,28 @@
     border-radius: 5px;
     background-size: cover;
     opacity: 0; }
-  .gallery_root .span-2 {
+    .gallery_root .span-3 {
+      -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+      -ms-grid-row-span: 2;
+      grid-row-end: span 2; }
+  .gallery_root .span-5 {
     -ms-grid-column-span: 2;
     grid-column-end: span 2;
     -ms-grid-row-span: 1;
     grid-row-end: span 1; }
-  .gallery_root .span-3 {
-    -ms-grid-column-span: 2;
-    grid-column-end: span 2;
-    -ms-grid-row-span: 2;
-    grid-row-end: span 2; }
+    .gallery_root .span-6 {
+      -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+      -ms-grid-row-span: 1;
+      grid-row-end: span 1; }
+      .gallery_root .span-8 {
+        -ms-grid-column-span: 2;
+        grid-column-end: span 2;
+        -ms-grid-row-span: 2;
+        grid-row-end: span 2; }
+  
+  .gallery_root .item_0,
   .gallery_root .item_1,
   .gallery_root .item_2,
   .gallery_root .item_3,
@@ -52,7 +64,8 @@
   .gallery_root .item_9,
   .gallery_root .item_10,
   .gallery_root .item_11,
-  .gallery_root .item_12 {
+  .gallery_root .item_12
+  {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat; }
