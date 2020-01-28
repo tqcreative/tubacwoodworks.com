@@ -24,7 +24,7 @@ export default class Commercial extends Component {
 	}
 
 	componentDidMount() {
-		console.log("Commercial Component Mounted")
+		window.scrollTo(0,0);
 	}
 
 	handleSignupResult(msg) {

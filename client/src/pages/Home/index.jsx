@@ -33,9 +33,10 @@ export default class Home extends Component {
 									quoteBottom: {  h2: "Elena Borne", p: "Fast, Cheap, and Right. We found all three.", url: "tubacwoodworks.herokuapp.com/images/quote_1.jpg"},
 									checkerBox: { slotOne: "licenced", slotTwo: "bonded", slotThree: "insured" },
 									partners: { 
-										partner_1: { name: "", description: "", url:"#", picture: "#" },
-										partner_2: { name: "", description: "", url:"#", picture: "#" },
-										partner_3: { name: "", description: "", url:"#", picture: "#" }
+										partner_1: { name: " ", description: " ", url:"#", picture: "#" },
+										partner_2: { name: " ", description: " ", url:"#", picture: "#" },
+										partner_3: { name: " ", description: " ", url:"#", picture: "#" },
+										partner_text: { text: " ", backgroundImage: "#" }
 										}
 								  }
 		}
@@ -86,6 +87,7 @@ export default class Home extends Component {
 	}
 
 	componentDidMount() {
+		window.scrollTo(0,0);
 		this.callForHomepageData();
 		this.callImagesToLoad();
 		gsap.from("#hero_quote", {delay: .5, opacity: 0, duration:1, x:750, ease: "power4"});

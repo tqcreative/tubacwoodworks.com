@@ -31,9 +31,8 @@ export default class Gallery extends Component {
         this.toggleToast = this.toggleToast.bind(this);
     };
 
-
     componentDidMount() {
-        // console.log("Gallery Component Mounted")
+        window.scrollTo(0,0);
         this.callTableToLoad();
     }
 

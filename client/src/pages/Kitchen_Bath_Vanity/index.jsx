@@ -25,7 +25,7 @@ export default class Kitchen_Bath_Vanity extends Component {
 	}
 
 	componentDidMount() {
-		console.log("Kitchen_Bath_Vanity Component Mounted")
+		window.scrollTo(0,0);
 	}
 
 	handleSignupResult(msg) {

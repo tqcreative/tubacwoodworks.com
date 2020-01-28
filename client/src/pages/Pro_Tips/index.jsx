@@ -23,7 +23,7 @@ export default class Pro_Tips extends Component {
 	}
 
 	componentDidMount() {
-		console.log("Pro_Tips Component Mounted")
+		window.scrollTo(0,0);
 	}
 
 	handleSignupResult(msg) {

@@ -31,7 +31,8 @@ let seed_text = [
                 description: "Fine Crafted Cabinet Doors",
                 url: "https://decore.com",
                 picture: "/cms/images/partner_2.jpg"
-            }
+            },
+            partner_text: "take a look at our partners"
         }
     }
 ]
