@@ -1,6 +1,7 @@
 import React from 'react'
 import './hero.css';
 import UploadPhoto from '../../sub_component/UploadPhoto';
+import Pencil from '../../sub_component/PencilHero';
 
 function Hero(props) {
 
@@ -18,14 +19,16 @@ function Hero(props) {
         <span>{uploadPhotoComponent}</span>
             <div className="hero_background parallax hero_parallax" data-rellax-speed="-10" style={{backgroundImage: `url(/cms/images/${backgroundImageName})`}}></div>
             <div id="hero_quote">
+                { 
+                props.login === "Peter" ?
+                <Pencil theTextObject={props.theTextObject} theUpdateButton={props.theUpdateButton} /> :
+                <noscript></noscript>
+                }
                 <div>
                     <img src="/cms/images/logo_white.jpg" alt="Tubac Woodworks Logo"/>
                 </div>
                 <p>
-                    Tubac Woodworks Inc, building custom
-                    cabinetry, etertainment center, bookcases,
-                    desks, and a variety of other wood products
-                    for home, office, or business.
+                    {props.theTextObject.hero.h2}
                 </p>
             </div>
 

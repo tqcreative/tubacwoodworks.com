@@ -1,115 +1,115 @@
-@import "../../_scss/_vars";
+// @import "../../_scss/_vars";
 
-.gallery_root {
-    display: grid;
-    max-width: 1200px;
-    margin: 1em auto 3em;
+// .gallery_root {
+//     display: grid;
+//     max-width: 1200px;
+//     margin: 1em auto 3em;
 
-    h2 {
-        padding: .8em 0 1.2em 0;
-        width: 100%;
-        text-align: center;
-        color: $main2;
-        text-transform: uppercase;
-        font-size: 2em;
-        font-weight: 800;
-    }
+//     h2 {
+//         padding: .8em 0 1.2em 0;
+//         width: 100%;
+//         text-align: center;
+//         color: $main2;
+//         text-transform: uppercase;
+//         font-size: 2em;
+//         font-weight: 800;
+//     }
 
-    h3 {
-        display: none;
-    }
+//     h3 {
+//         display: none;
+//     }
 
-    .gallery_container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        grid-gap: 10px;
-        grid-auto-rows: minmax(150px, 150px);
-        grid-auto-flow: dense;
-        padding: 10px;
-    }
+//     .gallery_container {
+//         display: grid;
+//         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+//         grid-gap: 10px;
+//         grid-auto-rows: minmax(150px, 150px);
+//         grid-auto-flow: dense;
+//         padding: 10px;
+//     }
 
-    .item {
-        padding: .5rem;
-        font-size: 14px;
-        font-weight: bold;
-        text-transform: uppercase;
-        color: #929796;
-        background-color: #333;
-        border-radius: 5px;
-        background-size: cover;
-        opacity: 0;
-    }
+//     .item {
+//         padding: .5rem;
+//         font-size: 14px;
+//         font-weight: bold;
+//         text-transform: uppercase;
+//         color: #929796;
+//         background-color: #333;
+//         border-radius: 5px;
+//         background-size: cover;
+//         opacity: 1;
+//     }
 
-    .span-2 {
-        grid-column-end: span 2;
-        grid-row-end: span 1;
-    }
+//     .span-2 {
+//         grid-column-end: span 2;
+//         grid-row-end: span 1;
+//     }
 
-    .span-3 {
-        grid-column-end: span 2;
-        grid-row-end: span 2;
-    }     
+//     .span-3 {
+//         grid-column-end: span 2;
+//         grid-row-end: span 2;
+//     }     
 
-    /////////////////////////
-    // background images
-    /////////////////////////
+//     /////////////////////////
+//     // background images
+//     /////////////////////////
 
-    .item_1,
-    .item_2,
-    .item_3,
-    .item_4,
-    .item_5,
-    .item_6,
-    .item_7,
-    .item_8,
-    .item_9,
-    .item_10,
-    .item_11,
-    .item_12 {
-        background-position: center center;
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
+//     .item_1,
+//     .item_2,
+//     .item_3,
+//     .item_4,
+//     .item_5,
+//     .item_6,
+//     .item_7,
+//     .item_8,
+//     .item_9,
+//     .item_10,
+//     .item_11,
+//     .item_12 {
+//         background-position: center center;
+//         background-size: cover;
+//         background-repeat: no-repeat;
+//     }
 
-    .item_1 { background-image: url(/cms/images/gallery_1.jpg); }
-    .item_2 { background-image: url(/cms/images/gallery_2.jpg); }
-    .item_3 { background-image: url(/cms/images/gallery_3.jpg); }
-    .item_4 { background-image: url(/cms/images/gallery_4.jpg); }
-    .item_5 { background-image: url(/cms/images/gallery_5.jpg); }
-    .item_6 { background-image: url(/cms/images/gallery_6.jpg); }
-    .item_7 { background-image: url(/cms/images/gallery_7.jpg); }
-    .item_8 { background-image: url(/cms/images/gallery_8.jpg); }
-    .item_9 { background-image: url(/cms/images/gallery_9.jpg); }
-    .item_10 { background-image: url(/cms/images/gallery_10.jpg); }
-    .item_11 { background-image: url(/cms/images/gallery_11.jpg); }
-    .item_12 { background-image: url(/cms/images/gallery_12.jpg); }
-    .item_13 { background-image: url(/cms/images/gallery_13.jpg); }
-    .item_14 { background-image: url(/cms/images/gallery_14.jpg); }
+//     .item_1 { background-image: url(/cms/images/gallery_1.jpg); }
+//     .item_2 { background-image: url(/cms/images/gallery_2.jpg); }
+//     .item_3 { background-image: url(/cms/images/gallery_3.jpg); }
+//     .item_4 { background-image: url(/cms/images/gallery_4.jpg); }
+//     .item_5 { background-image: url(/cms/images/gallery_5.jpg); }
+//     .item_6 { background-image: url(/cms/images/gallery_6.jpg); }
+//     .item_7 { background-image: url(/cms/images/gallery_7.jpg); }
+//     .item_8 { background-image: url(/cms/images/gallery_8.jpg); }
+//     .item_9 { background-image: url(/cms/images/gallery_9.jpg); }
+//     .item_10 { background-image: url(/cms/images/gallery_10.jpg); }
+//     .item_11 { background-image: url(/cms/images/gallery_11.jpg); }
+//     .item_12 { background-image: url(/cms/images/gallery_12.jpg); }
+//     .item_13 { background-image: url(/cms/images/gallery_13.jpg); }
+//     .item_14 { background-image: url(/cms/images/gallery_14.jpg); }
 
-}
+// }
 
-@media (max-width: #{$screen-sm}) {
-    .gallery_root {
+// @media (max-width: #{$screen-sm}) {
+//     .gallery_root {
     
-        h2 {
-            display: none;
-        }
+//         h2 {
+//             display: none;
+//         }
     
-        h3 {
-            display: block;
-            padding: 0;
-            width: 100%;
-            text-align: center;
+//         h3 {
+//             display: block;
+//             padding: 0;
+//             width: 100%;
+//             text-align: center;
 
-            a {
-                color: $main2;
-                text-transform: uppercase;
-                font-size: 4em;
-                font-weight: 800;
-            }
-        }
-    }
+//             a {
+//                 color: $main2;
+//                 text-transform: uppercase;
+//                 font-size: 4em;
+//                 font-weight: 800;
+//             }
+//         }
+//     }
 
-}
-@media (min-width: #{$screen-md}) and (max-width: #{$screen-lg}) {}
-@media (max-width: #{$screen-lg}) {}
+// }
+// @media (min-width: #{$screen-md}) and (max-width: #{$screen-lg}) {}
+// @media (max-width: #{$screen-lg}) {}

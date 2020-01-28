@@ -126,22 +126,22 @@ document.addEventListener("DOMContentLoaded", function () {
       if (elementInViewport(document.getElementById('gallery_container')) && galleryTrigger === false) {
         galleryTrigger = true;
         // gsap.from("#gallery_container", { duration: 1, delay: 0, opacity: 0 });
-        gsap.to(".item_1", { duration: .3, opacity: 1, delay: 1});
-        gsap.to(".item_2", { duration: 2.5, opacity: 1, delay: .3});
-        gsap.to(".item_3", { duration: 1.7, opacity: 1, delay: .3});
-        gsap.to(".item_4", { duration: .9, opacity: 1, delay: .3});
-        gsap.to(".item_5", { duration: 1.5, opacity: 1, delay: .3});
-        gsap.to(".item_6", { duration: 1.1, opacity: 1, delay: .5});
-        gsap.to(".item_7", { duration: 1.3, opacity: 1, delay: 1.8});
-        gsap.to(".item_8", { duration: 1.4, opacity: 1, delay: .3});
-        gsap.to(".item_9", { duration: 1, opacity: 1, delay: .3});
-        gsap.to(".item_10", { duration: 1.2, opacity: 1, delay: .5});
-        gsap.to(".item_11", { duration: 1.3, opacity: 1, delay: .3});
-        gsap.to(".item_12", { duration: 1.5, opacity: 1, delay: 1});
-        gsap.to(".item_13", { duration: .5, opacity: 1, delay: .3});
-        gsap.to(".item_14", { duration: 1.5, opacity: 1, delay: 1});
-        gsap.to(".item_15", { duration: 2.5, opacity: 1, delay: .3});
-        gsap.to(".item_16", { duration: 2, opacity: 1, delay: 1});
+        gsap.from(".item_1", { duration: .3, opacity: 0, delay: 1});
+        gsap.from(".item_2", { duration: 2.5, opacity: 0, delay: .3});
+        gsap.from(".item_3", { duration: 1.7, opacity: 0, delay: .3});
+        gsap.from(".item_4", { duration: .9, opacity: 0, delay: .3});
+        gsap.from(".item_5", { duration: 1.5, opacity: 0, delay: .3});
+        gsap.from(".item_6", { duration: 1.1, opacity: 0, delay: .5});
+        gsap.from(".item_7", { duration: 1.3, opacity: 0, delay: 1.8});
+        gsap.from(".item_8", { duration: 1.4, opacity: 0, delay: .3});
+        gsap.from(".item_9", { duration: 1, opacity: 0, delay: .3});
+        gsap.from(".item_10", { duration: 1.2, opacity: 0, delay: .5});
+        gsap.from(".item_11", { duration: 1.3, opacity: 0, delay: .3});
+        gsap.from(".item_12", { duration: 1.5, opacity: 0, delay: 1});
+        gsap.from(".item_13", { duration: .5, opacity: 0, delay: .3});
+        gsap.from(".item_14", { duration: 1.5, opacity: 0, delay: 1});
+        gsap.from(".item_15", { duration: 2.5, opacity: 0, delay: .3});
+        gsap.from(".item_16", { duration: 2, opacity: 0, delay: 1});
       } else if (!elementInViewport(document.getElementById("gallery_container")) && galleryTrigger === true) {
         //galleryTrigger = false;
       }

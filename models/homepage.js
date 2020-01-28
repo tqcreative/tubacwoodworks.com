@@ -8,7 +8,10 @@ const homepageModel = new Schema({
     // in the database it would look like this: homepage_quote: {h2: "Matthew Carpenter", p: "I can not get over how stunning my kitech looks!", url: "tubacwoodworks.com/images/quote_2.jpg"}
     // the quote is axios called and added into the component on render.
     quoteTop: { type: Object, required: true },
-    quoteBottom: { type: Object, required: true}
+    quoteBottom: { type: Object, required: true},
+    checkerBox: { type: Object, required: true },
+    partners: { type: Object, required: true },
+    hero: { type: Object, required: true }
 });
 
 const Homepage = mongoose.model("homepage", homepageModel);

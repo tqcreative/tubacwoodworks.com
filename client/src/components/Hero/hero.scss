@@ -43,6 +43,11 @@
         p {
             display: block;
             padding: 1em 2em;
+            font-size: 1.2em;
+            line-height: 1.3em;
+            padding: 0 1em 1em 1em;
+            font-weight: 200;
+            text-shadow: 1px 1px 5px $dark;
         }
     }
 
