@@ -6,6 +6,8 @@ function partners(props) {
 
     // make an API call to get data from the database and fill out the cards
 
+    console.log(props.textContent);
+
     return (
         <div className="partners_root">
             <div className="partners_items_go_here">

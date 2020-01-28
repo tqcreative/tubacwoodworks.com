@@ -15,19 +15,22 @@ let seed_text = [
 
         partners: {
             partner_1: {
-                name: "placeholder",
-                url: "#",
-                picture: "placeholder"
+                name: "Decore-Ative Specialties",
+                description: "Fine Crafted Cabinet Doors",
+                url: "https://decore.com",
+                picture: "/cms/images/partner_2.jpg"
             },
             partner_2: {
-                name: "placeholder",
-                url: "#",
-                picture: "placeholder"
+                name: "Decore-Ative Specialties",
+                description: "Fine Crafted Cabinet Doors",
+                url: "https://decore.com",
+                picture: "/cms/images/partner_2.jpg"
             },
             partner_3: {
-                name: "placeholder",
-                url: "#",
-                picture: "placeholder"
+                name: "Decore-Ative Specialties",
+                description: "Fine Crafted Cabinet Doors",
+                url: "https://decore.com",
+                picture: "/cms/images/partner_2.jpg"
             }
         }
     }

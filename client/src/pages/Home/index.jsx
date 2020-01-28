@@ -31,7 +31,12 @@ export default class Home extends Component {
 			textInfoFromDatabase: {
 									quoteTop: { h2: "Matthew Carpenter", p: "I am just stunned at how amazing my kitchen looks!", url: "tubacwoodworks.herokuapp.com/images/quote_2.jpg"},
 									quoteBottom: {  h2: "Elena Borne", p: "Fast, Cheap, and Right. We found all three.", url: "tubacwoodworks.herokuapp.com/images/quote_1.jpg"},
-									checkerBox: { slotOne: "licenced", slotTwo: "bonded", slotThree: "insured" }
+									checkerBox: { slotOne: "licenced", slotTwo: "bonded", slotThree: "insured" },
+									partners: { 
+										partner_1: { name: "", description: "", url:"#", picture: "#" },
+										partner_2: { name: "", description: "", url:"#", picture: "#" },
+										partner_3: { name: "", description: "", url:"#", picture: "#" }
+										}
 								  }
 		}
 		// bind signup and toast
@@ -108,7 +113,7 @@ export default class Home extends Component {
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={"Peter"} __id={"landing_page_quote"} />
 					<Gallery user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
 					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={"Peter"} __id={"checkbox_image_home"} />
-					<Partners login={"Peter"} />
+					<Partners textContent={this.state.textInfoFromDatabase.partners} login={"Peter"} />
 					<Signup user={this.state.user}/>
 					{/* This is where sign out would come into play. */}
 					<Footer user={this.state.user}/>
@@ -132,7 +137,7 @@ export default class Home extends Component {
 					<Phone phoneNumber="5208405864" />
 					<Gallery user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
 					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={false} __id={"checkbox_image_home"} />
-					<Partners login={false}/>
+					<Partners textContent={this.state.textInfoFromDatabase.partners} login={false}/>
 
 					{/* login information hard coded into non-signed in user. */}
 					<div className="LoginForm" style={{display: "none"}}>
