@@ -113,13 +113,8 @@ export default class Home extends Component {
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={"Peter"} __id={"landing_page_quote"} />
 					<Gallery user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
 					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={"Peter"} __id={"checkbox_image_home"} />
-<<<<<<< HEAD
 					<Partners textContent={this.state.textInfoFromDatabase.partners} login={"Peter"} />
 					<Signup user={this.state.user}/>
-=======
-					<Partners login={"Peter"} />
-					<Signup submitResult={this.handleSignupResult}/>
->>>>>>> 23e717b0e68f51da1eb30a46b88db80eda02744f
 					{/* This is where sign out would come into play. */}
 					<Footer user={this.state.user}/>
 					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
