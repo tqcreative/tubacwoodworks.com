@@ -70,7 +70,7 @@ class Signup extends Component {
                         errors.push(obj[key].message)
                     })
                 }
-                else if (!obj && err.response.data.name === "MongoError" && err.response.data.code == 11000) {
+                else if (!obj && err.response.data.name === "MongoError" && err.response.data.code === 11000) {
                     errors.push("You've already signed up for a quote.  We'll be in touch soon.")
                 }
                 else if (err.response.data.errmsg) {

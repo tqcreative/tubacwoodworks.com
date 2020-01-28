@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AddUser from '../AddUser';
-import EmployeeNav from '../EmployeeNav';
 import EmployeeAppts from '../EmployeeAppts';
 import ChangePassword from '../ChangePassword';
 import axios from 'axios';
@@ -19,9 +18,12 @@ class EmployeeWrapper extends Component {
     }
 
     componentDidMount() {
-        axios.get(`/api/users/${this.props.user._id}/appts`).then(res => {
-            console.log(res);
+        axios.get(`/api/users/${this.props.user._id}/appts`)
+        .then(res => {
             this.setState({ appointments: res.data })
+        })
+        .catch(err=>{
+            console.log(err)
         })
     }
 
@@ -40,12 +42,11 @@ class EmployeeWrapper extends Component {
                     <h1>Hello, {this.props.user.firstName}</h1>
                 </div>
 
-                {/* <EmployeeNav loggedIn={this.props.loggedIn} user={this.props.user} /> */}
                 <EmployeeAppts appointments={this.state.appointments} />
                 <div>
                     <h1>Admin</h1>
                     <hr />
-                    <button hidden={this.props.user.role != "admin"} className="btn btn-dark my-2 mr-2" onClick={this.handleAddUser}
+                    <button hidden={this.props.user.role !== "admin"} className="btn btn-dark my-2 mr-2" onClick={this.handleAddUser}
                     >Add User</button>
                     <button className="btn btn-dark my-2 mr-2" onClick={this.handleChangePassword}
                     >Change Password</button>
