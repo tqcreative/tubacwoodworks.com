@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { Container, FormGroup, FormLabel, Button, Col, Row } from 'react-bootstrap';
 import axios from 'axios';
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -10,7 +10,7 @@ function equalTo(ref, msg) {
     return this.test({
         name: 'equalTo',
         exclusive: false,
-        message: msg || '${path} must be the same as ${reference}',
+        message: msg || 'Values must be the same',
         params: {
             reference: ref.path
         },
@@ -26,7 +26,7 @@ function notEqualTo(ref, msg) {
     return this.test({
         name: 'notEqualTo',
         exclusive: false,
-        message: msg || '${path} must not be the same as ${reference}',
+        message: msg || 'Values must not be the same',
         params: {
             reference: ref.path
         },
