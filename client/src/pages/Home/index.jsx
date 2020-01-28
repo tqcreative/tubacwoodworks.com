@@ -113,7 +113,7 @@ export default class Home extends Component {
 					<Quote textContent={this.state.textInfoFromDatabase.quoteTop} login={this.props.user} __id={"homepage_first_quote"} />
 					<Portfolio login={"Peter"} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={"Peter"} __id={"landing_page_quote"} />
-					<Gallery user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
+					<Gallery login={"Peter"} user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
 					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={"Peter"} __id={"checkbox_image_home"} />
 					<Partners textContent={this.state.textInfoFromDatabase.partners} login={"Peter"} />
 					<Signup user={this.state.user}/>
@@ -137,7 +137,7 @@ export default class Home extends Component {
 					<Portfolio login={false} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={false} __id={"landing_page_quote"} />
 					<Phone phoneNumber="5208405864" />
-					<Gallery user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
+					<Gallery login={false} user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
 					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={false} __id={"checkbox_image_home"} />
 					<Partners textContent={this.state.textInfoFromDatabase.partners} login={false}/>
 
