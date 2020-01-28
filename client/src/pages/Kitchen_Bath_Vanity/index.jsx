@@ -22,7 +22,6 @@ export default class Kitchen_Bath_Vanity extends Component {
 		// bind signup and toast
 		this.handleSignupResult = this.handleSignupResult.bind(this);
 		this.toggleToast = this.toggleToast.bind(this);
-
 	}
 
 	componentDidMount() {
