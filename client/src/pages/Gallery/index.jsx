@@ -98,10 +98,12 @@ export default class Gallery extends Component {
                     <HeroSmart login={"Peter"} backgroundName={"gallery_hero"} title="Gallery" subTitle="come see our work" />
                     <NavBar styleProp={this.state.styleProp} />
                     <SmartSlider />
-                    <button type='button' name="imageArray" className="btn btn-primary" onClick={this.changeTableName}>All Images</button>
-                    <button type='button' name="kitchenTable" className="btn btn-primary" onClick={this.changeTableName}>Kitchen Images</button>
-                    <button type='button' name="bathTable" className="btn btn-primary" onClick={this.changeTableName}>Bath Images</button>
-                    <button type='button' name="furnitureTable" className="btn btn-primary" onClick={this.changeTableName}>Furniture Images</button>
+                    <div className="matthews_bootstrap_button_wrap">
+                        <button type='button' name="imageArray" className="matthews_bootstrap_button" onClick={this.changeTableName}>All Images</button>
+                        <button type='button' name="kitchenTable" className="matthews_bootstrap_button" onClick={this.changeTableName}>Kitchen Images</button>
+                        <button type='button' name="bathTable" className="matthews_bootstrap_button" onClick={this.changeTableName}>Bath Images</button>
+                        <button type='button' name="furnitureTable" className="matthews_bootstrap_button" onClick={this.changeTableName}>Furniture Images</button>
+                    </div>
                     <div style={{ position: 'relative' }}>
                         <UploadBtn tableNameProp={this.state.tableName} refreshTable={this.callTableToLoad} />
                     </div>
