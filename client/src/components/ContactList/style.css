@@ -19,3 +19,12 @@
 
 .cl_root .toast_root img {
   width: 100%; }
+
+.cl_root .qr-call {
+  display: none; }
+
+@media screen and (min-width: 992px) {
+  .cl_root .qr-call {
+    display: inline; }
+  .cl_root .mobile-call {
+    display: none; } }
