@@ -7,6 +7,8 @@ import Footer from '../../components/Footer';
 import Signup from '../../components/Signup';
 import LayoutBasic from '../../components/LayoutBasic';
 import Toast from '../../components/Toast';
+import Slider from '../../components/Slider';
+import axios from 'axios';
 
 export default class Furniture extends Component {
 	constructor(props) {
@@ -15,7 +17,8 @@ export default class Furniture extends Component {
 			user: props.user,
 			navPos: "absolute",
 			toastMsg: [],
-			toastShow: false
+			toastShow: false,
+			arrayOfImages:[]
 		}
 
 		// bind signup and toast
@@ -26,7 +29,20 @@ export default class Furniture extends Component {
 	componentDidMount() {
 		window.scrollTo(0,0);
 		gsap.from("#furniture_h1", { duration: 2, x: 200, opacity: 0 });
-	}
+		axios
+            .get("/cms/kitchenbathvanity")
+            .then(collectData => {
+                this.setState({ arrayOfImages: collectData.data[3].furnitureTable });
+                let newArray = Array.from(collectData.data[3].furnitureTable);
+                // console.log(newArray);
+                let arrayOfObjects = []
+                for(let i=0; i < newArray.length; i++){
+                    let newObjectItem = { original: `/cms/images/${newArray[i]}`, thumbnail: `/cms/images/${newArray[i]}`};
+                    arrayOfObjects.push(newObjectItem);
+                }
+                this.setState({arrayOfImages: arrayOfObjects});
+	})}
+	
 
 	handleSignupResult(msg) {
 		console.log(msg);
@@ -44,6 +60,7 @@ export default class Furniture extends Component {
 				<div className="furnitrue_root">
 					<HeroSmart login={"Peter"} backgroundName={"furniture_hero"} title="Furniture" subTitle="Wall Beds, Desks, Mantels, and more" />
 					<NavBar styleProp={this.state.navPos} />
+					<Slider/>
 					<LayoutBasic />
 					<Signup submitResult={this.handleSignupResult} />
 					<Footer />
@@ -59,6 +76,7 @@ export default class Furniture extends Component {
 				<div className="furnitrue_root">
 					<HeroSmart login={false} backgroundName={"furniture_hero"} title="Furniture" subTitle="Wall Beds, Desks, Mantels, and more" />
 					<NavBar styleProp={this.state.navPos} />
+					<Slider smartArray={this.state.arrayOfImages}/>
 					<LayoutBasic />
 					<Signup submitResult={this.handleSignupResult} />
 					<Footer />

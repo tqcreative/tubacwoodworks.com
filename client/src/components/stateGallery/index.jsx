@@ -24,10 +24,7 @@ class StateGallery extends Component {
 
 
     render(theArray) {
-        // console.log(this.props.theArray)
-        // console.log(this.state.arrayOfImages.length)
-        // for (let i = 0; i < this.state.arrayOfImages.length; i++){
-        //     console.log(this.state.arrayOfImages[i])
+     
         return (
             <div>
                 <ImageWrapper>

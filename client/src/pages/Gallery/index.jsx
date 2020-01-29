@@ -22,7 +22,8 @@ export default class Gallery extends Component {
             arrayOfImages: ["/images/check_1.jpg"],
             tableName: "showcase",
             toastMsg: [],
-            toastShow: false
+            toastShow: false,
+            sliderArray: []
         };
         this.callTableToLoad = this.callTableToLoad.bind(this);
         this.changeTableName = this.changeTableName.bind(this);
@@ -34,7 +35,19 @@ export default class Gallery extends Component {
     componentDidMount() {
         window.scrollTo(0,0);
         this.callTableToLoad();
-    }
+        axios
+            .get("/cms/kitchenbathvanity")
+            .then(collectData => {
+                this.setState({ arrayOfImages: collectData.data[4].showcase });
+                let newArray = Array.from(collectData.data[4].showcase);
+                // console.log(newArray);
+                let arrayOfObjects = []
+                for(let i=0; i < newArray.length; i++){
+                    let newObjectItem = { original: `/cms/images/${newArray[i]}`, thumbnail: `/cms/images/${newArray[i]}`};
+                    arrayOfObjects.push(newObjectItem);
+                }
+                this.setState({sliderArray: arrayOfObjects});
+    })}
 
     handleSignupResult(msg) {
 		// console.log(msg);
@@ -97,7 +110,7 @@ export default class Gallery extends Component {
                 <div className="gallery_page_root">
                     <HeroSmart login={"Peter"} backgroundName={"gallery_hero"} title="Gallery" subTitle="come see our work" />
                     <NavBar styleProp={this.state.styleProp} />
-                    <SmartSlider />
+                    <SmartSlider smartArray={this.state.sliderArray}/>
                     <button type='button' name="imageArray" className="btn btn-primary" onClick={this.changeTableName}>All Images</button>
                     <button type='button' name="kitchenTable" className="btn btn-primary" onClick={this.changeTableName}>Kitchen Images</button>
                     <button type='button' name="bathTable" className="btn btn-primary" onClick={this.changeTableName}>Bath Images</button>
@@ -121,7 +134,7 @@ export default class Gallery extends Component {
                     <HeroSmart login={false} backgroundName={"gallery_hero"} title="Gallery" subTitle="come see our work" />
                     <NavBar styleProp={this.state.styleProp} />
                     {/* <SimpleSlider/> */}
-                    <SmartSlider />
+                    <SmartSlider smartArray={this.state.sliderArray}/>
                     {/* Button with kitchen/bath/furniture options that call their subsequent functions that set the state on click  */}
                     <button type='button' name="imageArray" className="btn btn-primary" onClick={this.changeTableName}>All Images</button>
                     <button type='button' name="kitchenTable" className="btn btn-primary" onClick={this.changeTableName}>Kitchen Images</button>
