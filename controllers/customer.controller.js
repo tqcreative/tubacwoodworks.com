@@ -37,7 +37,10 @@ router.route("/").get(authenticateUser, (req, res) => {
 
 // Signup request for a quote - don't need to be logged in
 router.route("/signup").post((req, res) => {
-    const { firstName, lastName, email, phoneNumber } = req.body;
+    const { firstName, lastName, email, phoneNumber, middleName } = req.body;
+
+    if(middleName !== undefined)
+        return res.status(400).end();
 
     db.Customer
         .create({
