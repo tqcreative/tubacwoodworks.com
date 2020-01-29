@@ -15,6 +15,7 @@ import { NavBar } from '../../components/Navbar';
 import Partners from '../../components/Partners';
 import Phone from '../../sub_component/PhoneSlider';
 import Signup from '../../components/Signup';
+import Cookie from '../../sub_component/Cookie';
 import axios from "axios";
 import gsap from "gsap";
 
@@ -191,6 +192,7 @@ export default class Home extends Component {
 					{/* be sure to make a component out of this */}
 					<Signup submitResult={this.handleSignupResult}/>
 					<Footer />
+					<Cookie />
 					<Toast show={this.state.toastShow} onClose={this.toggleToast}>
 						{this.state.toastMsg.map(element => {
 							return <p>{element}</p>
