@@ -16,14 +16,16 @@ function Hero(props) {
 
     return (
         <div className="hero_root">
+
         <span>{uploadPhotoComponent}</span>
             <div className="hero_background parallax hero_parallax" data-rellax-speed="-10" style={{backgroundImage: `url(/cms/images/${backgroundImageName})`}}></div>
             <div id="hero_quote">
-                { 
+            { 
                 props.login === "Peter" ?
-                <Pencil theTextObject={props.theTextObject} theUpdateButton={props.theUpdateButton} /> :
+                <Pencil theTextObject={props.theTextObject} theUpdateButton={props.theUpdateButton} className="pencil" /> :
                 <noscript></noscript>
                 }
+                
                 <div>
                     <img src="/cms/images/logo_white.jpg" alt="Tubac Woodworks Logo"/>
                 </div>

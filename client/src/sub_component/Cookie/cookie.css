@@ -1,0 +1,30 @@
+.cook_root {
+  position: fixed;
+  bottom: 2em;
+  left: -3.5em;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background-color: rgba(45, 52, 54, 0.6);
+  border-radius: 8px;
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  -o-transition: transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s; }
+  .cook_root a {
+    color: #fff;
+    font-size: 1em;
+    font-weight: 800; }
+    .cook_root a p {
+      padding: .5em 1em 3em 1em; }
+    .cook_root a:hover {
+      text-decoration: none; }
+    .cook_root a:active p {
+      -webkit-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+      transform: translateY(5px); }
+  .cook_root:hover {
+    -webkit-transform: translateX(2em) rotate(90deg);
+    -ms-transform: translateX(2em) rotate(90deg);
+    transform: translateX(2em) rotate(90deg); }

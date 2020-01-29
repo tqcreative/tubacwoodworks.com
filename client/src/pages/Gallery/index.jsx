@@ -110,11 +110,13 @@ export default class Gallery extends Component {
                 <div className="gallery_page_root">
                     <HeroSmart login={"Peter"} backgroundName={"gallery_hero"} title="Gallery" subTitle="come see our work" />
                     <NavBar styleProp={this.state.styleProp} />
-                    <SmartSlider smartArray={this.state.sliderArray}/>
-                    <button type='button' name="imageArray" className="btn btn-primary" onClick={this.changeTableName}>All Images</button>
-                    <button type='button' name="kitchenTable" className="btn btn-primary" onClick={this.changeTableName}>Kitchen Images</button>
-                    <button type='button' name="bathTable" className="btn btn-primary" onClick={this.changeTableName}>Bath Images</button>
-                    <button type='button' name="furnitureTable" className="btn btn-primary" onClick={this.changeTableName}>Furniture Images</button>
+                    <SmartSlider smartArray={this.state.sliderArray} />
+                    <div className="matthews_bootstrap_button_wrap">
+                        <button type='button' name="imageArray" className="matthews_bootstrap_button" onClick={this.changeTableName}>All Images</button>
+                        <button type='button' name="kitchenTable" className="matthews_bootstrap_button" onClick={this.changeTableName}>Kitchen Images</button>
+                        <button type='button' name="bathTable" className="matthews_bootstrap_button" onClick={this.changeTableName}>Bath Images</button>
+                        <button type='button' name="furnitureTable" className="matthews_bootstrap_button" onClick={this.changeTableName}>Furniture Images</button>
+                    </div>
                     <div style={{ position: 'relative' }}>
                         <UploadBtn tableNameProp={this.state.tableName} refreshTable={this.callTableToLoad} />
                     </div>
@@ -136,10 +138,12 @@ export default class Gallery extends Component {
                     {/* <SimpleSlider/> */}
                     <SmartSlider smartArray={this.state.sliderArray}/>
                     {/* Button with kitchen/bath/furniture options that call their subsequent functions that set the state on click  */}
-                    <button type='button' name="imageArray" className="btn btn-primary" onClick={this.changeTableName}>All Images</button>
-                    <button type='button' name="kitchenTable" className="btn btn-primary" onClick={this.changeTableName}>Kitchen Images</button>
-                    <button type='button' name="bathTable" className="btn btn-primary" onClick={this.changeTableName}>Bath Images</button>
-                    <button type='button' name="furnitureTable" className="btn btn-primary" onClick={this.changeTableName}>Furniture Images</button>
+                    <div className="matthews_bootstrap_button_wrap">
+                        <button type='button' name="imageArray" className="matthews_bootstrap_button" onClick={this.changeTableName}>All Images</button>
+                        <button type='button' name="kitchenTable" className="matthews_bootstrap_button" onClick={this.changeTableName}>Kitchen Images</button>
+                        <button type='button' name="bathTable" className="matthews_bootstrap_button" onClick={this.changeTableName}>Bath Images</button>
+                        <button type='button' name="furnitureTable" className="matthews_bootstrap_button" onClick={this.changeTableName}>Furniture Images</button>
+                    </div>
                     <StateGallery logedIn={false} tableNameProp={this.state.tableName} theArray={this.state.arrayOfImages} />
                     <Signup submitResult={this.handleSignupResult} />
                     <Footer />
