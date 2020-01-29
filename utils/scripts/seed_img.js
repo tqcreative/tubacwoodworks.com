@@ -20,7 +20,7 @@ let seed_imgs = [
         },
         {
         kitchenTable : [
-            "check_1.jpg",
+            "kitchen_1.jpg",
             "gallery_1.jpg",
             "gallery_2.jpg",
             "gallery_6.jpg",
