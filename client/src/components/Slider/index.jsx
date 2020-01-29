@@ -28,24 +28,7 @@ export default class SmartSlider extends React.Component {
 
     componentWillMount() {
         // console.log("Component has mounted");
-        axios
-            .get("/cms/kitchenbathvanity")
-            .then(collectData => {
-                // console.log(collectData.data[0])
-                // console.log(collectData.data[0].imageArray);
-                // console.log(collectData.data[0].imageArray.length);
-                // console.log(collectData.data[0].imageArray[2]);
-                // console.log(`state: ${this.state.arrayOfImages[0].original}`)
-                // this.setState({ arrayOfImages: collectData.data[0].imageArray });
-                let newArray = Array.from(collectData.data[0].imageArray);
-                // console.log(newArray);
-                let arrayOfObjects = []
-                for(let i=0; i < newArray.length; i++){
-                    let newObjectItem = { original: `/cms/images/${newArray[i]}`, thumbnail: `/cms/images/${newArray[i]}`};
-                    arrayOfObjects.push(newObjectItem);
-                }
-                this.setState({arrayOfImages: arrayOfObjects});
-            })
+       
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -56,18 +39,18 @@ export default class SmartSlider extends React.Component {
             this._imageGallery.play();
         }
     }
-    // kitchenSlider() => {
-    //     console.log(collectData.data[0])
-    // }
+
+
 
     render() {
-        // console.log(Array.from(this.state.arrayOfImages));
-        // console.log(this.props.theArray)
+        // console.log(this.state.arrayOfImages);
+        // console.log(this.props.smartArray)
+        
         return (
             <div>
             <section className='smartslider_root'>
                 <ImageGallery
-                    items={this.state.arrayOfImages}
+                    items={this.props.smartArray}
                     lazyLoad={false}
                     showBullets={this.state.showBullets}
                     showFullscreenButton={this.state.showFullscreenButton && this.state.showGalleryFullscreenButton}

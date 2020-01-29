@@ -30,4 +30,21 @@
             width: 100%;
         }
     }
+
+    .qr-call{
+        display:none;
+    }
 }
+
+@media screen and (min-width: 992px){
+    .cl_root{
+        .qr-call{
+            display: inline;
+        }
+        .mobile-call{
+            display: none;
+        }
+    }
+}
+
+

@@ -16,3 +16,12 @@
 
 .lead_root tr {
   height: 40px; }
+
+.lead_root .qr-call {
+  display: none; }
+
+@media screen and (min-width: 992px) {
+  .lead_root .qr-call {
+    display: inline; }
+  .lead_root .mobile-call {
+    display: none; } }

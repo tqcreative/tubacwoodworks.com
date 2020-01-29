@@ -13,8 +13,11 @@ function Lead(props) {
                 <OverlayTrigger placement="right" overlay={<Tooltip>Mark Complete</Tooltip>} >
                     <button className="btn btn-check my-2 mr-2" onClick={() => props.onClick(props.id, { isLead: false })}><ion-icon name="checkmark-circle"></ion-icon></button>
                 </OverlayTrigger>
-                <OverlayTrigger placement="right" overlay={<Tooltip>Call</Tooltip>} >
-                    <button className="btn btn-call my-2 mr-2" onClick={() => props.handleCallClick(props.phoneNumber, props.firstName, props.lastName)}><ion-icon name="ios-call"></ion-icon></button>
+                <OverlayTrigger className="qr-call" placement="right" overlay={<Tooltip>Call</Tooltip>} >
+                    <button className="btn btn-call my-2 mr-2 qr-call" onClick={() => props.handleCallClick(props.phoneNumber, props.firstName, props.lastName)}><ion-icon name="ios-call"></ion-icon></button>
+                </OverlayTrigger>
+                <OverlayTrigger className="mobile-call" placement="right" overlay={<Tooltip>Call</Tooltip>} >
+                    <a className="btn btn-call my-2 mr-2 mobile-call" href={`tel:${props.phoneNumber}`}><ion-icon name="ios-call"></ion-icon></a>
                 </OverlayTrigger>
             </td>
         </tr>
