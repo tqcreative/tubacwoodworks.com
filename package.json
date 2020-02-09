@@ -51,7 +51,7 @@
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "prod": "node server.js",
-    "heroku-postbuild": "npm run build",
+    "heroku-postbuild": "npm run seed",
     "seed": "node utils/scripts/seeds.js"
   },
   "engines": {
