@@ -20,6 +20,7 @@ const uploadFile = (fileName) => {
 
     // Setting up S3 upload parameters
     const params = {
+        ACL: 'public-read',
         Bucket: BUCKET_NAME,
         Key: 'bobsyouruncle.jpg', // File name you want to save as in S3
         Body: fileContent
