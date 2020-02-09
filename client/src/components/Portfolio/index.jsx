@@ -49,6 +49,14 @@ class Portfolio extends Component {
                     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor."
                 }
             ],
+            images: {
+                image1: `${portfolioImagePath}portfolio_1.jpg`,
+                image2: `${portfolioImagePath}portfolio_1.jpg`,
+                image3: `${portfolioImagePath}portfolio_1.jpg`,
+                image4: `${portfolioImagePath}portfolio_1.jpg`,
+                image5: `${portfolioImagePath}portfolio_1.jpg`,
+                image6: `${portfolioImagePath}portfolio_1.jpg`,
+            },
             style: [
                 {transform: 'translateY(0)'},
                 {transform: "translateY(230px)"}
@@ -108,7 +116,7 @@ class Portfolio extends Component {
                         this.setState({open0 : transformOff, arrow0: arrowDown}) :
                         this.setState({open0 : transformOn, arrow0: arrowUp}); 
                     }} 
-                    id="card0" className="card" style={{backgroundImage: `url(${this.state.deck[0].imgUrl})`}}>
+                    id="card0" className="card" style={{backgroundImage: `url(${this.state.images.image1})`}}>
                         {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_1"}/> :
                         <noscript></noscript> }
@@ -123,7 +131,7 @@ class Portfolio extends Component {
                         this.setState({open1 : transformOff, arrow1: arrowDown}) :
                         this.setState({open1 : transformOn, arrow1: arrowUp}) 
                     }}
-                     id="card1" className="card" style={{backgroundImage: `url(${this.state.deck[1].imgUrl})`}}>
+                     id="card1" className="card" style={{backgroundImage: `url(${this.state.images.image2})`}}>
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_2"}/> :
                         <noscript></noscript> }
@@ -138,7 +146,7 @@ class Portfolio extends Component {
                         this.setState({open2 : transformOff, arrow2: arrowDown}) :
                         this.setState({open2 : transformOn, arrow2: arrowUp}) 
                     }}
-                     id="card2" className="card" style={{backgroundImage: `url(${this.state.deck[2].imgUrl})`}}>
+                     id="card2" className="card" style={{backgroundImage: `url(${this.state.images.image3})`}}>
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_3"}/> :
                         <noscript></noscript> }
@@ -153,7 +161,7 @@ class Portfolio extends Component {
                         this.setState({open3 : transformOff, arrow3: arrowDown}) :
                         this.setState({open3 : transformOn, arrow3: arrowUp}) 
                     }}
-                     id="card3" className="card" style={{backgroundImage: `url(${this.state.deck[3].imgUrl})`}}>
+                     id="card3" className="card" style={{backgroundImage: `url(${this.state.images.image4})`}}>
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_4"}/> :
                         <noscript></noscript> }
@@ -168,7 +176,7 @@ class Portfolio extends Component {
                         this.setState({open4 : transformOff, arrow4: arrowDown}) :
                         this.setState({open4 : transformOn, arrow4: arrowUp}) 
                     }}
-                     id="card4" className="card" style={{backgroundImage: `url(${this.state.deck[4].imgUrl})`}}>
+                     id="card4" className="card" style={{backgroundImage: `url(${this.state.images.image5})`}}>
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_5"}/> :
                         <noscript></noscript> }
@@ -183,7 +191,7 @@ class Portfolio extends Component {
                         this.setState({open5 : transformOff, arrow5: arrowDown}) :
                         this.setState({open5 : transformOn, arrow5: arrowUp}) 
                     }}
-                     id="card5" className="card" style={{backgroundImage: `url(${this.state.deck[5].imgUrl})`}}>
+                     id="card5" className="card" style={{backgroundImage: `url(${this.state.images.image6})`}}>
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_6"}/> :
                         <noscript></noscript> }
