@@ -115,7 +115,9 @@ router.route('/upload').post(authenticateUser, (req, res) => {
 
 				};
 
-				let fileLocation = path.join(__dirname, `../images/${req.file.filename}`)
+				// select the file path the image is downloaded to
+				let fileLocation = path.join(__dirname, `../images/${req.file.filename}`);
+				// call the upload function with the images location
 				uploadFile(fileLocation);
 				
 				res.send({
