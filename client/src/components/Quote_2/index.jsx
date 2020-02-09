@@ -56,7 +56,7 @@ function QuoteTwo(props) {
     return (
         <div className="quote_two_root">
             {uploadTool}
-            <div  id={thisId} className="background-img parallax" data-rellax-speed="-2" style={{backgroundImage: `url(/cms/images/${thisBackgroundImage})`}}>
+            <div  id={thisId} className="background-img parallax" data-rellax-speed="-2" style={{backgroundImage: `url(https://bobwehadababyitsaboy.s3.eu-west-1.amazonaws.com/${thisBackgroundImage})`}}>
             </div>
             <div id="quote_2" className="quote_two">
                 <ion-icon name="quote"></ion-icon>
