@@ -51,11 +51,11 @@ class Portfolio extends Component {
             ],
             images: {
                 image1: `${portfolioImagePath}portfolio_1.jpg`,
-                image2: `${portfolioImagePath}portfolio_1.jpg`,
-                image3: `${portfolioImagePath}portfolio_1.jpg`,
-                image4: `${portfolioImagePath}portfolio_1.jpg`,
-                image5: `${portfolioImagePath}portfolio_1.jpg`,
-                image6: `${portfolioImagePath}portfolio_1.jpg`,
+                image2: `${portfolioImagePath}portfolio_2.jpg`,
+                image3: `${portfolioImagePath}portfolio_3.jpg`,
+                image4: `${portfolioImagePath}portfolio_4.jpg`,
+                image5: `${portfolioImagePath}portfolio_5.jpg`,
+                image6: `${portfolioImagePath}portfolio_6.jpg`,
             },
             style: [
                 {transform: 'translateY(0)'},
