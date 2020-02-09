@@ -30,7 +30,7 @@ function Quote(props) {
         <div className="quote_root">
             {uploadPhotoElement}
             {editText}
-            <div id={thisId} style={{ backgroundImage: `url("https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/bobsyouruncle.jpgnpm`}} className="background-img parallax" data-rellax-speed="-3"></div>
+            <div id={thisId} style={{ backgroundImage: `url("https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/bobsyouruncle.jpg`}} className="background-img parallax" data-rellax-speed="-3"></div>
             {/* <div id={thisId} style={{ backgroundImage: `url("/cms/images/${backgroundImageForCheckbox}")`}} className="background-img parallax" data-rellax-speed="-3"></div> */}
             <div id="quote_1" className="quote">
                 <ion-icon name="quote"></ion-icon>

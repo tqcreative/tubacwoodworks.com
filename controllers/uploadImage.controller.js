@@ -4,6 +4,7 @@ const path = require("path");
 const authenticateUser = require("../utils/passport/authenticateUser").authenticateUser;  //checks the incoming request to make sure the user object is valid
 const fs = require('fs');
 const AWS = require('aws-sdk');
+require("dotenv").config();
 
 // =================================== //
 // =====   Upload Files to AWS   ===== //
@@ -37,9 +38,7 @@ router.route('/upload').post(authenticateUser, (req, res) => {
 			cb(null, file.fieldname + path.extname(file.originalname));   
 			// console.log(`!!! ${file.originalname} !!!`);
 			// console.log(`!!! ${file.fieldname} !!!`);
-
 			
-
 		}
     });
 
@@ -79,6 +78,45 @@ router.route('/upload').post(authenticateUser, (req, res) => {
 					msg: 'Error: No File Selected!'
 				});
 			} else {
+
+				// params for AWS bucket
+				const ID = process.env.S3_ID;
+				const SECRET = process.env.S3_SECRET;
+				const BUCKET_NAME = process.env.BUCKET_NAME;
+
+				const s3 = new AWS.S3({
+					accessKeyId: ID,
+					secretAccessKey: SECRET
+				});
+
+				const uploadFile = (fileName) => {
+					console.log("testing")
+					// Read content from the file
+					const fileContent = fs.readFileSync(fileName);
+					console.log("testing")
+
+					// Setting up S3 upload parameters
+					const params = {
+						Bucket: BUCKET_NAME,
+						Key: `${req.file.filename}`, // File name you want to save as in S3
+						Body: fileContent
+					};
+					console.log("testing")
+
+					// Uploading files to the bucket
+					s3.upload(params, function(err, data) {
+						if (err) {
+							throw err;
+						}
+						console.log(`File uploaded successfully. ${data.Location}`);
+					});
+					console.log("fin")
+
+				};
+
+				let fileLocation = path.join(__dirname, `../images/${req.file.filename}`)
+				uploadFile(fileLocation);
+				
 				res.send({
 					msg: 'uploaded',
 					file: `/cms/images/${req.file.filename}`

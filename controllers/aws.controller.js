@@ -3,7 +3,6 @@ const AWS = require('aws-sdk');
 require("dotenv").config();
 
 // params for AWS bucket
-
 const ID = process.env.S3_ID;
 const SECRET = process.env.S3_SECRET;
 const BUCKET_NAME = process.env.BUCKET_NAME;
