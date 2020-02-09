@@ -99,7 +99,7 @@ router.route('/upload').post(authenticateUser, (req, res) => {
 					const params = {
 						ACL: 'public-read',
 						Bucket: BUCKET_NAME,
-						Key: `${req.file.filename}`, // File name you want to save as in S3
+						Key: `${req.file.filename.toLowerCase()}`, // File name you want to save as in S3
 						Body: fileContent
 					};
 					console.log("testing")
@@ -110,6 +110,10 @@ router.route('/upload').post(authenticateUser, (req, res) => {
 							throw err;
 						}
 						console.log(`File uploaded successfully. ${data.Location}`);
+						res.send({
+							msg: 'uploaded',
+							file: `/cms/images/${req.file.filename}`
+						});
 					});
 					console.log("fin")
 
@@ -120,10 +124,7 @@ router.route('/upload').post(authenticateUser, (req, res) => {
 				// call the upload function with the images location
 				uploadFile(fileLocation);
 				
-				res.send({
-					msg: 'uploaded',
-					file: `/cms/images/${req.file.filename}`
-				});
+				
 			}
 		}
 	});
