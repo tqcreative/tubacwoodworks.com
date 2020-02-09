@@ -97,6 +97,7 @@ router.route('/upload').post(authenticateUser, (req, res) => {
 
 					// Setting up S3 upload parameters
 					const params = {
+						ACL: 'public-read',
 						Bucket: BUCKET_NAME,
 						Key: `${req.file.filename}`, // File name you want to save as in S3
 						Body: fileContent
@@ -114,7 +115,9 @@ router.route('/upload').post(authenticateUser, (req, res) => {
 
 				};
 
-				let fileLocation = path.join(__dirname, `../images/${req.file.filename}`)
+				// select the file path the image is downloaded to
+				let fileLocation = path.join(__dirname, `../images/${req.file.filename}`);
+				// call the upload function with the images location
 				uploadFile(fileLocation);
 				
 				res.send({

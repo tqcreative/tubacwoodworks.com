@@ -4,7 +4,7 @@ import axios from 'axios';
 import UploadPhoto from '../../sub_component/UploadPhoto';
 
 // component variables
-let portfolioImagePath = "/cms/images/";
+let portfolioImagePath = "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/";
 
 // build an object from our mongo database.
 class Portfolio extends Component {
