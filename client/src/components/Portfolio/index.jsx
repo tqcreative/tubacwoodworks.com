@@ -15,37 +15,37 @@ class Portfolio extends Component {
                 {
                     title: "Woodwork",
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_1.JPG`,
+                    imgUrl: `${portfolioImagePath}portfolio_1.jpg`,
                     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor." 
                 },
                 {
                     title: "Furniture",
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_2.JPG`,
+                    imgUrl: `${portfolioImagePath}portfolio_2.jpg`,
                     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor."
                 },
                 {
                     title: "Custom Cabinets",
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_3.JPG`,
+                    imgUrl: `${portfolioImagePath}portfolio_3.jpg`,
                     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor."
                 },
                 {
                     title: "Kitchen",
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_4.JPG`,
+                    imgUrl: `${portfolioImagePath}portfolio_4.jpg`,
                     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor."
                 },
                 {
                     title: "Counters",
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_5.JPG`,
+                    imgUrl: `${portfolioImagePath}portfolio_5.jpg`,
                     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor."
                 },
                 {
                     title: "Islands",
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_6.JPG`,
+                    imgUrl: `${portfolioImagePath}portfolio_6.jpg`,
                     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor."
                 }
             ],
