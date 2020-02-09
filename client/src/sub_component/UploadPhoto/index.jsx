@@ -71,7 +71,7 @@ class UploadPhoto extends Component {
     submitPhotoForUpload(event) {
         if (this.state.selectedFile === null || this.state.selectedFile === undefined) {
         // do nothing. There is no file selected yet.
-        console.log(this.state.backgroundImageName);
+        // console.log(this.state.backgroundImageName);
         } else {
             // there is a file stored in state. Lets try and upload it.
             // use the name of the current background.
@@ -80,6 +80,8 @@ class UploadPhoto extends Component {
             data.append(thisFilesName, this.state.selectedFile)
         // This call is sending the name of the file before it sends the file
         if (thisFilesName != null) {
+            // console.log(this.state.selectedFile);
+            console.log("file is moving")
             axios.post('/cms/GD8PQX3UV18999AARONWITHANEY/filename', {
                 body: this.state.backgroundImageName
             })

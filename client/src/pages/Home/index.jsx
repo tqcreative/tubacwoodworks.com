@@ -23,6 +23,7 @@ export default class Home extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
+			selectedFile: null,
 			user: props.user,
 			toastMsg: [],
 			toastShow: false,
@@ -54,6 +55,21 @@ export default class Home extends Component {
 		this.callImagesToLoad = this.callImagesToLoad.bind(this);
 		this.updateTextDatabase = this.updateTextDatabase.bind(this);
 		this.updateStateTest = this.updateStateTest.bind(this);
+		this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
+		this.fileUploadHandler = this.fileUploadHandler.bind(this);
+	}
+
+	
+	// file upload.
+	fileSelectedHandler(event) {
+		console.log(event.target.files[0]);
+		this.setState({
+			selectedFile: event.target.files[0]
+		});
+	}
+
+	fileUploadHandler() {
+
 	}
 
 	//update text site wide.
@@ -128,6 +144,7 @@ export default class Home extends Component {
 		this.setState({toastShow: !this.state.toastShow});
 	}
 
+
 	render() {
 		if (this.props.user) {
 			return (
@@ -160,6 +177,8 @@ export default class Home extends Component {
 					<Hero theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} login={false} />
 					<NavBar styleProp={this.state.navPos} />
 					<Numbers user={this.state.user}/>
+					<input type="file" onChange={this.fileSelectedHandler} />
+					<button onClick={this.fileUploadHandler}>Save</button>
 					<Quote theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} textContent={this.state.textInfoFromDatabase.quoteTop} login={false} __id={"homepage_first_quote"} />
 					<Portfolio login={false} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={false} __id={"landing_page_quote"} />
