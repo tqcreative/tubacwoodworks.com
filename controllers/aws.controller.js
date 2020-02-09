@@ -1,10 +1,12 @@
 const fs = require('fs');
 const AWS = require('aws-sdk');
+require("dotenv").config();
 
-const ID = 'AKIAIU2CSLBSXJXWVPZQ';
-const SECRET = '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';
+// params for AWS bucket
 
-const BUCKET_NAME = 'bobwehadababyitsaboy';
+const ID = process.env.S3_ID;
+const SECRET = process.env.S3_SECRET;
+const BUCKET_NAME = process.env.BUCKET_NAME;
 
 const s3 = new AWS.S3({
     accessKeyId: ID,
@@ -37,3 +39,5 @@ const uploadFile = (fileName) => {
 };
 
 uploadFile('./bish.jpg');
+
+//working as of 12/27/2020 -- 2/8/2020 (last modifed to target new bucket.)

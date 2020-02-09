@@ -2,10 +2,11 @@ const router = require("express").Router();
 const multer = require("multer");
 const path = require("path");
 const authenticateUser = require("../utils/passport/authenticateUser").authenticateUser;  //checks the incoming request to make sure the user object is valid
-
+const fs = require('fs');
+const AWS = require('aws-sdk');
 
 // =================================== //
-// ======      Upload Files     ====== //
+// =====   Upload Files to AWS   ===== //
 // =================================== //
 
 let floatingFileName = "error";
@@ -19,7 +20,7 @@ router.route('/filename').post(authenticateUser, (req, res) => {
 
 router.route('/upload').post(authenticateUser, (req, res) => {
 		
-	console.log('heroku test: ');
+	// console.log('heroku test: ');
 	// console.log(floatingFileName);
 	// console.log(__dirname + '/images');
 	// console.log('/app/images');
@@ -34,8 +35,11 @@ router.route('/upload').post(authenticateUser, (req, res) => {
 		filename: function (req, file, cb) {
 			// cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
 			cb(null, file.fieldname + path.extname(file.originalname));   
-			console.log(`!!! ${file.originalname} !!!`);
-			console.log(`!!! ${file.fieldname} !!!`);
+			// console.log(`!!! ${file.originalname} !!!`);
+			// console.log(`!!! ${file.fieldname} !!!`);
+
+			
+
 		}
     });
 
@@ -43,7 +47,7 @@ router.route('/upload').post(authenticateUser, (req, res) => {
 	function checkFileType(file, cb) {
 		// Allowed ext
 		// const filetypes = /jpeg|jpg|png|gif/;  // this code is to restrict what kind of file types come to the server.
-		const filetypes = /jpeg|jpg/;
+		const filetypes = /jpeg|jpg|png|gif/;
 		// Check ext
         const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
 		// Check mime
@@ -52,7 +56,7 @@ router.route('/upload').post(authenticateUser, (req, res) => {
 		if (mimetype && extname) {
 			return cb(null, true);
 		} else {
-			cb('Error: Images Only!');
+			cb('Please upload a jpeg/jpg/png/gif file only.');
 		}
 	}
 
