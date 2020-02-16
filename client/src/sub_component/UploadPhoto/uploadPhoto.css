@@ -29,7 +29,7 @@
   .upload_img_root .upload_button:focus + label,
   .upload_img_root .upload_button + label:hover {
     background-color: rgba(192, 57, 43, 0.6);
-    cursor: pointer; }
+    cursor: pointaer; }
   .upload_img_root button {
     text-decoration: none;
     font-size: 1.25em;
