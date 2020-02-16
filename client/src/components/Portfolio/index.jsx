@@ -11,6 +11,7 @@ class Portfolio extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            updatedLast: Date(),
             deck: [
                 {
                     title: "",
@@ -82,7 +83,14 @@ class Portfolio extends Component {
                 box_6: { title: "", description: "", background: ""}
             }
         }
+        this.updatedLast = this.updatedLast.bind(this);
     };
+
+    updatedLast() {
+        this.setState({updatedLast: Date()})
+        // this.forceUpdate();
+        // these did not work because browsers cache data.
+    }
 
     componentDidMount(){
         // console.log(this.props.theTextObject);
@@ -206,7 +214,7 @@ class Portfolio extends Component {
                     }}
                      id="card5" className="card" style={{backgroundImage: `url(${this.props.theTextObject.portfolio.box_6.background})`}}>
                     {this.props.login === 'Peter' ?
-                        <UploadPhoto __parent_image_name={"portfolio_6"}/> :
+                        <UploadPhoto __parent_image_name={"portfolio_6"} updateFunction={this.updatedLast} /> :
                         <noscript></noscript> }
                         <div id="textbox5" style={this.state.open5} >
                             <p>{this.props.theTextObject.portfolio.box_6.title}<ion-icon name="ios-arrow-up" style={this.state.arrow5}></ion-icon></p>
