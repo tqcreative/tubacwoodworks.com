@@ -32,16 +32,24 @@ export default class Home extends Component {
 			staticGalleryImages: ["/images/check_1.jpg"],
 			textInfoFromDatabase: {
 									_id: "5e2fb19cbf1a343bc0ddd739",
-									quoteTop: { h2: "Matthew Carpenter", p: "I am just stunned at how amazing my kitchen looks!", url: "tubacwoodworks.herokuapp.com/images/quote_2.jpg"},
-									quoteBottom: {  h2: "Elena Borne", p: "Fast, Cheap, and Right. We found all three.", url: "tubacwoodworks.herokuapp.com/images/quote_1.jpg"},
-									checkerBox: { slotOne: "licenced", slotTwo: "bonded", slotThree: "insured" },
+									quoteTop: { h2: "", p: "", url: "#"},
+									quoteBottom: {  h2: "", p: "", url: "#"},
+									checkerBox: { slotOne: "", slotTwo: "", slotThree: "" },
 									partners: { 
 										partner_1: { name: " ", description: " ", url:"#", picture: "#" },
 										partner_2: { name: " ", description: " ", url:"#", picture: "#" },
 										partner_3: { name: " ", description: " ", url:"#", picture: "#" },
 										partner_text: { text: " ", backgroundImage: "#" }
 										},
-									hero: { h2: "#"}
+									hero: { logo: "#", h2: "#"},
+									portfolio: {
+										box_1: { title: "", description: "", background: ""},
+										box_2: { title: "", description: "", background: ""},
+										box_3: { title: "", description: "", background: ""},
+										box_4: { title: "", description: "", background: ""},
+										box_5: { title: "", description: "", background: ""},
+										box_6: { title: "", description: "", background: ""}
+									}
 								  }
 		}
 		// bind signup and toast

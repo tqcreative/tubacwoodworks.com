@@ -33,12 +33,12 @@ let seed_homepage = [
         desks, and a variety of other wood products
         for home, office, or business.`},
         portfolio: {
-            box_1: { title: "", description: ""},
-            box_2: { title: "", description: ""},
-            box_3: { title: "", description: ""},
-            box_4: { title: "", description: ""},
-            box_5: { title: "", description: ""},
-            box_6: { title: "", description: ""},
+            box_1: { title: "Kitchen & Bath", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor.", background: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/portfolio_1.jpg"},
+            box_2: { title: "Furniture", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor.", background: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/portfolio_2.jpg"},
+            box_3: { title: "Commercial", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor.", background: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/portfolio_3.jpg"},
+            box_4: { title: "Pro Tips", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor.", background: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/portfolio_4.jpg"},
+            box_5: { title: "See Our Work", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor.", background: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/portfolio_5.jpg"},
+            box_6: { title: "Get A Quote!", description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor.", background: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/portfolio_6.jpg"}
         }
     }
 ]
