@@ -155,7 +155,7 @@ export default class Home extends Component {
 					<Numbers user={this.state.user}/>
 						{/* <button onClick={this.updateTextDatabase} style={ {position : "fixed", right: "0", top: "10%", color: "#fff", backgroundColor: "rgba(0,0,0,.6)", fontSize: "2em", zIndex: "10000" } }><ion-icon name="ios-save"></ion-icon></button> */}
 					<Quote theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} textContent={this.state.textInfoFromDatabase.quoteTop} login={"Peter"} __id={"homepage_first_quote"} />
-					<Portfolio login={"Peter"} />
+					<Portfolio theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} login={"Peter"} __id={"homepage_first_quote"} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={"Peter"} __id={"landing_page_quote"} />
 					<Gallery login={"Peter"} user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
 					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={"Peter"} __id={"checkbox_image_home"} />
@@ -180,7 +180,7 @@ export default class Home extends Component {
 					{/* <input type="file" onChange={this.fileSelectedHandler} /> */}
 					{/* <button onClick={this.fileUploadHandler}>Save</button> */}
 					<Quote theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} textContent={this.state.textInfoFromDatabase.quoteTop} login={false} __id={"homepage_first_quote"} />
-					<Portfolio login={false} />
+					<Portfolio theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} login={false} __id={"homepage_first_quote"} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={false} __id={"landing_page_quote"} />
 					<Phone phoneNumber="5208405864" />
 					<Gallery login={false} user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>

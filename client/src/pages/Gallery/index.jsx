@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import './gallery.css';
 import { NavBar } from '../../components/Navbar';
-// import gsap from "gsap";
 import HeroSmart from '../../components/HeroSmart';
 import Footer from '../../components/Footer';
 import Signup from '../../components/Signup';
 import StateGallery from '../../components/stateGallery';
 import UploadBtn from '../../sub_component/UploadButton';
-import SimpleSlider from '../../components/SimpleSlider';
 import SmartSlider from '../../components/Slider';
 import axios from 'axios';
 import Toast from '../../components/Toast';
@@ -140,9 +138,9 @@ export default class Gallery extends Component {
                     {/* Button with kitchen/bath/furniture options that call their subsequent functions that set the state on click  */}
                     <div className="matthews_bootstrap_button_wrap">
                         <button type='button' name="imageArray" className="matthews_bootstrap_button" onClick={this.changeTableName}>All Images</button>
-                        <button type='button' name="kitchenTable" className="matthews_bootstrap_button" onClick={this.changeTableName}>Kitchen Images</button>
-                        <button type='button' name="bathTable" className="matthews_bootstrap_button" onClick={this.changeTableName}>Bath Images</button>
-                        <button type='button' name="furnitureTable" className="matthews_bootstrap_button" onClick={this.changeTableName}>Furniture Images</button>
+                        <button type='button' name="kitchenTable" className="matthews_bootstrap_button" onClick={this.changeTableName}>Kitchen</button>
+                        <button type='button' name="bathTable" className="matthews_bootstrap_button" onClick={this.changeTableName}>Bath</button>
+                        <button type='button' name="furnitureTable" className="matthews_bootstrap_button" onClick={this.changeTableName}>Furniture</button>
                     </div>
                     <StateGallery logedIn={false} tableNameProp={this.state.tableName} theArray={this.state.arrayOfImages} />
                     <Signup submitResult={this.handleSignupResult} />
