@@ -77,6 +77,8 @@ class Portfolio extends Component {
     };
 
     componentDidMount(){
+        console.log(this.props.theTextObject);
+        console.log(this.props.theUpdateButton);
         this.axiosCall();
     }
 
