@@ -153,7 +153,7 @@ export default class Home extends Component {
 					<Hero theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} login={"Peter"}/>
 					<NavBar loggedIn={true} styleProp={this.state.navPos} />
 					<Numbers user={this.state.user}/>
-						<button onClick={this.updateTextDatabase} style={ {position : "fixed", right: "0", top: "10%", color: "#fff", backgroundColor: "rgba(0,0,0,.6)", fontSize: "2em", zIndex: "10000" } }><ion-icon name="ios-save"></ion-icon></button>
+						{/* <button onClick={this.updateTextDatabase} style={ {position : "fixed", right: "0", top: "10%", color: "#fff", backgroundColor: "rgba(0,0,0,.6)", fontSize: "2em", zIndex: "10000" } }><ion-icon name="ios-save"></ion-icon></button> */}
 					<Quote theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} textContent={this.state.textInfoFromDatabase.quoteTop} login={"Peter"} __id={"homepage_first_quote"} />
 					<Portfolio login={"Peter"} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={"Peter"} __id={"landing_page_quote"} />
@@ -177,8 +177,8 @@ export default class Home extends Component {
 					<Hero theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} login={false} />
 					<NavBar styleProp={this.state.navPos} />
 					<Numbers user={this.state.user}/>
-					<input type="file" onChange={this.fileSelectedHandler} />
-					<button onClick={this.fileUploadHandler}>Save</button>
+					{/* <input type="file" onChange={this.fileSelectedHandler} /> */}
+					{/* <button onClick={this.fileUploadHandler}>Save</button> */}
 					<Quote theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} textContent={this.state.textInfoFromDatabase.quoteTop} login={false} __id={"homepage_first_quote"} />
 					<Portfolio login={false} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={false} __id={"landing_page_quote"} />
