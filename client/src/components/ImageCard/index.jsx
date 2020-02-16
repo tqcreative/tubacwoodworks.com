@@ -15,6 +15,7 @@ import DeleteButton from '../../sub_component/DeleteButton';
 // this will remove the name from the array but NOT remove the image from the server.
 //////////////////////////////////////////////////
 
+// if theArray includes http then backgroundImage = url(theArray) else = url(`/cms/images/${theArray}`) line 29
 
 const ImageCard = ({theArray, imageNumber, onClick, tableNameProp, refreshTable, logedIn}) => {
   return (
@@ -25,7 +26,7 @@ const ImageCard = ({theArray, imageNumber, onClick, tableNameProp, refreshTable,
         <DeleteButton refreshTable={refreshTable} tableName={tableNameProp} imageIndexNumber={imageNumber} imageIsInTable={"TableName"} /> :
         <noscript></noscript>}
       
-        <div className="item" style={{backgroundImage: `url(/cms/images/${theArray}`}}></div>
+        <div className="item" style={ theArray.indexOf('http') == -1 ? {backgroundImage: `url(/cms/images/${theArray}`} : {backgroundImage: `url(${theArray})`}}></div>
       </div>
     </div>
   );

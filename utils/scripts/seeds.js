@@ -16,6 +16,8 @@ mongoose.connect(
 // delete and seed database.
 ////////////
 
+// get ready for all them callbacks! One callback per component that uses a collection.
+
 db.Portfolio
 .remove({})
 .then(() => db.Portfolio.collection.insertMany(seed_portfolio))

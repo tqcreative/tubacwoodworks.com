@@ -17,11 +17,13 @@ class StateGallery extends Component {
 
     };
 
+    componentDidUpdate(){
+        console.log(this.props.theArray);
+    }
 
     toggleToast(imgURL) {
         this.setState({ toastShow: !this.state.toastShow, toastImage: imgURL })
     }
-
 
     render(theArray) {
      
@@ -33,7 +35,7 @@ class StateGallery extends Component {
                         <div className="image-div">
                             {this.props.theArray.map((img, index) => {
                                 return (
-                                    <ImageCard refreshTable={this.props.refreshTable} logedIn={this.props.logedIn} tableNameProp={this.props.tableNameProp} imageNumber={index} key={img + Math.floor(Math.random() * 8000) + 1} onClick={this.toggleToast} className="item" theArray={img} />)
+                                    <ImageCard refreshTable={this.props.refreshTable} logedIn={this.props.logedIn} tableNameProp={this.props.tableNameProp} imageNumber={index} key={img + Math.floor(Math.random() * 8000) + 1} onClick={this.toggleToast} className="item" theArray={img == undefined ? "kitchen_1.jpg" : img} />)
                             })}
 
                         </div>
