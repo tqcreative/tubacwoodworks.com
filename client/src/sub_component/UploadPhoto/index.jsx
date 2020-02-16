@@ -21,7 +21,8 @@ class UploadPhoto extends Component {
             // This file starts at null because no files are selected at default
             selectedFile: null,
             backgroundImageName: this.props.__parent_image_name,
-            upload: false
+            upload: false,
+            label: "Choose a file"
         }
         this.uploadFileHandler = this.uploadFileHandler.bind(this);
         this.submitPhotoForUpload = this.submitPhotoForUpload.bind(this);
@@ -59,12 +60,18 @@ class UploadPhoto extends Component {
 
     // This will set the file to the state
     uploadFileHandler(event) {
+
+        // set the state to the selected file
+        // update the label to display the name of the new file.
         this.setState({
             selectedFile: event.target.files[0],
             loaded: 0,
-            editMenu: ""
+            editMenu: "",
+            label: event.target.files[0].name
         })
+
     };
+
 
     // See notes in UploadButton for more details.
 
@@ -96,7 +103,10 @@ class UploadPhoto extends Component {
                     // background picture changed.
                     console.log('background picture has been changed.');
                     console.log(res);
-                    this.setState({upload: true})
+                    this.props.updateFunction ?
+                    this.props.updateFunction() :
+                    null;
+                    alert('Uploaded');
                 })
             })
         } else { /* file name error */};
@@ -107,7 +117,8 @@ class UploadPhoto extends Component {
     render() {
         return (
             <div className="upload_img_root">
-                <input type="file" name={this.props.__parent_image_name} onChange={this.uploadFileHandler} />
+                <input id={this.props.__parent_image_name} type="file" name={this.props.__parent_image_name} onChange={this.uploadFileHandler} className="upload_button" />
+                <label for={this.props.__parent_image_name}><ion-icon name="ios-folder-open"></ion-icon> {this.state.label}</label>
                 <button type="button" className="button" onClick={this.submitPhotoForUpload}><ion-icon name="ios-save"></ion-icon></button>
             </div>
         )
