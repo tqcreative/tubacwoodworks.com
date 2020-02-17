@@ -21,7 +21,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const app = express()
 const routes = require("./controllers");
-const multer = require("multer");
+
 
 // ======================= //
 // ======== Ports ======== //
@@ -71,7 +71,7 @@ app.use(passport.session()) // will call the deserializeUser
 
 
 // =================================== //
-// ==== if its production environment! //
+// ==== if its production environment  //
 // =================================== //
 
 

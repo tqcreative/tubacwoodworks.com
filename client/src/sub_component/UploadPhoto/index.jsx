@@ -21,7 +21,8 @@ class UploadPhoto extends Component {
             // This file starts at null because no files are selected at default
             selectedFile: null,
             backgroundImageName: this.props.__parent_image_name,
-            upload: false
+            upload: false,
+            label: "Choose a file"
         }
         this.uploadFileHandler = this.uploadFileHandler.bind(this);
         this.submitPhotoForUpload = this.submitPhotoForUpload.bind(this);
@@ -59,19 +60,25 @@ class UploadPhoto extends Component {
 
     // This will set the file to the state
     uploadFileHandler(event) {
+
+        // set the state to the selected file
+        // update the label to display the name of the new file.
         this.setState({
             selectedFile: event.target.files[0],
             loaded: 0,
-            editMenu: ""
+            editMenu: "",
+            label: event.target.files[0].name
         })
+
     };
+
 
     // See notes in UploadButton for more details.
 
     submitPhotoForUpload(event) {
         if (this.state.selectedFile === null || this.state.selectedFile === undefined) {
         // do nothing. There is no file selected yet.
-        console.log(this.state.backgroundImageName);
+        // console.log(this.state.backgroundImageName);
         } else {
             // there is a file stored in state. Lets try and upload it.
             // use the name of the current background.
@@ -80,6 +87,8 @@ class UploadPhoto extends Component {
             data.append(thisFilesName, this.state.selectedFile)
         // This call is sending the name of the file before it sends the file
         if (thisFilesName != null) {
+            // console.log(this.state.selectedFile);
+            console.log("file is moving")
             axios.post('/cms/GD8PQX3UV18999AARONWITHANEY/filename', {
                 body: this.state.backgroundImageName
             })
@@ -94,7 +103,7 @@ class UploadPhoto extends Component {
                     // background picture changed.
                     console.log('background picture has been changed.');
                     console.log(res);
-                    this.setState({upload: true})
+                    alert('Uploaded');
                 })
             })
         } else { /* file name error */};
@@ -105,7 +114,8 @@ class UploadPhoto extends Component {
     render() {
         return (
             <div className="upload_img_root">
-                <input type="file" name={this.props.__parent_image_name} onChange={this.uploadFileHandler} />
+                <input id={this.props.__parent_image_name} type="file" name={this.props.__parent_image_name} onChange={this.uploadFileHandler} className="upload_button" />
+                <label for={this.props.__parent_image_name}><ion-icon name="ios-folder-open"></ion-icon> {this.state.label}</label>
                 <button type="button" className="button" onClick={this.submitPhotoForUpload}><ion-icon name="ios-save"></ion-icon></button>
             </div>
         )

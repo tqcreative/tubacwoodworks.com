@@ -4,51 +4,60 @@ import axios from 'axios';
 import UploadPhoto from '../../sub_component/UploadPhoto';
 
 // component variables
-let portfolioImagePath = "/cms/images/";
+let portfolioImagePath = "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/";
 
 // build an object from our mongo database.
 class Portfolio extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            updatedLast: Date(),
             deck: [
                 {
-                    title: "Woodwork",
+                    title: "",
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_1.JPG`,
-                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor." 
+                    imgUrl: "",
+                    description: "" 
                 },
                 {
-                    title: "Furniture",
+                    title: this.props.theTextObject.portfolio.box_2.title,
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_2.JPG`,
-                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor."
+                    imgUrl: this.props.theTextObject.portfolio.box_2.background,
+                    description: this.props.theTextObject.portfolio.box_2.description 
                 },
                 {
-                    title: "Custom Cabinets",
+                    title: this.props.theTextObject.portfolio.box_3.title,
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_3.JPG`,
-                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor."
+                    imgUrl: this.props.theTextObject.portfolio.box_3.background,
+                    description: this.props.theTextObject.portfolio.box_3.description 
                 },
                 {
-                    title: "Kitchen",
+                    title: this.props.theTextObject.portfolio.box_4.title,
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_4.JPG`,
-                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor."
+                    imgUrl: this.props.theTextObject.portfolio.box_4.background,
+                    description: this.props.theTextObject.portfolio.box_4.description 
                 },
                 {
-                    title: "Counters",
+                    title: this.props.theTextObject.portfolio.box_5.title,
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_5.JPG`,
-                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor."
+                    imgUrl: this.props.theTextObject.portfolio.box_5.background,
+                    description: this.props.theTextObject.portfolio.box_5.description 
                 },
                 {
-                    title: "Islands",
+                    title: this.props.theTextObject.portfolio.box_6.title,
                     link: "#",
-                    imgUrl: `${portfolioImagePath}portfolio_6.JPG`,
-                    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas amet at dolor."
+                    imgUrl: this.props.theTextObject.portfolio.box_6.background,
+                    description: this.props.theTextObject.portfolio.box_6.description 
                 }
             ],
+            images: {
+                image1: `${portfolioImagePath}portfolio_1.jpg`,
+                image2: `${portfolioImagePath}portfolio_2.jpg`,
+                image3: `${portfolioImagePath}portfolio_3.jpg`,
+                image4: `${portfolioImagePath}portfolio_4.jpg`,
+                image5: `${portfolioImagePath}portfolio_5.jpg`,
+                image6: `${portfolioImagePath}portfolio_6.jpg`,
+            },
             style: [
                 {transform: 'translateY(0)'},
                 {transform: "translateY(230px)"}
@@ -65,11 +74,30 @@ class Portfolio extends Component {
             arrow3: {transform: 'rotate(0)'},
             arrow4: {transform: 'rotate(0)'},
             arrow5: {transform: 'rotate(0)'},
+            portfolio: {
+                box_1: { title: "", description: "", background: ""},
+                box_2: { title: "", description: "", background: ""},
+                box_3: { title: "", description: "", background: ""},
+                box_4: { title: "", description: "", background: ""},
+                box_5: { title: "", description: "", background: ""},
+                box_6: { title: "", description: "", background: ""}
+            }
         }
+        this.updatedLast = this.updatedLast.bind(this);
     };
 
+    updatedLast() {
+        this.setState({updatedLast: Date()})
+        // this.forceUpdate();
+        // these did not work because browsers cache data.
+    }
+
     componentDidMount(){
-        this.axiosCall();
+        // console.log(this.props.theTextObject);
+        // console.log(this.props.theTextObject.portfolio.box_1);
+        // console.log(this.props.theUpdateButton);
+        // this.axiosCall();
+        
     }
 
     axiosCall(){
@@ -83,7 +111,8 @@ class Portfolio extends Component {
 
             if (response.data[0].title){
                 this.setState({
-                    deck : response.data
+                    deck : response.data,
+                    portfolio : this.props.theTextObject.portfolio
                 });
             }
         })
@@ -108,13 +137,13 @@ class Portfolio extends Component {
                         this.setState({open0 : transformOff, arrow0: arrowDown}) :
                         this.setState({open0 : transformOn, arrow0: arrowUp}); 
                     }} 
-                    id="card0" className="card" style={{backgroundImage: `url(${this.state.deck[0].imgUrl})`}}>
+                    id="card0" className="card" style={{backgroundImage: `url(${this.props.theTextObject.portfolio.box_1.background})`}}>
                         {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_1"}/> :
                         <noscript></noscript> }
                         <div id="textbox0" style={this.state.open0} >
-                            <p>{this.state.deck[0].title}<ion-icon name="ios-arrow-up" style={this.state.arrow0}></ion-icon></p>
-                            <p>{this.state.deck[0].description}</p>
+                            <p>{this.props.theTextObject.portfolio.box_1.title}<ion-icon name="ios-arrow-up" style={this.state.arrow0}></ion-icon></p>
+                            <p>{this.props.theTextObject.portfolio.box_1.description}</p>
                         </div>
                     </div>
                     <div
@@ -123,13 +152,13 @@ class Portfolio extends Component {
                         this.setState({open1 : transformOff, arrow1: arrowDown}) :
                         this.setState({open1 : transformOn, arrow1: arrowUp}) 
                     }}
-                     id="card1" className="card" style={{backgroundImage: `url(${this.state.deck[1].imgUrl})`}}>
+                     id="card1" className="card" style={{backgroundImage: `url(${this.props.theTextObject.portfolio.box_2.background})`}}>
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_2"}/> :
                         <noscript></noscript> }
                         <div id="textbox1"  style={this.state.open1} >
-                            <p>{this.state.deck[1].title}<ion-icon name="ios-arrow-up" style={this.state.arrow1}></ion-icon></p>
-                            <p>{this.state.deck[1].description}</p>
+                            <p>{this.props.theTextObject.portfolio.box_2.title}<ion-icon name="ios-arrow-up" style={this.state.arrow1}></ion-icon></p>
+                            <p>{this.props.theTextObject.portfolio.box_2.description}</p>
                         </div>
                     </div>
                     <div
@@ -138,13 +167,13 @@ class Portfolio extends Component {
                         this.setState({open2 : transformOff, arrow2: arrowDown}) :
                         this.setState({open2 : transformOn, arrow2: arrowUp}) 
                     }}
-                     id="card2" className="card" style={{backgroundImage: `url(${this.state.deck[2].imgUrl})`}}>
+                     id="card2" className="card" style={{backgroundImage: `url(${this.props.theTextObject.portfolio.box_3.background})`}}>
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_3"}/> :
                         <noscript></noscript> }
                         <div id="textbox2" style={this.state.open2} >
-                            <p>{this.state.deck[2].title}<ion-icon name="ios-arrow-up" style={this.state.arrow2}></ion-icon></p>
-                            <p>{this.state.deck[2].description}</p>
+                            <p>{this.props.theTextObject.portfolio.box_3.title}<ion-icon name="ios-arrow-up" style={this.state.arrow2}></ion-icon></p>
+                            <p>{this.props.theTextObject.portfolio.box_3.description}</p>
                         </div>
                     </div>
                     <div
@@ -153,13 +182,13 @@ class Portfolio extends Component {
                         this.setState({open3 : transformOff, arrow3: arrowDown}) :
                         this.setState({open3 : transformOn, arrow3: arrowUp}) 
                     }}
-                     id="card3" className="card" style={{backgroundImage: `url(${this.state.deck[3].imgUrl})`}}>
+                     id="card3" className="card" style={{backgroundImage: `url(${this.props.theTextObject.portfolio.box_4.background})`}}>
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_4"}/> :
                         <noscript></noscript> }
                         <div id="textbox3"  style={this.state.open3} >
-                            <p>{this.state.deck[3].title}<ion-icon name="ios-arrow-up" style={this.state.arrow3} ></ion-icon></p>
-                            <p>{this.state.deck[3].description}</p>
+                            <p>{this.props.theTextObject.portfolio.box_4.title}<ion-icon name="ios-arrow-up" style={this.state.arrow3} ></ion-icon></p>
+                            <p>{this.props.theTextObject.portfolio.box_4.description}</p>
                         </div>
                     </div>
                     <div
@@ -168,13 +197,13 @@ class Portfolio extends Component {
                         this.setState({open4 : transformOff, arrow4: arrowDown}) :
                         this.setState({open4 : transformOn, arrow4: arrowUp}) 
                     }}
-                     id="card4" className="card" style={{backgroundImage: `url(${this.state.deck[4].imgUrl})`}}>
+                     id="card4" className="card" style={{backgroundImage: `url(${this.props.theTextObject.portfolio.box_5.background})`}}>
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_5"}/> :
                         <noscript></noscript> }
                         <div id="textbox4" style={this.state.open4} >
-                            <p>{this.state.deck[4].title}<ion-icon name="ios-arrow-up" style={this.state.arrow4}></ion-icon></p>
-                            <p>{this.state.deck[4].description}</p>
+                            <p>{this.props.theTextObject.portfolio.box_5.title}<ion-icon name="ios-arrow-up" style={this.state.arrow4}></ion-icon></p>
+                            <p>{this.props.theTextObject.portfolio.box_5.description}</p>
                         </div>
                     </div>
                     <div
@@ -183,13 +212,13 @@ class Portfolio extends Component {
                         this.setState({open5 : transformOff, arrow5: arrowDown}) :
                         this.setState({open5 : transformOn, arrow5: arrowUp}) 
                     }}
-                     id="card5" className="card" style={{backgroundImage: `url(${this.state.deck[5].imgUrl})`}}>
+                     id="card5" className="card" style={{backgroundImage: `url(${this.props.theTextObject.portfolio.box_6.background})`}}>
                     {this.props.login === 'Peter' ?
-                        <UploadPhoto __parent_image_name={"portfolio_6"}/> :
+                        <UploadPhoto __parent_image_name={"portfolio_6"} updateFunction={this.updatedLast} /> :
                         <noscript></noscript> }
                         <div id="textbox5" style={this.state.open5} >
-                            <p>{this.state.deck[5].title}<ion-icon name="ios-arrow-up" style={this.state.arrow5}></ion-icon></p>
-                            <p>{this.state.deck[5].description}</p>
+                            <p>{this.props.theTextObject.portfolio.box_6.title}<ion-icon name="ios-arrow-up" style={this.state.arrow5}></ion-icon></p>
+                            <p>{this.props.theTextObject.portfolio.box_6.description}</p>
                         </div>
                     </div>
                 </div>

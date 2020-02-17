@@ -23,6 +23,7 @@ export default class Home extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
+			selectedFile: null,
 			user: props.user,
 			toastMsg: [],
 			toastShow: false,
@@ -31,16 +32,24 @@ export default class Home extends Component {
 			staticGalleryImages: ["/images/check_1.jpg"],
 			textInfoFromDatabase: {
 									_id: "5e2fb19cbf1a343bc0ddd739",
-									quoteTop: { h2: "Matthew Carpenter", p: "I am just stunned at how amazing my kitchen looks!", url: "tubacwoodworks.herokuapp.com/images/quote_2.jpg"},
-									quoteBottom: {  h2: "Elena Borne", p: "Fast, Cheap, and Right. We found all three.", url: "tubacwoodworks.herokuapp.com/images/quote_1.jpg"},
-									checkerBox: { slotOne: "licenced", slotTwo: "bonded", slotThree: "insured" },
+									quoteTop: { h2: "", p: "", url: "#"},
+									quoteBottom: {  h2: "", p: "", url: "#"},
+									checkerBox: { slotOne: "", slotTwo: "", slotThree: "" },
 									partners: { 
 										partner_1: { name: " ", description: " ", url:"#", picture: "#" },
 										partner_2: { name: " ", description: " ", url:"#", picture: "#" },
 										partner_3: { name: " ", description: " ", url:"#", picture: "#" },
 										partner_text: { text: " ", backgroundImage: "#" }
 										},
-									hero: { h2: "#"}
+									hero: { logo: "#", h2: "#"},
+									portfolio: {
+										box_1: { title: "", description: "", background: ""},
+										box_2: { title: "", description: "", background: ""},
+										box_3: { title: "", description: "", background: ""},
+										box_4: { title: "", description: "", background: ""},
+										box_5: { title: "", description: "", background: ""},
+										box_6: { title: "", description: "", background: ""}
+									}
 								  }
 		}
 		// bind signup and toast
@@ -54,6 +63,21 @@ export default class Home extends Component {
 		this.callImagesToLoad = this.callImagesToLoad.bind(this);
 		this.updateTextDatabase = this.updateTextDatabase.bind(this);
 		this.updateStateTest = this.updateStateTest.bind(this);
+		this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
+		this.fileUploadHandler = this.fileUploadHandler.bind(this);
+	}
+
+	
+	// file upload.
+	fileSelectedHandler(event) {
+		console.log(event.target.files[0]);
+		this.setState({
+			selectedFile: event.target.files[0]
+		});
+	}
+
+	fileUploadHandler() {
+
 	}
 
 	//update text site wide.
@@ -128,6 +152,7 @@ export default class Home extends Component {
 		this.setState({toastShow: !this.state.toastShow});
 	}
 
+
 	render() {
 		if (this.props.user) {
 			return (
@@ -136,9 +161,9 @@ export default class Home extends Component {
 					<Hero theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} login={"Peter"}/>
 					<NavBar loggedIn={true} styleProp={this.state.navPos} />
 					<Numbers user={this.state.user}/>
-						<button onClick={this.updateTextDatabase} style={ {position : "fixed", right: "0", top: "10%", color: "#fff", backgroundColor: "rgba(0,0,0,.6)", fontSize: "2em", zIndex: "10000" } }><ion-icon name="ios-save"></ion-icon></button>
+						{/* <button onClick={this.updateTextDatabase} style={ {position : "fixed", right: "0", top: "10%", color: "#fff", backgroundColor: "rgba(0,0,0,.6)", fontSize: "2em", zIndex: "10000" } }><ion-icon name="ios-save"></ion-icon></button> */}
 					<Quote theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} textContent={this.state.textInfoFromDatabase.quoteTop} login={"Peter"} __id={"homepage_first_quote"} />
-					<Portfolio login={"Peter"} />
+					<Portfolio theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} login={"Peter"} __id={"homepage_first_quote"} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={"Peter"} __id={"landing_page_quote"} />
 					<Gallery login={"Peter"} user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
 					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={"Peter"} __id={"checkbox_image_home"} />
@@ -160,8 +185,10 @@ export default class Home extends Component {
 					<Hero theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} login={false} />
 					<NavBar styleProp={this.state.navPos} />
 					<Numbers user={this.state.user}/>
+					{/* <input type="file" onChange={this.fileSelectedHandler} /> */}
+					{/* <button onClick={this.fileUploadHandler}>Save</button> */}
 					<Quote theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} textContent={this.state.textInfoFromDatabase.quoteTop} login={false} __id={"homepage_first_quote"} />
-					<Portfolio login={false} />
+					<Portfolio theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} login={false} __id={"homepage_first_quote"} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={false} __id={"landing_page_quote"} />
 					<Phone phoneNumber="5208405864" />
 					<Gallery login={false} user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
