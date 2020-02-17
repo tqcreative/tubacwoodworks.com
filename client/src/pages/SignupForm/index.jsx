@@ -52,7 +52,7 @@ export default class SignupForm extends Component {
 		}
 		return (
 			<div className="SignupForm">
-				{/* <label htmlFor="username">Username: </label>
+				<label htmlFor="username">Username: </label>
 				<input
 					type="text"
 					name="username"
@@ -98,7 +98,7 @@ export default class SignupForm extends Component {
 				</select>
 
 
-				<button onClick={this.handleSubmit}>Create Account</button> */}
+				<button onClick={this.handleSubmit}>Create Account</button>
 			</div>
 		)
 	}
