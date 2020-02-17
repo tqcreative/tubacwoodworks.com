@@ -103,6 +103,9 @@ class UploadPhoto extends Component {
                     // background picture changed.
                     console.log('background picture has been changed.');
                     console.log(res);
+                    // this.props.updateFunction ?
+                    // this.props.updateFunction :
+                    // null;
                     alert('Uploaded');
                 })
             })
