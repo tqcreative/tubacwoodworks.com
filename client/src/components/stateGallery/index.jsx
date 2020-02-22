@@ -18,7 +18,7 @@ class StateGallery extends Component {
     };
 
     componentDidUpdate(){
-        console.log(this.props.theArray);
+        // console.log(this.props.theArray);
     }
 
     toggleToast(imgURL) {
