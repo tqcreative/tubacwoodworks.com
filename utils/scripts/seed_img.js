@@ -100,7 +100,25 @@ let seed_imgs = [
             "gallery_13.jpg"
         ],
         name: "static"
-    }
+    },
+        {
+            showcaseGrid: [
+                "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_1.jpg",
+                "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_2.jpg",
+                "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_3.jpg",
+                "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_4.jpg",
+                "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_5.jpg",
+                "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_6.jpg",
+                "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_7.jpg",
+                "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_8.jpg",
+                "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_9.jpg",
+                "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_10.jpg",
+                "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_11.jpg",
+                "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_13.jpg",
+                "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_14.jpg"
+            ],
+            name: "showcaseGrid"
+        }
 ]
 
 module.exports = seed_imgs; 

@@ -24,14 +24,14 @@ class Gallery extends Component {
         // console.log(this.props.staticGalleryImageProp)
         return (
             <div className="gallery_root">
-                <h2>Gallery</h2>
+                <h2>Showcase</h2>
                 <h3> <a href="/gallery"><ion-icon name="ios-camera"></ion-icon></a></h3>
 
                 <div id="gallery_container" className="gallery_container">
                 {this.props.staticGalleryImageProp.map((img, index) => {
                     // console.log (img, index)
                     return (
-                        <div className={`item item_${(index+1)} span-${(index+1)}`} style={{backgroundImage: `url(/cms/images/${img}`}} key={img + Math.floor(Math.random() * 8000) + 1} onClick={()=> this.toggleToast(`/cms/images/${img}`)} ></div>
+                        <div className={`item item_${(index+1)} span-${(index+1)}`} style={{backgroundImage: `url(${img}`}} key={img + Math.floor(Math.random() * 8000) + 1} onClick={()=> this.toggleToast(`${img}`)} ></div>
                     )
                         
                 })}
