@@ -29,9 +29,9 @@ function Footer(props) {
                         <div className="footer_section_3">
                             <h3>Share</h3>
                             <ul>
-                                <li><a href="facebook.com"><ion-icon name="logo-facebook"></ion-icon></a></li>
-                                <li><a href="instagram.com"><ion-icon name="logo-instagram"></ion-icon></a></li>
-                                <li><a href="twitter.com"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                                <li><a href="https://www.facebook.com/Tubac-Woodworks-110111612386150/?referrer=services_landing_page"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                                <li><a href="https://instagram.com"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                                <li><a href="https://twitter.com"><ion-icon name="logo-twitter"></ion-icon></a></li>
                             </ul>
 
                             <ul>
