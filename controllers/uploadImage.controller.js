@@ -90,10 +90,10 @@ router.route('/upload').post(authenticateUser, (req, res) => {
 				});
 
 				const uploadFile = (fileName) => {
-					console.log("testing")
+
 					// Read content from the file
 					const fileContent = fs.readFileSync(fileName);
-					console.log("testing")
+
 
 					// Setting up S3 upload parameters
 					const params = {
@@ -102,25 +102,29 @@ router.route('/upload').post(authenticateUser, (req, res) => {
 						Key: `${req.file.filename.toLowerCase()}`, // File name you want to save as in S3
 						Body: fileContent
 					};
-					console.log("testing")
+
 
 					// Uploading files to the bucket
 					s3.upload(params, function(err, data) {
 						if (err) {
 							throw err;
 						}
-						console.log(`File uploaded successfully. ${data.Location}`);
+						// console.log(`File uploaded successfully. ${data.Location}`);
 						res.send({
 							msg: 'uploaded',
 							file: `/cms/images/${req.file.filename}`
 						});
 					});
-					console.log("fin")
+
 
 				};
 
 				// select the file path the image is downloaded to
 				let fileLocation = path.join(__dirname, `../images/${req.file.filename}`);
+
+				// needs the following
+				// if req.file.filename is not at that dirname then target ../images/error.jpg;
+
 				// call the upload function with the images location
 				uploadFile(fileLocation);
 				

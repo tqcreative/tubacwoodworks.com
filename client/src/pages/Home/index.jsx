@@ -30,6 +30,7 @@ export default class Home extends Component {
 			navPos: "absolute",
 			redirectTo: null,
 			staticGalleryImages: ["/images/check_1.jpg"],
+			showcaseImages: ["https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_9.jpg"],
 			textInfoFromDatabase: {
 									_id: "5e2fb19cbf1a343bc0ddd739",
 									quoteTop: { h2: "", p: "", url: "#"},
@@ -114,8 +115,8 @@ export default class Home extends Component {
         axios
         .get("/cms/kitchenbathvanity")
         .then(collectData => {
-			// console.log(collectData.data[5].static)
-            this.setState({ staticGalleryImages: collectData.data[5].static });
+			// console.log(collectData.data)
+			this.setState({ staticGalleryImages: collectData.data[5].static, showcaseImages: collectData.data[6].showcaseGrid });
             })
         }
     
@@ -144,7 +145,7 @@ export default class Home extends Component {
 	}
 
 	handleSignupResult(msg){
-		console.log(msg);
+		// console.log(msg);
 		this.setState({toastMsg: msg, toastShow: true})
 	}
 
@@ -161,11 +162,11 @@ export default class Home extends Component {
 					<Hero theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} login={"Peter"}/>
 					<NavBar loggedIn={true} styleProp={this.state.navPos} />
 					<Numbers user={this.state.user}/>
-						{/* <button onClick={this.updateTextDatabase} style={ {position : "fixed", right: "0", top: "10%", color: "#fff", backgroundColor: "rgba(0,0,0,.6)", fontSize: "2em", zIndex: "10000" } }><ion-icon name="ios-save"></ion-icon></button> */}
+						<button onClick={this.updateTextDatabase} style={ {position : "fixed", right: "0", top: "10%", color: "#fff", backgroundColor: "rgba(0,0,0,.6)", fontSize: "2em", zIndex: "10000" } }><ion-icon name="ios-save"></ion-icon></button>
 					<Quote theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} textContent={this.state.textInfoFromDatabase.quoteTop} login={"Peter"} __id={"homepage_first_quote"} />
 					<Portfolio theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} login={"Peter"} __id={"homepage_first_quote"} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={"Peter"} __id={"landing_page_quote"} />
-					<Gallery login={"Peter"} user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
+					<Gallery login={"Peter"} user={this.state.user} staticGalleryImageProp={this.state.showcaseImages}/>
 					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={"Peter"} __id={"checkbox_image_home"} />
 					<Partners textContent={this.state.textInfoFromDatabase.partners} login={"Peter"} /> 
 					<Signup user={this.state.user}/>
@@ -191,7 +192,7 @@ export default class Home extends Component {
 					<Portfolio theTextObject={this.state.textInfoFromDatabase} theUpdateButton={this.updateStateTest} login={false} __id={"homepage_first_quote"} />
 					<QuoteTwo textContent={this.state.textInfoFromDatabase.quoteBottom} login={false} __id={"landing_page_quote"} />
 					<Phone phoneNumber="5208405864" />
-					<Gallery login={false} user={this.state.user} staticGalleryImageProp={this.state.staticGalleryImages}/>
+					<Gallery login={false} user={this.state.user} staticGalleryImageProp={this.state.showcaseImages}/>
 					<Checkbox textContent={this.state.textInfoFromDatabase.checkerBox} login={false} __id={"checkbox_image_home"} />
 					<Partners textContent={this.state.textInfoFromDatabase.partners} login={false}/>
 

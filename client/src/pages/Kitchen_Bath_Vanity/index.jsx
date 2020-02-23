@@ -33,7 +33,7 @@ export default class Kitchen_Bath_Vanity extends Component {
 		axios
             .get("/cms/kitchenbathvanity")
             .then(collectData => {
-				console.log(collectData.data)
+				// console.log(collectData.data)
                 this.setState({ arrayOfImages: collectData.data[1].kitchenTable });
                 let newArray = Array.from(collectData.data[1].kitchenTable);
                 // console.log(newArray);
@@ -49,7 +49,7 @@ export default class Kitchen_Bath_Vanity extends Component {
 		axios
             .get("/cms/kitchenbathvanity")
             .then(collectData => {
-				console.log(collectData.data)
+				// console.log(collectData.data)
                 this.setState({ arrayOfImages: collectData.data[2].bathTable });
                 let newArray = Array.from(collectData.data[2].bathTable);
                 // console.log(newArray);
@@ -64,7 +64,7 @@ export default class Kitchen_Bath_Vanity extends Component {
 	}
 
 	handleSignupResult(msg) {
-		console.log(msg);
+		// console.log(msg);
 		this.setState({ toastMsg: msg, toastShow: true })
 	}
 
