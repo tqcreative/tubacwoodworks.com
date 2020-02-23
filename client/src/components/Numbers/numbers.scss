@@ -83,3 +83,13 @@
 
 @media (max-width: #{$screen-md}) {}
 @media (max-width: #{$screen-lg}) {}
+
+@supports (-ms-ime-align:auto) {
+    /* Edge 16+ CSS */ 
+    ion-icon {
+        position: absolute;
+        overflow: hidden;
+        max-width: 1px;
+        max-height: 1px;
+    }
+}
