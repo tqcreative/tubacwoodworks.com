@@ -104,3 +104,11 @@
       .numbers_root .right_box div p {
         font-size: 1em;
         line-height: 1em; } }
+
+@supports (-ms-ime-align: auto) {
+  /* Edge 16+ CSS */
+  ion-icon {
+    position: absolute;
+    overflow: hidden;
+    max-width: 1px;
+    max-height: 1px; } }
