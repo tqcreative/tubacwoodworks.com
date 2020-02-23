@@ -71,3 +71,7 @@
         line-height: 1.2em;
         font-size: 1.3em;
         font-weight: 2em; } }
+
+@media (min-width: 769px) and (max-width: 1025px) {
+  .quote_two_root .background-img {
+    background-attachment: inherit; } }

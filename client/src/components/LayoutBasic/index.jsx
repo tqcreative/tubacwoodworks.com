@@ -1,16 +1,52 @@
 import React from 'react';
 import './layoutBasic.css';
 
-export default function LayoutBasic() {
+export default function LayoutBasic(props) {
+    
+    //
+    // This component is going to be handed 2 props
+    // a title for the h2
+    // and content for the paragraph
+    // optional paragraph 2 and 3
+    // prop names
+    // h2Tag
+    // pTag
+    // pTag2
+    // pTag3
+
+    let titleProp;
+    let paragraphProp;
+    let paragraphProp2;
+    let paragraphProp3;
+
+    // check for title first
+    props.h2Tag ?
+    titleProp = `<h2>${props.h2Prop}</h2>` :
+    titleProp = ``;
+
+    // check for first paragraph 
+    props.pTag  ?
+    paragraphProp = `<p>${props.pTag}</p>` :
+    paragraphProp = ``;
+
+    // check for first paragraph 
+    props.pTag2  ?
+    paragraphProp2 = `<p>${props.pTag2}</p>` :
+    paragraphProp2 = ``;
+
+    // check for first paragraph 
+    props.pTag3  ?
+    paragraphProp3 = `<p>${props.pTag3}</p>` :
+    paragraphProp3 = ``;
+
+    // return the final product
     return (
         <div className="layout_basic_root">
             <div>
-                <h2>
-                    This is a Basic Block.
-                </h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam tempora repudiandae optio minus, illum, culpa cum impedit at, quae laboriosam unde tempore quos repellat soluta rerum nisi ducimus numquam dolore!</p>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea maxime, voluptatem temporibus tenetur mollitia eum quae officia placeat debitis atque nisi dolore deserunt pariatur, nihil labore illum totam eveniet quia doloribus esse ullam quod exercitationem eius autem! Aut sequi, itaque adipisci, aliquid odit nisi consequuntur iusto voluptatum esse sunt fugiat minus dignissimos nulla nemo unde quidem quia sit eligendi? Mollitia, eaque sapiente? Ea, corporis voluptas! Porro architecto odio, soluta reprehenderit voluptatibus error vitae dolor, suscipit, natus perferendis at? Ipsa, commodi.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias dolores voluptates quibusdam, nostrum placeat praesentium similique enim labore voluptatem nisi quo quod ad a aperiam est consequuntur obcaecati. Quia quod totam perspiciatis repellendus error, debitis aspernatur quas sint, eaque deserunt aperiam sunt corrupti a ex architecto. Perspiciatis earum enim obcaecati alias facilis quibusdam, ducimus quod animi praesentium, quo ut minima?</p>
+                {titleProp}
+                {paragraphProp}
+                {paragraphProp2}
+                {paragraphProp3}
             </div>
         </div>
     )
