@@ -59,11 +59,11 @@ class LeadWrapper extends Component {
     updateLead(id, obj) {
         axios.put(`/api/customers/id/${id}`, { custObj: obj })
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 this.getLeads();
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
             })
     }
 
@@ -73,7 +73,7 @@ class LeadWrapper extends Component {
                 this.setState({ leadsArr: res.data })
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
             })
     }
 
@@ -87,7 +87,7 @@ class LeadWrapper extends Component {
                 this.setState({ chartData: chartData });
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
             })
     }
 

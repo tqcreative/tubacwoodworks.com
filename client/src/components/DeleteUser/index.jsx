@@ -12,7 +12,7 @@ function DeleteUser(props) {
 
     function deleteUser() {
         axios.delete(`/api/users/${employeeId}`).then(res => {
-            console.log(res.data);
+            // console.log(res.data);
             props.handleDeleteUser();
         })
     }

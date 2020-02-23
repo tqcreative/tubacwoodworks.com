@@ -26,7 +26,7 @@ class EmployeeWrapper extends Component {
             this.setState({ appointments: res.data })
         })
         .catch(err=>{
-            console.log(err)
+            // console.log(err)
         })
     }
 

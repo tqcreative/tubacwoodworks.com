@@ -59,9 +59,9 @@ class ChangePassword extends Component {
 
 
     handleSubmit(values, actions) {
-        console.log(values);
-        console.log(actions);
-        console.log("Submit Hit");
+        // console.log(values);
+        // console.log(actions);
+        // console.log("Submit Hit");
         const { setSubmitting } = actions;
         const { currentPassword, newPassword } = values;
 
@@ -70,12 +70,12 @@ class ChangePassword extends Component {
             newPassword: newPassword
         })
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 this.props.handleChangePassword();
                 setSubmitting(false)
             })
             .catch(err=>{
-                console.log(err)
+                // console.log(err)
             })
     }
 
