@@ -1,0 +1,19 @@
+@import '../../_scss/vars';
+
+.notewrapper_root{
+    textarea{
+        min-width:480px;
+    }
+
+    @media screen and (min-width:$screen-md) {
+        textarea{
+            min-width: 600px;
+        }
+    }
+
+    @media screen and (min-width: $screen-lg){
+        textarea{
+            min-width: 800px;
+        }
+    }
+}
