@@ -87,6 +87,10 @@
     .quote_root {
         height: 50vh;
 
+        .background-img {
+            background-attachment: inherit;
+        }
+
         .quote {
             display: flex;
             justify-content: center;

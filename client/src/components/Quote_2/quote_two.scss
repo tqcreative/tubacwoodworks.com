@@ -65,7 +65,7 @@
 
         .quote_two {
             width: 80%;
-            height: auto;
+            height: auto; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -80,5 +80,11 @@
         }
     }
 }
-@media (min-width: #{$screen-md}) and (max-width: #{$screen-lg}) {}
+@media (min-width: #{$screen-md}) and (max-width: #{$screen-lg}) {
+    .quote_two_root {
+        .background-img {
+            background-attachment: inherit;
+        }
+    }
+}
 @media (max-width: #{$screen-lg}) {}
