@@ -10,7 +10,19 @@ class Contact extends Component {
         super(props)
         this.state = {
             id: props.id ? props.id : null,
-            contact: {},
+            contact: {
+                firstName: "",
+                lastName: "",
+                nickname: "",
+                email: "",
+                phoneNumber: "",
+                streetAddress: "",
+                city: "",
+                state: "",
+                zipcode: "",
+                zip4: "",
+                isLead: ""
+            },
             noteRedirectPath: "",
             apptRedirectPath: ""
         }
@@ -25,9 +37,8 @@ class Contact extends Component {
     getCustomerInfo() {
         axios.get(`/api/customers/id/${this.state.id}`)
             .then(res => {
-                console.log(res.data);
                 const { _id, ...rest } = res.data;
-                this.setState({ contact: { ...rest } })
+                this.setState({ contact: { ...this.state.contact, ...rest } })
             })
             .catch(err => {
                 console.log(err);
@@ -37,8 +48,8 @@ class Contact extends Component {
     render() {
         return (
             <Container>
-                { this.state.noteRedirectPath ? <Redirect to={this.state.noteRedirectPath} /> : null }
-                { this.state.apptRedirectPath ? <Redirect to={this.state.apptRedirectPath} /> : null }
+                {this.state.noteRedirectPath ? <Redirect to={this.state.noteRedirectPath} /> : null}
+                {this.state.apptRedirectPath ? <Redirect to={this.state.apptRedirectPath} /> : null}
                 <Row hidden={!this.state.id}>
                     <Col>
                         <button className="btn btn-dark mx-1"

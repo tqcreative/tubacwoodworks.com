@@ -31,35 +31,54 @@ const contactSchema = Yup.object().shape({
 function ContactForm(props) {
     const { id, contact, role } = props;
     const [readOnly, setReadOnly] = useState(true);
-    const [updateBtnText, setUpdateBtnText] = useState("Edit");
+    const [updateBtnText, setUpdateBtnText] = useState(id ? "Edit" : "Add New Customer");
     const [redirectPath, setRedirectPath] = useState("");
 
-    function toggleEdit() {
+    function toggleEdit(handleReset) {
         setReadOnly(!readOnly);
-        setUpdateBtnText(updateBtnText === "Edit" ? "Cancel" : updateBtnText);
+        if(updateBtnText === "Cancel"){
+            setUpdateBtnText(id ? "Edit" : "Add New Customer");
+            handleReset();
+        }
+        else{
+            setUpdateBtnText("Cancel");
+        }
+        
     }
 
-    function handleContactUpdate(event) {
+    function handleContactUpdate(event,handleReset) {
         event.preventDefault();
-        toggleEdit();
+        toggleEdit(handleReset);
     }
 
     function handleContactSave(values) {
-        axios.put(`/api/customers/id/${id}`, { custObj: values })
+        //if id already exists, update it
+        if(id){
+            axios.put(`/api/customers/id/${id}`, { custObj: values })
             .then(res => {
-                console.log(res.data);
                 toggleEdit();
             })
             .catch(err => {
                 console.log(err);
             })
+        }
+        else{
+            //new contact, insert into db
+            axios.post('/api/customers', {custObj: values})
+            .then(res=>{
+                const {_id} = res.data.customer;
+                window.location.href = `/crm/customer/${_id}`;
+            })
+            .catch(err =>{
+                console.log(err)
+            })
+        }
     }
 
     function handleContactDelete(event) {
         event.preventDefault();
         axios.delete(`/api/customers/id/${id}`)
             .then(res => {
-                console.log(res.data);
                 setRedirectPath("/crm/customer");
             })
     }
@@ -200,7 +219,7 @@ function ContactForm(props) {
                     </FormGroup>
                     <Row>
                         <Col>
-                            <button className="btn btn-dark my-2 mr-2" id="contact-update-btn" hidden={!id} onClick={handleContactUpdate}>{updateBtnText}</button>
+                            <button className="btn btn-dark my-2 mr-2" id="contact-update-btn" onClick={(event)=>handleContactUpdate(event, handleReset)}>{updateBtnText}</button>
                             <button className="btn btn-success my-2 mr-2" id="contact-submit-btn" hidden={readOnly} onClick={handleContactSave}>Save</button>
                             <button className="btn btn-danger my-2 mr-2" id="contact-delete-btn" hidden={!id || role !== "admin"} onClick={handleContactDelete}
                             >Delete Customer</button>

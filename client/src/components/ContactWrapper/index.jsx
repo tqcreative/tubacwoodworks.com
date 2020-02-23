@@ -6,7 +6,6 @@ import ContactSearch from '../ContactSearch';
 class ContactWrapper extends Component {
     constructor(props) {
         super(props)
-        console.log(props)
         this.state = {
             id: props.id
         }
