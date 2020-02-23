@@ -6,7 +6,8 @@
   -ms-transform: translate(0, 0) !important;
   transform: translate(0, 0) !important;
   background-color: rgba(45, 52, 54, 0) !important;
-  z-index: 9999; }
+  z-index: 9999;
+  max-height: 3em; }
   .upload_img_root .upload_button {
     width: 0.1px;
     height: 0.1px;

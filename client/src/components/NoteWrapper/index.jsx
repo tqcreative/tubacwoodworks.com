@@ -96,7 +96,7 @@ class NoteWrapper extends Component {
         if(this.state.id) header += ` for ${this.state.firstName} ${this.state.lastName}`
 
         return (
-            <div className="m-3">
+            <div className="m-3 notewrapper_root">
                 <ContactSearch hrefOnClick="/crm/notes" />
                 <hr />
                 <h1 className="text-center ">{header}</h1>
@@ -110,11 +110,11 @@ class NoteWrapper extends Component {
                 <Toast show={this.state.toastShow} onClose={this.toggleToast}>
                     <form>
                         <h1>Add a Note</h1>
-                        <textarea className="form-control" id="newNoteText"
+                        <textarea className="form-control" id="newNoteText" rows="6"
                             name="newNoteText" value={this.state.newNoteText}
                             onChange={this.handleInputChange}
                         />
-                        <button type="submit" className="btn btn-primary my-3"
+                        <button type="submit" className="btn btn-dark my-3"
                             onClick={this.addNote}
                         >Submit</button>
                     </form>

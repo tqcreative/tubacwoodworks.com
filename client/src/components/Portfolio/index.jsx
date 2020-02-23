@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import './portfolio.css';
 import axios from 'axios';
 import UploadPhoto from '../../sub_component/UploadPhoto';
+import PencilPortfolio from '../../sub_component/PencilPortfolio';
 
 // component variables
 let portfolioImagePath = "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/";
@@ -127,6 +128,7 @@ class Portfolio extends Component {
         const transformOn = {transform: 'translateY(0)'};
         const arrowUp = {transform: 'rotate(180deg)'};
         const arrowDown = {transform: 'rotate(0)'};
+        let editText;
 
         return (
         <div className="portfolio_root">
@@ -141,6 +143,9 @@ class Portfolio extends Component {
                         {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_1"}/> :
                         <noscript></noscript> }
+
+                        {this.props.login === 'Peter' ? <PencilPortfolio theTextObject={this.props.theTextObject} theUpdateButton={this.props.theUpdateButton} boxNumber = {1} /> : ""}
+
                         <div id="textbox0" style={this.state.open0} >
                             <p>{this.props.theTextObject.portfolio.box_1.title}<ion-icon name="ios-arrow-up" style={this.state.arrow0}></ion-icon></p>
                             <p>{this.props.theTextObject.portfolio.box_1.description}</p>
@@ -156,6 +161,9 @@ class Portfolio extends Component {
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_2"}/> :
                         <noscript></noscript> }
+
+                        {this.props.login === 'Peter' ? <PencilPortfolio theTextObject={this.props.theTextObject} theUpdateButton={this.props.theUpdateButton} boxNumber = {2} /> : ""}
+
                         <div id="textbox1"  style={this.state.open1} >
                             <p>{this.props.theTextObject.portfolio.box_2.title}<ion-icon name="ios-arrow-up" style={this.state.arrow1}></ion-icon></p>
                             <p>{this.props.theTextObject.portfolio.box_2.description}</p>
@@ -171,6 +179,9 @@ class Portfolio extends Component {
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_3"}/> :
                         <noscript></noscript> }
+
+                        {this.props.login === 'Peter' ? <PencilPortfolio theTextObject={this.props.theTextObject} theUpdateButton={this.props.theUpdateButton} boxNumber = {3} /> : ""}
+
                         <div id="textbox2" style={this.state.open2} >
                             <p>{this.props.theTextObject.portfolio.box_3.title}<ion-icon name="ios-arrow-up" style={this.state.arrow2}></ion-icon></p>
                             <p>{this.props.theTextObject.portfolio.box_3.description}</p>
@@ -186,6 +197,9 @@ class Portfolio extends Component {
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_4"}/> :
                         <noscript></noscript> }
+
+                        {this.props.login === 'Peter' ? <PencilPortfolio theTextObject={this.props.theTextObject} theUpdateButton={this.props.theUpdateButton} boxNumber = {2} /> : ""}
+
                         <div id="textbox3"  style={this.state.open3} >
                             <p>{this.props.theTextObject.portfolio.box_4.title}<ion-icon name="ios-arrow-up" style={this.state.arrow3} ></ion-icon></p>
                             <p>{this.props.theTextObject.portfolio.box_4.description}</p>
@@ -201,6 +215,9 @@ class Portfolio extends Component {
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_5"}/> :
                         <noscript></noscript> }
+
+                        {this.props.login === 'Peter' ? <PencilPortfolio theTextObject={this.props.theTextObject} theUpdateButton={this.props.theUpdateButton} boxNumber = {2} /> : ""}
+
                         <div id="textbox4" style={this.state.open4} >
                             <p>{this.props.theTextObject.portfolio.box_5.title}<ion-icon name="ios-arrow-up" style={this.state.arrow4}></ion-icon></p>
                             <p>{this.props.theTextObject.portfolio.box_5.description}</p>
@@ -216,6 +233,9 @@ class Portfolio extends Component {
                     {this.props.login === 'Peter' ?
                         <UploadPhoto __parent_image_name={"portfolio_6"} updateFunction={this.updatedLast} /> :
                         <noscript></noscript> }
+
+                        {this.props.login === 'Peter' ? <PencilPortfolio theTextObject={this.props.theTextObject} theUpdateButton={this.props.theUpdateButton} boxNumber = {2} /> : ""}
+
                         <div id="textbox5" style={this.state.open5} >
                             <p>{this.props.theTextObject.portfolio.box_6.title}<ion-icon name="ios-arrow-up" style={this.state.arrow5}></ion-icon></p>
                             <p>{this.props.theTextObject.portfolio.box_6.description}</p>

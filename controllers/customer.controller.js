@@ -24,17 +24,6 @@ const projectedContactFields = {
 
 // /api/customers routes
 
-// Return list of all customers
-router.route("/").get(authenticateUser, (req, res) => {
-    db.Customer.find({}, projectedContactFields).sort({ lastName: 1, firstName: 1 })
-        .then(custRes => {
-            res.json(custRes)
-        })
-        .catch(err => {
-            res.status(500).json(err)
-        })
-});
-
 // Signup request for a quote - don't need to be logged in
 router.route("/signup").post((req, res) => {
     const { firstName, lastName, email, phoneNumber, middleName } = req.body;
@@ -69,6 +58,29 @@ router.route("/signup").post((req, res) => {
 //* Protected Routes - user must be logged in
 //*
 //*******************************************************************************
+
+// Return list of all customers
+router.route("/")
+.get(authenticateUser, (req, res) => {
+    db.Customer.find({}, projectedContactFields).sort({ lastName: 1, firstName: 1 })
+        .then(custRes => {
+            res.json(custRes)
+        })
+        .catch(err => {
+            res.status(500).json(err)
+        })
+})
+// Create a new customer
+.post(authenticateUser, (req,res) => {
+    console.log(req.body.custObj);
+    db.Customer.create(req.body.custObj)
+    .then(custRes => {
+        res.json({"message": "Customer record successfully created", customer: custRes})
+    })
+    .catch(err => {
+        res.status(500).json(err)
+    })
+});
 
 // Get the list of current customer leads
 router.route("/leads/contact").get(authenticateUser, (req, res) => {

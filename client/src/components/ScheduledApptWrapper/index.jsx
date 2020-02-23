@@ -47,8 +47,8 @@ function ScheduledApptWrapper(props) {
     return (
         <section hidden={hidden} {...rest}>
             <Row><Col><h3 className="text-center">{headerText}</h3></Col></Row>
-            <Row className="mb-5">
-                <Col className="m-2">
+            <Row className="mb-3">
+                <Col className="m-2 table-responsive">
                     <table className="table">
                         <thead>
                             <tr>

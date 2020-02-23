@@ -1,7 +1,7 @@
 import React from 'react'
 import { Redirect, useLocation, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './style.css';
-import { OverlayTrigger, Tooltip, Nav, Navbar, Row, Col } from 'react-bootstrap';
+import { OverlayTrigger, Tooltip, Nav, Navbar, Col } from 'react-bootstrap';
 import NavlinkWrapper from '../../components/NavlinkWrapper';
 import LeadWrapper from '../../components/LeadWrapper';
 import ContactWrapper from '../../components/ContactWrapper';
