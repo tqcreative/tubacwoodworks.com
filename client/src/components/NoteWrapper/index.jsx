@@ -37,14 +37,14 @@ class NoteWrapper extends Component {
     getUsername() {
         axios.get('/auth/user')
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data) this.setState({
                     username: res.data.user.local.username,
                     userid: res.data.user._id
                 })
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
             })
     }
 
@@ -67,7 +67,7 @@ class NoteWrapper extends Component {
                 })
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
             })
     }
 
@@ -77,7 +77,7 @@ class NoteWrapper extends Component {
 
     addNote(event) {
         event.preventDefault();
-        console.log("Submit Note")
+        // console.log("Submit Note")
         axios.post(`/api/customers/id/${this.state.id}/note`, {
             content: this.state.newNoteText,
             createdBy: this.state.userid,
@@ -87,7 +87,7 @@ class NoteWrapper extends Component {
                 window.location.href = `/crm/notes/${this.state.id}`
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
             })
     }
 

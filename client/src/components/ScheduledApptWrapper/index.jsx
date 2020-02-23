@@ -34,7 +34,7 @@ function ScheduledApptWrapper(props) {
                 setHeaderText(`${headerText} for ${customer.firstName} ${customer.lastName}`)
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
             })
     }
 

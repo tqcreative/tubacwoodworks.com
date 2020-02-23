@@ -45,7 +45,7 @@ export default class Furniture extends Component {
 	
 
 	handleSignupResult(msg) {
-		console.log(msg);
+		// console.log(msg);
 		this.setState({ toastMsg: msg, toastShow: true })
 	}
 

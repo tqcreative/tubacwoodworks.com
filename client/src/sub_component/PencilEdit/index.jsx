@@ -9,7 +9,7 @@ export default function index(props) {
         // theTextObject={props.theTextObj} theUpdateButton={theUpdateButton}
         //this.props.theTextObject;
         // get a copy of the text object we are storing in state.
-        console.log(props.theTextObj);
+        // console.log(props.theTextObj);
 		 let theTextObj = props.theTextObject;
 		// add to the new object we just created.
 		theTextObj.quoteTop.h2 = h2Tag;
