@@ -92,6 +92,7 @@ export default class Home extends Component {
 		.put(`/cms/homepage/text/${this.state.textInfoFromDatabase._id}`, this.state.textInfoFromDatabase )
 		.then(data => {
 			// console.log(data);
+			alert('Uploaded Text to Database.');
 		})
 	}
 

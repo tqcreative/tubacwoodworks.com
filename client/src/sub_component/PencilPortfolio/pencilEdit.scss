@@ -2,13 +2,16 @@
 
 .pencil_edit_root {
     position: absolute;
-    top: 25%;
+    top: 0;
     left: 0;
     z-index: 9999;
     padding: .2em;
     font-size: 2em;
     background-color: rgba($dark, .7);
     border-radius: 0 8px 8px 0;
+    max-height: 2em;
+    max-width: 2em;
+    background-color: rgba(0,0,0,0) !important;
 
     ion-icon {
         color: #fff;
