@@ -54,6 +54,33 @@ router.route('/')
     });
 
 
+// delete user from database if user sending request is an admin
+router.route('/:id')
+    .delete(authenticateUser, (req, res) => {
+        const {id} = req.params;
+        const {role} = req.user
+
+        if(role !== "admin")
+            return res.status(400).json({
+                message: "Insufficient privileges do delete user",
+                userId: id
+            })
+
+        db.User.findByIdAndDelete(id)
+        .then(userRes => {
+            console.log(userRes);
+            res.json({
+                message: "User successfully deleted",
+                userId: id
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
+    });
+
+
 // update password for the currently logged in user
 router.route('/:id/password')
     .put(authenticateUser, (req, res) => {
