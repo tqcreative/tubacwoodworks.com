@@ -18,11 +18,11 @@ router.route("/:id")
             .findOneAndUpdate({ name: tableName }, {$push: req.body})
             .then(
                 lastCall => {
-                    console.log("worked?")
+                    // console.log("worked?")
                 }
             )
             .catch( err => {
-                res.send('rly?')
+                res.send('error')
             })
 
 
@@ -40,7 +40,7 @@ router.route("/:id")
 
         })
         .catch(err => {
-                res.send('do you even code bah?')
+                res.send('error')
             })
         // const appointment = req.body;
 

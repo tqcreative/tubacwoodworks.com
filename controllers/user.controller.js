@@ -10,11 +10,11 @@ router.route('/')
     .get(authenticateUser, (req, res) => {
         db.User.find({}, { "local.password": 0 }).sort({firstName:1,lastName:1})
             .then(dbRes => {
-                console.log(dbRes);
+                // console.log(dbRes);
                 res.json(dbRes);
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
                 res.status(500).json(err);
             })
     });
@@ -25,7 +25,7 @@ router.route('/:id/appts')
     .get(authenticateUser, (req, res) => {
         db.Appointment.find({ assignedTo: req.params.id }).populate("customer", ["_id", "firstName", "lastName", "email", "phoneNumber"]).sort({date: 1})
         .then(dbRes => {
-            console.log(dbRes);
+            // console.log(dbRes);
             res.json(dbRes);
         })
     });
@@ -48,7 +48,7 @@ router.route('/')
                 })
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
                 res.status(500).json(err)
             })
     });
@@ -68,7 +68,7 @@ router.route('/:id')
 
         db.User.findByIdAndDelete(id)
         .then(userRes => {
-            console.log(userRes);
+            // console.log(userRes);
             res.json({
                 message: "User successfully deleted",
                 userId: id
@@ -87,8 +87,8 @@ router.route('/:id/password')
         const id = req.params.id;
         const { currentPassword, newPassword } = req.body;
 
-        console.log(req.body);
-        console.log(req.user);
+        // console.log(req.body);
+        // console.log(req.user);
         db.User.findById(id).then(userRes=>{
             if(!userRes) return res.status(404).json({message: "User not found.  Can't change password."});
 
