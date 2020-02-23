@@ -88,7 +88,7 @@ class UploadPhoto extends Component {
         // This call is sending the name of the file before it sends the file
         if (thisFilesName != null) {
             // console.log(this.state.selectedFile);
-            console.log("file is moving")
+            // console.log("file is moving")
             axios.post('/cms/GD8PQX3UV18999AARONWITHANEY/filename', {
                 body: this.state.backgroundImageName
             })
@@ -101,8 +101,8 @@ class UploadPhoto extends Component {
                 // This returns the result
                 .then(res => { // then print response status
                     // background picture changed.
-                    console.log('background picture has been changed.');
-                    console.log(res);
+                    // console.log('background picture has been changed.');
+                    // console.log(res);
                     // this.props.updateFunction ?
                     // this.props.updateFunction :
                     // null;

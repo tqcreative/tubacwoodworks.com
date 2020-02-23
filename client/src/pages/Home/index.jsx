@@ -71,7 +71,7 @@ export default class Home extends Component {
 	
 	// file upload.
 	fileSelectedHandler(event) {
-		console.log(event.target.files[0]);
+		// console.log(event.target.files[0]);
 		this.setState({
 			selectedFile: event.target.files[0]
 		});
@@ -91,7 +91,7 @@ export default class Home extends Component {
 		axios
 		.put(`/cms/homepage/text/${this.state.textInfoFromDatabase._id}`, this.state.textInfoFromDatabase )
 		.then(data => {
-			console.log(data);
+			// console.log(data);
 		})
 	}
 

@@ -37,12 +37,12 @@ export default class SignupForm extends Component {
 			.then(response => {
 				console.log(response)
 				if (!response.data.errmsg) {
-					console.log('youre good')
+					// console.log('youre good')
 					this.setState({
 						redirectTo: '/login'
 					})
 				} else {
-					console.log('duplicate')
+					// console.log('duplicate')
 				}
 			})
 	}

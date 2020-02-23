@@ -28,7 +28,7 @@ export default class Commercial extends Component {
 	}
 
 	handleSignupResult(msg) {
-		console.log(msg);
+		// console.log(msg);
 		this.setState({ toastMsg: msg, toastShow: true })
 	}
 

@@ -9,7 +9,7 @@ import EmployeePicker from '../EmployeePicker';
 import './style.css';
 
 function SchedulePicker(props) {
-    console.log("SchedulePicker loaded");
+    // console.log("SchedulePicker loaded");
     const {id, user, ...rest} = props;
     const [date, setDate] = useState(new Date());
     const [detail, setDetail] = useState("");

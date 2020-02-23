@@ -21,7 +21,7 @@ export default class SimpleSlider extends React.Component {
 
 
 componentWillMount() {
-            console.log("Component has mounted");
+            // console.log("Component has mounted");
             axios
                 .get("/cms/kitchenbathvanity")
                 .then(collectData => {
@@ -33,7 +33,7 @@ componentWillMount() {
                 })
         };
         render(props) {
-            console.log(`The image array:", ${this.state.arrayOfImages}`)
+            // console.log(`The image array:", ${this.state.arrayOfImages}`)
           return (
               <div className="slider_root">   
             <CarouselProvider

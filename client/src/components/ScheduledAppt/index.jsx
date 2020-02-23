@@ -11,11 +11,11 @@ function ScheduledAppt(props) {
     function delAppt(custId, apptId) {
         axios.delete(`/api/customers/id/${custId}/appointment/${apptId}`)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 props.handleDeletedAppt(apptId); //kick back the deleted appt for parent to handle
             })
             .catch(err=>{
-                console.log(err)
+                // console.log(err)
             })
     }
 

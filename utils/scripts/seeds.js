@@ -22,31 +22,31 @@ db.Portfolio
 .remove({})
 .then(() => db.Portfolio.collection.insertMany(seed_portfolio))
 .then(data => {
-  console.log(data.result.n + " portfolio content seeded.");
+  // console.log(data.result.n + " portfolio content seeded.");
 
   db.Partners
   .remove({})
   .then(() => db.Partners.collection.insertMany(seed_partners))
   .then(data => {
-    console.log(data.result.n + " partners seeded.");
+    // console.log(data.result.n + " partners seeded.");
 
     db.Images
     .remove({})
     .then(() => db.Images.collection.insertMany(seed_imgs))
     .then(data => {
-      console.log(data.result.n + " images seeded.")
+      // console.log(data.result.n + " images seeded.")
       
       db.Homepage
       .remove({})
       .then(() => db.Homepage.collection.insertMany(seed_homepage))
       .then(data => {
-        console.log(data.result.n + " home page items seeded.")
+        // console.log(data.result.n + " home page items seeded.")
         process.exit(0);
       });
     });
   });
 })
 .catch(err => {
-  console.error(err);
+  // console.error(err);
   process.exit(1);
 });

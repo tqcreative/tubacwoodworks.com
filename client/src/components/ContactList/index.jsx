@@ -34,22 +34,22 @@ class ContactList extends Component {
     }
 
     handleDeleteClick(id){
-        console.log(`Deleting contact with id: ${id}`);
+        // console.log(`Deleting contact with id: ${id}`);
 
         axios.delete(`/api/customers/id/${id}`)
         .then(res=>{
-            console.log(res)
-            console.log(`Successfully deleted customer with id: ${res.data.id}`)
+            // console.log(res)
+            // console.log(`Successfully deleted customer with id: ${res.data.id}`)
             const tempArray = [...this.state.contacts];
             const index = tempArray.findIndex(element=>element._id === id);
-            console.log(tempArray);
-            console.log(`Index in array: ${index}`)
+            // console.log(tempArray);
+            // console.log(`Index in array: ${index}`)
             tempArray.splice(index,1) //removes contact from contact array
-            console.log(tempArray);
+            // console.log(tempArray);
             this.setState({contacts: tempArray});        
         })
         .catch(err=>{
-            console.log(err)
+            // console.log(err)
         })
     }
 
@@ -65,7 +65,7 @@ class ContactList extends Component {
             this.setState({ contacts: res.data })
         })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
             })
     }
 
