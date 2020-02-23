@@ -71,6 +71,14 @@
 
                 .footer_section_1 {
                     display: block;
+
+                    ul {
+                        li {
+                            span {
+                                display: inline-block;
+                            }
+                        }
+                    }
                 }
                 .footer_section_2 {
                     display: block;

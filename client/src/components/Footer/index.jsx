@@ -13,8 +13,8 @@ function Footer(props) {
                         <div className="footer_section_1">
                             <h3>Contact Us</h3>
                             <ul>
-                                <li><ion-icon name="compass"></ion-icon> 25700 S Via Montana Vista, Green Valley, AZ 85622</li>
-                                <li><a href="tel:5206250050"><ion-icon name="ios-call"></ion-icon> (520)625-0050</a></li>
+                                <li><ion-icon name="compass"></ion-icon> 25700 S Via Montana Vista <span>Green Valley, AZ 85622</span></li>
+                                <li><a href="tel:5206250050"><ion-icon name="ios-call"></ion-icon>(520)625-0050</a></li>
                                 <li><a href="mailto:info@tubacwoodworks.com"><ion-icon name="mail"></ion-icon> info@tubacwoodworks.com</a></li>
                             </ul>
                         </div>
