@@ -21,32 +21,32 @@ export default function LayoutBasic(props) {
 
     // check for title first
     props.h2Tag ?
-    titleProp = `<h2>${props.h2Prop}</h2>` :
+    titleProp = props.h2Tag :
     titleProp = ``;
 
     // check for first paragraph 
     props.pTag  ?
-    paragraphProp = `<p>${props.pTag}</p>` :
+    paragraphProp = props.pTag :
     paragraphProp = ``;
 
     // check for first paragraph 
     props.pTag2  ?
-    paragraphProp2 = `<p>${props.pTag2}</p>` :
+    paragraphProp2 = props.pTag2 :
     paragraphProp2 = ``;
 
     // check for first paragraph 
     props.pTag3  ?
-    paragraphProp3 = `<p>${props.pTag3}</p>` :
+    paragraphProp3 = props.pTag3 :
     paragraphProp3 = ``;
 
     // return the final product
     return (
         <div className="layout_basic_root">
             <div>
-                {titleProp}
-                {paragraphProp}
-                {paragraphProp2}
-                {paragraphProp3}
+                <h2>{titleProp}</h2>
+                <p>{paragraphProp}</p>
+                <p>{paragraphProp2}</p>
+                <p>{paragraphProp3}</p>
             </div>
         </div>
     )

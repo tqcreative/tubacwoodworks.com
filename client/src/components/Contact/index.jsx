@@ -41,7 +41,7 @@ class Contact extends Component {
                 this.setState({ contact: { ...this.state.contact, ...rest } })
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
             })
     }
 

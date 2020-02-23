@@ -39,16 +39,16 @@ router.route("/signup").post((req, res) => {
             phoneNumber: phoneNumber
         })
         .then(dbModel => {
-            console.log(dbModel);
+            // console.log(dbModel);
             res.json(dbModel);
             EmailAPI.sendSignupEmail(email, firstName, lastName).then(info => {
-                console.log(info);
+                // console.log(info);
             }).catch(err => {
-                console.log(err);
+                // console.log(err);
             });
         })
         .catch(err => {
-            console.log(err);
+            // console.log(err);
             res.status(420).json(err)
         });
 });
@@ -72,7 +72,7 @@ router.route("/")
 })
 // Create a new customer
 .post(authenticateUser, (req,res) => {
-    console.log(req.body.custObj);
+    // console.log(req.body.custObj);
     db.Customer.create(req.body.custObj)
     .then(custRes => {
         res.json({"message": "Customer record successfully created", customer: custRes})
@@ -141,7 +141,7 @@ router.route("/leads/summary/last7").get(authenticateUser, (req, res) => {
 // Update an existing customer's data
 router.route("/id/:id")
     .put(authenticateUser, (req, res) => {
-        console.log(req.body)
+        // console.log(req.body)
         db.Customer.findByIdAndUpdate(req.params.id, { $set: req.body.custObj })
             .then(dbRes => {
                 res.json(dbRes);
@@ -191,7 +191,7 @@ router.route("/id/:id")
     // Delete all customer data from database
     .delete(authenticateUser, (req, res) => {
         const { id } = req.params;
-        console.log(id);
+        // console.log(id);
 
         // First delete the customer record
         db.Customer.findByIdAndRemove(id)
@@ -213,20 +213,20 @@ router.route("/id/:id")
                                 })
                             })
                             .catch(err => {
-                                console.log("Error deleting notes for customer")
-                                console.log(err)
+                                // console.log("Error deleting notes for customer")
+                                // console.log(err)
                                 res.status(420).json({ message: "Error while trying to delete records for customer.  Customer info was only partially deleted.  Recommend trying to delete again.", collection: "Note", status: 420 })
                             })
                     })
                     .catch(err => {
-                        console.log("Error deleting appointments for customer")
-                        console.log(err)
+                        // console.log("Error deleting appointments for customer")
+                        // console.log(err)
                         res.status(420).json({ message: "Error while trying to delete records for customer.  Customer info was only partially deleted.  Recommend trying to delete again.", collection: "Appointment", status: 420 })
                     })
             })
             .catch(err => {
-                console.log("Error deleting appointments for customer")
-                console.log(err)
+                // console.log("Error deleting appointments for customer")
+                // console.log(err)
                 res.status(420).json({ message: "Error while trying to delete records for customer.  Customer info was only partially deleted.  Recommend trying to delete again.", collection: "Customer", status: 420 })
             })
     })
@@ -236,20 +236,20 @@ router.route("/id/:id")
 // Add a note for a customer
 router.route("/id/:id/note")
     .post(authenticateUser, (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);
         const note = req.body;
         const id = req.params.id;
 
         note["customer"] = id;
 
-        console.log(note);
+        // console.log(note);
 
         db.Note.create(note)
             .then(noteRes => {
-                console.log(noteRes);
+                // console.log(noteRes);
                 db.Customer.findByIdAndUpdate(req.params.id, { $push: { notes: noteRes._id } })
                     .then(custRes => {
-                        console.log(custRes);
+                        // console.log(custRes);
                         res.json(noteRes);
                     })
                     .catch(err => {
@@ -266,15 +266,15 @@ router.route("/id/:id/note")
 // Add (post) an appointment for customer
 router.route("/id/:id/appointment")
     .post(authenticateUser, (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);
         const appointment = req.body;
 
         db.Appointment.create(appointment)
             .then(apptRes => {
-                console.log(apptRes);
+                // console.log(apptRes);
                 db.Customer.findByIdAndUpdate(req.params.id, { $push: { appointments: apptRes._id } })
                     .then(custRes => {
-                        console.log(custRes);
+                        // console.log(custRes);
                         res.json(apptRes);
                     })
                     .catch(err => {
@@ -296,10 +296,10 @@ router.route("/id/:id/appointment/:appt")
 
         db.Appointment.findByIdAndDelete(appt)
             .then(apptRes => {
-                console.log(apptRes);
+                // console.log(apptRes);
                 db.Customer.findByIdAndUpdate(id, { $pull: { appointments: appt } })
                     .then(custRes => {
-                        console.log(custRes)
+                        // console.log(custRes)
                         res.json({
                             message: "Appointment successfully deleted",
                             customerId: id,
@@ -307,7 +307,7 @@ router.route("/id/:id/appointment/:appt")
                         })
                     })
                     .catch(err => {
-                        console.log(err)
+                        // console.log(err)
                         res.status(420).json({
                             message: "Failed to remove appointment from customer entry",
                             customerId: id,
@@ -316,7 +316,7 @@ router.route("/id/:id/appointment/:appt")
                     })
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
                 res.status(420).json({
                     message: "Failed to remove appointment entry",
                     customerId: id,
@@ -336,7 +336,7 @@ router.route('/search')
 
         db.Customer.find({ firstName: { $regex: queryString, $options: 'i' } }, { firstName: 1, lastName: 1 }).limit(25).sort({ firstName: 1 })
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.length === 0) return res.status(404).json({ message: "No results found for query string.", queryString: queryString })
                 res.json(data);
             })

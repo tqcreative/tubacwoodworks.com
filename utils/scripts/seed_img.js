@@ -65,7 +65,7 @@ let seed_imgs = [
             "furniture_8.jpg",
             "furniture_1.jpg",
             "furniture_10.jpg",
-        ] ,
+        ],
         name: "furnitureTable"
     },
     {

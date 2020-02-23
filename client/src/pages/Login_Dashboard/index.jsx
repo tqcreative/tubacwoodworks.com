@@ -11,7 +11,7 @@ export default class Login_Dashboard extends Component {
 	}
 
 	componentDidMount() {
-		console.log("Login_Dashboard Component Mounted")
+		// console.log("Login_Dashboard Component Mounted")
 	}
 
 	render() {

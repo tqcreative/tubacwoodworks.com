@@ -42,8 +42,8 @@ class AddUser extends Component {
     }
 
     handleSubmit(values, actions) {
-        console.log(values);
-        console.log(actions);
+        // console.log(values);
+        // console.log(actions);
         const { firstName, lastName, username, password, role } = values;
         const { setSubmitting } = actions;
 

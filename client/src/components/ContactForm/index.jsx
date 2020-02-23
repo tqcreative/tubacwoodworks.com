@@ -59,7 +59,7 @@ function ContactForm(props) {
                 toggleEdit();
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
             })
         }
         else{
@@ -70,7 +70,7 @@ function ContactForm(props) {
                 window.location.href = `/crm/customer/${_id}`;
             })
             .catch(err =>{
-                console.log(err)
+                // console.log(err)
             })
         }
     }

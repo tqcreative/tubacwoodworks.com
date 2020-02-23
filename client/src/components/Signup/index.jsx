@@ -63,7 +63,7 @@ class Signup extends Component {
                 this.props.submitResult(["Thank you for signing up.  You will receive a confirmation email shortly."]);
             })
             .catch(err => {
-                console.log(err)
+                // console.log(err)
                 let obj = [];
                 // let obj = err.response.data.errors;
                 let errors = ["Sorry, your request could not be completed due to the following issues:"];

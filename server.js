@@ -49,7 +49,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/projectthree",
 		useNewUrlParser: true,
 		useUnifiedTopology: true
 	}).catch(err => {
-		console.log(err);
+		// console.log(err);
 	})
 
 app.use(
@@ -76,7 +76,7 @@ app.use(passport.session()) // will call the deserializeUser
 
 
 if (process.env.NODE_ENV === "production") {
-	console.log("Prod Mode Enabled")
+	// console.log("Prod Mode Enabled")
 	app.use(express.static("client/build"));
 }
 
@@ -123,8 +123,8 @@ app.get("*", (req, res) => {
 
 
 app.use(function (err, req, res, next) {
-	console.log('====== ERROR =======')
-	console.error(err.stack)
+	// console.log('====== ERROR =======')
+	// console.error(err.stack)
 	res.status(500)
 })
 
