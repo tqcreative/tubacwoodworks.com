@@ -9,23 +9,23 @@ let seed_homepage = [
                 name: "Decore-Ative Specialties",
                 description: "Fine Crafted Cabinet Doors",
                 url: "https://www.decore.com",
-                picture: "/cms/images/partner_2.jpg"
+                picture: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/partner_1.jpg"
             },
             partner_2: {
                 name: "Decore-Ative Specialties",
                 description: "Countertops and Wooden Doors",
                 url: "https://www.decore.com",
-                picture: "/cms/images/partner_3.jpg"
+                picture: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/partner_2.jpg"
             },
             partner_3: {
                 name: "Decore-Ative Specialties",
                 description: "Custom wood doors",
                 url: "https://www.decore.com",
-                picture: "/cms/images/partner_4.jpg"
+                picture: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/partner_3.jpg"
             },
             partner_text: {
                 text: "take a look at our partners",
-                backgroundImage: "/cms/images/partner_0.jpg"
+                backgroundImage: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/partner_0.jpg"
             }
         },
         hero: { logo: "Tubac Woodworks LLC", h2: `Tubac Woodworks Inc, building custom
