@@ -11,6 +11,7 @@ const homepageModel = new Schema({
     quoteBottom: { type: Object, required: true},
     checkerBox: { type: Object, required: true },
     partners: { type: Object, required: true },
+    portfolio: { type: Object, required: true},
     hero: { type: Object, required: true }
 });
 
