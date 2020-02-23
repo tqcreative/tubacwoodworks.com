@@ -1,13 +1,23 @@
 .signupWrapper {
+  position: relative;
   width: 100%;
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
   background: #2d3436;
   position: relative;
-  z-index: 2; }
+  z-index: 2;
+  min-height: 30vh; }
   .signupWrapper .background-img:before {
+    position: absolute;
+    top: 0;
+    left: 0;
     content: ' ';
     display: block;
     position: absolute;
@@ -17,9 +27,9 @@
     height: 100%;
     z-index: 1;
     opacity: 0.4;
-    background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/benjamin-moore-iron-mountain-1566233916.jpg?crop=1.00xw:0.752xh;0.00160xw,0.219xh&resize=980:*");
+    background-image: url("./images/signup_kitchen_background.jpg");
     background-repeat: no-repeat;
-    background-position: 50% 0;
+    background-position: center center;
     -ms-background-size: cover;
     -o-background-size: cover;
     -moz-background-size: cover;
@@ -37,7 +47,7 @@
     -ms-flex-pack: center;
     justify-content: center;
     color: #fff;
-    font-family: "comic sans";
+    font-family: 'Bebas Neue', cursive;
     padding-top: 5%;
     padding-bottom: 2%;
     padding-left: 20px;
@@ -45,6 +55,8 @@
     z-index: 99;
     position: relative;
     text-align: center; }
+    .signupWrapper .banner h1 {
+      font-size: 2.4rem; }
   .signupWrapper form {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -55,11 +67,17 @@
     background-color: transparent;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    z-index: 99; }
-    .signupWrapper form input {
+    z-index: 99;
+    max-width: 1200px;
+    margin: auto; }
+    .signupWrapper form .form-group {
       display: -webkit-inline-box;
       display: -ms-inline-flexbox;
       display: inline-flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
       margin: 8px;
       -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -70,10 +88,11 @@
       flex-basis: 100%; }
     .signupWrapper form .btn {
       display: inline-block;
-      width: 100%;
       -webkit-box-flex: 1;
       -ms-flex-positive: 1;
       flex-grow: 1;
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
       margin: 8px;
       min-width: 120px;
       -webkit-box-pack: center;
@@ -81,22 +100,40 @@
       justify-content: center;
       background-color: #c23616;
       border-color: #2d3436; }
+    .signupWrapper form .invalid-feedback {
+      color: white;
+      padding-left: 14px; }
 
 @media screen and (min-width: 768px) {
-  .signupWrapper input {
-    -ms-flex-preferred-size: 33% !important;
-    flex-basis: 33% !important; } }
+  .signupWrapper .banner h1 {
+    font-size: 3rem; }
+  .signupWrapper form .form-group {
+    -ms-flex-preferred-size: 45% !important;
+    flex-basis: 45% !important; } }
 
 @media screen and (min-width: 992px) {
   .signupWrapper form {
     -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap; }
-    .signupWrapper form :first-child {
-      margin-left: 10%; }
-    .signupWrapper form :last-child {
-      margin-right: 10%; }
-  .signupWrapper input {
+    flex-wrap: nowrap;
+    padding-top: 1%;
+    padding-bottom: 3%; }
+  .signupWrapper .banner {
+    padding-top: 3%;
+    padding-bottom: 1%; }
+  .signupWrapper .form-group {
     -ms-flex-preferred-size: 20% !important;
     flex-basis: 20% !important; }
   .signupWrapper .btn {
-    max-width: 120px; } }
+    max-width: 120px;
+    max-height: 38px; } }
+
+@media (max-width: 768px) {
+  .signupWrapper form {
+    max-width: 80%; }
+    .signupWrapper form button {
+      width: 50%;
+      max-width: 50%;
+      margin: 1em auto !important; } }
+
+#middle_name {
+  display: none !important; }

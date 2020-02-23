@@ -3,14 +3,17 @@ const Schema = mongoose.Schema
 const bcrypt = require('bcryptjs')
 
 const userSchema = new Schema({
-	firstName: { type: String, unique: false },
-	lastName: { type: String, unique: false },
+	firstName: { type: String, required: true },
+	lastName: { type: String, required: true },
 	local: {
-		username: { type: String, unique: false, required: false },
-		password: { type: String, unique: false, required: false }
+		username: { type: String, unique: true, required: true },
+		password: { type: String, unique: false, required: true }
 	},
-	google: {
-		googleId: { type: String, required: false }
+	role: {
+		type: String,
+		required: true,
+		default: "user",
+		enum: ["user","admin"]
 	},
 	photos: []
 })

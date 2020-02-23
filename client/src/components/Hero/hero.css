@@ -1,0 +1,92 @@
+.hero_root {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .hero_root span {
+    position: absolute;
+    bottom: 0;
+    width: 256px;
+    height: 128px; }
+  .hero_root div {
+    background-color: rgba(192, 57, 43, 0.7);
+    color: #fff;
+    width: 40%;
+    max-width: 768px;
+    min-width: 356px;
+    min-height: 256px; }
+    .hero_root div div {
+      background: none;
+      width: 100%;
+      height: 50%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      overflow: hidden; }
+      .hero_root div div img {
+        width: 100%;
+        padding: 5%;
+        margin: 5%; }
+    .hero_root div p {
+      display: block;
+      padding: 1em 2em;
+      font-size: 1.2em;
+      line-height: 1.3em;
+      padding: 0 1em 1em 1em;
+      font-weight: 200;
+      text-shadow: 1px 1px 5px #2d3436; }
+    .hero_root div .pencil_edit_root {
+      position: absolute;
+      top: -0;
+      left: 0;
+      z-index: 9999;
+      padding: .2em;
+      font-size: 2em;
+      background-color: rgba(45, 52, 54, 0.7);
+      border-radius: 0 8px 8px 0; }
+      .hero_root div .pencil_edit_root ion-icon {
+        color: #fff; }
+      .hero_root div .pencil_edit_root:hover ion-icon {
+        -webkit-transform: translateY(2px);
+        -ms-transform: translateY(2px);
+        transform: translateY(2px); }
+      .hero_root div .pencil_edit_root:active ion-icon {
+        -webkit-transform: translateY(5px);
+        -ms-transform: translateY(5px);
+        transform: translateY(5px); }
+  .hero_root .hero_background {
+    position: absolute;
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    max-height: 100%;
+    left: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 0px;
+    z-index: 0; }
+
+@media (max-width: 768px) {
+  .hero_root div {
+    background-color: rgba(192, 57, 43, 0.7);
+    color: #fff;
+    width: 100%;
+    max-width: auto;
+    min-width: auto;
+    min-height: 256px; } }

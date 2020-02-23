@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-// import googleButton from './google_signin_buttons/web/1x/btn_google_signin_dark_disabled_web.png'
-import googleButton from './google_signin_buttons/web/1x/btn_google_signin_dark_normal_web.png'
 import './login.css';
 
 export default class LoginForm extends Component {
@@ -12,7 +10,6 @@ export default class LoginForm extends Component {
 			password: '',
 			redirectTo: null
 		}
-		// this.googleSignin = this.googleSignin.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 	}
@@ -25,10 +22,10 @@ export default class LoginForm extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault()
-		console.log('handleSubmit')
+		//console.log('handleSubmit')
 		this.props._login(this.state.username, this.state.password)
 		this.setState({
-			redirectTo: '/'
+			redirectTo: '/crm'
 		})
 	}
 
@@ -37,29 +34,29 @@ export default class LoginForm extends Component {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		} else {
 			return (
-				<div className="LoginForm">
-					<h1>Login form</h1>
+				<div className="LoginForm login_root">
 					<form>
-						<label htmlFor="username">Username: </label>
-						<input
-							type="text"
-							name="username"
-							value={this.state.username}
-							onChange={this.handleChange}
-						/>
-						<label htmlFor="password">Password: </label>
-						<input
-							type="password"
-							name="password"
-							value={this.state.password}
-							onChange={this.handleChange}
-						/>
+						<div>
+							<label htmlFor="username">Username: </label>
+							<input
+								type="text"
+								name="username"
+								value={this.state.username}
+								onChange={this.handleChange}
+							/>
+						</div>
+						<div>
+							<label htmlFor="password">Password: </label>
+							<input
+								type="password"
+								name="password"
+								value={this.state.password}
+								onChange={this.handleChange}
+							/>
+						</div>
 						<button onClick={this.handleSubmit}>Login</button>
+						<a href="/">forgot my password</a>
 					</form>
-					<a href="/auth/google">
-						{/* <GoogleButton /> */}
-						<img src={googleButton} alt="sign into Google Button" />
-					</a>
 				</div>
 			)
 		}

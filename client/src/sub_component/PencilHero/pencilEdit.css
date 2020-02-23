@@ -1,0 +1,19 @@
+.pencil_edit_root {
+  position: absolute;
+  top: -0;
+  left: 0;
+  z-index: 9999;
+  padding: .2em;
+  font-size: 2em;
+  background-color: rgba(45, 52, 54, 0.7);
+  border-radius: 0 8px 8px 0; }
+  .pencil_edit_root ion-icon {
+    color: #fff; }
+  .pencil_edit_root:hover ion-icon {
+    -webkit-transform: translateY(2px);
+    -ms-transform: translateY(2px);
+    transform: translateY(2px); }
+  .pencil_edit_root:active ion-icon {
+    -webkit-transform: translateY(5px);
+    -ms-transform: translateY(5px);
+    transform: translateY(5px); }

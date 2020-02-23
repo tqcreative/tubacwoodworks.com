@@ -1,0 +1,55 @@
+@import '../../_scss/vars';
+
+.matthews_bootstrap_button_wrap {
+    width: 100%;
+    height: auto;
+    padding: 0 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 16px;
+
+    .matthews_bootstrap_button {
+        border: none;
+        background-color: rgba($light, .3);
+        color: $main2;
+        font-size: 1.3em;
+        line-height: 1.4em;
+        font-weight: 800;
+        padding: .5em 1em;
+        border: 4px solid $main2;
+        border-radius: 8px;
+        margin: 0 .5em 1em .5em;
+        width: 256px;
+
+
+        &:hover{
+            transform: translateY(2px);
+            background-color: rgba($light, 1);
+        }
+
+        &:active {
+            transform: translateY(5px);
+        }
+    }
+}
+
+
+
+@media (max-width: #{$screen-sm}) {
+    
+.image-div {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    .imagecard {
+        margin: 3em auto !important;
+    }
+}
+}
+@media (min-width: #{$screen-md}) and (max-width: #{$screen-lg}) {}
+@media (max-width: #{$screen-lg}) {}

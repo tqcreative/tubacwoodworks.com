@@ -1,0 +1,129 @@
+@import "../../_scss/_vars";
+
+.quote_root {
+    position: relative;
+    width: 100%;
+    min-height: 40vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+
+    .background-img {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        left: 0;
+        bottom: 5%;
+        background-position: center center;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    .quote {
+        position: relative;
+        width: 35%;
+        min-width: 356px; 
+        height: 20vh;
+        min-height: 256px;
+        background-color: rgba($main, .8);
+        padding: 1em;
+        color: #fff;
+        margin: 1em 0 1em 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+            
+            ion-icon {
+                position: absolute;
+                left: 16px;
+                top: 16px;
+                color: rgba($light, .6);
+                font-size: 4em;
+            }
+
+            p {
+                margin: 5% 0 0 10%;
+                font-size: 1.5em;
+                font-weight: 200;
+
+                span {
+                    font-size: .8em;
+                    text-shadow: none;
+                    position: absolute;
+                    bottom: 8px;
+                    right: 8px;
+                }
+            }
+    }
+}
+
+@media (max-width: #{$screen-sm}) {
+    .quote_root {
+        height: 50vh;
+
+        .background-img {
+            background-attachment: inherit;
+        }
+
+        .quote {
+            width: 80%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 0;
+
+            p {
+                line-height: 1.2em;
+                font-size: 1.3em;
+                font-weight: 2em;
+            }
+        }
+    }
+}
+@media (min-width: #{$screen-md}) and (max-width: #{$screen-lg}) {
+
+    .quote_root {
+        height: 50vh;
+
+        .background-img {
+            background-attachment: inherit;
+        }
+
+        .quote {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 35vh;
+        }
+    }
+ 
+}
+@media (min-width: #{$screen-lg}) {
+}
+
+.cms_gear {
+    font-size: 2em;
+    width: 1.5em;
+    height: 1.5em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    background-color: rgba($dark, .8);
+    border-radius: 0 0 0 5px;
+    z-index: 64;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:active ion-icon {
+        transform: translateY(2px);
+    }
+
+    &:hover {
+        cursor: pointer;
+        user-select: none;
+    }
+}

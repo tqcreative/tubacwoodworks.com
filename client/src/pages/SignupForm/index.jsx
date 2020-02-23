@@ -10,6 +10,9 @@ export default class SignupForm extends Component {
 			username: '',
 			password: '',
 			confirmPassword: '',
+			firstName: '',
+			lastName: '',
+			role: 'user',
 			redirectTo: null
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -26,7 +29,10 @@ export default class SignupForm extends Component {
 		axios
 			.post('/auth/signup', {
 				username: this.state.username,
-				password: this.state.password
+				password: this.state.password,
+				lastName: this.state.lastName,
+				firstName: this.state.firstName,
+				role: this.state.role
 			})
 			.then(response => {
 				console.log(response)
@@ -46,7 +52,6 @@ export default class SignupForm extends Component {
 		}
 		return (
 			<div className="SignupForm">
-				<h1>Signup form</h1>
 				<label htmlFor="username">Username: </label>
 				<input
 					type="text"
@@ -68,7 +73,32 @@ export default class SignupForm extends Component {
 					value={this.state.confirmPassword}
 					onChange={this.handleChange}
 				/>
-				<button onClick={this.handleSubmit}>Sign up</button>
+				<label htmlFor="firstName">First Name: </label>
+				<input
+					type="text"
+					name="firstName"
+					value={this.state.firstName}
+					onChange={this.handleChange}
+				/>
+				<label htmlFor="lastName">Last Name: </label>
+				<input
+					type="text"
+					name="lastName"
+					value={this.state.lastName}
+					onChange={this.handleChange}
+				/>
+				<label htmlFor="role">Role: </label>
+				<select
+					name="role"
+					value={this.state.role}
+					onChange={this.handleChange}
+				>
+					<option>user</option>
+					<option>admin</option>
+				</select>
+
+
+				<button onClick={this.handleSubmit}>Create Account</button>
 			</div>
 		)
 	}

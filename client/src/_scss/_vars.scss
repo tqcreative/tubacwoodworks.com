@@ -1,11 +1,26 @@
-$main: #2ecc71;
+$main_dark: #73331a;
 $highlight: #f1f1f1;
 $text: #fff;
 $dark: #2d3436;
+$dark_highlight: #535c68;
 $light: #f1f1f1;
+
+$main: #c0392b;
+$main2: #a6988d;
+$main3: #d9b291;
+$main4: #4a5559;
+$main5: #c0392b;
 
 $success: #2ecc71;
 $fail: #e74c3c;
 $blue: #3498db;
 
 $font: "comic sans";
+
+$screen-sm: 768px;
+$screen-md: 769px;
+$screen-lg: 1025px;
+
+@media (max-width: #{$screen-sm}) {}
+@media (min-width: #{$screen-md}) and (max-width: #{$screen-lg}) {}
+@media (max-width: #{$screen-lg}) {}

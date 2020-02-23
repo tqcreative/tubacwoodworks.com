@@ -24,6 +24,7 @@ router.get('/user',
     (req, res, next) => {
         if (req.user) {
             return res.json({ user: req.user })
+            console.log(req.body)
         } else {
             return res.json({ user: null })
         }
@@ -58,24 +59,27 @@ router.post('/logout',
     })
 
 // Signup
-router.post('/signup', (req, res) => {
-    const { username, password } = req.body
-    // TODO Add Validation
-    User.findOne({ 'local.username': username }, (err, userMatch) => {
-        if (userMatch) {
-            return res.json({
-                error: `Sorry, already a user with the username: ${username}`
-            })
-        }
-        const newUser = new User({
-            'local.username': username,
-            'local.password': password
-        })
-        newUser.save((err, savedUser) => {
-            if (err) return res.json(err)
-            return res.json(savedUser)
-        })
-    })
-})
+// router.post('/signup', (req, res) => {
+//     const { username, password, firstName, lastName, role } = req.body
+//     // TODO Add Validation
+//     User.findOne({ 'local.username': username }, (err, userMatch) => {
+//         if (userMatch) {
+//             return res.json({
+//                 error: `Sorry, already a user with the username: ${username}`
+//             })
+//         }
+//         const newUser = new User({
+//             firstName : firstName,
+//             lastName: lastName,
+//             role: role,
+//             'local.username': username,
+//             'local.password': password
+//         })
+//         newUser.save((err, savedUser) => {
+//             if (err) return res.json(err)
+//             return res.json(savedUser)
+//         })
+//     })
+// })
 
 module.exports = router

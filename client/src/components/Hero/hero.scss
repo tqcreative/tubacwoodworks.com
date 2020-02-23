@@ -1,0 +1,109 @@
+@import "../../_scss/_vars";
+
+.hero_root {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    span {
+        position: absolute;
+        bottom: 0;
+        width: 256px;
+        height: 128px;
+    }
+
+    div {
+        background-color: rgba($main, .7);
+        color: #fff;
+        width: 40%;
+        max-width: 768px;
+        min-width: 356px;
+        min-height: 256px;
+        
+        div {
+            background: none;
+            width: 100%;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                padding: 5%;
+                margin: 5%;
+            }
+        }
+
+        p {
+            display: block;
+            padding: 1em 2em;
+            font-size: 1.2em;
+            line-height: 1.3em;
+            padding: 0 1em 1em 1em;
+            font-weight: 200;
+            text-shadow: 1px 1px 5px $dark;
+        }
+
+            .pencil_edit_root {
+                position: absolute;
+                top: -0;
+                left: 0;
+                z-index: 9999;
+                padding: .2em;
+                font-size: 2em;
+                background-color: rgba($dark, .7);
+                border-radius: 0 8px 8px 0;
+            
+                ion-icon {
+                    color: #fff;
+                }
+            
+                &:hover ion-icon{
+                    transform: translateY(2px);
+                } 
+             
+                &:active ion-icon{
+                    transform: translateY(5px);
+                }
+            
+
+        }
+    }
+
+    .hero_background {
+        position: absolute;
+        width: 100vw;
+        max-width: 100%;
+        height: 100vh; 
+        max-height: 100%;
+        left: 0;
+        bottom: 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center 0px;
+        z-index: 0; 
+    }
+}
+
+@media (max-width: #{$screen-sm}) {
+    .hero_root {
+
+        div {
+            background-color: rgba($main, .7);
+        color: #fff;
+        width: 100%;
+        max-width: auto;
+        min-width: auto;
+        min-height: 256px;
+        }
+    }
+}
+
+@media (max-width: #{$screen-md}) {}
+@media (max-width: #{$screen-lg}) {}

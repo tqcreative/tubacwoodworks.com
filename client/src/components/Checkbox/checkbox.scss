@@ -1,0 +1,82 @@
+@import "../../_scss/_vars";
+
+.checkbox_root {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  
+  .checkbox_wrap {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: .5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin: 1em;
+
+    div {
+      margin: .5em;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: nowrap;
+      align-items: center;
+
+      h3 {
+        font-size: 4rem;
+        padding: 0 .5em;
+        color: $text;
+        text-transform: uppercase;
+        display: inline-block;
+        text-shadow: 3px 3px 10px $main4;
+        font-weight: 800;
+      }
+
+      div {
+        position: relative;
+        display: inline-block;
+        width: 5em;
+        height: 5em;
+        background-color: rgba($main, .7);
+
+        ion-icon {
+          position: absolute;
+          font-size: 5em;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: #{$screen-sm}) {
+  .checkbox_root {
+    .checkbox_wrap {
+      padding: 0;
+      margin: 0;
+      div {
+        h3{
+          font-size: 1.5em;
+        }
+        div {
+          width: 2.5em;
+          height: 2.5em;
+
+          ion-icon {
+            position: absolute;
+            font-size: 2.5em;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: #{$screen-md}) {}
+@media (max-width: #{$screen-lg}) {}

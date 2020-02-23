@@ -1,0 +1,43 @@
+@import '../../_scss/vars';
+
+.lead_root{
+    td{
+        padding: 4px 12px;
+        vertical-align: middle !important;    
+    }
+
+    .btn-call{
+        background: $success;
+    }
+
+    .btn-check{
+        background: $fail;
+    }
+
+    ion-icon{
+        font-size: 20px;
+        padding: 0px;
+        margin: 0px;
+        color: white;
+    }
+    
+    tr{
+        height: 40px;
+    }
+
+    .qr-call{
+        display:none;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .lead_root{
+        .qr-call{
+            display: inline;
+        }
+        .mobile-call{
+            display: none;
+        }
+    }
+}
+

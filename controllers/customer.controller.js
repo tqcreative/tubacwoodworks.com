@@ -1,26 +1,337 @@
 const db = require("../models");
 const router = require("express").Router();
+const EmailAPI = require("../utils/api/EmailAPI");
+const authenticateUser = require("../utils/passport/authenticateUser").authenticateUser;
+const moment = require('moment');
+
+
+const projectedContactFields = {
+    firstName: 1,
+    middleName: 1,
+    lastName: 1,
+    email: 1,
+    phoneNumber: 1,
+    nickname: 1,
+    streetAddress: 1,
+    city: 1,
+    state: 1,
+    zipcode: 1,
+    zip4: 1,
+    isLead: 1,
+    notes: 1,
+    appointments: 1
+}
 
 // /api/customers routes
 
-// signup for a quote
-router.route("/signup").post(function(req, res){
-    console.log(req.body);
-    const { firstName, lastName, email, phoneNumber} = req.body;
-
-    db.Customer.create({
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        phoneNumber: phoneNumber
-    })
-        .then(dbModel => {
-            console.log(dbModel)
-            res.json(dbModel)
-            
+// Return list of all customers
+router.route("/").get(authenticateUser, (req, res) => {
+    db.Customer.find({}, projectedContactFields).sort({ lastName: 1, firstName: 1 })
+        .then(custRes => {
+            res.json(custRes)
         })
-        .catch(err => res.status(422).json(err));
+        .catch(err => {
+            res.status(500).json(err)
+        })
 });
+
+// Signup request for a quote - don't need to be logged in
+router.route("/signup").post((req, res) => {
+    const { firstName, lastName, email, phoneNumber, middleName } = req.body;
+
+    if(middleName !== undefined)
+        return res.status(400).end();
+
+    db.Customer
+        .create({
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            phoneNumber: phoneNumber
+        })
+        .then(dbModel => {
+            console.log(dbModel);
+            res.json(dbModel);
+            EmailAPI.sendSignupEmail(email, firstName, lastName).then(info => {
+                console.log(info);
+            }).catch(err => {
+                console.log(err);
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(420).json(err)
+        });
+});
+
+//*******************************************************************************
+//*
+//* Protected Routes - user must be logged in
+//*
+//*******************************************************************************
+
+// Get the list of current customer leads
+router.route("/leads/contact").get(authenticateUser, (req, res) => {
+    db.Customer.find({ isLead: true }).sort({ createdAt: 1 })
+        .then(data => {
+            res.json(data);
+        })
+        .catch(err => {
+            res.status(500).json(err);
+        });
+});
+
+
+// Return a count of leads for each day for the last 7 days (based on system date)
+router.route("/leads/summary/last7").get(authenticateUser, (req, res) => {
+    let momentObj = moment().subtract(7 - 1, 'days').startOf('day');
+    let date = momentObj.toDate();
+
+    try {
+        db.Customer.aggregate([
+            { $match: { createdAt: { $gte: date } } },
+            {
+                $group: {
+                    _id: { $dateToString: { format: "%Y-%m-%d", date: "$createdAt" } },
+                    count: { $sum: 1 }
+                }
+            },
+            { $sort: { _id: 1 } }
+        ], (err, data) => {
+            //Pre-fill an array for every day of the week since db will only return new customers
+            //If there were no customers for that day there will be missing data
+            const dateArr = [];
+            for (let i = 0; i < 7; i++) {
+                let tempDate = new moment(date).add(i, 'days').startOf('day');
+                let stringDate = tempDate.format('YYYY-MM-DD');
+                dateArr.push({ date: stringDate, count: 0 })
+            }
+
+            //Update the pre-filled array with counts for days that have data present
+            data.forEach(element => {
+                let obj = dateArr.find((o, i) => {
+                    if (o.date === element._id) {
+                        dateArr[i] = { date: element._id, count: element.count };
+                        return true; // stop searching
+                    }
+                });
+            });
+
+            if (err) return res.status(500).json(err);
+            res.json(dateArr);
+        });
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// Update an existing customer's data
+router.route("/id/:id")
+    .put(authenticateUser, (req, res) => {
+        console.log(req.body)
+        db.Customer.findByIdAndUpdate(req.params.id, { $set: req.body.custObj })
+            .then(dbRes => {
+                res.json(dbRes);
+            })
+            .catch(err => {
+                res.status(500).json(err);
+            })
+    })
+    // Get an existing customer's data
+    .get(authenticateUser, (req, res) => {
+        db.Customer.findById(req.params.id, projectedContactFields)
+            .populate({
+                path: 'notes', model: 'Note',
+                populate: {
+                    path: 'createdBy',
+                    model: 'User',
+                    select: 'local.username'
+                }
+            })
+            .populate({
+                path: 'appointments', model: 'Appointment',
+                populate: [
+                    {
+                        path: 'createdBy',
+                        model: 'User',
+                        select: 'local.username'
+                    },
+                    {
+                        path: 'updatedBy',
+                        model: 'User',
+                        select: 'local.username'
+                    },
+                    {
+                        path: 'assignedTo',
+                        model: 'User',
+                        select: 'local.username'
+                    }]
+            })
+            .then(data => {
+                if (!data) return res.status(404).json({ message: "ID not found", _id: req.params.id });
+                res.json(data);
+            })
+            .catch(err => {
+                res.status(500).json(err);
+            })
+    })
+    // Delete all customer data from database
+    .delete(authenticateUser, (req, res) => {
+        const { id } = req.params;
+        console.log(id);
+
+        // First delete the customer record
+        db.Customer.findByIdAndRemove(id)
+            .then(() => {
+                // Then delete any associated appointments for that customer
+                db.Appointment.deleteMany({ customer: id })
+                    .then(apptRes => {
+                        //Then delete any associated notes for that customer
+                        db.Note.deleteMany({ customer: id })
+                            .then(noteRes => {
+                                // All customer data deleted from database, respond back with message
+                                res.json({
+                                    message: "Customer successfully removed from database", id: id,
+                                    results: [
+                                        { collection: "Customer", deleteCount: 1 },
+                                        { collection: "Note", deleteCount: noteRes.deletedCount },
+                                        { collection: "Appointment", deleteCount: apptRes.deletedCount }
+                                    ]
+                                })
+                            })
+                            .catch(err => {
+                                console.log("Error deleting notes for customer")
+                                console.log(err)
+                                res.status(420).json({ message: "Error while trying to delete records for customer.  Customer info was only partially deleted.  Recommend trying to delete again.", collection: "Note", status: 420 })
+                            })
+                    })
+                    .catch(err => {
+                        console.log("Error deleting appointments for customer")
+                        console.log(err)
+                        res.status(420).json({ message: "Error while trying to delete records for customer.  Customer info was only partially deleted.  Recommend trying to delete again.", collection: "Appointment", status: 420 })
+                    })
+            })
+            .catch(err => {
+                console.log("Error deleting appointments for customer")
+                console.log(err)
+                res.status(420).json({ message: "Error while trying to delete records for customer.  Customer info was only partially deleted.  Recommend trying to delete again.", collection: "Customer", status: 420 })
+            })
+    })
+    ;
+
+
+// Add a note for a customer
+router.route("/id/:id/note")
+    .post(authenticateUser, (req, res) => {
+        console.log(req.body);
+        const note = req.body;
+        const id = req.params.id;
+
+        note["customer"] = id;
+
+        console.log(note);
+
+        db.Note.create(note)
+            .then(noteRes => {
+                console.log(noteRes);
+                db.Customer.findByIdAndUpdate(req.params.id, { $push: { notes: noteRes._id } })
+                    .then(custRes => {
+                        console.log(custRes);
+                        res.json(noteRes);
+                    })
+                    .catch(err => {
+                        res.status(500).json(err);
+                    })
+            })
+            .catch(err => {
+                res.status(500).json(err);
+            })
+    })
+    ;
+
+
+// Add (post) an appointment for customer
+router.route("/id/:id/appointment")
+    .post(authenticateUser, (req, res) => {
+        console.log(req.body);
+        const appointment = req.body;
+
+        db.Appointment.create(appointment)
+            .then(apptRes => {
+                console.log(apptRes);
+                db.Customer.findByIdAndUpdate(req.params.id, { $push: { appointments: apptRes._id } })
+                    .then(custRes => {
+                        console.log(custRes);
+                        res.json(apptRes);
+                    })
+                    .catch(err => {
+                        res.status(500).json(err);
+                    })
+            })
+            .catch(err => {
+                res.status(500).json(err);
+            })
+    })
+
+
+// delete an appointment for a customer
+// need to remove row from Appointment collection
+// and then that appointment from the array within the Customer collection
+router.route("/id/:id/appointment/:appt")
+    .delete(authenticateUser, (req, res) => {
+        const { id, appt } = req.params;
+
+        db.Appointment.findByIdAndDelete(appt)
+            .then(apptRes => {
+                console.log(apptRes);
+                db.Customer.findByIdAndUpdate(id, { $pull: { appointments: appt } })
+                    .then(custRes => {
+                        console.log(custRes)
+                        res.json({
+                            message: "Appointment successfully deleted",
+                            customerId: id,
+                            appointmentId: appt
+                        })
+                    })
+                    .catch(err => {
+                        console.log(err)
+                        res.status(420).json({
+                            message: "Failed to remove appointment from customer entry",
+                            customerId: id,
+                            appointmentId: appt
+                        })
+                    })
+            })
+            .catch(err => {
+                console.log(err)
+                res.status(420).json({
+                    message: "Failed to remove appointment entry",
+                    customerId: id,
+                    appointmentId: appt
+                })
+            })
+    });
+
+
+// Search for a contact and return array of matches
+// Sorted by first name
+router.route('/search')
+    .get(authenticateUser, (req, res) => {
+        const queryString = req.query.queryString;
+
+        if (!queryString) return res.status(400).json(res.data)
+
+        db.Customer.find({ firstName: { $regex: queryString, $options: 'i' } }, { firstName: 1, lastName: 1 }).limit(25).sort({ firstName: 1 })
+            .then(data => {
+                console.log(data);
+                if (data.length === 0) return res.status(404).json({ message: "No results found for query string.", queryString: queryString })
+                res.json(data);
+            })
+            .catch(err => {
+                res.status(500).json(err);
+            })
+    });
 
 
 module.exports = router;

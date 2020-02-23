@@ -1,0 +1,32 @@
+.imagecard {
+    position: relative;
+    display: -ms-grid;
+    display: inline-grid;
+    max-width: 1200px;
+    margin: 2em auto;
+     ;
+   }
+    .imagecard .img-container {
+      display: -ms-grid;
+      display: inline-grid;
+      grid-template-columns: 100px 50px 100px;
+      grid-template-rows: 80px auto 80px; 
+      grid-column-gap: 10px;
+      grid-row-gap: 10px;
+      padding: 5px;
+      ; 
+   
+      }
+    .imagecard .item {
+      padding: .5rem;
+      color: #929796;
+      background-color: #333;
+      border-radius: 5px;
+      background-size: cover;
+      width: 256px;
+      height: 256px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center; 
+      }
+  
