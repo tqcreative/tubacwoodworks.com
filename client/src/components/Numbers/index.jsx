@@ -2,6 +2,10 @@ import React from 'react'
 import './numbers.css';
 
 function Numbers () {
+
+    let todaysDate = new Date();
+    let theYear = todaysDate.getFullYear();
+
     return (
         <div className="numbers_root">
 
@@ -9,11 +13,11 @@ function Numbers () {
             <div className="left_box">
                 <div>
                     <ion-icon name="cash"></ion-icon>
-                    <p>Afordable</p>
+                    <p>Affordable</p>
                 </div>
                 <div>
                     <ion-icon name="calendar"></ion-icon>
-                    <p>39+ Years <span>in the industry</span></p>
+                    {theYear > 2020 ? <p>Over 40 years <span>in the industry</span></p> : <p>39+ Years <span>in the industry</span></p>}
                 </div>
             </div>
 
