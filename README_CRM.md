@@ -121,7 +121,80 @@ Underneath this section, the various pages for the CRM are documented and includ
 
 **Route:** /crm
 
-**CRM** - This is the main landing page for the CRM.  On the top of the page are links to get back to the public homepage and to logout of the CRM.  On the left side of the landing page are the links for the various functionality of the CRM.  Each time a user clicks a link, the right panel updates with a React component that contains all of the UI components for that part of the app.
+**React Component: /client/src/pages/CRM** - This is the main landing page for the CRM.  On the top of the page are links to get back to the public homepage and to logout of the CRM.  On the left side of the landing page are the links for the various functionality of the CRM.  Each time a user clicks a link, the right panel updates with a React component that contains all of the UI components for that part of the app.
+
+### CRM_Components
+
+The components in this section are rendered within the CRM page.  Based on the route, the appropriate component will be rendered in the CRM page.
+
+#### Dashboard
+
+A dashboard page showing new leads that have signed up on the website in the last 7 days.  From here you can contact them, or mark them off the list.
+
+**Route:** /crm/dashboard
+
+**React Component:** /client/src/components/LeadWrapper
+
+![Dashboard](/images/markdown/dashboard.png)
+
+#### Employee
+
+Displays a summary of all scheduled appointments for that user.  Also any account admin is performed here.  Depending on the role of the user, they will see buttons to perform various admin actions.
+
+* User - Change Password
+* Admin - All user functions, plus Add User and Delete User
+
+**Route:** /crm/employee
+
+**React Component:** /client/src/components/EmployeeWrapper
+
+![Employee](/images/markdown/employee.png)
+
+
+#### All Customers
+
+Displays a list of all customers in the CRM database, regardless of if they are leads, etc.  From here you can go to their detailed contact information to make updates, contact them, or delete them (if you're an admin user).
+
+**Route:** /crm/allcustomers
+
+**React Component:** /client/src/components/ContactList
+
+![All Customers](/images/markdown/all_customers.png)
+
+
+#### Customer Info
+
+This is the view of the detailed customer contact information.  You can view the existing information, make edits to it, and follow links to detailed notes and appointments for that contact.  If you're an admin user you can delete this contact from the database.  You can search for a customer with the search bar at the top, or if the customer id is passed at the end of the route, that user's information will pre-load.
+
+**Route:** /crm/customer/:id 
+* id is optional, if not included in the route, you need to pull up the customer info by searching
+
+**React Component:** /client/src/components/ContactWrapper
+
+![Customer Info](/images/markdown/customer_info.png)
+
+
+#### Notes
+
+The notes view is similar to the customer info view.  If you go to the route without a customer id at the end, it displays a blank note page.  From there you can search for a customer contact to add notes to.  If there is an id at the end of the route, that customer's notes will pre-populate.  When you add a new note, your username and a timestamp will be added to the note.  Notes can be added, but not edited or deleted.
+
+**Route:** /crm/notes/:id
+* id is optional, if not included in the route, you need to pull up the customer info by searching
+
+**React Component:** /client/src/components/NoteWrapper
+
+![Notes](/images/markdown/notes.png)
+
+#### Scheduler
+
+The scheduler view is similar to the customer info view.  If you go to the route without a customer id at the end, it displays a blank note page.  From there you can search for a customer contact to add an appointment to.  If there is an id at the end of the route, that customer's appointments will pre-populate.  You can add new appointments, and delete existing ones, but not update existing ones.
+
+**Route:** /crm/scheuler/:id
+* id is optional, if not included in the route, you need to pull up the customer info by searching
+
+**React Component:** /client/src/components/ScheduleWrapper
+
+![Scheduler](/images/markdown/scheduler.png)
 
 ### PrivateRoute
 
