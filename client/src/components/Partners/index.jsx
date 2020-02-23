@@ -8,7 +8,7 @@ function partners(props) {
 let {partner_1, partner_2, partner_3, partner_text, login} = props.textContent;
 
 login == 'Peter' ?
-console.log('logged in') :
+console.log('logged in') : 
 console.log('not logged in');
 
     return (
