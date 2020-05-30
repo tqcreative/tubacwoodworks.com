@@ -111,7 +111,7 @@ router.route("/upload").post(authenticateUser, (req, res) => {
               // console.log(`File uploaded successfully. ${data.Location}`);
               res.send({
                 msg: "uploaded",
-                file: `/cms/images/${req.file.filename}`,
+                file: `${req.file.filename}`,
               });
             });
           } catch (error) {

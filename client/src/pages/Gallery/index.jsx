@@ -9,7 +9,7 @@ import UploadBtn from "../../sub_component/UploadButton";
 import SmartSlider from "../../components/Slider";
 import axios from "axios";
 import Toast from "../../components/Toast";
-import UploadLightBox from "../../components/UploadLightBox";
+// import UploadLightBox from "../../components/UploadLightBox"; //PENDING: This is something for the next upload window.
 
 export default class Gallery extends Component {
   constructor(props) {

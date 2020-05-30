@@ -88,12 +88,11 @@ class UploadPhoto extends Component {
         // This call is sending the name of the file before it sends the file
         if (thisFilesName != null) {
             // console.log(this.state.selectedFile);
-            // console.log("file is moving")
             axios.post('/cms/GD8PQX3UV18999AARONWITHANEY/filename', {
                 body: this.state.backgroundImageName
             })
             .then(returnedData => {
-                //console.log(returnedData);
+                // console.log(returnedData.data);
                 // This call sends the file 
                 axios.post("/cms/GD8PQX3UV18999AARONWITHANEY/upload", data, {
                     // receive two    parameter endpoint url ,form data
@@ -107,6 +106,8 @@ class UploadPhoto extends Component {
                     // this.props.updateFunction :
                     // null;
                     alert('Uploaded');
+                }).finally(() => {
+                    return;
                 })
             })
         } else { /* file name error */};
