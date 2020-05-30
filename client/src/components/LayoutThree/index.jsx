@@ -60,6 +60,7 @@ const StyledRoot = styled.section`
     display: flex;
     justify-content: space-between;
     max-width: 1400px;
+    overflow: hidden;
 
     .left {
       position: relative;
@@ -67,7 +68,7 @@ const StyledRoot = styled.section`
       display: flex;
       justify-content: center;
       height: 60vh;
-      width: 40vw;
+      width: 50vw;
 
       .image_1 {
         position: relative;
@@ -86,7 +87,7 @@ const StyledRoot = styled.section`
       display: flex;
       justify-content: center;
       height: 60vh;
-      width: 40vw;
+      width: 50vw;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -131,6 +132,7 @@ const StyledRoot = styled.section`
 
         .img {
           width: 48%;
+          height: auto;
 
           &:first-child {
             margin: 0 2% 1% 0;

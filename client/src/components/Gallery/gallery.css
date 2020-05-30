@@ -1,7 +1,6 @@
 .gallery_root {
   display: -ms-grid;
   display: grid;
-  max-width: 1200px;
   margin: 1em auto 3em; }
   .gallery_root h2 {
     padding: .8em 0 1.2em 0;

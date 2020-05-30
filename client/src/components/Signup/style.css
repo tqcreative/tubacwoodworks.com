@@ -68,7 +68,6 @@
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     z-index: 99;
-    max-width: 1200px;
     margin: auto; }
     .signupWrapper form .form-group {
       display: -webkit-inline-box;

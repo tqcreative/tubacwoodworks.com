@@ -66,8 +66,8 @@ export default class SmartSlider extends React.Component {
                 />
             </section>
             {/* <div className="buttons">
-                 <button type="button" class="btn btn-warning" onclick="kitchenSlider()">Kitchen & Bath </button>
-                 <button type="button" class="btn btn-warning" onclick="furnitureSlider()">Furniture</button>
+                 <button type="button" className="btn btn-warning" onclick="kitchenSlider()">Kitchen & Bath </button>
+                 <button type="button" className="btn btn-warning" onclick="furnitureSlider()">Furniture</button>
             </div> */}
             </div>
 
