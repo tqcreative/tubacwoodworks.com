@@ -9,6 +9,7 @@ import UploadBtn from "../../sub_component/UploadButton";
 import SmartSlider from "../../components/Slider";
 import axios from "axios";
 import Toast from "../../components/Toast";
+import GalleryFlex from "../../components/GalleryFlex/GalleryFlex";
 // import UploadLightBox from "../../components/UploadLightBox"; //PENDING: This is something for the next upload window.
 
 export default class Gallery extends Component {
@@ -228,11 +229,12 @@ export default class Gallery extends Component {
                 Furniture
               </button>
             </div>
-            <StateGallery
+            {/* <StateGallery
               logedIn={false}
               tableNameProp={this.state.tableName}
               theArray={this.state.arrayOfImages}
-            />
+            /> */}
+            <GalleryFlex theArray={this.state.arrayOfImages} />
             <Signup submitResult={this.handleSignupResult} />
             <Footer />
             <Toast show={this.state.toastShow} onClose={this.toggleToast}>
