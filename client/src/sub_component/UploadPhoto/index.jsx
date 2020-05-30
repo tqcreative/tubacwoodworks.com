@@ -118,7 +118,7 @@ class UploadPhoto extends Component {
         return (
             <div className="upload_img_root">
                 <input id={this.props.__parent_image_name} type="file" name={this.props.__parent_image_name} onChange={this.uploadFileHandler} className="upload_button" />
-                <label for={this.props.__parent_image_name}><ion-icon name="ios-folder-open"></ion-icon> {this.state.label}</label>
+                <label htmlFor={this.props.__parent_image_name}><ion-icon name="ios-folder-open"></ion-icon> {this.state.label}</label>
                 <button type="button" className="button" onClick={this.submitPhotoForUpload}><ion-icon name="ios-save"></ion-icon></button>
             </div>
         )

@@ -177,7 +177,7 @@ export default class Gallery extends Component {
               })}
             </Toast>
           </div>
-          <UploadLightBox />
+          {/* <UploadLightBox /> */}
         </React.Fragment>
       );
     } else {
