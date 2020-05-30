@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Header } from "../../components";
 import { NavBar } from "../../components/Navbar";
 import HeroSmart from "../../components/HeroSmart";
 import Footer from "../../components/Footer";
+import styled from "styled-components";
 
 export default class Cookies extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ export default class Cookies extends Component {
           subTitle=""
         />
         <NavBar />
-        <section>
+        <StyledSection>
           <h4>
             Privacy Policy Last updated: <time>5/30/2020</time>{" "}
           </h4>
@@ -174,9 +174,41 @@ export default class Cookies extends Component {
               info@tubacwoodworks.com
             </a>{" "}
           </p>
-        </section>
+        </StyledSection>
         <Footer />
       </div>
     );
   }
 }
+
+// ========== //
+//   STYLES   //
+// ========== //
+const StyledSection = styled.section`
+  max-width: 1400px;
+  padding: 1em;
+  margin: 0 auto;
+
+  h2,
+  h3 {
+      font-weight: 800;
+  }
+
+  h4 {
+      font-size: 1em;
+      font-weight: 200;
+  }
+
+  p {
+      max-width: 80%;
+  }
+
+  a,
+  a:hover,
+  a:active,
+  a:visited {
+      color: #c0392b;
+      font-weight: 800;
+  }
+
+`;
