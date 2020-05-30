@@ -31,17 +31,14 @@ export default function GalleryFlex(props) {
 
     switch (colFlag) {
       case 0:
-        console.log("0");
         colGroup[0].push(props.theArray[i]);
         colFlag++;
         break;
       case 1:
-        console.log("1");
         colGroup[1].push(props.theArray[i]);
         colFlag++;
         break;
       case 2:
-        console.log("2");
         colGroup[2].push(props.theArray[i]);
         colFlag = colFlag - 2;
         break;
@@ -56,38 +53,107 @@ export default function GalleryFlex(props) {
       <StyledWrap>
         <StyledCol>
           {colGroup[0].map((imageName, index) => {
-            return (
-              <img
-                key={index}
-                style={{ width: "100%" }}
-                src={`/cms/images/${imageName}`}
-                alt="Photo of wood work."
-              />
-            );
+            if (colGroup[0].length % 2 === 0) {
+              if (index === colGroup[0].length) {
+                return (
+                  <img
+                    key={index}
+                    style={{ width: "100%" }}
+                    src={`/cms/images/${imageName}`}
+                    alt="Photo of wood work."
+                  />
+                );
+              } else {
+                return (
+                  <img
+                    key={index}
+                    style={{ width: "100%" }}
+                    src={`/cms/images/${imageName}`}
+                    alt="Photo of wood work."
+                    className="oddNumber"
+                  />
+                );
+              }
+            } else {
+              return (
+                <img
+                  key={index}
+                  style={{ width: "100%" }}
+                  src={`/cms/images/${imageName}`}
+                  alt="Photo of wood work."
+                />
+              );
+            }
           })}
         </StyledCol>
         <StyledCol>
           {colGroup[1].map((imageName, index) => {
-            return (
-              <img
-                key={index}
-                style={{ width: "100%" }}
-                src={`/cms/images/${imageName}`}
-                alt="Photo of wood work."
-              />
-            );
+            if (colGroup[1].length % 2 === 0) {
+              if (index === colGroup[1].length) {
+                return (
+                  <img
+                    key={index}
+                    style={{ width: "100%" }}
+                    src={`/cms/images/${imageName}`}
+                    alt="Photo of wood work."
+                  />
+                );
+              } else {
+                return (
+                  <img
+                    key={index}
+                    style={{ width: "100%" }}
+                    src={`/cms/images/${imageName}`}
+                    alt="Photo of wood work."
+                    className="oddNumber"
+                  />
+                );
+              }
+            } else {
+              return (
+                <img
+                  key={index}
+                  style={{ width: "100%" }}
+                  src={`/cms/images/${imageName}`}
+                  alt="Photo of wood work."
+                />
+              );
+            }
           })}
         </StyledCol>
         <StyledCol>
           {colGroup[2].map((imageName, index) => {
-            return (
-              <img
-                key={index}
-                style={{ width: "100%" }}
-                src={`/cms/images/${imageName}`}
-                alt="Photo of wood work."
-              />
-            );
+            if (colGroup[2].length % 2 === 0) {
+              if (index === colGroup[2].length) {
+                return (
+                  <img
+                    key={index}
+                    style={{ width: "100%" }}
+                    src={`/cms/images/${imageName}`}
+                    alt="Photo of wood work."
+                  />
+                );
+              } else {
+                return (
+                  <img
+                    key={index}
+                    style={{ width: "100%" }}
+                    src={`/cms/images/${imageName}`}
+                    alt="Photo of wood work."
+                    className="oddNumber"
+                  />
+                );
+              }
+            } else {
+              return (
+                <img
+                  key={index}
+                  style={{ width: "100%" }}
+                  src={`/cms/images/${imageName}`}
+                  alt="Photo of wood work."
+                />
+              );
+            }
           })}
         </StyledCol>
       </StyledWrap>
@@ -124,5 +190,17 @@ const StyledCol = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
+
+    img {
+      width: 50% !important;
+
+      &:first-child {
+        width: 100% !important;
+      }
+
+      &.oddNumber {
+        width: 100% !important;
+      }
+    }
   }
 `;
