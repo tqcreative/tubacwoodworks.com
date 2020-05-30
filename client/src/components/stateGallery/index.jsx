@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ImageWrapper from "../../components/ImageWrapper";
 import ImageCard from "../../components/ImageCard";
 import Toast from "../../components/Toast";
 import styled from "styled-components";
