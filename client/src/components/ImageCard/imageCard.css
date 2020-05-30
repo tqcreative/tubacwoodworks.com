@@ -2,7 +2,6 @@
     position: relative;
     display: -ms-grid;
     display: inline-grid;
-    max-width: 1200px;
     margin: 2em auto;
      ;
    }
