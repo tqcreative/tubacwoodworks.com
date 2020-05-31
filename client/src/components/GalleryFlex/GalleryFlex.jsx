@@ -179,6 +179,7 @@ const StyledCol = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   width: 33%;
+  height: 100%;
 
   img {
     padding: 0.5em;

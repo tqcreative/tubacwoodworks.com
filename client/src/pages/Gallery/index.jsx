@@ -24,7 +24,6 @@ export default class Gallery extends Component {
       toastShow: false,
       sliderArray: [],
     };
-    this.callTableToLoad = this.callTableToLoad.bind(this);
     this.changeTableName = this.changeTableName.bind(this);
     // bind signup and toast
     this.handleSignupResult = this.handleSignupResult.bind(this);
@@ -33,19 +32,29 @@ export default class Gallery extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.callTableToLoad();
     axios.get("/cms/kitchenbathvanity").then((collectData) => {
-      this.setState({ arrayOfImages: collectData.data[4].showcase });
-      let newArray = Array.from(collectData.data[4].showcase);
-      // console.log(newArray);
+      this.setState({ allImageTables: collectData.data });
+
       let arrayOfObjects = [];
-      for (let i = 0; i < newArray.length; i++) {
-        let newObjectItem = {
-          original: `/cms/images/${newArray[i]}`,
-          thumbnail: `/cms/images/${newArray[i]}`,
-        };
-        arrayOfObjects.push(newObjectItem);
-      }
+
+      this.state.allImageTables.forEach((table) => {
+        if (table.showcase) {
+          this.setState({ arrayOfImages: table.showcase });
+        }
+
+        if (table.showcaseGrid) {
+          // console.log(table.showcaseGrid);
+
+          for (let i = 0; i < table.showcaseGrid.length; i++) {
+            let newObjectItem = {
+              original: `${table.showcaseGrid[i]}`,
+              thumbnail: `${table.showcaseGrid[i]}`,
+            };
+            arrayOfObjects.push(newObjectItem);
+          }
+        }
+      });
+
       this.setState({ sliderArray: arrayOfObjects });
     });
   }
@@ -59,53 +68,18 @@ export default class Gallery extends Component {
     this.setState({ toastShow: !this.state.toastShow });
   }
 
-  callTableToLoad() {
-    axios.get("/cms/kitchenbathvanity").then((collectData) => {
-      // console.log(collectData.data)
-      // console.log(collectData.data[0].imageArray);
-      // console.log(collectData.data[0].imageArray.length);
-      // console.log(collectData.data[0].imageArray[2]);
-      // console.log(this.state.arrayOfImages);
-      // console.log(collectData.data[0][this.state.tableName]);
-      let tableNameInCallBack = this.state.tableName;
-
-      switch (tableNameInCallBack) {
-        case "imageArray":
-          this.setState({
-            arrayOfImages: collectData.data[0][this.state.tableName],
-          });
-          break;
-        case "kitchenTable":
-          this.setState({
-            arrayOfImages: collectData.data[1][this.state.tableName],
-          });
-          break;
-        case "bathTable":
-          this.setState({
-            arrayOfImages: collectData.data[2][this.state.tableName],
-          });
-          break;
-        case "furnitureTable":
-          this.setState({
-            arrayOfImages: collectData.data[3][this.state.tableName],
-          });
-          break;
-        case "showcase":
-          this.setState({
-            arrayOfImages: collectData.data[4][this.state.tableName],
-          });
-          break;
-        default:
-          break;
-      }
-    });
-  }
-
   changeTableName(event) {
     // set the state of tableName to kitchenTable
     if (event.target.name != null && event.target.name != undefined) {
       this.setState({ tableName: `${event.target.name}` });
-      this.callTableToLoad();
+
+      this.state.allImageTables.forEach((table) => {
+        if (table[event.target.name]) {
+          this.setState({
+            arrayOfImages: table[event.target.name],
+          });
+        }
+      });
     } else {
       //dont do anything!
     }
@@ -159,17 +133,13 @@ export default class Gallery extends Component {
               </button>
             </div>
             <div style={{ position: "relative" }}>
-              <UploadBtn
-                tableNameProp={this.state.tableName}
-                refreshTable={this.callTableToLoad}
-              />
+              <UploadBtn tableNameProp={this.state.tableName} />
             </div>
-            <StateGallery
+            {/* <StateGallery
               logedIn={"Peter"}
               tableNameProp={this.state.tableName}
               theArray={this.state.arrayOfImages}
-              refreshTable={this.callTableToLoad}
-            />
+            /> */}
             <Signup submitResult={this.handleSignupResult} />
             <Footer />
             <Toast show={this.state.toastShow} onClose={this.toggleToast}>
