@@ -116,8 +116,15 @@ export default class Home extends Component {
         axios
         .get("/cms/kitchenbathvanity")
         .then(collectData => {
-			// console.log(collectData.data)
-			this.setState({ staticGalleryImages: collectData.data[5].static, showcaseImages: collectData.data[6].showcaseGrid });
+			console.log(collectData.data)
+			collectData.data.forEach(libraryOfImages => {
+				if (libraryOfImages.showcaseGrid) {
+					this.setState({ showcaseImages: libraryOfImages.showcaseGrid });
+				} else if (libraryOfImages.static) {
+					this.setState({staticGalleryImages: libraryOfImages.static})
+				}
+			})
+			
             })
         }
     

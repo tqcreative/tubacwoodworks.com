@@ -101,7 +101,7 @@ app.get("/cms/images/:fullname", (req, res) => {
 		imageName = req.params.fullname;
 		// !!!! WARNING !!!! //
 		// include switch statmetn for .jpg .jpgs .png and .something else.
-		res.sendFile(path.join(__dirname, `./images/${imageName}`));
+		res.sendFile(path.join(__dirname, `/images/${imageName}`));
 	} catch (error) {
 		res.sendFile(path.join(__dirname, `./client/src/pages/Home/`));
 	};

@@ -19,6 +19,7 @@ export default class Kitchen_Bath_Vanity extends Component {
       toastShow: false,
       kitchenImages: [],
       bathImages: [],
+      arrayOfImages: [],
     };
 
     // bind signup and toast
@@ -30,9 +31,21 @@ export default class Kitchen_Bath_Vanity extends Component {
     window.scrollTo(0, 0);
 
     axios.get("/cms/kitchenbathvanity").then((collectData) => {
-      // console.log(collectData.data)
-      this.setState({ arrayOfImages: collectData.data[1].kitchenTable });
-      let newArray = Array.from(collectData.data[1].kitchenTable);
+      // console.log(collectData.data);
+
+      let newArray = [];
+      collectData.data.forEach((collectionOfImages) => {
+
+        if (collectionOfImages.kitchenTable) {
+          this.setState({ arrayOfImages: collectionOfImages.kitchenTable });
+          newArray = collectionOfImages.kitchenTable;
+          console.log(newArray)
+        };
+
+      });
+
+      // console.log(this.state.arrayOfImages);
+
       // console.log(newArray);
       let arrayOfObjects = [];
       for (let i = 0; i < newArray.length; i++) {
@@ -45,21 +58,6 @@ export default class Kitchen_Bath_Vanity extends Component {
       this.setState({ kitchenImages: arrayOfObjects });
     });
 
-    axios.get("/cms/kitchenbathvanity").then((collectData) => {
-      // console.log(collectData.data)
-      this.setState({ arrayOfImages: collectData.data[2].bathTable });
-      let newArray = Array.from(collectData.data[2].bathTable);
-      // console.log(newArray);
-      let arrayOfObjects = [];
-      for (let i = 0; i < newArray.length; i++) {
-        let newObjectItem = {
-          original: `/cms/images/${newArray[i]}`,
-          thumbnail: `/cms/images/${newArray[i]}`,
-        };
-        arrayOfObjects.push(newObjectItem);
-      }
-      this.setState({ bathImages: arrayOfObjects });
-    });
   }
 
   handleSignupResult(msg) {
