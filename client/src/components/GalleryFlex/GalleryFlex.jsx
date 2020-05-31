@@ -47,7 +47,7 @@ const StyledWrap = styled.ul`
 `;
 
 const StyledImg = styled.li`
-  height: 30vh;
+  height: 40vh;
   flex-grow: 1;
   padding: 3px;
 

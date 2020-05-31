@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Header } from '../../components';
-import './error.css';
 import { NavBar } from '../../components/Navbar';
 import HeroSmart from '../../components/HeroSmart';
 import Footer from '../../components/Footer';

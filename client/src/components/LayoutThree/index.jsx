@@ -54,7 +54,6 @@ const StyledRoot = styled.section`
   justify-content: center;
   align-items: center;
   padding: 1em 0;
-  background-color: #fff;
 
   .image_wrap {
     display: flex;
@@ -128,7 +127,8 @@ const StyledRoot = styled.section`
 
       .right {
         width: 100vw;
-        height: 40vh;
+        height: 20vh;
+        padding-top: 0;
 
         .img {
           width: 48%;
