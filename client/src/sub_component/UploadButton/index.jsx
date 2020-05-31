@@ -85,9 +85,6 @@ export default class UploadBtn extends Component {
 
                         axios.post(`/cms/uploadfile/hash43b4h234bhj/${theTablesName}`, uploadThisObject)
                             .then(returnFromCall => {
-                                //console.log(returnFromCall);
-                                // console.log('Uploaded');
-                                this.props.refreshTable();
                                 return;
                             })
                     } else {

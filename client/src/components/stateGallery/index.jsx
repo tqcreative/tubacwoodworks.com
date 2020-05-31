@@ -32,7 +32,6 @@ class StateGallery extends Component {
           {this.props.theArray.map((img, index) => {
             return (
               <ImageCard
-                refreshTable={this.props.refreshTable}
                 logedIn={this.props.logedIn}
                 tableNameProp={this.props.tableNameProp}
                 imageNumber={index}

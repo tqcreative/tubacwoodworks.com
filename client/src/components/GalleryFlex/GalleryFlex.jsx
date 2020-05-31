@@ -59,8 +59,8 @@ export default function GalleryFlex(props) {
                   <img
                     key={index}
                     style={{ width: "100%" }}
-                    src={`/cms/images/${imageName}`}
-                    alt="Photo of wood work."
+                    src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
+                    alt="Tubac Woodworks LLC"
                   />
                 );
               } else {
@@ -68,8 +68,8 @@ export default function GalleryFlex(props) {
                   <img
                     key={index}
                     style={{ width: "100%" }}
-                    src={`/cms/images/${imageName}`}
-                    alt="Photo of wood work."
+                    src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
+                    alt="Tubac Woodworks LLC"
                     className="oddNumber"
                   />
                 );
@@ -79,8 +79,8 @@ export default function GalleryFlex(props) {
                 <img
                   key={index}
                   style={{ width: "100%" }}
-                  src={`/cms/images/${imageName}`}
-                  alt="Photo of wood work."
+                  src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
+                  alt="Tubac Woodworks LLC"
                 />
               );
             }
@@ -94,8 +94,8 @@ export default function GalleryFlex(props) {
                   <img
                     key={index}
                     style={{ width: "100%" }}
-                    src={`/cms/images/${imageName}`}
-                    alt="Photo of wood work."
+                    src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
+                    alt="Tubac Woodworks LLC"
                   />
                 );
               } else {
@@ -103,8 +103,8 @@ export default function GalleryFlex(props) {
                   <img
                     key={index}
                     style={{ width: "100%" }}
-                    src={`/cms/images/${imageName}`}
-                    alt="Photo of wood work."
+                    src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
+                    alt="Tubac Woodworks LLC"
                     className="oddNumber"
                   />
                 );
@@ -114,8 +114,8 @@ export default function GalleryFlex(props) {
                 <img
                   key={index}
                   style={{ width: "100%" }}
-                  src={`/cms/images/${imageName}`}
-                  alt="Photo of wood work."
+                  src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
+                  alt="Tubac Woodworks LLC"
                 />
               );
             }
@@ -129,8 +129,8 @@ export default function GalleryFlex(props) {
                   <img
                     key={index}
                     style={{ width: "100%" }}
-                    src={`/cms/images/${imageName}`}
-                    alt="Photo of wood work."
+                    src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
+                    alt="Tubac Woodworks LLC"
                   />
                 );
               } else {
@@ -138,8 +138,8 @@ export default function GalleryFlex(props) {
                   <img
                     key={index}
                     style={{ width: "100%" }}
-                    src={`/cms/images/${imageName}`}
-                    alt="Photo of wood work."
+                    src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
+                    alt="Tubac Woodworks LLC"
                     className="oddNumber"
                   />
                 );
@@ -149,8 +149,8 @@ export default function GalleryFlex(props) {
                 <img
                   key={index}
                   style={{ width: "100%" }}
-                  src={`/cms/images/${imageName}`}
-                  alt="Photo of wood work."
+                  src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
+                  alt="Tubac Woodworks LLC"
                 />
               );
             }

@@ -135,6 +135,7 @@ export default class Gallery extends Component {
             <div style={{ position: "relative" }}>
               <UploadBtn tableNameProp={this.state.tableName} />
             </div>
+            <GalleryFlex theArray={this.state.arrayOfImages} />
             {/* <StateGallery
               logedIn={"Peter"}
               tableNameProp={this.state.tableName}

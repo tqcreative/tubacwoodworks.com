@@ -17,13 +17,13 @@ import DeleteButton from '../../sub_component/DeleteButton';
 
 // if theArray includes http then backgroundImage = url(theArray) else = url(`/cms/images/${theArray}`) line 29
 
-const ImageCard = ({theArray, imageNumber, onClick, tableNameProp, refreshTable, logedIn}) => {
+const ImageCard = ({theArray, imageNumber, onClick, tableNameProp, logedIn}) => {
   return (
     <div tablename={tableNameProp} className="imagecard" image_number={imageNumber} onClick={()=> onClick(`/cms/images/${theArray}`)}>
       <div className="img-container">
 
         {logedIn === "Peter" ?
-        <DeleteButton refreshTable={refreshTable} tableName={tableNameProp} imageIndexNumber={imageNumber} imageIsInTable={"TableName"} /> :
+        <DeleteButton tableName={tableNameProp} imageIndexNumber={imageNumber} imageIsInTable={"TableName"} /> :
         <noscript></noscript>}
       
         <div className="item" style={ theArray.indexOf('http') == -1 ? {backgroundImage: `url(/cms/images/${theArray}`} : {backgroundImage: `url(${theArray})`}}></div>

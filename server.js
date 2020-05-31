@@ -107,14 +107,6 @@ app.get("/cms/images/:fullname", (req, res) => {
 	};
 });
 
-app.get("/aws/:imageName", (req, res) => {
-	try {
-		res.send(`https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}`);
-	} catch (error) {
-		res.send(path.join(__dirname, `./images/error.jpg`));
-	}
-});
-
 
 // ======================= //
 // ====== React App ====== //
