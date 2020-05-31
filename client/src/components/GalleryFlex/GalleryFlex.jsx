@@ -23,139 +23,13 @@ GalleryFlex.defaultProps = {
 };
 
 export default function GalleryFlex(props) {
-  const colGroup = [[], [], []];
-  let colFlag = 0;
-
-  for (let i = 0; i < props.theArray.length; i++) {
-    // add item from array into the col it will be displayed in.
-
-    switch (colFlag) {
-      case 0:
-        colGroup[0].push(props.theArray[i]);
-        colFlag++;
-        break;
-      case 1:
-        colGroup[1].push(props.theArray[i]);
-        colFlag++;
-        break;
-      case 2:
-        colGroup[2].push(props.theArray[i]);
-        colFlag = colFlag - 2;
-        break;
-      default:
-        console.log("memory leak");
-        break;
-    }
-  }
 
   return (
     <StyledRoot>
       <StyledWrap>
-        <StyledCol>
-          {colGroup[0].map((imageName, index) => {
-            if (colGroup[0].length % 2 === 0) {
-              if (index === colGroup[0].length) {
-                return (
-                  <img
-                    key={index}
-                    style={{ width: "100%" }}
-                    src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
-                    alt="Tubac Woodworks LLC"
-                  />
-                );
-              } else {
-                return (
-                  <img
-                    key={index}
-                    style={{ width: "100%" }}
-                    src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
-                    alt="Tubac Woodworks LLC"
-                    className="oddNumber"
-                  />
-                );
-              }
-            } else {
-              return (
-                <img
-                  key={index}
-                  style={{ width: "100%" }}
-                  src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
-                  alt="Tubac Woodworks LLC"
-                />
-              );
-            }
-          })}
-        </StyledCol>
-        <StyledCol>
-          {colGroup[1].map((imageName, index) => {
-            if (colGroup[1].length % 2 === 0) {
-              if (index === colGroup[1].length) {
-                return (
-                  <img
-                    key={index}
-                    style={{ width: "100%" }}
-                    src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
-                    alt="Tubac Woodworks LLC"
-                  />
-                );
-              } else {
-                return (
-                  <img
-                    key={index}
-                    style={{ width: "100%" }}
-                    src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
-                    alt="Tubac Woodworks LLC"
-                    className="oddNumber"
-                  />
-                );
-              }
-            } else {
-              return (
-                <img
-                  key={index}
-                  style={{ width: "100%" }}
-                  src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
-                  alt="Tubac Woodworks LLC"
-                />
-              );
-            }
-          })}
-        </StyledCol>
-        <StyledCol>
-          {colGroup[2].map((imageName, index) => {
-            if (colGroup[2].length % 2 === 0) {
-              if (index === colGroup[2].length) {
-                return (
-                  <img
-                    key={index}
-                    style={{ width: "100%" }}
-                    src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
-                    alt="Tubac Woodworks LLC"
-                  />
-                );
-              } else {
-                return (
-                  <img
-                    key={index}
-                    style={{ width: "100%" }}
-                    src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
-                    alt="Tubac Woodworks LLC"
-                    className="oddNumber"
-                  />
-                );
-              }
-            } else {
-              return (
-                <img
-                  key={index}
-                  style={{ width: "100%" }}
-                  src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName }
-                  alt="Tubac Woodworks LLC"
-                />
-              );
-            }
-          })}
-        </StyledCol>
+        {props.theArray.map(imageName => {
+          return <StyledImg><img src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName } loading="lazy" /></StyledImg>
+        })}
       </StyledWrap>
     </StyledRoot>
   );
@@ -167,41 +41,65 @@ const StyledRoot = styled.section`
   min-width: none;
 `;
 
-const StyledWrap = styled.div`
-  margin: 0;
-  padding: 0;
+const StyledWrap = styled.ul`
   display: flex;
   flex-wrap: wrap;
 `;
 
-const StyledCol = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  width: 33%;
-  height: 100%;
+const StyledImg = styled.li`
+  height: 30vh;
+  flex-grow: 1;
+  padding: 3px;
+
+  &:last-child {
+    flex-grow: 10;
+  }
 
   img {
-    padding: 0.5em;
-
-    &:hover {
-      cursor: pointer;
-    }
+    max-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
   }
 
   @media (max-width: 768px) {
-    width: 100%;
-
-    img {
-      width: 50% !important;
-
-      &:first-child {
-        width: 100% !important;
-      }
-
-      &.oddNumber {
-        width: 100% !important;
-      }
-    }
+    /*  mobile  */
   }
 `;
+
+
+// // ADVANCED
+
+// // Portrait
+
+// @media (max-aspect-ratio: 1/1) {
+//   li {
+//     height: 30vh;
+//   }
+// }
+
+// // Short screens
+
+// @media (max-height: 480px) {
+//   li {
+//     height: 80vh;
+//   }
+// }
+
+// // Smaller screens in portrait
+
+// @media (max-aspect-ratio: 1/1) and (max-width: 480px) {
+//   ul {
+//     flex-direction: row;
+//   }
+
+//   li {
+//     height: auto;
+//     width: 100%;
+//   }
+//   img {
+//     width: 100%;
+//     max-height: 75vh;
+//     min-width: 0;
+//   }
+// }
