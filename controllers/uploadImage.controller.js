@@ -103,17 +103,23 @@ router.route("/upload").post(authenticateUser, (req, res) => {
           jimp.read(fileName).then((image) => {
             // console.log(image);
 
-            // check if image is taller or wider.
-            if (image.bitmap.height > image.bitmap.width) {
-              // image is taller (in portrate mode)
-              console.log(`jimp-sizing: auto by 1200px`);
-              image.autocrop(jimp.AUTO, 1200, function () {});
-            } else {
-              // image is wider (in landscape mode)
-              console.log(`jimp-sizing: 1400px by auto`);
-              image.autocrop(1400, jimp.AUTO, function () {});
+            // Image size:
+            if (image.bitmap.height > 1600 || image.bitmap.width > 1600) {
+              // Image is too large and must be reduced in size.
+
+              // check if image is taller or wider.
+              if (image.bitmap.height > image.bitmap.width) {
+                // image is taller (in portrate mode)
+                console.log(`jimp-sizing: auto by 1200px`);
+                image.autocrop(jimp.AUTO, 1200, function () {});
+              } else {
+                // image is wider (in landscape mode)
+                console.log(`jimp-sizing: 1400px by auto`);
+                image.autocrop(1400, jimp.AUTO, function () {});
+              }
             }
 
+            // Quality of image:
             console.log("jimp: quality set to 50%");
             image.quality(50);
             console.log(
