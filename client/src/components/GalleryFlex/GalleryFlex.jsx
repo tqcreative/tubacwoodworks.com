@@ -45,23 +45,21 @@ export default function GalleryFlex(props) {
             if (randomNumber < 3) {
               randomNumber = 1;
             }
+
+            const imageUri =
+              imageName.indexOf("https") === -1
+                ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}`
+                : imageName;
+
             return (
               <StyledImg key={index} style={{ flexGrow: randomNumber }}>
                 <img
                   onClick={() => {
                     updateShowToast(true);
-                    updateToastImage(
-                      imageName.indexOf("https") === -1
-                        ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}`
-                        : imageName
-                    );
+                    updateToastImage(imageUri);
                   }}
                   alt="Tubac Woodworks AZ"
-                  src={
-                    imageName.indexOf("https") === -1
-                      ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}`
-                      : imageName
-                  }
+                  src={imageUri}
                   loading="lazy"
                 />
               </StyledImg>
