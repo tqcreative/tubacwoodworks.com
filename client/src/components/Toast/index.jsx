@@ -79,6 +79,7 @@ const StyledRoot = styled.div`
       div {
         img {
           max-height: 100vh;
+          padding: 1em;
         }
       }
     }

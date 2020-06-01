@@ -161,18 +161,22 @@ export default class Gallery extends Component {
                 Furniture Images
               </button>
             </div>
-            <div style={{ position: "relative" }}>
-              
-            </div>
+            <div style={{ position: "relative" }}></div>
             <GalleryFlex theArray={this.state.arrayOfImages} />
-            <h2>Edit this gallery below</h2>
+            
+            {/* this component is to delete images from the library. */}
             <StateGallery
               logedIn={"Peter"}
               tableNameProp={this.state.tableName}
               theArray={this.state.arrayOfImages}
               forceRefresh={this.forceRefreshGallery}
             />
-            <UploadBtn tableNameProp={this.state.tableName} />
+
+            {/* this component is to add images to the library */}
+            <UploadBtn
+              tableNameProp={this.state.tableName}
+              forceRefresh={this.forceRefreshGallery}
+            />
             <Signup submitResult={this.handleSignupResult} />
             <Footer />
             <Toast show={this.state.toastShow} onClose={this.toggleToast}>
