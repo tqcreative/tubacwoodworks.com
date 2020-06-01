@@ -1,9 +1,6 @@
 import React from 'react';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
-import axios from 'axios';
-import image1 from '../Slider/images/gallery_1.jpg';
-import image2 from '../Slider/images/gallery_2.jpg';
 import "../Slider/slider.css"
 
 export default class SmartSlider extends React.Component {
@@ -24,11 +21,6 @@ export default class SmartSlider extends React.Component {
             thumbnailPosition: 'bottom',
             arrayOfImages: []
         };
-    }
-
-    componentWillMount() {
-        // console.log("Component has mounted");
-       
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -60,9 +52,10 @@ export default class SmartSlider extends React.Component {
                     showNav={this.state.showNav}
                     isRTL={this.state.isRTL}
                     thumbnailPosition={this.state.thumbnailPosition}
-                    slideDuration={parseInt(this.state.slideDuration)}
-                    slideInterval={parseInt(this.state.slideInterval)}
+                    slideDuration={parseInt(this.state.slideDuration, 1)}
+                    slideInterval={parseInt(this.state.slideInterval, 1)}
                     slideOnThumbnailOver={this.state.slideOnThumbnailOver}
+
                 />
             </section>
             {/* <div className="buttons">

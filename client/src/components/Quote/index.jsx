@@ -2,12 +2,11 @@ import React from 'react'
 import './quote.css';
 import UploadPhoto from '../../sub_component/UploadPhoto';
 import PencilEdit from '../../sub_component/PencilEdit';
-import axios from 'axios';
 
 function Quote(props) {
 
     // props required to publish
-    let backgroundImageForCheckbox = 'quote_2.jpg';
+    // let backgroundImageForCheckbox = 'quote_2.jpg';
     let nameOfImage = 'quote_2'
     let uploadPhotoElement;
     let editText;

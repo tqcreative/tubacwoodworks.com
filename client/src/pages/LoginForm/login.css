@@ -41,8 +41,7 @@
         width: 100%;
         margin: 1em;
         padding: 1.1em;
-        font-size: 1.2em;
-        background-color: #fff; }
+        font-size: 1.2em; }
     .login_root form button {
       width: 50%;
       min-width: 180px;
@@ -51,8 +50,7 @@
       border-radius: .2em;
       text-transform: uppercase;
       font-weight: 800;
-      line-height: 1.2em;
-      background-color: #fff; }
+      line-height: 1.2em; }
       .login_root form button:hover {
         background-color: #fafafa; }
     .login_root form a {

@@ -5,10 +5,10 @@ import LoginForm from "./pages/LoginForm";
 import SignupForm from "./pages/SignupForm";
 // import { NavBar } from './components'
 import Home from "./pages/Home";
-import Kitchen_Bath_Vanity from "./pages/Kitchen_Bath_Vanity";
+import KitchenBathVanity from "./pages/Kitchen_Bath_Vanity";
 import Commercial from "./pages/Commercial/";
 import Furniture from "./pages/Furniture/";
-import Pro_Tips from "./pages/Pro_Tips/";
+import ProTipsPage from "./pages/Pro_Tips";
 import Gallery from "./pages/Gallery/";
 import Error from "./pages/Error/";
 import CRM from "./pages/CRM";
@@ -108,7 +108,7 @@ class App extends Component {
           <Route
             exact
             path="/kitchenbathvanity"
-            render={() => <Kitchen_Bath_Vanity user={this.state.user} />}
+            render={() => <KitchenBathVanity user={this.state.user} />}
           />
           <Route
             exact
@@ -125,7 +125,7 @@ class App extends Component {
           <Route
             exact
             path="/protips"
-            render={() => <Pro_Tips user={this.state.user} />}
+            render={() => <ProTipsPage user={this.state.user} />}
           />
 
           <Route

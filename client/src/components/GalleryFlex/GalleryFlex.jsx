@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
-import LightBox from "../LightBox/LightBox";
 
 GalleryFlex.defaultProps = {
   theArray: [
@@ -23,12 +22,23 @@ GalleryFlex.defaultProps = {
 };
 
 export default function GalleryFlex(props) {
-
   return (
     <StyledRoot>
       <StyledWrap>
-        {props.theArray.map(imageName => {
-          return <StyledImg><img src={ imageName.indexOf('https') === -1 ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}` : imageName } loading="lazy" /></StyledImg>
+        {props.theArray.map((imageName, index) => {
+          return (
+            <StyledImg key={index}>
+              <img
+                alt="Tubac Woodworks AZ"
+                src={
+                  imageName.indexOf("https") === -1
+                    ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}`
+                    : imageName
+                }
+                loading="lazy"
+              />
+            </StyledImg>
+          );
         })}
       </StyledWrap>
     </StyledRoot>
@@ -47,7 +57,7 @@ const StyledWrap = styled.ul`
 `;
 
 const StyledImg = styled.li`
-  height: 30vh;
+  height: 40vh;
   flex-grow: 1;
   padding: 3px;
 
@@ -66,40 +76,3 @@ const StyledImg = styled.li`
     /*  mobile  */
   }
 `;
-
-
-// // ADVANCED
-
-// // Portrait
-
-// @media (max-aspect-ratio: 1/1) {
-//   li {
-//     height: 30vh;
-//   }
-// }
-
-// // Short screens
-
-// @media (max-height: 480px) {
-//   li {
-//     height: 80vh;
-//   }
-// }
-
-// // Smaller screens in portrait
-
-// @media (max-aspect-ratio: 1/1) and (max-width: 480px) {
-//   ul {
-//     flex-direction: row;
-//   }
-
-//   li {
-//     height: auto;
-//     width: 100%;
-//   }
-//   img {
-//     width: 100%;
-//     max-height: 75vh;
-//     min-width: 0;
-//   }
-// }

@@ -9,7 +9,7 @@ import LayoutThree from "../../components/LayoutThree";
 import Slider from "../../components/Slider";
 import axios from "axios";
 
-export default class Kitchen_Bath_Vanity extends Component {
+export default class KitchenBathVanity extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,7 +39,7 @@ export default class Kitchen_Bath_Vanity extends Component {
         if (collectionOfImages.kitchenTable) {
           this.setState({ arrayOfImages: collectionOfImages.kitchenTable });
           newArray = collectionOfImages.kitchenTable;
-          console.log(newArray)
+          // console.log(newArray)
         };
 
       });
@@ -171,7 +171,6 @@ export default class Kitchen_Bath_Vanity extends Component {
             pTag2={contentObject.paragraphTwo.pTag2}
             pTag3={contentObject.paragraphTwo.pTag3}
           />
-          <Slider smartArray={this.state.bathImages} />
           <Signup submitResult={this.handleSignupResult} />
           <Footer />
           <Toast show={this.state.toastShow} onClose={this.toggleToast}>

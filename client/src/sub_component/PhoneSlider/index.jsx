@@ -15,7 +15,7 @@ const StyledRoot = styled.div`
   display: none;
   position: fixed;
   left: 0;
-  bottom: 7.9em;
+  bottom: 8em;
   justify-content: center;
   align-items: center;
   background-color: #2ecc71;

@@ -54,7 +54,6 @@ const StyledRoot = styled.section`
   padding: 1em;
 
   div {
-    background-color: #fff;
 
     h2 {
       font-weight: 800;
@@ -69,4 +68,13 @@ const StyledRoot = styled.section`
       font-weight: 400;
     }
   }
+
+  @media (max-width: 768px) {
+    div {
+      h2 {
+        font-size: 1.8em;
+      }
+    }
+  }
+
 `;

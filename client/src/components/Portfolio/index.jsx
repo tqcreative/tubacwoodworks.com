@@ -124,7 +124,6 @@ class Portfolio extends Component {
     const transformOn = { transform: "translateY(0)" };
     const arrowUp = { transform: "rotate(180deg)" };
     const arrowDown = { transform: "rotate(0)" };
-    let editText;
 
     return (
       <StyledRoot className="portfolio_root">
@@ -132,7 +131,7 @@ class Portfolio extends Component {
           <div className="deck">
             <div
               onClick={() => {
-                this.state.open0.transform == "translateY(0)"
+                this.state.open0.transform === "translateY(0)"
                   ? this.setState({ open0: transformOff, arrow0: arrowDown })
                   : this.setState({ open0: transformOn, arrow0: arrowUp });
               }}
@@ -171,7 +170,7 @@ class Portfolio extends Component {
             </div>
             <div
               onClick={() => {
-                this.state.open1.transform == "translateY(0)"
+                this.state.open1.transform === "translateY(0)"
                   ? this.setState({ open1: transformOff, arrow1: arrowDown })
                   : this.setState({ open1: transformOn, arrow1: arrowUp });
               }}
@@ -210,7 +209,7 @@ class Portfolio extends Component {
             </div>
             <div
               onClick={() => {
-                this.state.open2.transform == "translateY(0)"
+                this.state.open2.transform === "translateY(0)"
                   ? this.setState({ open2: transformOff, arrow2: arrowDown })
                   : this.setState({ open2: transformOn, arrow2: arrowUp });
               }}
@@ -249,7 +248,7 @@ class Portfolio extends Component {
             </div>
             <div
               onClick={() => {
-                this.state.open3.transform == "translateY(0)"
+                this.state.open3.transform === "translateY(0)"
                   ? this.setState({ open3: transformOff, arrow3: arrowDown })
                   : this.setState({ open3: transformOn, arrow3: arrowUp });
               }}
@@ -288,7 +287,7 @@ class Portfolio extends Component {
             </div>
             <div
               onClick={() => {
-                this.state.open4.transform == "translateY(0)"
+                this.state.open4.transform === "translateY(0)"
                   ? this.setState({ open4: transformOff, arrow4: arrowDown })
                   : this.setState({ open4: transformOn, arrow4: arrowUp });
               }}
@@ -327,7 +326,7 @@ class Portfolio extends Component {
             </div>
             <div
               onClick={() => {
-                this.state.open5.transform == "translateY(0)"
+                this.state.open5.transform === "translateY(0)"
                   ? this.setState({ open5: transformOff, arrow5: arrowDown })
                   : this.setState({ open5: transformOn, arrow5: arrowUp });
               }}
@@ -376,7 +375,7 @@ class Portfolio extends Component {
 
 // ========== //
 //   STYLES   //
-
+// ========== //
 const StyledRoot = styled.section`
   position: relative;
   width: 100%;
@@ -401,7 +400,7 @@ const StyledRoot = styled.section`
 
       .card {
         position: relative;
-        margin: .7em;
+        margin: 0.7em;
         width: 350px;
         height: 300px;
         background-color: #2d3436;

@@ -26,7 +26,7 @@ export default class SimpleSlider extends React.Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // console.log("Component has mounted");
     axios.get("/cms/kitchenbathvanity").then((collectData) => {
       this.setState({ arrayOfImages: collectData.data[0].imageArray });

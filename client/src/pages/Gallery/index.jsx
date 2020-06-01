@@ -4,7 +4,7 @@ import { NavBar } from "../../components/Navbar";
 import HeroSmart from "../../components/HeroSmart";
 import Footer from "../../components/Footer";
 import Signup from "../../components/Signup";
-import StateGallery from "../../components/stateGallery";
+import styled from "styled-components";
 import UploadBtn from "../../sub_component/UploadButton";
 import SmartSlider from "../../components/Slider";
 import axios from "axios";
@@ -70,7 +70,7 @@ export default class Gallery extends Component {
 
   changeTableName(event) {
     // set the state of tableName to kitchenTable
-    if (event.target.name != null && event.target.name != undefined) {
+    if (event.target.name !== null && event.target.name !== undefined) {
       this.setState({ tableName: `${event.target.name}` });
 
       this.state.allImageTables.forEach((table) => {
@@ -89,7 +89,7 @@ export default class Gallery extends Component {
     if (this.props.user) {
       return (
         <React.Fragment>
-          <div className="gallery_page_root">
+          <StyledRoot className="gallery_page_root">
             <HeroSmart
               login={"Peter"}
               backgroundName={"gallery_hero"}
@@ -148,14 +148,14 @@ export default class Gallery extends Component {
                 return <p>{element}</p>;
               })}
             </Toast>
-          </div>
+          </StyledRoot>
           {/* <UploadLightBox /> */}
         </React.Fragment>
       );
     } else {
       return (
         <React.Fragment>
-          <div className="gallery_page_root">
+          <StyledRoot className="gallery_page_root">
             <HeroSmart
               login={false}
               backgroundName={"gallery_hero"}
@@ -213,9 +213,12 @@ export default class Gallery extends Component {
                 return <p>{element}</p>;
               })}
             </Toast>
-          </div>
+          </StyledRoot>
         </React.Fragment>
       );
     }
   }
 }
+
+const StyledRoot = styled.main`
+`;
