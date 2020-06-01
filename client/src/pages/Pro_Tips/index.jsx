@@ -7,7 +7,7 @@ import LayoutBasic from "../../components/LayoutBasic";
 import Toast from "../../components/Toast";
 import ProTips from "../../components/ProTip/ProTip";
 
-export default class Pro_Tips extends Component {
+export default class ProTipsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,21 +19,28 @@ export default class Pro_Tips extends Component {
         {
           title: "Great Tips",
           subtitle: "by Sean Scharr",
-          body: "This is a wonderful place to get tips from.",
+          body:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum ea dolores ut eaque cumque, culpa placeat tempore eligendi reprehenderit similique assumenda saepe minima? Expedita eius ducimus mollitia nobis dolore cupiditate, quae facilis optio, pariatur sapiente in voluptas natus debitis. Accusantium repellendus accusamus non quas aliquam iusto cupiditate tenetur voluptas impedit! Nihil quos quisquam dolorem minus neque. Iste voluptatibus minus quam odit accusantium sit sequi est perferendis assumenda! Corrupti, incidunt? Sapiente!",
+          backgroundImage: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/furniture_10.jpg",
         },
         {
-          title: "Fantastic Tips",
+          title: "Best way to get out scratches",
           subtitle: "by Joe Scharr",
+          body:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus soluta modi dolore saepe! Praesentium quos, dolore enim dicta tempora quasi veritatis adipisci at quod delectus officiis voluptatibus vel distinctio natus?",
         },
         {
-          title: "Best Tips",
-          body: "How to clean your wooden table top without damaging the wood.",
+          title: "best practices",
+          body:
+			"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias magni soluta eaque dolore. Libero, at numquam dolore voluptatum, sapiente nemo tempora inventore quae beatae quia praesentium necessitatibus cupiditate omnis est ullam sequi nulla illo facere labore sint pariatur soluta excepturi!",
+			backgroundImage: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/furniture_12.jpg",
         },
         {
           title: "Final Tip",
           subtitle: "by Mike",
-          body: "Fantastic way to keep that old desk looking new.",
-          backgroundImage: "/cms/images/hero.jpg",
+          body:
+            "Lorem ipsum dolor sit, amet consectetur adipisicing elit. A, repellat! Exercitationem, maiores illum nostrum cum, nulla mollitia reiciendis iure voluptas facilis, ducimus aspernatur optio provident dolorem adipisci quibusdam alias commodi. Obcaecati tempore dolorem, eos amet, illum repudiandae consequatur soluta labore optio repellendus consequuntur vero aperiam excepturi velit quis? Omnis, ducimus?",
+          backgroundImage: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/furniture_13.jpg",
         },
       ],
     };
@@ -81,6 +88,21 @@ export default class Pro_Tips extends Component {
             subTitle="How to keep that like-new look"
           />
           <NavBar styleProp={this.state.navPos} />
+          <section>
+            {this.state.proTipArray.map((proTip, index) => {
+              return (
+                <ProTips
+                  key={index}
+                  tipNumber={index + 1}
+                  title={proTip.title}
+                  subTitle={proTip.subtitle}
+                  backgroundImage={proTip.backgroundImage ? proTip.backgroundImage : ""}
+                >
+                  {proTip.body}
+                </ProTips>
+              );
+            })}
+          </section>
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
             pTag={contentObject.paragraphOne.pTag}
@@ -111,9 +133,10 @@ export default class Pro_Tips extends Component {
               return (
                 <ProTips
                   key={index}
-                  tipNumber={index}
+                  tipNumber={index + 1}
                   title={proTip.title}
 				  subTitle={proTip.subtitle}
+				  backgroundImage={proTip.backgroundImage ? proTip.backgroundImage : ""}
                 >
                   {proTip.body}
                 </ProTips>

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./gallery.css";
 import Toast from "../../components/Toast";
-import ImageCard from "../../components/ImageCard";
 
 class Gallery extends Component {
   constructor(props) {
@@ -47,7 +46,7 @@ class Gallery extends Component {
           <div>
             <img
               src={this.state.toastImage}
-              alt="image"
+              alt="Tubac Woodworks AZ"
               style={{ maxWidth: "100%" }}
             />
           </div>

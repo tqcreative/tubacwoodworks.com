@@ -5,7 +5,7 @@ import UploadPhoto from '../../sub_component/UploadPhoto';
 function partners(props) {
 
     // make an API call to get data from the database and fill out the cards
-let {partner_1, partner_2, partner_3, partner_text, login} = props.textContent;
+let {partner_1, partner_2, partner_3, partner_text, /*login*/} = props.textContent;
 
     return (
         <div className="partners_root">

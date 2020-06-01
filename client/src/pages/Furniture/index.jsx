@@ -33,8 +33,6 @@ export default class Furniture extends Component {
     axios.get("/cms/kitchenbathvanity").then((collectData) => {
       collectData.data.forEach((table) => {
         if (table.furnitureTable) {
-          this.setState({ arrayOfImages: table.furnitureTable });
-
           const newArray = Array.from(table.furnitureTable);
           const arrayOfObjects = [];
           for (let i = 0; i < newArray.length; i++) {

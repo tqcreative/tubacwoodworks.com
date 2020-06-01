@@ -13,7 +13,7 @@ function NavBarComponent({ loggedIn, _logout, styleProp }) {
         name = "positionZero";
         arr = theMenu.className.split(" ");
 
-        if (arr.indexOf(name) == -1){
+        if (arr.indexOf(name) === -1){
             theMenu.classList.add("positionZero");
             menuButton.classList.add("noBackground");
             closeButton.classList.remove("displayNone");

@@ -6,7 +6,7 @@ import Pencil from '../../sub_component/PencilHero';
 function Hero(props) {
 
     let uploadPhotoComponent;
-    let thisId = props.__id;
+    // let thisId = props.__id;
     let backgroundImageName = 'hero.jpg';
     let nameOfImage = "hero";
 

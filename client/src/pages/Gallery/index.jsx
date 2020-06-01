@@ -70,7 +70,7 @@ export default class Gallery extends Component {
 
   changeTableName(event) {
     // set the state of tableName to kitchenTable
-    if (event.target.name != null && event.target.name != undefined) {
+    if (event.target.name !== null && event.target.name !== undefined) {
       this.setState({ tableName: `${event.target.name}` });
 
       this.state.allImageTables.forEach((table) => {

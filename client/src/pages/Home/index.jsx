@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Header } from "../../components";
 // import Signup from "../../components/Signup";
 import Hero from "../../components/Hero";
 import Numbers from "../../components/Numbers";
@@ -72,7 +71,7 @@ export default class Home extends Component {
 
   // file upload.
   fileSelectedHandler(event) {
-    console.log(event.target.files[0]);
+    // console.log(event.target.files[0]);
     this.setState({
       selectedFile: event.target.files[0],
     });
@@ -93,7 +92,7 @@ export default class Home extends Component {
         this.state.textInfoFromDatabase
       )
       .then((data) => {
-        console.log(this.state.textInfoFromDatabase);
+        // console.log(this.state.textInfoFromDatabase);
         alert("Uploaded Text to Database.");
       });
   }
@@ -114,7 +113,7 @@ export default class Home extends Component {
 
   callImagesToLoad() {
     axios.get("/cms/kitchenbathvanity").then((collectData) => {
-      console.log(collectData.data);
+      // console.log(collectData.data);
       collectData.data.forEach((libraryOfImages) => {
         if (libraryOfImages.showcaseGrid) {
           this.setState({ showcaseImages: libraryOfImages.showcaseGrid });
@@ -166,8 +165,7 @@ export default class Home extends Component {
   render() {
     if (this.props.user) {
       return (
-        <div className="Home home_root">
-          <Header user={this.state.user} />
+        <StyledRoot className="Home home_root">
           <Hero
             theTextObject={this.state.textInfoFromDatabase}
             theUpdateButton={this.updateStateTest}
@@ -229,12 +227,11 @@ export default class Home extends Component {
               return <p>{element}</p>;
             })}
           </Toast>
-        </div>
+        </StyledRoot>
       );
     } else {
       return (
-        <div className="Home home_root">
-          <Header user={this.state.user} />
+        <StyledRoot className="Home home_root">
           <Hero
             theTextObject={this.state.textInfoFromDatabase}
             theUpdateButton={this.updateStateTest}
@@ -284,6 +281,7 @@ export default class Home extends Component {
               <label htmlFor="username">Username: </label>
               <input
                 type="text"
+                autoComplete="username"
                 name="username"
                 value={this.state.username}
                 onChange={this.handleChange}
@@ -291,6 +289,7 @@ export default class Home extends Component {
               <label htmlFor="password">Password: </label>
               <input
                 type="password"
+                autoComplete="current-password"
                 name="password"
                 value={this.state.password}
                 onChange={this.handleChange}
@@ -308,7 +307,7 @@ export default class Home extends Component {
               return <p>{element}</p>;
             })}
           </Toast>
-        </div>
+        </StyledRoot>
       );
     }
   }

@@ -9,14 +9,6 @@ function QuoteTwo(props) {
     */
 
     let uploadTool;
-    
-    ////////////////////
-    // check for login
-    // not yet secure, you can change the state from chrome tools.
-    ////////////////////
-    props.login === "Peter" ?
-    uploadTool = <UploadPhoto __parent_id={thisId} __parent_image_name={backgroundImageName}/> :
-    uploadTool = <noscript></noscript>
 
     //////////////
     // props / options
@@ -31,6 +23,16 @@ function QuoteTwo(props) {
     let thisBackgroundImage;
     let backgroundImageName;
 
+        
+    ////////////////////
+    // check for login
+    // not yet secure, you can change the state from chrome tools.
+    ////////////////////
+    props.login === "Peter" ?
+    uploadTool = <UploadPhoto __parent_id={thisId} __parent_image_name={backgroundImageName}/> :
+    uploadTool = <noscript></noscript>
+
+    
     /////////////
     // set variables based on props or default
     /////////////
