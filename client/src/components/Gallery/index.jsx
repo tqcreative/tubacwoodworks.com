@@ -20,7 +20,7 @@ class Gallery extends Component {
   render(staticGalleryImageProp, onClick) {
     // console.log(this.props.staticGalleryImageProp)
     return (
-      <section className="gallery_root" style={{maxWidth: '1200px'}}>
+      <section className="gallery_root" style={{ maxWidth: "1200px" }}>
         <h2>Showcase</h2>
         <h3>
           {" "}

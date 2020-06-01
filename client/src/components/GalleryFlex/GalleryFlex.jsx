@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import Toast from "../../components/Toast";
 
 GalleryFlex.defaultProps = {
   theArray: [
@@ -22,26 +23,59 @@ GalleryFlex.defaultProps = {
 };
 
 export default function GalleryFlex(props) {
+  // ========= //
+  //   HOOKS   //
+  // ========= //
+  const [showToast, updateShowToast] = useState(false);
+  const [toastImage, updateToastImage] = useState("");
+
+  // ==================== //
+  //   HELPER FUNCTIONS   //
+  // ==================== //
+  const toggleToast = () => {
+    updateShowToast(!showToast);
+  };
+
   return (
-    <StyledRoot>
-      <StyledWrap>
-        {props.theArray.map((imageName, index) => {
-          return (
-            <StyledImg key={index}>
-              <img
-                alt="Tubac Woodworks AZ"
-                src={
-                  imageName.indexOf("https") === -1
-                    ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}`
-                    : imageName
-                }
-                loading="lazy"
-              />
-            </StyledImg>
-          );
-        })}
-      </StyledWrap>
-    </StyledRoot>
+    <React.Fragment>
+      <StyledRoot>
+        <StyledWrap>
+          {props.theArray.map((imageName, index) => {
+            let randomNumber = Math.floor(Math.random() * 5);
+            if (randomNumber < 3) {
+              randomNumber = 1;
+            }
+            return (
+              <StyledImg key={index} style={{ flexGrow: randomNumber }}>
+                <img
+                  onClick={() => {
+                    updateShowToast(true);
+                    updateToastImage(
+                      imageName.indexOf("https") === -1
+                        ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}`
+                        : imageName
+                    );
+                  }}
+                  alt="Tubac Woodworks AZ"
+                  src={
+                    imageName.indexOf("https") === -1
+                      ? `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${imageName}`
+                      : imageName
+                  }
+                  loading="lazy"
+                />
+              </StyledImg>
+            );
+          })}
+        </StyledWrap>
+      </StyledRoot>
+
+      <Toast show={showToast} onClose={toggleToast}>
+        <StyledImageWrap>
+          <img src={toastImage} alt="Tubac Woodworks AZ" />
+        </StyledImageWrap>
+      </Toast>
+    </React.Fragment>
   );
 }
 
@@ -58,21 +92,33 @@ const StyledWrap = styled.ul`
 
 const StyledImg = styled.li`
   height: 40vh;
-  flex-grow: 1;
   padding: 3px;
 
   &:last-child {
-    flex-grow: 10;
+    flex-grow: 10 !important;
   }
 
   img {
     max-height: 100%;
     min-width: 100%;
+    max-width: 100%;
     object-fit: cover;
     vertical-align: bottom;
   }
 
+  &:hover {
+    cursor: pointer;
+  }
+
   @media (max-width: 768px) {
-    /*  mobile  */
+    height: 30vh;
+  }
+`;
+
+const StyledImageWrap = styled.div`
+  img {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
   }
 `;
