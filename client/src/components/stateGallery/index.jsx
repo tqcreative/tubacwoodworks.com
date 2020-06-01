@@ -43,7 +43,7 @@ class StateGallery extends Component {
             );
           })}
         </StyledGallery>
-
+          <div onClick={this.props.forceRefresh}>Refresh Gallery</div>
         {/* </div> */}
         {/* </ImageWrapper> */}
         <Toast show={this.state.toastShow} onClose={this.toggleToast}>

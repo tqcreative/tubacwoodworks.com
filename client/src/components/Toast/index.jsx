@@ -75,11 +75,10 @@ const StyledRoot = styled.div`
 
     .body {
       display: block;
-      padding-top: 40px;
 
       div {
         img {
-          max-height: 80vh;
+          max-height: 100vh;
         }
       }
     }

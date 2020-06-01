@@ -91,6 +91,13 @@ router.route("/upload").post(authenticateUser, (req, res) => {
         });
 
         const uploadFile = (fileName) => {
+          console.log(fileName);
+          console.log(fileName);
+          console.log(fileName);
+          console.log(fileName);
+          console.log(fileName);
+          console.log(fileName);
+          console.log(fileName);
           // Read content from the file
           const fileContent = fs.readFileSync(fileName);
 
@@ -115,7 +122,6 @@ router.route("/upload").post(authenticateUser, (req, res) => {
               });
             });
           } catch (error) {
-            console.log("error");
             res.send("error");
           }
         };
