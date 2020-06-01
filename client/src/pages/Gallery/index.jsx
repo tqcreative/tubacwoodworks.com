@@ -10,7 +10,7 @@ import SmartSlider from "../../components/Slider";
 import axios from "axios";
 import Toast from "../../components/Toast";
 import GalleryFlex from "../../components/GalleryFlex/GalleryFlex";
-// import UploadLightBox from "../../components/UploadLightBox"; //PENDING: This is something for the next upload window.
+import StateGallery from "../../components/stateGallery";
 
 export default class Gallery extends Component {
   constructor(props) {
@@ -28,6 +28,35 @@ export default class Gallery extends Component {
     // bind signup and toast
     this.handleSignupResult = this.handleSignupResult.bind(this);
     this.toggleToast = this.toggleToast.bind(this);
+    this.forceRefreshGallery = this.forceRefreshGallery.bind(this);
+  }
+
+  forceRefreshGallery() {
+    axios.get("/cms/kitchenbathvanity").then((collectData) => {
+      this.setState({ allImageTables: collectData.data });
+
+      let arrayOfObjects = [];
+
+      this.state.allImageTables.forEach((table) => {
+        if (table.showcase) {
+          this.setState({ arrayOfImages: table.showcase });
+        }
+
+        if (table.showcaseGrid) {
+          // console.log(table.showcaseGrid);
+
+          for (let i = 0; i < table.showcaseGrid.length; i++) {
+            let newObjectItem = {
+              original: `${table.showcaseGrid[i]}`,
+              thumbnail: `${table.showcaseGrid[i]}`,
+            };
+            arrayOfObjects.push(newObjectItem);
+          }
+        }
+      });
+
+      this.setState({ sliderArray: arrayOfObjects });
+    });
   }
 
   componentDidMount() {
@@ -132,15 +161,22 @@ export default class Gallery extends Component {
                 Furniture Images
               </button>
             </div>
-            <div style={{ position: "relative" }}>
-              <UploadBtn tableNameProp={this.state.tableName} />
-            </div>
+            <div style={{ position: "relative" }}></div>
             <GalleryFlex theArray={this.state.arrayOfImages} />
-            {/* <StateGallery
+            
+            {/* this component is to delete images from the library. */}
+            <StateGallery
               logedIn={"Peter"}
               tableNameProp={this.state.tableName}
               theArray={this.state.arrayOfImages}
-            /> */}
+              forceRefresh={this.forceRefreshGallery}
+            />
+
+            {/* this component is to add images to the library */}
+            <UploadBtn
+              tableNameProp={this.state.tableName}
+              forceRefresh={this.forceRefreshGallery}
+            />
             <Signup submitResult={this.handleSignupResult} />
             <Footer />
             <Toast show={this.state.toastShow} onClose={this.toggleToast}>
@@ -200,11 +236,6 @@ export default class Gallery extends Component {
                 Furniture
               </button>
             </div>
-            {/* <StateGallery
-              logedIn={false}
-              tableNameProp={this.state.tableName}
-              theArray={this.state.arrayOfImages}
-            /> */}
             <GalleryFlex theArray={this.state.arrayOfImages} />
             <Signup submitResult={this.handleSignupResult} />
             <Footer />
@@ -220,5 +251,4 @@ export default class Gallery extends Component {
   }
 }
 
-const StyledRoot = styled.main`
-`;
+const StyledRoot = styled.main``;

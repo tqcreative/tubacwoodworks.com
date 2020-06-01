@@ -28,6 +28,8 @@ class StateGallery extends Component {
         {/* <ImageWrapper> */}
         {/* <div className="stateGallery_root" > */}
 
+        <h2>Edit this Gallery:</h2>
+
         <StyledGallery>
           {this.props.theArray.map((img, index) => {
             return (
@@ -36,14 +38,19 @@ class StateGallery extends Component {
                 tableNameProp={this.props.tableNameProp}
                 imageNumber={index}
                 key={img + Math.floor(Math.random() * 8000) + 1}
-                onClick={this.toggleToast}
+                toggleToast={this.toggleToast}
                 className="item"
                 theArray={img == undefined ? "kitchen_1.jpg" : img}
+                forceRefresh={
+                  this.props.forceRefresh /* PASS FORCEREFRESH TO IMAGE */
+                }
               />
             );
           })}
         </StyledGallery>
-
+        <StyledRefreshButton onClick={this.props.forceRefresh}>
+          Refresh Button
+        </StyledRefreshButton>
         {/* </div> */}
         {/* </ImageWrapper> */}
         <Toast show={this.state.toastShow} onClose={this.toggleToast}>
@@ -63,10 +70,37 @@ class StateGallery extends Component {
 // ========== //
 //   STYLES   //
 // ========== //
+const StyledRefreshButton = styled.div`
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  border: 1px solid #c0392b;
+  margin: 1em auto;
+  max-width: 250px;
+  text-align: center;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 3px #c0392b;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    transform: translateY(4px);
+  }
+`;
+
 const StyledRoot = styled.section`
   max-width: 1200px;
   padding: 1em;
   margin: 0 auto;
+
+  h2 {
+    text-transform: uppercase;
+    font-weight: 900;
+  }
 `;
 
 const StyledGallery = styled.div`

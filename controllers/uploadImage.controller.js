@@ -5,6 +5,8 @@ const authenticateUser = require("../utils/passport/authenticateUser")
   .authenticateUser; //checks the incoming request to make sure the user object is valid
 const fs = require("fs");
 const AWS = require("aws-sdk");
+const jimp = require("jimp");
+// const tinify = require("tinify");  // This uses tiny png to compress the photos.
 require("dotenv").config();
 
 // =================================== //
@@ -81,43 +83,97 @@ router.route("/upload").post(authenticateUser, (req, res) => {
         const SECRET = process.env.S3_SECRET;
         const BUCKET_NAME = process.env.BUCKET_NAME;
 
-        console.log(ID);
-        console.log(SECRET);
-        console.log(BUCKET_NAME);
-
         const s3 = new AWS.S3({
           accessKeyId: ID,
           secretAccessKey: SECRET,
         });
 
         const uploadFile = (fileName) => {
+          console.log("++++++++++++++++++++++++++");
+          console.log(fileName);
+          console.log(floatingFileName);
+          console.log("--------------------------");
           // Read content from the file
-          const fileContent = fs.readFileSync(fileName);
 
-          // Setting up S3 upload parameters
-          const params = {
-            ACL: "public-read",
-            Bucket: BUCKET_NAME,
-            Key: `${req.file.filename.toLowerCase()}`, // File name you want to save as in S3
-            Body: fileContent,
-          };
+          // ======== //
+          //   JIMP   //
+          // ======== //
+          // This will edit the photo so that it is not so large. setting the width to 1200px. Works best on landscape photos.
+          console.log("jimp started");
+          jimp.read(fileName).then((image) => {
+            // console.log(image);
 
-          // Uploading files to the bucket
-          try {
-            s3.upload(params, function (err, data) {
-              if (err) {
-                throw err;
+            // Image size:
+            if (image.bitmap.height > 1600 || image.bitmap.width > 1600) {
+              // Image is too large and must be reduced in size.
+
+              // check if image is taller or wider.
+              if (image.bitmap.height > image.bitmap.width) {
+                // image is taller (in portrate mode)
+                console.log(`jimp-sizing: auto by 1200px`);
+                image.autocrop(jimp.AUTO, 1200, function () {});
+              } else {
+                // image is wider (in landscape mode)
+                console.log(`jimp-sizing: 1400px by auto`);
+                image.autocrop(1400, jimp.AUTO, function () {});
               }
-              // console.log(`File uploaded successfully. ${data.Location}`);
-              res.send({
-                msg: "uploaded",
-                file: `${req.file.filename}`,
-              });
-            });
-          } catch (error) {
-            console.log("error");
-            res.send("error");
-          }
+            }
+
+            // Quality of image:
+            console.log("jimp: quality set to 50%");
+            image.quality(50);
+            console.log(
+              "jimp: replacing original file at: " +
+                `${__dirname}/../images/${floatingFileName}.jpg`
+            );
+            image.write(
+              `${__dirname}/../images/${floatingFileName}.jpg`,
+              function () {
+                console.log(`jimp END`);
+                // const fileContent = fs.readFileSync(fileName);
+                console.log(
+                  `reading file at: ${__dirname}/../images/${floatingFileName}.jpg`
+                );
+                const fileContent = fs.readFileSync(
+                  `${__dirname}/../images/${floatingFileName}.jpg`
+                );
+
+                // ================= //
+                //   AWS S3 UPLOAD   //
+                // ================= //
+                // Setting up S3 upload parameters
+                const params = {
+                  ACL: "public-read",
+                  Bucket: BUCKET_NAME,
+                  Key: `${floatingFileName.toLowerCase()}.jpg`, // File name you want to save as in S3
+                  Body: fileContent,
+                };
+
+                // Uploading files to the bucket
+                try {
+                  s3.upload(params, function (err, data) {
+                    if (err) {
+                      res.send(
+                        "Upload could not be completed as expected. Try again later."
+                      );
+                    }
+                    // console.log(`File uploaded successfully. ${data.Location}`);
+                    res.send({
+                      msg: "uploaded",
+                      file: `${req.file.filename}`,
+                    });
+                  });
+                } catch (error) {
+                  res.send("error");
+                }
+              }
+            );
+            // image.write(`./temp/${obj.name}_lg.jpg`, function () {
+            // console.log(`Created ${obj.name}_lg.jpg`);
+            // // console.log('Tiny PNG')
+            // // const source = tinify.fromFile(`./temp/${obj.name}_lg.jpg`);
+            // source.toFile(`./temp/${obj.name}_lg.jpg`);
+          }); // END of jimp
         };
 
         // select the file path the image is downloaded to
