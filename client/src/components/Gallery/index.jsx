@@ -42,6 +42,7 @@ class Gallery extends Component {
             );
           })}
         </div>
+
         <Toast show={this.state.toastShow} onClose={this.toggleToast}>
           <div>
             <img
