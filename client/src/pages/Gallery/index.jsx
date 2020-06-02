@@ -29,32 +29,38 @@ export default class Gallery extends Component {
       sliderArray: [],
       galleryOptionsFrontEnd: [
         {
+          frontEnd: true,
           gallery: "Showcase",
           name: "showcaseGrid", // Name of the Table it pulls its images from.
           icon: <FaTrophy />,
           // onClick: {this.changeTableName} // needs to be added to the button creation within the class
         },
         {
+          frontEnd: true,
           gallery: "Kitchen",
           name: "kitchenTable", // Name of the Table it pulls its images from.
           icon: <MdKitchen />,
         },
         {
+          frontEnd: true,
           gallery: "Bathroom",
           name: "bathTable", // Name of the Table it pulls its images from.,
           icon: <FaToilet />,
         },
         {
+          frontEnd: true,
           gallery: "Furniture",
           name: "furnitureTable",
           icon: <GiDesk />,
         },
         {
+          frontEnd: true,
           gallery: "Wall Beds",
           name: "imageArray", // Name of the Table it pulls its images from.
           icon: <IoIosBed />,
         },
         {
+          frontEnd: true,
           gallery: "More Photos",
           name: "showcase",
           icon: <FaPhotoVideo />,
@@ -69,31 +75,14 @@ export default class Gallery extends Component {
   }
 
   forceRefreshGallery() {
-    axios.get("/cms/kitchenbathvanity").then((collectData) => {
-      this.setState({ allImageTables: collectData.data });
-
-      let arrayOfObjects = [];
-
-      this.state.allImageTables.forEach((table) => {
-        if (table.showcase) {
-          this.setState({ arrayOfImages: table.showcase });
-        }
-
-        if (table.showcaseGrid) {
-          // console.log(table.showcaseGrid);
-
-          for (let i = 0; i < table.showcaseGrid.length; i++) {
-            let newObjectItem = {
-              original: `${table.showcaseGrid[i]}`,
-              thumbnail: `${table.showcaseGrid[i]}`,
-            };
-            arrayOfObjects.push(newObjectItem);
-          }
-        }
-      });
-
-      this.setState({ sliderArray: arrayOfObjects });
-    });
+    // console.log(this.state.allImageTables); // all the items
+    // console.log(this.state.tableName); // current table name
+    // this.setState({arrayOfImages: this.state.allImageTables.name[this.state.tableName]})
+    this.state.allImageTables.forEach(table => {
+      if(table.name === this.state.tableName) {
+        this.setState({arrayOfImages: table[this.state.tableName]})
+      }
+    })
   }
 
   componentDidMount() {
