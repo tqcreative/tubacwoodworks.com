@@ -171,7 +171,7 @@ export default class Home extends Component {
             theUpdateButton={this.updateStateTest}
             login={"Peter"}
           />
-          <NavBar loggedIn={true} styleProp={this.state.navPos} />
+          <NavBar logout={this.props.logout} loggedIn={true} styleProp={this.state.navPos} />
           <Numbers user={this.state.user} />
           <button
             onClick={this.updateTextDatabase}

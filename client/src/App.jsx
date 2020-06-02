@@ -96,7 +96,7 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={() => <Home user={this.state.user} _login={this._login} />}
+            render={() => <Home user={this.state.user} _login={this._login} logout={this._logout} />}
           />
           <PrivateRoute
             path="/crm"
