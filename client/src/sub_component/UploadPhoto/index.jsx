@@ -72,7 +72,7 @@ class UploadPhoto extends Component {
 
   // See notes in UploadButton for more details.
 
-  submitPhotoForUpload(event) {
+  submitPhotoForUpload() {
     if (
       this.state.selectedFile === null ||
       this.state.selectedFile === undefined
