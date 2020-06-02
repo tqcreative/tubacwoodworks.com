@@ -37,7 +37,7 @@ class StateGallery extends Component {
                 logedIn={this.props.logedIn}
                 tableNameProp={this.props.tableNameProp}
                 imageNumber={index}
-                key={img + Math.floor(Math.random() * 8000) + 1}
+                key={img + index}
                 toggleToast={this.toggleToast}
                 className="item"
                 theArray={img == undefined ? "kitchen_1.jpg" : img}
