@@ -78,11 +78,15 @@ export default class Gallery extends Component {
     // console.log(this.state.allImageTables); // all the items
     // console.log(this.state.tableName); // current table name
     // this.setState({arrayOfImages: this.state.allImageTables.name[this.state.tableName]})
-    this.state.allImageTables.forEach(table => {
-      if(table.name === this.state.tableName) {
-        this.setState({arrayOfImages: table[this.state.tableName]})
-      }
-    })
+
+    axios.get("/cms/kitchenbathvanity").then((newList) => {
+      this.setState({ allImageTables: newList.data });
+      newList.data.forEach((table) => {
+        if (table.name === this.state.tableName) {
+          this.setState({ arrayOfImages: table[this.state.tableName] });
+        }
+      });
+    });
   }
 
   componentDidMount() {
