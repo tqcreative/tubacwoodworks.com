@@ -110,18 +110,18 @@ router.route("/upload").post(authenticateUser, (req, res) => {
               // check if image is taller or wider.
               if (image.bitmap.height > image.bitmap.width) {
                 // image is taller (in portrate mode)
-                console.log(`jimp-sizing: auto by 1200px`);
-                image.autocrop(jimp.AUTO, 1200, function () {});
+                console.log(`jimp-sizing: 1000px by 1600px`);
+                image.cover(1000, 1600, function () {});
               } else {
                 // image is wider (in landscape mode)
-                console.log(`jimp-sizing: 1400px by auto`);
-                image.autocrop(1400, jimp.AUTO, function () {});
+                console.log(`jimp-sizing: 1600px by 1000px`);
+                image.cover(1600, 1000, function () {});
               }
             }
 
             // Quality of image:
-            console.log("jimp: quality set to 50%");
-            image.quality(50);
+            console.log("jimp: quality set to 70%");
+            image.quality(70);
             console.log(
               "jimp: replacing original file at: " +
                 `${__dirname}/../images/${floatingFileName}.jpg`

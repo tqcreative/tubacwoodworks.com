@@ -148,12 +148,13 @@ export default class UploadBtn extends Component {
 
 const StyledRoot = styled.section`
   padding: 1em;
-  margin: auto;
+  margin: 1em auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   max-width: 1200px;
+  border-bottom: 1px solid #aaa;
 
   input {
     margin-top: 1em;
@@ -161,6 +162,8 @@ const StyledRoot = styled.section`
   }
 
   h2 {
+    border-top: 1px solid #aaa;
+    padding: .5em 0;
     font-weight: 900;
     text-transform: uppercase;
     width: 100%;
