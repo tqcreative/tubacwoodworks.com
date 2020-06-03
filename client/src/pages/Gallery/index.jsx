@@ -75,9 +75,9 @@ export default class Gallery extends Component {
   }
 
   forceRefreshGallery() {
-    // console.log(this.state.allImageTables); // all the items
-    // console.log(this.state.tableName); // current table name
-    // this.setState({arrayOfImages: this.state.allImageTables.name[this.state.tableName]})
+    // This requries grabbing the new list of images from the database.
+    // PENDING the database is still broken and includes /imagename.jpg rather than the url to AWS. Not fixed yet.
+    
 
     axios.get("/cms/kitchenbathvanity").then((newList) => {
       this.setState({ allImageTables: newList.data });

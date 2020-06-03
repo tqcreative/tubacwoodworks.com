@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavBar } from "../../components/Navbar";
 import gsap from "gsap";
 import HeroSmart from "../../components/HeroSmart";
+import Gallery from "../../components/Gallery";
 import Footer from "../../components/Footer";
 import Signup from "../../components/Signup";
 import LayoutBasic from "../../components/LayoutBasic";
@@ -18,6 +19,9 @@ export default class Furniture extends Component {
       toastMsg: [],
       toastShow: false,
       arrayOfImages: [],
+      showcaseImages: [
+        "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_9.jpg",
+      ],
     };
 
     // bind signup and toast
@@ -30,9 +34,16 @@ export default class Furniture extends Component {
     window.scrollTo(0, 0);
 
     gsap.from("#furniture_h1", { duration: 2, x: 200, opacity: 0 });
+
     axios.get("/cms/kitchenbathvanity").then((collectData) => {
       collectData.data.forEach((table) => {
+
+        // set the table for the slider
         if (table.furnitureTable) {
+          // tell the gallery what to place inside
+          this.setState({ showcaseImages: table.furnitureTable });
+
+          // grab images for slider
           const newArray = Array.from(table.furnitureTable);
           const arrayOfObjects = [];
           for (let i = 0; i < newArray.length; i++) {
@@ -62,7 +73,7 @@ export default class Furniture extends Component {
     // this data will normally be held in a server cand axios called on mount.
     let contentObject = {
       paragraphOne: {
-        h2Tag: "Furniture you're going to love.",
+        h2Tag: "Wall Beds",
         pTag:
           "Our products are available through authorized showrooms, on-line retailers and the Urban Woods website. If there is not a dealer near you then we encourage you to contact us directly for more information.",
         pTag2:
@@ -89,6 +100,11 @@ export default class Furniture extends Component {
             pTag2={contentObject.paragraphOne.pTag2}
             pTag3={contentObject.paragraphOne.pTag3}
           />
+          <Gallery
+            login={"Peter"}
+            user={this.state.user}
+            staticGalleryImageProp={this.state.showcaseImages}
+          />
           <Signup submitResult={this.handleSignupResult} />
           <Footer />
           <Toast show={this.state.toastShow} onClose={this.toggleToast}>
@@ -114,6 +130,11 @@ export default class Furniture extends Component {
             pTag={contentObject.paragraphOne.pTag}
             pTag2={contentObject.paragraphOne.pTag2}
             pTag3={contentObject.paragraphOne.pTag3}
+          />
+          <Gallery
+            login={false}
+            user={this.state.user}
+            staticGalleryImageProp={this.state.showcaseImages}
           />
           <Signup submitResult={this.handleSignupResult} />
           <Footer />

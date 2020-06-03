@@ -56,7 +56,7 @@ const ImageCard = ({
           className="item"
           style={
             theArray.indexOf("http") === -1
-              ? { backgroundImage: `url(/cms/images/${theArray}` }
+              ? { backgroundImage: `url(https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${theArray}` }
               : { backgroundImage: `url(${theArray})` }
           }
         ></div>

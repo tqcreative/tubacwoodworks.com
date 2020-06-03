@@ -29,7 +29,7 @@ export default function ProTip(props) {
         }}
       ></div>
       <div className="right">
-        {props.tipNumber ? <h2>Pro Tip #{props.tipNumber}</h2> : ""}
+        {/* {props.tipNumber ? <h2>Pro Tip #{props.tipNumber}</h2> : ""} */}
         <h3>{props.title}</h3>
         <h4>{props.subtitle}</h4>
         <div>{props.children}</div>
@@ -56,7 +56,7 @@ const StyledRoot = styled.section`
   .right {
     order: 2;
     width: 65%;
-    padding: 1em;
+    padding: 1em 2em;
     color: #4a5559;
     background-color: #fefefe;
 
@@ -102,6 +102,11 @@ const StyledRoot = styled.section`
 
     .right {
       width: 100%;
+      padding: 1em;
+
+      h3 {
+        font-size: 1.5em;
+      }
     }
 
     &:nth-child(even) {

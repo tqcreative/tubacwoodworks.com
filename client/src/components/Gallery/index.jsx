@@ -31,15 +31,31 @@ class Gallery extends Component {
 
         <div id="gallery_container" className="gallery_container">
           {this.props.staticGalleryImageProp.map((img, index) => {
-            // console.log (img, index)
-            return (
-              <div
-                className={`item item_${index + 1} span-${index + 1}`}
-                style={{ backgroundImage: `url(${img}` }}
-                key={img + Math.floor(Math.random() * 8000) + 1}
-                onClick={() => this.toggleToast(`${img}`)}
-              ></div>
-            );
+            // prevent more than 13 images from displaying in the grid
+            if (index > 13) {
+              return;
+            } else {
+              return (
+                <div
+                  className={`item item_${index + 1} span-${index + 1}`}
+                  style={
+                    img.indexOf("http") === -1
+                      ? {
+                          backgroundImage: `url(https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${img}`,
+                        }
+                      : { backgroundImage: `url(${img}` }
+                  }
+                  key={img + index}
+                  onClick={() => {
+                    img.indexOf("http") === -1
+                      ? this.toggleToast(
+                          `https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${img}`
+                        )
+                      : this.toggleToast(img);
+                  }}
+                ></div>
+              );
+            }
           })}
         </div>
 
