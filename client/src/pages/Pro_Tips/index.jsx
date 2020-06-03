@@ -83,7 +83,7 @@ export default class ProTipsPage extends Component {
         <div className="pro_tips_root">
           <HeroSmart
             login={"Peter"}
-            backgroundName="pro_tips_hero"
+            backgroundName="https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_pro_tips.jpg"
             title="Pro Tips"
             subTitle="How to keep that like-new look"
           />
@@ -123,7 +123,7 @@ export default class ProTipsPage extends Component {
         <div className="pro_tips_root">
           <HeroSmart
             login={false}
-            backgroundName="pro_tips_hero"
+            backgroundName="https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_pro_tips.jpg"
             title="Pro Tips"
             subTitle="How to keep that like-new look"
           />

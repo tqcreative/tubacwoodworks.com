@@ -7,7 +7,7 @@ class StateGallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      arrayOfImages: ["/images/check_1.jpg"],
+      arrayOfImages: ["check_1.jpg"],
       toastShow: false,
       toastImage: "",
     };

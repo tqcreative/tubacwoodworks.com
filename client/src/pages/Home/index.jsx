@@ -28,7 +28,7 @@ export default class Home extends Component {
       toastShow: false,
       navPos: "absolute",
       redirectTo: null,
-      staticGalleryImages: ["/images/check_1.jpg"],
+      staticGalleryImages: ["check_1.jpg"],
       showcaseImages: [
         "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_9.jpg",
       ],

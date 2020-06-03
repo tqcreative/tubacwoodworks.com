@@ -88,12 +88,12 @@ export default class Furniture extends Component {
         <div className="furnitrue_root">
           <HeroSmart
             login={"Peter"}
-            backgroundName={"furniture_hero"}
+            backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_furniture.jpg"}
             title="Furniture"
             subTitle="Wall Beds, Desks, Mantels, and more"
           />
           <NavBar styleProp={this.state.navPos} />
-          <Slider smartArray={this.state.arrayOfImages} />
+
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
             pTag={contentObject.paragraphOne.pTag}
@@ -119,12 +119,12 @@ export default class Furniture extends Component {
         <div className="furnitrue_root">
           <HeroSmart
             login={false}
-            backgroundName={"furniture_hero"}
+            backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_furniture.jpg"}
             title="Furniture"
             subTitle="Wall Beds, Desks, Mantels, and more"
           />
           <NavBar styleProp={this.state.navPos} />
-          <Slider smartArray={this.state.arrayOfImages} />
+          
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
             pTag={contentObject.paragraphOne.pTag}

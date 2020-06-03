@@ -22,7 +22,7 @@ export default class Gallery extends Component {
     this.state = {
       user: props.user,
       styleProp: "absolute",
-      arrayOfImages: ["/images/check_1.jpg"],
+      arrayOfImages: ["check_1.jpg"],
       tableName: "showcase",
       galleryInfoName: "",
       toastMsg: [],
@@ -91,6 +91,7 @@ export default class Gallery extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    console.log('etst');
     axios.get("/cms/kitchenbathvanity").then((collectData) => {
       this.setState({ allImageTables: collectData.data });
 
@@ -165,7 +166,7 @@ export default class Gallery extends Component {
           <StyledRoot className="gallery_page_root">
             <HeroSmart
               login={"Peter"}
-              backgroundName={"gallery_hero"}
+              backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_gallery.jpg"}
               title="Gallery"
               subTitle="come see our work"
             />
@@ -239,7 +240,7 @@ export default class Gallery extends Component {
           <StyledRoot className="gallery_page_root">
             <HeroSmart
               login={false}
-              backgroundName={"gallery_hero"}
+              backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_gallery.jpg"}
               title="Gallery"
               subTitle="come see our work"
             />

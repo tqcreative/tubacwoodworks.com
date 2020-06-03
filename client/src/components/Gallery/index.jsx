@@ -6,7 +6,7 @@ class Gallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      staticGalleryImages: ["/images/check_1.jpg"],
+      staticGalleryImages: ["check_1.jpg"],
       toastShow: false,
       toastImage: "",
     };

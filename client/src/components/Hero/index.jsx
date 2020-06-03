@@ -18,7 +18,7 @@ function Hero(props) {
         <div className="hero_root">
 
         <span>{uploadPhotoComponent}</span>
-            <div className="hero_background parallax hero_parallax" data-rellax-speed="-10" style={{backgroundImage: `url(/cms/images/${backgroundImageName})`}}></div>
+            <div className="hero_background parallax hero_parallax" data-rellax-speed="-10" style={{backgroundImage: `url(https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/${backgroundImageName})`}}></div>
             <div id="hero_quote">
             { 
                 props.login === "Peter" ?

@@ -9,7 +9,7 @@ function HeroSmart(props) {
         className="parallax"
         data-rellax-speed="-10"
         style={{
-          backgroundImage: `url(/cms/images/${props.backgroundName}.jpg)`,
+          backgroundImage: `url(${props.backgroundName})`,
         }}
       ></div>
       <span>
