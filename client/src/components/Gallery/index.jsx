@@ -33,7 +33,7 @@ class Gallery extends Component {
           {this.props.staticGalleryImageProp.map((img, index) => {
             // prevent more than 13 images from displaying in the grid
             if (index > 13) {
-              return;
+              return "";
             } else {
               return (
                 <div

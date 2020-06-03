@@ -60,7 +60,7 @@ export default class LoginForm extends Component {
             </div>
             <button onClick={this.handleSubmit}>Login</button>
             <a
-              href="#"
+              href=""
               onClick={() => {
                 alert("A message has been sent to your email.");
               }}

@@ -34,16 +34,16 @@ export default class Home extends Component {
       ],
       textInfoFromDatabase: {
         _id: "5e2fb19cbf1a343bc0ddd739",
-        quoteTop: { h2: "", p: "", url: "#" },
-        quoteBottom: { h2: "", p: "", url: "#" },
+        quoteTop: { h2: "", p: "", url: "" },
+        quoteBottom: { h2: "", p: "", url: "" },
         checkerBox: { slotOne: "", slotTwo: "", slotThree: "" },
         partners: {
-          partner_1: { name: " ", description: " ", url: "#", picture: "#" },
-          partner_2: { name: " ", description: " ", url: "#", picture: "#" },
-          partner_3: { name: " ", description: " ", url: "#", picture: "#" },
-          partner_text: { text: " ", backgroundImage: "#" },
+          partner_1: { name: " ", description: " ", url: "", picture: "#" },
+          partner_2: { name: " ", description: " ", url: "", picture: "#" },
+          partner_3: { name: " ", description: " ", url: "", picture: "#" },
+          partner_text: { text: " ", backgroundImage: "" },
         },
-        hero: { logo: "#", h2: "#" },
+        hero: { logo: "", h2: "" },
         portfolio: {
           box_1: { title: "", description: "", background: "" },
           box_2: { title: "", description: "", background: "" },

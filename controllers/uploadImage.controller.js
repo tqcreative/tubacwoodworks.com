@@ -73,7 +73,7 @@ router.route("/upload").post(authenticateUser, (req, res) => {
     if (err) {
       res.send({ msg: err });
     } else {
-      if (req.file == undefined) {
+      if (req.file === undefined) {
         res.send({
           msg: "Error: No File Selected!",
         });
