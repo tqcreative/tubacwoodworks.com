@@ -7,7 +7,7 @@ class StateGallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      arrayOfImages: ["/images/check_1.jpg"],
+      arrayOfImages: ["check_1.jpg"],
       toastShow: false,
       toastImage: "",
     };
@@ -28,7 +28,7 @@ class StateGallery extends Component {
         {/* <ImageWrapper> */}
         {/* <div className="stateGallery_root" > */}
 
-        <h2>Edit this Gallery:</h2>
+        <h2><span>Edit Gallery:</span> {this.props.galleryInfoName}</h2>
 
         <StyledGallery>
           {this.props.theArray.map((img, index) => {
@@ -48,9 +48,9 @@ class StateGallery extends Component {
             );
           })}
         </StyledGallery>
-        <StyledRefreshButton onClick={this.props.forceRefresh}>
+        {/* <StyledRefreshButton onClick={this.props.forceRefresh}>
           Refresh Button
-        </StyledRefreshButton>
+        </StyledRefreshButton> */}
         {/* </div> */}
         {/* </ImageWrapper> */}
         <Toast show={this.state.toastShow} onClose={this.toggleToast}>
@@ -100,6 +100,11 @@ const StyledRoot = styled.section`
   h2 {
     text-transform: uppercase;
     font-weight: 900;
+
+    span {
+      font-weight: 200;
+      text-transform: capitalize;
+    }
   }
 `;
 

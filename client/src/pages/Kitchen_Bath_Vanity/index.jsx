@@ -99,14 +99,12 @@ export default class KitchenBathVanity extends Component {
         <div className="kitchen_root">
           <HeroSmart
             login={"Peter"}
-            backgroundName={"kitchen_bath_vanity"}
+            backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_kitchen_bath_vanity.jpg"}
             title="Kitchen Bath &amp; Vanity"
             subTitle="Love your home."
           />
 
           <NavBar styleProp={this.state.navPos} />
-
-          <Slider name="kitchen" smartArray={this.state.kitchenImages} />
 
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
@@ -147,12 +145,12 @@ export default class KitchenBathVanity extends Component {
         <div className="kitchen_root">
           <HeroSmart
             login={false}
-            backgroundName={"kitchen_bath_vanity"}
+            backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_kitchen_bath_vanity.jpg"}
             title="Kitchen Bath &amp; Vanity"
             subTitle="Love your home."
           />
           <NavBar styleProp={this.state.navPos} />
-          <Slider name="kitchen" smartArray={this.state.kitchenImages} />
+          
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
             pTag={contentObject.paragraphOne.pTag}

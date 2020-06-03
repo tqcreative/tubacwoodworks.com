@@ -17,7 +17,7 @@ export default class Cookies extends Component {
       <div className="error_root">
         <HeroSmart
           login={false}
-          backgroundName={"error"}
+          backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/error.jpg"}
           title="Privacy Policy"
           subTitle=""
         />

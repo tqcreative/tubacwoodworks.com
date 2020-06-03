@@ -22,8 +22,9 @@ export default class Gallery extends Component {
     this.state = {
       user: props.user,
       styleProp: "absolute",
-      arrayOfImages: ["/images/check_1.jpg"],
+      arrayOfImages: ["check_1.jpg"],
       tableName: "showcase",
+      galleryInfoName: "",
       toastMsg: [],
       toastShow: false,
       sliderArray: [],
@@ -77,7 +78,6 @@ export default class Gallery extends Component {
   forceRefreshGallery() {
     // This requries grabbing the new list of images from the database.
     // PENDING the database is still broken and includes /imagename.jpg rather than the url to AWS. Not fixed yet.
-    
 
     axios.get("/cms/kitchenbathvanity").then((newList) => {
       this.setState({ allImageTables: newList.data });
@@ -91,6 +91,7 @@ export default class Gallery extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    console.log('etst');
     axios.get("/cms/kitchenbathvanity").then((collectData) => {
       this.setState({ allImageTables: collectData.data });
 
@@ -129,19 +130,27 @@ export default class Gallery extends Component {
 
   changeTableName(event) {
     let galleryName = "";
+    let galleryInfoName = "";
+
     if (event.target.parentNode.name) {
       galleryName = event.target.parentNode.name;
+      galleryInfoName = event.target.parentNode.attributes.galleryInfoName
+        ? event.target.parentNode.attributes.galleryInfoName.value
+        : event.target.parentNode.name;
     } else {
       galleryName = event.target.name;
+      galleryInfoName = event.target.attributes.galleryInfoName
+        ? event.target.attributes.galleryInfoName.value
+        : event.target.name;
     }
 
     if (galleryName !== null && galleryName !== undefined) {
       this.setState({ tableName: `${galleryName}` });
-
       this.state.allImageTables.forEach((table) => {
         if (table[galleryName]) {
           this.setState({
             arrayOfImages: table[galleryName],
+            galleryInfoName: galleryInfoName,
           });
         }
       });
@@ -157,7 +166,7 @@ export default class Gallery extends Component {
           <StyledRoot className="gallery_page_root">
             <HeroSmart
               login={"Peter"}
-              backgroundName={"gallery_hero"}
+              backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_gallery.jpg"}
               title="Gallery"
               subTitle="come see our work"
             />
@@ -171,6 +180,7 @@ export default class Gallery extends Component {
                     className="matthews_bootstrap_button"
                     type="button"
                     name={buttonInfo.name}
+                    galleryInfoName={buttonInfo.gallery}
                     onClick={this.changeTableName}
                   >
                     {buttonInfo.icon}
@@ -188,6 +198,7 @@ export default class Gallery extends Component {
               tableNameProp={this.state.tableName}
               theArray={this.state.arrayOfImages}
               forceRefresh={this.forceRefreshGallery}
+              galleryInfoName={this.state.galleryInfoName}
             />
 
             {/* this component is to add images to the library */}
@@ -195,6 +206,23 @@ export default class Gallery extends Component {
               tableNameProp={this.state.tableName}
               forceRefresh={this.forceRefreshGallery}
             />
+            <StyledButtons>
+              {this.state.galleryOptionsFrontEnd.map((buttonInfo, index) => {
+                return (
+                  <button
+                    key={index}
+                    className="matthews_bootstrap_button"
+                    type="button"
+                    name={buttonInfo.name}
+                    galleryInfoName={buttonInfo.gallery}
+                    onClick={this.changeTableName}
+                  >
+                    {buttonInfo.icon}
+                    <span>{buttonInfo.gallery}</span>
+                  </button>
+                );
+              })}
+            </StyledButtons>
             <Signup submitResult={this.handleSignupResult} />
             <Footer />
             <Toast show={this.state.toastShow} onClose={this.toggleToast}>
@@ -212,7 +240,7 @@ export default class Gallery extends Component {
           <StyledRoot className="gallery_page_root">
             <HeroSmart
               login={false}
-              backgroundName={"gallery_hero"}
+              backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_gallery.jpg"}
               title="Gallery"
               subTitle="come see our work"
             />

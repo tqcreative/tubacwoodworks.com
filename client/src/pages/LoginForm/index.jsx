@@ -82,7 +82,7 @@ const StyledRoot = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("/cms/images/check_1.jpg");
+  background-image: url("https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/check_1.jpg");
   background-size: cover;
   background-position: center center;
 
