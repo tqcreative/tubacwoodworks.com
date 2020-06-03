@@ -21,6 +21,7 @@ export default class UploadBtn extends Component {
       selectedFile: event.target.files[0],
       loaded: 0,
       editMenu: "",
+      loading: false,
     });
   }
 
@@ -71,6 +72,10 @@ export default class UploadBtn extends Component {
 
       // This call is sending the name of the file before it sends the file
       if (thisFilesName != null) {
+        // call loading gif
+        this.setState({ loading: true });
+
+        // start axios call
         axios
           .post("/cms/GD8PQX3UV18999AARONWITHANEY/filename", {
             body: this.state.selectedFile.name,
@@ -104,6 +109,10 @@ export default class UploadBtn extends Component {
                   return;
                 }
                 // Update the images array in the mongo database
+              })
+              .finally(() => {
+                // dismiss loading gif
+                this.setState({ loading: false });
               });
           });
       } else {
@@ -114,17 +123,22 @@ export default class UploadBtn extends Component {
 
   render() {
     return (
-      <StyledRoot className="upload_img_root">
-        <h2>Upload a new photo.</h2>
-        <input type="file" name="file" onChange={this.uploadFileHandler} />
-        <button
-          type="button"
-          className="button"
-          onClick={this.submitPhotoForUpload}
-        >
-          <ion-icon name="ios-save"></ion-icon>
-        </button>
-      </StyledRoot>
+      <React.Fragment>
+        <StyledRoot className="upload_img_root">
+          <h2>Upload a new photo.</h2>
+          <input type="file" name="file" onChange={this.uploadFileHandler} />
+          <button
+            type="button"
+            className="button"
+            onClick={this.submitPhotoForUpload}
+          >
+            <ion-icon name="ios-save"></ion-icon>
+          </button>
+        </StyledRoot>
+        <StyledLoadGif className={this.state.loading ? "" : "_hide"}>
+          <img src="https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/100.gif" alt="loading..." />
+        </StyledLoadGif>
+      </React.Fragment>
     );
   }
 }
@@ -145,10 +159,28 @@ const StyledRoot = styled.section`
     margin-top: 1em;
     margin-bottom: 1em;
   }
-  
+
   h2 {
     font-weight: 900;
     text-transform: uppercase;
     width: 100%;
+  }
+`;
+
+const StyledLoadGif = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0.8);
+
+  &._hide {
+    display: none;
   }
 `;
