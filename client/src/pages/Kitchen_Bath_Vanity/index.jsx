@@ -6,7 +6,7 @@ import Signup from "../../components/Signup";
 import Toast from "../../components/Toast";
 import LayoutBasic from "../../components/LayoutBasic";
 import LayoutThree from "../../components/LayoutThree";
-import Slider from "../../components/Slider";
+// import Slider from "../../components/Slider";
 import axios from "axios";
 
 export default class KitchenBathVanity extends Component {
@@ -126,8 +126,6 @@ export default class KitchenBathVanity extends Component {
             pTag2={contentObject.paragraphTwo.pTag2}
             pTag3={contentObject.paragraphTwo.pTag3}
           />
-
-          <Slider smartArray={this.state.bathImages} />
 
           <Signup submitResult={this.handleSignupResult} />
 

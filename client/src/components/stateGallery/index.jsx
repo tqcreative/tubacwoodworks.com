@@ -40,7 +40,7 @@ class StateGallery extends Component {
                 key={img + index}
                 toggleToast={this.toggleToast}
                 className="item"
-                theArray={img == undefined ? "kitchen_1.jpg" : img}
+                theArray={img === undefined ? "kitchen_1.jpg" : img}
                 forceRefresh={
                   this.props.forceRefresh /* PASS FORCEREFRESH TO IMAGE */
                 }
@@ -48,16 +48,13 @@ class StateGallery extends Component {
             );
           })}
         </StyledGallery>
-        {/* <StyledRefreshButton onClick={this.props.forceRefresh}>
-          Refresh Button
-        </StyledRefreshButton> */}
         {/* </div> */}
         {/* </ImageWrapper> */}
         <Toast show={this.state.toastShow} onClose={this.toggleToast}>
           <div>
             <img
               src={this.state.toastImage}
-              alt="image"
+              alt="Tubac Woodworks AZ"
               style={{ maxWidth: "100%" }}
             />
           </div>
@@ -70,27 +67,6 @@ class StateGallery extends Component {
 // ========== //
 //   STYLES   //
 // ========== //
-const StyledRefreshButton = styled.div`
-  padding: 0.5em 1em;
-  border-radius: 8px;
-  border: 1px solid #c0392b;
-  margin: 1em auto;
-  max-width: 250px;
-  text-align: center;
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 3px #c0392b;
-  }
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:active {
-    transform: translateY(4px);
-  }
-`;
 
 const StyledRoot = styled.section`
   max-width: 1200px;

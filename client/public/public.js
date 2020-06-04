@@ -192,9 +192,6 @@ document.addEventListener("DOMContentLoaded", function () {
         gsap.from(".item_11", { duration: 1.3, opacity: 0, delay: 0.3 });
         gsap.from(".item_12", { duration: 1.5, opacity: 0, delay: 1 });
         gsap.from(".item_13", { duration: 0.5, opacity: 0, delay: 0.3 });
-        gsap.from(".item_14", { duration: 1.5, opacity: 0, delay: 1 });
-        gsap.from(".item_15", { duration: 2.5, opacity: 0, delay: 0.3 });
-        gsap.from(".item_16", { duration: 2, opacity: 0, delay: 1 });
       } else if (
         !elementInViewport(document.getElementById("gallery_container")) &&
         galleryTrigger === true

@@ -41,21 +41,21 @@ export default function ProTip(props) {
 const StyledRoot = styled.section`
   display: flex;
   flex-wrap: wrap;
-  min-height: 35vh;
-  margin: 1.5em 1em;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+  min-height: 50vh;
+  margin: auto;
+  padding: none;
+  max-width: none;
 
   .left {
     position: relative;
     order: 1;
-    width: 33%;
     flex: auto;
     overflow: hidden;
   }
 
   .right {
     order: 2;
-    width: 65%;
+    width: 50%;
     padding: 1em 2em;
     color: #4a5559;
     background-color: #fefefe;
@@ -67,6 +67,7 @@ const StyledRoot = styled.section`
     }
 
     h3 {
+      color: #a6988d;
       text-transform: uppercase;
       font-weight: 900;
       font-size: 2.5em;

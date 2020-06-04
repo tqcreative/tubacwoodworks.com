@@ -91,7 +91,6 @@ export default class Gallery extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    console.log('etst');
     axios.get("/cms/kitchenbathvanity").then((collectData) => {
       this.setState({ allImageTables: collectData.data });
 

@@ -10,6 +10,7 @@ import Commercial from "./pages/Commercial/";
 import Furniture from "./pages/Furniture/";
 import ProTipsPage from "./pages/Pro_Tips";
 import Gallery from "./pages/Gallery/";
+import AboutUs from "./pages/AboutUs/AboutUs";
 import Error from "./pages/Error/";
 import CRM from "./pages/CRM";
 import PrivateRoute from "./components/PrivateRoute";
@@ -96,7 +97,13 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={() => <Home user={this.state.user} _login={this._login} logout={this._logout} />}
+            render={() => (
+              <Home
+                user={this.state.user}
+                _login={this._login}
+                logout={this._logout}
+              />
+            )}
           />
           <PrivateRoute
             path="/crm"
@@ -114,6 +121,11 @@ class App extends Component {
             exact
             path="/furniture"
             render={() => <Furniture user={this.state.user} />}
+          />
+          <Route
+            exact
+            path="/about"
+            render={() => <AboutUs user={this.state.user} />}
           />
 
           <Route

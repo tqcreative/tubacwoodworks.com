@@ -33,10 +33,10 @@ function DeleteButton(props) {
           if (theFinalArray.length <= 1) {
             // you only have 1 item in this array. Do not touch it.
             return;
-          } else if (indexNumber == 0) {
+          } else if (indexNumber === 0) {
             // we can shift this object
             theFinalArray.shift();
-          } else if (indexNumber == theFinalArray.length - 1) {
+          } else if (indexNumber === theFinalArray.length - 1) {
             // we can pop this number
             theFinalArray.pop();
           } else {
@@ -60,6 +60,7 @@ function DeleteButton(props) {
               break;
             case "furnitureTable":
               mongoObject = { furnitureTable: theFinalArray };
+              break;
             default:
               console.log("No Table Found.");
               break;

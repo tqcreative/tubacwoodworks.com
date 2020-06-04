@@ -94,13 +94,6 @@ class Portfolio extends Component {
     // these did not work because browsers cache data.
   }
 
-  componentDidMount() {
-    // console.log(this.props.theTextObject);
-    // console.log(this.props.theTextObject.portfolio.box_1);
-    // console.log(this.props.theUpdateButton);
-    // this.axiosCall();
-  }
-
   axiosCall() {
     axios
       .get("/cms/portfolio_component", {})
@@ -403,6 +396,7 @@ const StyledRoot = styled.section`
         margin: 0.7em;
         width: 350px;
         height: 300px;
+        border: none;
         background-color: #2d3436;
         background-size: cover;
         background-position: center center;
@@ -424,7 +418,8 @@ const StyledRoot = styled.section`
             font-weight: 800;
             font-size: 1em;
             text-align: center;
-            padding: 1em;
+            padding: 0.7em;
+            text-transform: capitalize;
 
             ion-icon {
               font-size: 1.6em;

@@ -7,7 +7,7 @@ import Footer from "../../components/Footer";
 import Signup from "../../components/Signup";
 import LayoutBasic from "../../components/LayoutBasic";
 import Toast from "../../components/Toast";
-import Slider from "../../components/Slider";
+// import Slider from "../../components/Slider";
 import axios from "axios";
 
 export default class Furniture extends Component {
@@ -33,7 +33,9 @@ export default class Furniture extends Component {
     // scroll to 0 0 because it's a react app and will remember how far down the screen it is otherwise.
     window.scrollTo(0, 0);
 
-    gsap.from("#furniture_h1", { duration: 2, x: 200, opacity: 0 });
+    if ( document.getElementById('funiture_h1') ) {
+      gsap.from("#furniture_h1", { duration: 2, x: 200, opacity: 0 });
+    };
 
     axios.get("/cms/kitchenbathvanity").then((collectData) => {
       collectData.data.forEach((table) => {

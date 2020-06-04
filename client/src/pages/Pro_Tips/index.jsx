@@ -88,7 +88,13 @@ export default class ProTipsPage extends Component {
             subTitle="How to keep that like-new look"
           />
           <NavBar styleProp={this.state.navPos} />
-          <section>
+          <LayoutBasic
+            h2Tag={contentObject.paragraphOne.h2Tag}
+            pTag={contentObject.paragraphOne.pTag}
+            pTag2={contentObject.paragraphOne.pTag2}
+            pTag3={contentObject.paragraphOne.pTag3}
+          />
+          <div>
             {this.state.proTipArray.map((proTip, index) => {
               return (
                 <ProTips
@@ -102,13 +108,7 @@ export default class ProTipsPage extends Component {
                 </ProTips>
               );
             })}
-          </section>
-          <LayoutBasic
-            h2Tag={contentObject.paragraphOne.h2Tag}
-            pTag={contentObject.paragraphOne.pTag}
-            pTag2={contentObject.paragraphOne.pTag2}
-            pTag3={contentObject.paragraphOne.pTag3}
-          />
+          </div>
           <Signup submitResult={this.handleSignupResult} />
           <Footer />
           <Toast show={this.state.toastShow} onClose={this.toggleToast}>
@@ -128,7 +128,13 @@ export default class ProTipsPage extends Component {
             subTitle="How to keep that like-new look"
           />
           <NavBar styleProp={this.state.navPos} />
-          <section>
+          <LayoutBasic
+            h2Tag={contentObject.paragraphOne.h2Tag}
+            pTag={contentObject.paragraphOne.pTag}
+            pTag2={contentObject.paragraphOne.pTag2}
+            pTag3={contentObject.paragraphOne.pTag3}
+          />
+          <div>
             {this.state.proTipArray.map((proTip, index) => {
               return (
                 <ProTips
@@ -142,13 +148,7 @@ export default class ProTipsPage extends Component {
                 </ProTips>
               );
             })}
-          </section>
-          <LayoutBasic
-            h2Tag={contentObject.paragraphOne.h2Tag}
-            pTag={contentObject.paragraphOne.pTag}
-            pTag2={contentObject.paragraphOne.pTag2}
-            pTag3={contentObject.paragraphOne.pTag3}
-          />
+          </div>
           <Signup submitResult={this.handleSignupResult} />
           <Footer />
           <Toast show={this.state.toastShow} onClose={this.toggleToast}>
