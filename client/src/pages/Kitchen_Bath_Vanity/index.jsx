@@ -35,13 +35,11 @@ export default class KitchenBathVanity extends Component {
 
       let newArray = [];
       collectData.data.forEach((collectionOfImages) => {
-
         if (collectionOfImages.kitchenTable) {
           this.setState({ arrayOfImages: collectionOfImages.kitchenTable });
           newArray = collectionOfImages.kitchenTable;
           // console.log(newArray)
-        };
-
+        }
       });
 
       // console.log(this.state.arrayOfImages);
@@ -57,7 +55,6 @@ export default class KitchenBathVanity extends Component {
       }
       this.setState({ kitchenImages: arrayOfObjects });
     });
-
   }
 
   handleSignupResult(msg) {
@@ -99,7 +96,9 @@ export default class KitchenBathVanity extends Component {
         <div className="kitchen_root">
           <HeroSmart
             login={"Peter"}
-            backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_kitchen_bath_vanity.jpg"}
+            backgroundName={
+              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_kitchen_bath_vanity.jpg"
+            }
             title="Kitchen Bath &amp; Vanity"
             subTitle="Love your home."
           />
@@ -115,9 +114,11 @@ export default class KitchenBathVanity extends Component {
 
           <LayoutThree
             login={"Peter"}
-            image1={"layout3_kbv_default_1"}
-            image2={"layout3_kbv_default_2"}
-            image3={"layout3_kbv_default_3"}
+            image_uris={[
+              "layout3_kbv_default_1",
+              "layout3_kbv_default_2",
+              "layout3_kbv_default_3",
+            ]}
           />
 
           <LayoutBasic
@@ -125,6 +126,15 @@ export default class KitchenBathVanity extends Component {
             pTag={contentObject.paragraphTwo.pTag}
             pTag2={contentObject.paragraphTwo.pTag2}
             pTag3={contentObject.paragraphTwo.pTag3}
+          />
+
+          <LayoutThree login={"Peter"} />
+
+          <LayoutBasic
+            h2Tag={contentObject.paragraphOne.h2Tag}
+            pTag={contentObject.paragraphOne.pTag}
+            pTag2={contentObject.paragraphOne.pTag2}
+            pTag3={contentObject.paragraphOne.pTag3}
           />
 
           <Signup submitResult={this.handleSignupResult} />
@@ -143,12 +153,14 @@ export default class KitchenBathVanity extends Component {
         <div className="kitchen_root">
           <HeroSmart
             login={false}
-            backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_kitchen_bath_vanity.jpg"}
+            backgroundName={
+              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_kitchen_bath_vanity.jpg"
+            }
             title="Kitchen Bath &amp; Vanity"
             subTitle="Love your home."
           />
           <NavBar styleProp={this.state.navPos} />
-          
+
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
             pTag={contentObject.paragraphOne.pTag}
@@ -166,6 +178,14 @@ export default class KitchenBathVanity extends Component {
             pTag={contentObject.paragraphTwo.pTag}
             pTag2={contentObject.paragraphTwo.pTag2}
             pTag3={contentObject.paragraphTwo.pTag3}
+          />
+          <LayoutThree login={"Peter"} />
+
+          <LayoutBasic
+            h2Tag={contentObject.paragraphOne.h2Tag}
+            pTag={contentObject.paragraphOne.pTag}
+            pTag2={contentObject.paragraphOne.pTag2}
+            pTag3={contentObject.paragraphOne.pTag3}
           />
           <Signup submitResult={this.handleSignupResult} />
           <Footer />

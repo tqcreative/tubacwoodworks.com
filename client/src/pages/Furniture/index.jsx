@@ -7,6 +7,7 @@ import Footer from "../../components/Footer";
 import Signup from "../../components/Signup";
 import LayoutBasic from "../../components/LayoutBasic";
 import Toast from "../../components/Toast";
+import LayoutThree from "../../components/LayoutThree";
 // import Slider from "../../components/Slider";
 import axios from "axios";
 
@@ -33,13 +34,12 @@ export default class Furniture extends Component {
     // scroll to 0 0 because it's a react app and will remember how far down the screen it is otherwise.
     window.scrollTo(0, 0);
 
-    if ( document.getElementById('funiture_h1') ) {
+    if (document.getElementById("funiture_h1")) {
       gsap.from("#furniture_h1", { duration: 2, x: 200, opacity: 0 });
-    };
+    }
 
     axios.get("/cms/kitchenbathvanity").then((collectData) => {
       collectData.data.forEach((table) => {
-
         // set the table for the slider
         if (table.furnitureTable) {
           // tell the gallery what to place inside
@@ -90,7 +90,9 @@ export default class Furniture extends Component {
         <div className="furnitrue_root">
           <HeroSmart
             login={"Peter"}
-            backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_furniture.jpg"}
+            backgroundName={
+              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_furniture.jpg"
+            }
             title="Furniture"
             subTitle="Wall Beds, Desks, Mantels, and more"
           />
@@ -102,6 +104,16 @@ export default class Furniture extends Component {
             pTag2={contentObject.paragraphOne.pTag2}
             pTag3={contentObject.paragraphOne.pTag3}
           />
+
+          <LayoutThree />
+
+          <LayoutBasic
+            h2Tag={contentObject.paragraphOne.h2Tag}
+            pTag={contentObject.paragraphOne.pTag}
+            pTag2={contentObject.paragraphOne.pTag2}
+            pTag3={contentObject.paragraphOne.pTag3}
+          />
+
           <Gallery
             login={"Peter"}
             user={this.state.user}
@@ -121,11 +133,22 @@ export default class Furniture extends Component {
         <div className="furnitrue_root">
           <HeroSmart
             login={false}
-            backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_furniture.jpg"}
+            backgroundName={
+              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_furniture.jpg"
+            }
             title="Furniture"
             subTitle="Wall Beds, Desks, Mantels, and more"
           />
           <NavBar styleProp={this.state.navPos} />
+
+          <LayoutBasic
+            h2Tag={contentObject.paragraphOne.h2Tag}
+            pTag={contentObject.paragraphOne.pTag}
+            pTag2={contentObject.paragraphOne.pTag2}
+            pTag3={contentObject.paragraphOne.pTag3}
+          />
+
+          <LayoutThree />
           
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
