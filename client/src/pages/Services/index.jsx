@@ -114,38 +114,16 @@ export default class Services extends Component {
       },
     ];
 
-    let bathroomBoxes = [
-      {
-        title: "Stand Alone",
-        body:
-          "More than just a space saver. You'll be able to keep the look and feel of your home office with these stylish Wallbeds.",
-        image_uri:
-          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/dsc_0021.jpg",
-      },
-      {
-        title: "Bath & Vanity",
-        body: "Keep your office space and still have that guest room!",
-        image_uri:
-          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/14b5d483-d86c-4c2b-9d6c-d335658f9e16.jpg",
-      },
-      {
-        title: "Custom Styles",
-        body:
-          "Wallbed units also add in-wall storage that can be used to stay organized.",
-        image_uri:
-          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d4b7203a-86a1-48fb-9e12-415dcab8a180.jpg",
-      },
-    ];
 
     if (this.props.user) {
       return (
-        <div className="kitchen_root">
+        <div>
           <HeroSmart
             login={"Peter"}
             backgroundName={
               "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_kitchen_bath_vanity.jpg"
             }
-            title="Kitchen Bath &amp; Vanity"
+            title="Services"
             subTitle="Love your home."
           />
 
@@ -167,7 +145,7 @@ export default class Services extends Component {
             pTag3={contentObject.paragraphTwo.pTag3}
           />
 
-          <LayoutThree login={"Peter"} image_info={bathroomBoxes} />
+
 
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
@@ -189,13 +167,13 @@ export default class Services extends Component {
       );
     } else {
       return (
-        <div className="kitchen_root">
+        <div>
           <HeroSmart
             login={false}
             backgroundName={
               "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_kitchen_bath_vanity.jpg"
             }
-            title="Kitchen Bath &amp; Vanity"
+            title="Services"
             subTitle="Love your home."
           />
           <NavBar styleProp={this.state.navPos} />
@@ -216,7 +194,7 @@ export default class Services extends Component {
             pTag3={contentObject.paragraphTwo.pTag3}
           />
 
-          <LayoutThree login={false} image_info={bathroomBoxes} />
+
 
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
