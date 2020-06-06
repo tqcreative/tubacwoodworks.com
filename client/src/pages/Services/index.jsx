@@ -9,7 +9,7 @@ import LayoutThree from "../../components/LayoutThree";
 // import Slider from "../../components/Slider";
 import axios from "axios";
 
-export default class KitchenBathVanity extends Component {
+export default class Services extends Component {
   constructor(props) {
     super(props);
     this.state = {
