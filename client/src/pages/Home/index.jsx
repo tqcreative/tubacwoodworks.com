@@ -259,7 +259,7 @@ export default class Home extends Component {
             login={false}
             __id={"landing_page_quote"}
           />
-          <Phone phoneNumber="5208405864" />
+          <Phone phoneNumber="5206250050" />
           <Gallery
             login={false}
             user={this.state.user}

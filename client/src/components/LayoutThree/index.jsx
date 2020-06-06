@@ -1,148 +1,175 @@
-import React from "react";
+import React, { useState } from "react";
 import UploadPhoto from "../../sub_component/UploadPhoto";
+import Toast from "../Toast";
 import styled from "styled-components";
 
+LayoutThree.defaultProps = {
+  image_info: [
+    {
+      title: "",
+      body: "",
+      image_uri:
+        "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_gallery.jpg",
+    },
+    {
+      title: "",
+      body: "",
+      image_uri:
+        "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_pro_tips.jpg",
+    },
+    {
+      title: "",
+      body: "",
+      image_uri:
+        "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_error.jpg",
+    },
+  ],
+};
+
 export default function LayoutThree(props) {
+  // ========= //
+  //   HOOKS   //
+  // ========= //
+  const [showToast, updateShowToast] = useState(false);
+  const [toastImage, updateToastImage] = useState("");
+
+  // ==================== //
+  //   HELPER FUNCTIONS   //
+  // ==================== //
+  const toggleToast = () => {
+    updateShowToast(!showToast);
+  };
+
   return (
-    <StyledRoot className="layout_three_root">
-      <div className="image_wrap">
-        <div className="left">
-          <div
-            className="image_1"
-            style={{ backgroundImage: `url(/cms/images/${props.image1}.jpg)` }}
-          >
-            {props.login === "Peter" ? (
-              <UploadPhoto __parent_image_name={props.image1} />
-            ) : (
-              <noscript></noscript>
-            )}
-          </div>
-        </div>
-        <div className="right">
-          <div
-            className="img"
-            style={{ backgroundImage: `url(/cms/images/${props.image2}.jpg)` }}
-          >
-            {props.login === "Peter" ? (
-              <UploadPhoto __parent_image_name={props.image2} />
-            ) : (
-              <noscript></noscript>
-            )}
-          </div>
-          <div
-            className="img"
-            style={{ backgroundImage: `url(/cms/images/${props.image3}.jpg)` }}
-          >
-            {props.login === "Peter" ? (
-              <UploadPhoto __parent_image_name={props.image3} />
-            ) : (
-              <noscript></noscript>
-            )}
-          </div>
-        </div>
-      </div>
-    </StyledRoot>
+    <React.Fragment>
+      <StyledRoot className="layout_three_root">
+        {props.image_info.map((info, index) => {
+          return (
+            <StyledBox
+              key={index}
+              style={{
+                background: `url(${info.image_uri})`,
+                backgroundSize: "cover",
+                index,
+              }}
+              onClick={() => {
+                updateShowToast(true);
+                updateToastImage(info.image_uri);
+              }}
+            >
+              <div
+                className="cover_box"
+                style={
+                  info.title && info.body
+                    ? { display: "flex" }
+                    : { display: "none" }
+                }
+              >
+                <div>
+                  <h3>{info.title}</h3>
+                  <p>{info.body}</p>
+                </div>
+              </div>
+            </StyledBox>
+          );
+        })}
+      </StyledRoot>
+      <Toast show={showToast} onClose={toggleToast}>
+        <StyledImageWrap>
+          <img src={toastImage} alt="Tubac Woodworks AZ" />
+        </StyledImageWrap>
+      </Toast>
+    </React.Fragment>
   );
 }
 
 // ========== //
 //   STYLES   //
 // ========== //
-const StyledRoot = styled.section`
+
+const StyledBox = styled.div`
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1em 0;
+  width: 25%;
+  height: 25vw;
+  min-height: 35vh;
+  padding: 0;
+  margin: 0 auto;
+  flex-grow: 1;
 
-  .image_wrap {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1400px;
-    overflow: hidden;
+  .cover_box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: opacity 0.3s;
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 2vw;
+    justify-content: center;
+    align-items: center;
 
-    .left {
-      position: relative;
-      padding: 1em;
-      display: flex;
-      justify-content: center;
-      height: 60vh;
-      width: 50vw;
+    div {
+      box-sizing: border-box;
 
-      .image_1 {
-        position: relative;
+      h3 {
+        text-transform: uppercase;
+        font-size: 1.7em;
+        font-weight: 900;
         width: 100%;
-        height: 100%;
-        background-color: $dark;
-        background-size: cover;
-        background-position: center;
-        z-index: 8;
+      }
+
+      p {
+        font-style: italic;
+        font-weight: 200;
+        width: 100%;
       }
     }
 
-    .right {
-      position: relative;
-      padding: 1em;
-      display: flex;
-      justify-content: center;
-      height: 60vh;
-      width: 50vw;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-
-      .img {
-        position: relative;
-        background-color: $dark;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
-        width: 40vw;
-        height: 48.5%;
-        z-index: 8;
-
-        &:first-child {
-          margin-bottom: 2%;
-        }
-
-        &:last-child {
-          margin-top: 2%;
-        }
-      }
+    &:hover {
+      cursor: pointer;
+      opacity: 0;
     }
   }
 
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100vw;
+    max-height: 100vh;
+  }
+
+`;
+
+const StyledImageWrap = styled.div`
+  img {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+`;
+
+const StyledRoot = styled.section`
+  position: relative;
+  width: 100%;
+  max-width: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 1em 0;
+
   @media (max-width: 1020px) {
-    .image_wrap {
-      flex-wrap: wrap;
-      overflow: hidden;
+    .image_box {
+      width: 50%;
+    }
+  }
 
-      .left {
-        width: 100vw;
-        height: 40vh;
-      }
-
-      .right {
-        width: 100vw;
-        height: 20vh;
-        padding-top: 0;
-
-        .img {
-          width: 48%;
-          height: auto;
-
-          &:first-child {
-            margin: 0 2% 1% 0;
-          }
-
-          &:last-child {
-            margin: 0 0 2% 1%;
-          }
-        }
-      }
+  @media (max-width: 768px) {
+    .image_box {
+      width: 100%;
     }
   }
 `;

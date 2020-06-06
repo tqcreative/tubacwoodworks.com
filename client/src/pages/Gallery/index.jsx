@@ -170,7 +170,9 @@ export default class Gallery extends Component {
               subTitle="come see our work"
             />
             <NavBar styleProp={this.state.styleProp} />
-            <SmartSlider smartArray={this.state.sliderArray} />
+
+            {/* <SmartSlider smartArray={this.state.sliderArray} /> */}
+
             <StyledButtons>
               {this.state.galleryOptionsFrontEnd.map((buttonInfo, index) => {
                 return (
@@ -245,8 +247,11 @@ export default class Gallery extends Component {
             />
             <NavBar styleProp={this.state.styleProp} />
             {/* <SimpleSlider/> */}
-            <SmartSlider smartArray={this.state.sliderArray} />
+
+            {/* <SmartSlider smartArray={this.state.sliderArray} /> */}
+
             {/* Button with kitchen/bath/furniture options that call their subsequent functions that set the state on click  */}
+
             <StyledButtons>
               {this.state.galleryOptionsFrontEnd.map((buttonInfo, index) => {
                 return (
@@ -292,6 +297,7 @@ const StyledButtons = styled.section`
     align-items: center;
     min-height: 16px;
     max-width: 1000px;
+    padding: 3em;
 
     button {
         border: none;
@@ -322,6 +328,10 @@ const StyledButtons = styled.section`
 
         &:active {
             transform: translateY(5px);
+        }
+
+        &:focus {
+          outline: 1px solid red;
         }
     }
 }

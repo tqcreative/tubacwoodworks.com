@@ -35,13 +35,11 @@ export default class KitchenBathVanity extends Component {
 
       let newArray = [];
       collectData.data.forEach((collectionOfImages) => {
-
         if (collectionOfImages.kitchenTable) {
           this.setState({ arrayOfImages: collectionOfImages.kitchenTable });
           newArray = collectionOfImages.kitchenTable;
           // console.log(newArray)
-        };
-
+        }
       });
 
       // console.log(this.state.arrayOfImages);
@@ -57,7 +55,6 @@ export default class KitchenBathVanity extends Component {
       }
       this.setState({ kitchenImages: arrayOfObjects });
     });
-
   }
 
   handleSignupResult(msg) {
@@ -94,12 +91,60 @@ export default class KitchenBathVanity extends Component {
       },
     };
 
+    let kitchenBoxes = [
+      {
+        title: "stunning cabinets",
+        body: "Keep your office space and still have that guest room!",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d10.jpg",
+      },
+      {
+        title: "Kitchen Islands",
+        body:
+          "More than just a space saver. You'll be able to keep the look and feel of your home office with these stylish Wallbeds.",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/97f7c6bf-12d2-472f-975c-8634d6fe88a2.jpg",
+      },
+      {
+        title: "Stove & Oven Covers",
+        body:
+          "Wallbed units also add in-wall storage that can be used to stay organized.",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/gallery_5.jpg",
+      },
+    ];
+
+    let bathroomBoxes = [
+      {
+        title: "Stand Alone",
+        body:
+          "More than just a space saver. You'll be able to keep the look and feel of your home office with these stylish Wallbeds.",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/dsc_0021.jpg",
+      },
+      {
+        title: "Bath & Vanity",
+        body: "Keep your office space and still have that guest room!",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/14b5d483-d86c-4c2b-9d6c-d335658f9e16.jpg",
+      },
+      {
+        title: "Custom Styles",
+        body:
+          "Wallbed units also add in-wall storage that can be used to stay organized.",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d4b7203a-86a1-48fb-9e12-415dcab8a180.jpg",
+      },
+    ];
+
     if (this.props.user) {
       return (
         <div className="kitchen_root">
           <HeroSmart
             login={"Peter"}
-            backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_kitchen_bath_vanity.jpg"}
+            backgroundName={
+              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_kitchen_bath_vanity.jpg"
+            }
             title="Kitchen Bath &amp; Vanity"
             subTitle="Love your home."
           />
@@ -113,18 +158,22 @@ export default class KitchenBathVanity extends Component {
             pTag3={contentObject.paragraphOne.pTag3}
           />
 
-          <LayoutThree
-            login={"Peter"}
-            image1={"layout3_kbv_default_1"}
-            image2={"layout3_kbv_default_2"}
-            image3={"layout3_kbv_default_3"}
-          />
+          <LayoutThree login={"Peter"} image_info={kitchenBoxes} />
 
           <LayoutBasic
             h2Tag={contentObject.paragraphTwo.h2Tag}
             pTag={contentObject.paragraphTwo.pTag}
             pTag2={contentObject.paragraphTwo.pTag2}
             pTag3={contentObject.paragraphTwo.pTag3}
+          />
+
+          <LayoutThree login={"Peter"} image_info={bathroomBoxes} />
+
+          <LayoutBasic
+            h2Tag={contentObject.paragraphOne.h2Tag}
+            pTag={contentObject.paragraphOne.pTag}
+            pTag2={contentObject.paragraphOne.pTag2}
+            pTag3={contentObject.paragraphOne.pTag3}
           />
 
           <Signup submitResult={this.handleSignupResult} />
@@ -143,29 +192,37 @@ export default class KitchenBathVanity extends Component {
         <div className="kitchen_root">
           <HeroSmart
             login={false}
-            backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_kitchen_bath_vanity.jpg"}
+            backgroundName={
+              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_kitchen_bath_vanity.jpg"
+            }
             title="Kitchen Bath &amp; Vanity"
             subTitle="Love your home."
           />
           <NavBar styleProp={this.state.navPos} />
-          
+
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
             pTag={contentObject.paragraphOne.pTag}
             pTag2={contentObject.paragraphOne.pTag2}
             pTag3={contentObject.paragraphOne.pTag3}
           />
-          <LayoutThree
-            login={false}
-            image1={"layout3_kbv_default_1"}
-            image2={"layout3_kbv_default_2"}
-            image3={"layout3_kbv_default_3"}
-          />
+
+          <LayoutThree login={false} image_info={kitchenBoxes} />
+
           <LayoutBasic
             h2Tag={contentObject.paragraphTwo.h2Tag}
             pTag={contentObject.paragraphTwo.pTag}
             pTag2={contentObject.paragraphTwo.pTag2}
             pTag3={contentObject.paragraphTwo.pTag3}
+          />
+
+          <LayoutThree login={false} image_info={bathroomBoxes} />
+
+          <LayoutBasic
+            h2Tag={contentObject.paragraphOne.h2Tag}
+            pTag={contentObject.paragraphOne.pTag}
+            pTag2={contentObject.paragraphOne.pTag2}
+            pTag3={contentObject.paragraphOne.pTag3}
           />
           <Signup submitResult={this.handleSignupResult} />
           <Footer />
