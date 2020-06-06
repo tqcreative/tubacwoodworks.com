@@ -41,12 +41,12 @@ export default class Furniture extends Component {
     axios.get("/cms/kitchenbathvanity").then((collectData) => {
       collectData.data.forEach((table) => {
         // set the table for the slider
-        if (table.furnitureTable) {
+        if (table.imageArray) {
           // tell the gallery what to place inside
-          this.setState({ showcaseImages: table.furnitureTable });
+          this.setState({ showcaseImages: table.imageArray });
 
           // grab images for slider
-          const newArray = Array.from(table.furnitureTable);
+          const newArray = Array.from(table.imageArray);
           const arrayOfObjects = [];
           for (let i = 0; i < newArray.length; i++) {
             let newObjectItem = {
@@ -105,7 +105,13 @@ export default class Furniture extends Component {
             pTag3={contentObject.paragraphOne.pTag3}
           />
 
-          <LayoutThree />
+          <LayoutThree
+            image_info={[
+              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/gallery_7.jpg",
+              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/photo (5).jpg",
+              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d23.jpg",
+            ]}
+          />
 
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
@@ -148,19 +154,39 @@ export default class Furniture extends Component {
             pTag3={contentObject.paragraphOne.pTag3}
           />
 
-          <LayoutThree />
-          
+          <LayoutThree
+            image_info={[
+              {
+                title: "Save Space",
+                body: "Keep your office space and still have that guest room!",
+                image_uri: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/gallery_7.jpg",
+              },
+              {
+                title: "Keep Style",
+                body: "More than just a space saver. You'll be able to keep the look and feel of your home office with these stylish Wallbeds.",
+                image_uri: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_gallery.jpg",
+              },
+              {
+                title: "Storage",
+                body: "Wallbed units also add in-wall storage that can be used to stay organized.",
+                image_uri: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d23.jpg",
+              },
+            ]}
+          />
+
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
             pTag={contentObject.paragraphOne.pTag}
             pTag2={contentObject.paragraphOne.pTag2}
             pTag3={contentObject.paragraphOne.pTag3}
           />
+
           <Gallery
             login={false}
             user={this.state.user}
             staticGalleryImageProp={this.state.showcaseImages}
           />
+
           <Signup submitResult={this.handleSignupResult} />
           <Footer />
           <Toast show={this.state.toastShow} onClose={this.toggleToast}>

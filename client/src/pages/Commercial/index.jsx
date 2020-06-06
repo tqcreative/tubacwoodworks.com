@@ -3,6 +3,8 @@ import { NavBar } from "../../components/Navbar";
 import HeroSmart from "../../components/HeroSmart";
 import Footer from "../../components/Footer";
 import Signup from "../../components/Signup";
+import SmartSlider from "../../components/Slider";
+import axios from "axios";
 import LayoutBasic from "../../components/LayoutBasic";
 import Toast from "../../components/Toast";
 import styled from "styled-components";
@@ -15,6 +17,7 @@ export default class Commercial extends Component {
       navPos: "absolute",
       toastMsg: [],
       toastShow: false,
+      sliderArray: [],
     };
 
     // bind signup and toast
@@ -24,6 +27,33 @@ export default class Commercial extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+
+    // call database for image array to be used in slider
+    axios.get("/cms/kitchenbathvanity").then((collectData) => {
+      this.setState({ allImageTables: collectData.data });
+
+      let arrayOfObjects = [];
+
+      this.state.allImageTables.forEach((table) => {
+        if (table.showcase) {
+          this.setState({ arrayOfImages: table.showcase });
+        }
+
+        if (table.showcaseGrid) {
+          // console.log(table.showcaseGrid);
+
+          for (let i = 0; i < table.showcaseGrid.length; i++) {
+            let newObjectItem = {
+              original: `${table.showcaseGrid[i]}`,
+              thumbnail: `${table.showcaseGrid[i]}`,
+            };
+            arrayOfObjects.push(newObjectItem);
+          }
+        }
+      });
+
+      this.setState({ sliderArray: arrayOfObjects });
+    });
   }
 
   handleSignupResult(msg) {
@@ -55,11 +85,21 @@ export default class Commercial extends Component {
         <StyledRoot className="commercial_root">
           <HeroSmart
             login={"Peter"}
-            backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_commercial.jpg"}
+            backgroundName={
+              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_commercial.jpg"
+            }
             title="Commercial"
             subTitle="From one local business to another"
           />
           <NavBar styleProp={this.state.navPos} />
+          <LayoutBasic
+            h2Tag={contentObject.paragraphOne.h2Tag}
+            pTag={contentObject.paragraphOne.pTag}
+            pTag2={contentObject.paragraphOne.pTag2}
+            pTag3={contentObject.paragraphOne.pTag3}
+          />
+
+          <SmartSlider smartArray={this.state.sliderArray} />
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
             pTag={contentObject.paragraphOne.pTag}
@@ -80,11 +120,20 @@ export default class Commercial extends Component {
         <StyledRoot className="commercial_root">
           <HeroSmart
             login={false}
-            backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_commercial.jpg"}
+            backgroundName={
+              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_commercial.jpg"
+            }
             title="Commercial"
             subTitle="From one local business to another"
           />
           <NavBar styleProp={this.state.navPos} />
+          <LayoutBasic
+            h2Tag={contentObject.paragraphOne.h2Tag}
+            pTag={contentObject.paragraphOne.pTag}
+            pTag2={contentObject.paragraphOne.pTag2}
+            pTag3={contentObject.paragraphOne.pTag3}
+          />
+          <SmartSlider smartArray={this.state.sliderArray} />
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
             pTag={contentObject.paragraphOne.pTag}
@@ -105,5 +154,5 @@ export default class Commercial extends Component {
 }
 
 const StyledRoot = styled.main`
-	position: relative;
+  position: relative;
 `;

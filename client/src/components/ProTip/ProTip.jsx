@@ -41,9 +41,9 @@ export default function ProTip(props) {
 const StyledRoot = styled.section`
   display: flex;
   flex-wrap: wrap;
-  min-height: 50vh;
+  min-height: 55vh;
   margin: auto;
-  padding: none;
+  padding: 0;
   max-width: none;
 
   .left {
