@@ -12,6 +12,7 @@
 
 .fullscreen .image-gallery-slide-wrapper .image-gallery-swipe .image-gallery-slides .image-gallery-slide div .image-gallery-image {
   height: 100vh !important;
+  max-height: none !important;
 }
 
 .image-gallery-bullet.active {

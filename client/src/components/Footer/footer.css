@@ -1,5 +1,4 @@
 .footer_root {
-  width: 100%;
   background-color: #2d3436;
   color: #fff;
   font-size: .8em;
@@ -15,7 +14,7 @@
   -ms-flex-align: start;
   align-items: flex-start; }
   .footer_root .footer_wrap {
-    width: 100%;
+    overflow: hidden;
     height: 100%;
     color: #fff; }
     .footer_root .footer_wrap .top_wrap,
