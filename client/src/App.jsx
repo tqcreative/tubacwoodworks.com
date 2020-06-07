@@ -7,7 +7,7 @@ import SignupForm from "./pages/SignupForm";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Commercial from "./pages/Commercial/";
-import Furniture from "./pages/Furniture/";
+import Showcase from "./pages/Showcase/";
 import ProTipsPage from "./pages/Pro_Tips";
 import Gallery from "./pages/Gallery/";
 import AboutUs from "./pages/AboutUs/AboutUs";
@@ -119,8 +119,8 @@ class App extends Component {
           />
           <Route
             exact
-            path="/furniture"
-            render={() => <Furniture user={this.state.user} />}
+            path="/showcase"
+            render={() => <Showcase user={this.state.user} />}
           />
           <Route
             exact

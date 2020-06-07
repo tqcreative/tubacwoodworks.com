@@ -8,10 +8,9 @@ import Signup from "../../components/Signup";
 import LayoutBasic from "../../components/LayoutBasic";
 import Toast from "../../components/Toast";
 import LayoutThree from "../../components/LayoutThree";
-// import Slider from "../../components/Slider";
 import axios from "axios";
 
-export default class Furniture extends Component {
+export default class Showcase extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -91,9 +90,9 @@ export default class Furniture extends Component {
           <HeroSmart
             login={"Peter"}
             backgroundName={
-              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_furniture.jpg"
+              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/97f7c6bf-12d2-472f-975c-8634d6fe88a2.jpg"
             }
-            title="Furniture"
+            title="Showcase"
             subTitle="Wall Beds, Desks, Mantels, and more"
           />
           <NavBar styleProp={this.state.navPos} />
@@ -136,13 +135,13 @@ export default class Furniture extends Component {
       );
     } else {
       return (
-        <div className="furnitrue_root">
+        <div>
           <HeroSmart
             login={false}
             backgroundName={
-              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_furniture.jpg"
+              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/97f7c6bf-12d2-472f-975c-8634d6fe88a2.jpg"
             }
-            title="Furniture"
+            title="Showcase"
             subTitle="Wall Beds, Desks, Mantels, and more"
           />
           <NavBar styleProp={this.state.navPos} />
