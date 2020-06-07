@@ -37,8 +37,8 @@ function NavBarComponent({ loggedIn, styleProp, logout }) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/kitchenbathvanity" className="nav-link">
-                <div>Kitchen &amp; Bath</div>
+              <Link to="/services" className="nav-link">
+                <div>Services</div>
               </Link>
             </li>
             <li>
@@ -47,8 +47,8 @@ function NavBarComponent({ loggedIn, styleProp, logout }) {
               </Link>
             </li>
             <li>
-              <Link to="/commercial" className="nav-link">
-                <div>Commercial</div>
+              <Link to="/about" className="nav-link">
+                <div>Our Story</div>
               </Link>
             </li>
             <li>
@@ -85,8 +85,8 @@ function NavBarComponent({ loggedIn, styleProp, logout }) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/kitchenbathvanity" className="nav-link">
-                <div>Kitchen &amp; Bath</div>
+              <Link to="/services" className="nav-link">
+                <div>Services</div>
               </Link>
             </li>
             <li>
@@ -95,8 +95,8 @@ function NavBarComponent({ loggedIn, styleProp, logout }) {
               </Link>
             </li>
             <li>
-              <Link to="/commercial" className="nav-link">
-                <div>Commercial</div>
+              <Link to="/about" className="nav-link">
+                <div>Our Story</div>
               </Link>
             </li>
             <li>

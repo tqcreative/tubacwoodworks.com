@@ -5,7 +5,7 @@ import LoginForm from "./pages/LoginForm";
 import SignupForm from "./pages/SignupForm";
 // import { NavBar } from './components'
 import Home from "./pages/Home";
-import KitchenBathVanity from "./pages/Kitchen_Bath_Vanity";
+import Services from "./pages/Services";
 import Commercial from "./pages/Commercial/";
 import Furniture from "./pages/Furniture/";
 import ProTipsPage from "./pages/Pro_Tips";
@@ -114,8 +114,8 @@ class App extends Component {
           </PrivateRoute>
           <Route
             exact
-            path="/kitchenbathvanity"
-            render={() => <KitchenBathVanity user={this.state.user} />}
+            path="/services"
+            render={() => <Services user={this.state.user} />}
           />
           <Route
             exact
