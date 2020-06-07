@@ -37,7 +37,8 @@ export default class SmartSlider extends React.Component {
 
   render() {
     // console.log(this.state.arrayOfImages);
-    // console.log(this.props.smartArray)
+    // console.log(this.props.smartArray);
+    // console.log(this.state.arrayOfImages);
 
     return (
       <div>

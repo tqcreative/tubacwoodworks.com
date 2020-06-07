@@ -1,11 +1,15 @@
 .smartslider_root {
-    margin: 5% auto;
-    padding: 0;
-    color: #222;
-  }
+  margin: 5% auto;
+  padding: 0;
+  color: #222;
+}
+
+.image-gallery-slide .image-gallery-image {
+  height: 40vh !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
 .image-gallery-bullet.active {
   max-width: 10px;
 }
-  
-  
-  

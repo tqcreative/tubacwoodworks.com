@@ -9,7 +9,7 @@ import { GiDesk } from "react-icons/gi";
 import { IoIosBed } from "react-icons/io";
 import { MdKitchen } from "react-icons/md";
 import UploadBtn from "../../sub_component/UploadButton";
-import SmartSlider from "../../components/Slider";
+// import SmartSlider from "../../components/Slider";
 import axios from "axios";
 import Toast from "../../components/Toast";
 import GalleryFlex from "../../components/GalleryFlex/GalleryFlex";
