@@ -8,11 +8,19 @@ export default class Error extends Component {
     super(props);
     this.state = {
       user: props.user,
+      mobileNavHidden: true,
     };
+    this.toggleMobileNav = this.toggleMobileNav.bind(this);
   }
 
   componentDidMount() {
-    console.log("Error Component Mounted");
+    // scroll to 0 0 because it's a react app and will remember how far down the screen it is otherwise.
+    window.scrollTo(0, 0);
+    this.setState({ mobileNavHidden: true });
+  }
+
+  toggleMobileNav() {
+    this.setState({ mobileNavHidden: !this.state.mobileNavHidden });
   }
 
   render() {
@@ -26,7 +34,10 @@ export default class Error extends Component {
           title="404 Error Page Not Found"
           subTitle="oops! Somethings gone wrong."
         />
-        <NavBar />
+        <NavBar
+          isHidden={this.state.mobileNavHidden}
+          toggle={this.toggleMobileNav}
+        />
         <Footer />
       </div>
     );

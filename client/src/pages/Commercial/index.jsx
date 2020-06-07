@@ -18,15 +18,19 @@ export default class Commercial extends Component {
       toastMsg: [],
       toastShow: false,
       sliderArray: [],
+      mobileNavHidden: true,
     };
 
     // bind signup and toast
     this.handleSignupResult = this.handleSignupResult.bind(this);
     this.toggleToast = this.toggleToast.bind(this);
+    this.toggleMobileNav = this.toggleMobileNav.bind(this);
   }
 
   componentDidMount() {
+    // reset window defaults, should have used redux, this is on every page.
     window.scrollTo(0, 0);
+    this.setState({ mobileNavHidden: true });
 
     // call database for image array to be used in slider
     axios.get("/cms/kitchenbathvanity").then((collectData) => {
@@ -61,6 +65,10 @@ export default class Commercial extends Component {
     this.setState({ toastMsg: msg, toastShow: true });
   }
 
+  toggleMobileNav() {
+    this.setState({ mobileNavHidden: !this.state.mobileNavHidden });
+  }
+
   toggleToast() {
     this.setState({ toastShow: !this.state.toastShow });
   }
@@ -91,7 +99,7 @@ export default class Commercial extends Component {
             title="Commercial"
             subTitle="From one local business to another"
           />
-          <NavBar styleProp={this.state.navPos} />
+          <NavBar isHidden={this.state.mobileNavHidden} toggle={this.toggleMobileNav} />
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
             pTag={contentObject.paragraphOne.pTag}
@@ -126,7 +134,7 @@ export default class Commercial extends Component {
             title="Commercial"
             subTitle="From one local business to another"
           />
-          <NavBar styleProp={this.state.navPos} />
+          <NavBar isHidden={this.state.mobileNavHidden} toggle={this.toggleMobileNav} />
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
             pTag={contentObject.paragraphOne.pTag}

@@ -21,15 +21,23 @@ export default class Services extends Component {
       kitchenImages: [],
       bathImages: [],
       arrayOfImages: [],
+      mobileNavHidden: true,
     };
 
     // bind signup and toast
     this.handleSignupResult = this.handleSignupResult.bind(this);
     this.toggleToast = this.toggleToast.bind(this);
+    this.toggleMobileNav = this.toggleMobileNav.bind(this);
+  }
+
+  toggleMobileNav() {
+    this.setState({ mobileNavHidden: !this.state.mobileNavHidden });
   }
 
   componentDidMount() {
+    // window reset
     window.scrollTo(0, 0);
+    this.setState({ mobileNavHidden: true });
 
     axios.get("/cms/kitchenbathvanity").then((collectData) => {
       // console.log(collectData.data);
@@ -338,7 +346,7 @@ export default class Services extends Component {
             subTitle="Love your home."
           />
 
-          <NavBar styleProp={this.state.navPos} />
+          <NavBar isHidden={this.state.mobileNavHidden} toggle={this.toggleMobileNav} />
 
           <LayoutBasic
             h2Tag={contentObject.kitchen.h2Tag}
@@ -377,7 +385,7 @@ export default class Services extends Component {
           {/* ====== */}
           {/* HEADER */}
           {/* ====== */}
-          <NavBar styleProp={this.state.navPos} />
+          <NavBar isHidden={this.state.mobileNavHidden} toggle={this.toggleMobileNav} />
 
           {/* ===== */}
           {/* INTRO */}

@@ -19,6 +19,7 @@ export default class Showcase extends Component {
       toastMsg: [],
       toastShow: false,
       arrayOfImages: [],
+      mobileNavHidden: true,
       showcaseImages: [
         "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/showcase_9.jpg",
       ],
@@ -27,11 +28,17 @@ export default class Showcase extends Component {
     // bind signup and toast
     this.handleSignupResult = this.handleSignupResult.bind(this);
     this.toggleToast = this.toggleToast.bind(this);
+    this.toggleMobileNav = this.toggleMobileNav.bind(this);
+  }
+
+  toggleMobileNav() {
+    this.setState({ mobileNavHidden: !this.state.mobileNavHidden });
   }
 
   componentDidMount() {
     // scroll to 0 0 because it's a react app and will remember how far down the screen it is otherwise.
     window.scrollTo(0, 0);
+    this.setState({ mobileNavHidden: true });
 
     if (document.getElementById("funiture_h1")) {
       gsap.from("#furniture_h1", { duration: 2, x: 200, opacity: 0 });
@@ -95,7 +102,10 @@ export default class Showcase extends Component {
             title="Showcase"
             subTitle="Wall Beds, Desks, Mantels, and more"
           />
-          <NavBar styleProp={this.state.navPos} />
+          <NavBar
+            isHidden={this.state.mobileNavHidden}
+            toggle={this.toggleMobileNav}
+          />
 
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
@@ -144,7 +154,10 @@ export default class Showcase extends Component {
             title="Showcase"
             subTitle="Wall Beds, Desks, Mantels, and more"
           />
-          <NavBar styleProp={this.state.navPos} />
+          <NavBar
+            isHidden={this.state.mobileNavHidden}
+            toggle={this.toggleMobileNav}
+          />
 
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
@@ -158,17 +171,22 @@ export default class Showcase extends Component {
               {
                 title: "Save Space",
                 body: "Keep your office space and still have that guest room!",
-                image_uri: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/gallery_7.jpg",
+                image_uri:
+                  "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/gallery_7.jpg",
               },
               {
                 title: "Keep Style",
-                body: "More than just a space saver. You'll be able to keep the look and feel of your home office with these stylish Wallbeds.",
-                image_uri: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_gallery.jpg",
+                body:
+                  "More than just a space saver. You'll be able to keep the look and feel of your home office with these stylish Wallbeds.",
+                image_uri:
+                  "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_gallery.jpg",
               },
               {
                 title: "Storage",
-                body: "Wallbed units also add in-wall storage that can be used to stay organized.",
-                image_uri: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d23.jpg",
+                body:
+                  "Wallbed units also add in-wall storage that can be used to stay organized.",
+                image_uri:
+                  "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d23.jpg",
               },
             ]}
           />

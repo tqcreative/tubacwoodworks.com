@@ -9,7 +9,19 @@ export default class Cookies extends Component {
     super(props);
     this.state = {
       user: props.user,
+      mobileNavHidden: true,
     };
+    this.toggleMobileNav = this.toggleMobileNav.bind(this);
+  }
+
+  componentDidMount() {
+    // scroll to 0 0 because it's a react app and will remember how far down the screen it is otherwise.
+    window.scrollTo(0, 0);
+    this.setState({ mobileNavHidden: true });
+  }
+
+  toggleMobileNav() {
+    this.setState({ mobileNavHidden: !this.state.mobileNavHidden });
   }
 
   render() {
@@ -21,7 +33,7 @@ export default class Cookies extends Component {
           title="Privacy Policy"
           subTitle=""
         />
-        <NavBar />
+        <NavBar isHidden={this.state.mobileNavHidden} toggle={this.toggleMobileNav}/>
         <StyledSection>
           <h4>
             Privacy Policy Last updated: <time>5/30/2020</time>{" "}

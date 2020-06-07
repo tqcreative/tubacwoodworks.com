@@ -33,15 +33,23 @@ let bathroomBoxes = [
 export default class AboutUs extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      mobileNavHidden: true,
+    };
 
     // bind signup
     this.handleSignupResult = this.handleSignupResult.bind(this);
+    this.toggleMobileNav = this.toggleMobileNav.bind(this);
   }
 
   componentDidMount() {
     // scroll to 0 0 because it's a react app and will remember how far down the screen it is otherwise.
     window.scrollTo(0, 0);
+    this.setState({ mobileNavHidden: true });
+  }
+
+  toggleMobileNav() {
+    this.setState({ mobileNavHidden: !this.state.mobileNavHidden });
   }
 
   handleSignupResult(msg) {
@@ -61,7 +69,7 @@ export default class AboutUs extends Component {
           subTitle="An Arizona business with over 40 years of history"
         />
 
-        <NavBar />
+        <NavBar isHidden={this.state.mobileNavHidden} toggle={this.toggleMobileNav} />
 
         <StyledIntro>
           <h2>Tubac Woodworks</h2>

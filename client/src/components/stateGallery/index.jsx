@@ -28,7 +28,7 @@ class StateGallery extends Component {
         {/* <ImageWrapper> */}
         {/* <div className="stateGallery_root" > */}
 
-        <h2><span>Edit Gallery:</span> {this.props.galleryInfoName}</h2>
+        <h2><span>Edit Gallery:</span> {this.props.galleryInfoName ? this.props.galleryInfoName : "Photos"}</h2>
 
         <StyledGallery>
           {this.props.theArray.map((img, index) => {

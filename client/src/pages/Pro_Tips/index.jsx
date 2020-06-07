@@ -14,6 +14,7 @@ export default class ProTipsPage extends Component {
       user: props.user,
       navPos: "absolute",
       toastMsg: [],
+      mobileNavHidden: true,
       toastShow: false,
       proTipArray: [
         {
@@ -53,10 +54,17 @@ export default class ProTipsPage extends Component {
     // bind signup and toast
     this.handleSignupResult = this.handleSignupResult.bind(this);
     this.toggleToast = this.toggleToast.bind(this);
+    this.toggleMobileNav = this.toggleMobileNav.bind(this);
   }
 
   componentDidMount() {
+    // window reset
     window.scrollTo(0, 0);
+    this.setState({ mobileNavHidden: true });
+  }
+
+  toggleMobileNav() {
+    this.setState({ mobileNavHidden: !this.state.mobileNavHidden });
   }
 
   handleSignupResult(msg) {
@@ -92,7 +100,10 @@ export default class ProTipsPage extends Component {
             title="Pro Tips"
             subTitle="How to keep that like-new look"
           />
-          <NavBar styleProp={this.state.navPos} />
+          <NavBar
+            isHidden={this.state.mobileNavHidden}
+            toggle={this.toggleMobileNav}
+          />
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
             pTag={contentObject.paragraphOne.pTag}
@@ -134,7 +145,10 @@ export default class ProTipsPage extends Component {
             title="Pro Tips"
             subTitle="How to keep that like-new look"
           />
-          <NavBar styleProp={this.state.navPos} />
+          <NavBar
+            isHidden={this.state.mobileNavHidden}
+            toggle={this.toggleMobileNav}
+          />
           <LayoutBasic
             h2Tag={contentObject.paragraphOne.h2Tag}
             pTag={contentObject.paragraphOne.pTag}

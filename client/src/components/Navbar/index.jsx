@@ -1,39 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-function NavBarComponent({ loggedIn, styleProp, logout }) {
+NavBarComponent.defaultProps = {
+  isHidden: true,
+};
 
-  // =============== //
-  //   MOBILE MENU   //
-  // =============== //
-  function toggleMobileMenu() {
-    alert('mobile menu clicked');
-    // let theMenu, name, arr;
-    // theMenu = document.getElementById("nav_root");
-    // let menuButton = document.getElementById("mobile_menu");
-    // let closeButton = document.getElementById("menu_close");
-    // let openButton = document.getElementById("menu_open");
-    // name = "positionZero";
-    // arr = theMenu.className.split(" ");
-
-    // if (arr.indexOf(name) === -1) {
-    //   theMenu.classList.add("positionZero");
-    //   menuButton.classList.add("noBackground");
-    //   closeButton.classList.remove("displayNone");
-    //   openButton.classList.add("displayNone");
-    // } else {
-    //   theMenu.classList.remove("positionZero");
-    //   menuButton.classList.remove("noBackground");
-    //   closeButton.classList.add("displayNone");
-    //   openButton.classList.remove("displayNone");
-    // }
-  }
-
+function NavBarComponent({ toggle, isHidden, loggedIn, logout }) {
   return (
     <nav id="nav" className="">
       {loggedIn ? (
-        <StyledRoot id="nav_root" className="nav_root">
+        <StyledRoot id="nav_root" className={isHidden ? "_hide" : ""}>
+          <StyledMobileMenu id="mobile_menu" onClick={() => toggle()}>
+            <div className="top_bar"></div>
+            <div className="center_bar"></div>
+            <div className="bottom_bar"></div>
+          </StyledMobileMenu>
           <ul>
             <li className="nav-item">
               <Link to="/" className="nav-link">
@@ -71,17 +53,15 @@ function NavBarComponent({ loggedIn, styleProp, logout }) {
               </div>
             </li>
           </ul>
-          <div id="mobile_menu" onClick={toggleMobileMenu}>
-            <span id="menu_open">
-              <ion-icon name="menu"></ion-icon>
-            </span>
-            <span id="menu_close" className="displayNone">
-              <ion-icon name="close"></ion-icon>
-            </span>
-          </div>
         </StyledRoot>
       ) : (
-        <StyledRoot id="nav_root" className="nav_root">
+        <StyledRoot id="nav_root" className={isHidden ? "_hide" : ""}>
+          <StyledMobileMenu id="mobile_menu" onClick={() => toggle()}>
+            <div className="top_bar"></div>
+            <div className="center_bar"></div>
+            <div className="bottom_bar"></div>
+          </StyledMobileMenu>
+
           <ul>
             <li className="nav-item">
               <Link to="/" className="nav-link">
@@ -114,11 +94,6 @@ function NavBarComponent({ loggedIn, styleProp, logout }) {
               </Link>
             </li>
           </ul>
-          <StyledMobileMenu id="mobile_menu" onClick={toggleMobileMenu}>
-            <div className="top_bar"></div>
-            <div className="center_bar"></div>
-            <div className="bottom_bar"></div>
-          </StyledMobileMenu>
         </StyledRoot>
       )}
     </nav>
@@ -163,9 +138,9 @@ const StyledRoot = styled.section`
     display: flex;
     justify-content: flex-start;
     flex-wrap: nowrap;
+    overflow: hidden;
 
     li {
-      border-right: 2px solid rgba($light, 1);
       margin: 0 0 0.5em 0.5em;
       padding: 0 0.5em 0 0;
 
@@ -176,6 +151,10 @@ const StyledRoot = styled.section`
       &:active div {
         color: #fff;
         transform: translateY(5px);
+      }
+
+      &:hover {
+        text-decoration: underline;
       }
 
       ion-icon {
@@ -192,26 +171,49 @@ const StyledRoot = styled.section`
   }
 
   @media (max-width: 1025px) {
-    .nav_root {
-      flex-wrap: wrap;
-      transform: translateY(-82%);
-      transition: transform 0.3s;
+    flex-wrap: wrap;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: width 0.3s, height 0.3s;
+    z-index: 9999;
+
+    ul {
+      display: block;
       position: fixed;
+      top: 50%;
+      left: 50%;
+      overflow: hidden;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s, transform 0.3s;
 
-      ul {
-        flex-wrap: wrap;
+      li {
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+        padding: 0 0.5em;
+        text-align: center;
 
-        li {
-          display: block;
-          width: 100%;
-          border: none;
-
-          a {
-            div {
-              text-shadow: 1px 1px 8px $dark;
-            }
+        a {
+          div {
+            text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
           }
         }
+      }
+    }
+
+    &._hide {
+      width: 62px;
+      height: 60px;
+      border-radius: 0 0 50% 0;
+
+      ul {
+        opacity: 0;
+        transform: translate(-50%, -57%);
+        visibility: hidden;
       }
     }
   }
@@ -222,11 +224,14 @@ const StyledMobileMenu = styled.div`
 
   @media (max-width: 1025px) {
     display: block;
+    position: fixed;
+    top: 16px;
+    left: 12px;
     width: 32px;
     height: 32px;
     font-size: 2.8em;
     display: block;
-    margin: .3em;
+    margin: 0;
     box-sizing: border-box;
 
     div {
@@ -245,5 +250,9 @@ const StyledMobileMenu = styled.div`
 
     .bottom_bar {
     }
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `;
