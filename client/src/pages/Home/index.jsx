@@ -23,6 +23,7 @@ export default class Home extends Component {
     super(props);
     this.state = {
       selectedFile: null,
+      mobileNavHidden: true,
       user: props.user,
       toastMsg: [],
       toastShow: false,
@@ -67,6 +68,7 @@ export default class Home extends Component {
     this.updateStateTest = this.updateStateTest.bind(this);
     this.fileSelectedHandler = this.fileSelectedHandler.bind(this);
     this.fileUploadHandler = this.fileUploadHandler.bind(this);
+    this.toggleMobileNav = this.toggleMobileNav.bind(this);
   }
 
   // file upload.
@@ -141,7 +143,10 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
+    // window reset
     window.scrollTo(0, 0);
+    this.setState({ mobileNavHidden: true });
+
     this.callForHomepageData();
     this.callImagesToLoad();
     gsap.from("#hero_quote", {
@@ -153,6 +158,11 @@ export default class Home extends Component {
     });
   }
 
+
+  toggleMobileNav() {
+    this.setState({ mobileNavHidden: !this.state.mobileNavHidden });
+  }
+  
   handleSignupResult(msg) {
     // console.log(msg);
     this.setState({ toastMsg: msg, toastShow: true });
@@ -171,7 +181,12 @@ export default class Home extends Component {
             theUpdateButton={this.updateStateTest}
             login={"Peter"}
           />
-          <NavBar logout={this.props.logout} loggedIn={true} styleProp={this.state.navPos} />
+          <NavBar
+            logout={this.props.logout}
+            loggedIn={true}
+            isHidden={this.state.mobileNavHidden}
+            toggle={this.toggleMobileNav}
+          />
           <Numbers user={this.state.user} />
           <button
             onClick={this.updateTextDatabase}
@@ -237,7 +252,10 @@ export default class Home extends Component {
             theUpdateButton={this.updateStateTest}
             login={false}
           />
-          <NavBar styleProp={this.state.navPos} />
+          <NavBar
+            isHidden={this.state.mobileNavHidden}
+            toggle={this.toggleMobileNav}
+          />
           <Numbers user={this.state.user} />
           {/* <input type="file" onChange={this.fileSelectedHandler} /> */}
           {/* <button onClick={this.fileUploadHandler}>Save</button> */}

@@ -9,7 +9,6 @@ import { GiDesk } from "react-icons/gi";
 import { IoIosBed } from "react-icons/io";
 import { MdKitchen } from "react-icons/md";
 import UploadBtn from "../../sub_component/UploadButton";
-// import SmartSlider from "../../components/Slider";
 import axios from "axios";
 import Toast from "../../components/Toast";
 import GalleryFlex from "../../components/GalleryFlex/GalleryFlex";
@@ -21,10 +20,11 @@ export default class Gallery extends Component {
     super(props);
     this.state = {
       user: props.user,
+      mobileNavHidden: true,
       styleProp: "absolute",
       arrayOfImages: ["check_1.jpg"],
       tableName: "showcase",
-      galleryInfoName: "",
+      galleryInfoName: "Photos",
       toastMsg: [],
       toastShow: false,
       sliderArray: [],
@@ -69,7 +69,7 @@ export default class Gallery extends Component {
       ],
     };
     this.changeTableName = this.changeTableName.bind(this);
-    // bind signup and toast
+    this.toggleMobileNav = this.toggleMobileNav.bind(this);
     this.handleSignupResult = this.handleSignupResult.bind(this);
     this.toggleToast = this.toggleToast.bind(this);
     this.forceRefreshGallery = this.forceRefreshGallery.bind(this);
@@ -90,7 +90,10 @@ export default class Gallery extends Component {
   }
 
   componentDidMount() {
+    // window reset
     window.scrollTo(0, 0);
+    this.setState({ mobileNavHidden: true });
+
     axios.get("/cms/kitchenbathvanity").then((collectData) => {
       this.setState({ allImageTables: collectData.data });
 
@@ -121,6 +124,10 @@ export default class Gallery extends Component {
   handleSignupResult(msg) {
     // console.log(msg);
     this.setState({ toastMsg: msg, toastShow: true });
+  }
+
+  toggleMobileNav() {
+    this.setState({ mobileNavHidden: !this.state.mobileNavHidden });
   }
 
   toggleToast() {
@@ -165,11 +172,16 @@ export default class Gallery extends Component {
           <StyledRoot className="gallery_page_root">
             <HeroSmart
               login={"Peter"}
-              backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_gallery.jpg"}
+              backgroundName={
+                "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_gallery.jpg"
+              }
               title="Gallery"
               subTitle="come see our work"
             />
-            <NavBar styleProp={this.state.styleProp} />
+            <NavBar
+              isHidden={this.state.mobileNavHidden}
+              toggle={this.toggleMobileNav}
+            />
 
             {/* <SmartSlider smartArray={this.state.sliderArray} /> */}
 
@@ -241,11 +253,16 @@ export default class Gallery extends Component {
           <StyledRoot className="gallery_page_root">
             <HeroSmart
               login={false}
-              backgroundName={"https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_gallery.jpg"}
+              backgroundName={
+                "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_gallery.jpg"
+              }
               title="Gallery"
               subTitle="come see our work"
             />
-            <NavBar styleProp={this.state.styleProp} />
+            <NavBar
+              isHidden={this.state.mobileNavHidden}
+              toggle={this.toggleMobileNav}
+            />
             {/* <SimpleSlider/> */}
 
             {/* <SmartSlider smartArray={this.state.sliderArray} /> */}
