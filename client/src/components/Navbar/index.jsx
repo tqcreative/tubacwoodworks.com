@@ -159,6 +159,7 @@ const StyledRoot = styled.section`
     justify-content: flex-start;
     flex-wrap: nowrap;
     overflow: hidden;
+    color: #fff !important;
 
     li {
       margin: 0 0 0.5em 0.5em;
@@ -207,6 +208,7 @@ const StyledRoot = styled.section`
       top: 50%;
       left: 50%;
       overflow: hidden;
+      visibility: visible;
       transform: translate(-50%, -50%);
       transition: opacity 0.3s, transform 0.3s;
 
