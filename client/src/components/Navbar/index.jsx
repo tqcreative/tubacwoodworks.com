@@ -11,10 +11,20 @@ function NavBarComponent({ toggle, isHidden, loggedIn, logout }) {
     <nav id="nav" className="">
       {loggedIn ? (
         <StyledRoot id="nav_root" className={isHidden ? "_hide" : ""}>
-          <StyledMobileMenu id="mobile_menu" onClick={() => toggle()}>
-            <div className="top_bar"></div>
-            <div className="center_bar"></div>
-            <div className="bottom_bar"></div>
+          <StyledMobileMenu
+            id="mobile_menu"
+            onClick={() => toggle()}
+            className={isHidden ? "" : "_close"}
+          >
+            <div className="top_bar" className={isHidden ? "" : "_close"}></div>
+            <div
+              className="center_bar"
+              className={isHidden ? "" : "_close"}
+            ></div>
+            <div
+              className="bottom_bar"
+              className={isHidden ? "" : "_close"}
+            ></div>
           </StyledMobileMenu>
           <ul>
             <li className="nav-item">
@@ -56,10 +66,20 @@ function NavBarComponent({ toggle, isHidden, loggedIn, logout }) {
         </StyledRoot>
       ) : (
         <StyledRoot id="nav_root" className={isHidden ? "_hide" : ""}>
-          <StyledMobileMenu id="mobile_menu" onClick={() => toggle()}>
-            <div className="top_bar"></div>
-            <div className="center_bar"></div>
-            <div className="bottom_bar"></div>
+          <StyledMobileMenu
+            id="mobile_menu"
+            onClick={() => toggle()}
+            className={isHidden ? "" : "_close"}
+          >
+            <div className="top_bar" className={isHidden ? "" : "_close"}></div>
+            <div
+              className="center_bar"
+              className={isHidden ? "" : "_close"}
+            ></div>
+            <div
+              className="bottom_bar"
+              className={isHidden ? "" : "_close"}
+            ></div>
           </StyledMobileMenu>
 
           <ul>
@@ -233,6 +253,11 @@ const StyledMobileMenu = styled.div`
     display: block;
     margin: 0;
     box-sizing: border-box;
+    transition: transform 0.3s;
+
+    &._close {
+      transform: translateY(-8px);
+    }
 
     div {
       width: 100%;
@@ -240,15 +265,26 @@ const StyledMobileMenu = styled.div`
       display: block;
       border-top: 2px solid #fff;
       user-select: none;
+      transition: transform 0.3s, opacity 0.3s, width 0.3s;
     }
 
-    .top_bar {
+    div:first-child {
+      &._close {
+        transform: rotate(45deg) translate(11px, 19px);
+      }
     }
 
-    .center_bar {
+    div:nth-child(2) {
+      &._close {
+        width: 0;
+        opacity: 0;
+      }
     }
 
-    .bottom_bar {
+    div:last-child {
+      &._close {
+        transform: rotate(-45deg);
+      }
     }
   }
 
