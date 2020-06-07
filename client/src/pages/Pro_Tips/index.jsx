@@ -21,26 +21,31 @@ export default class ProTipsPage extends Component {
           subtitle: "by Sean Scharr",
           body:
             "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum ea dolores ut eaque cumque, culpa placeat tempore eligendi reprehenderit similique assumenda saepe minima? Expedita eius ducimus mollitia nobis dolore cupiditate, quae facilis optio, pariatur sapiente in voluptas natus debitis. Accusantium repellendus accusamus non quas aliquam iusto cupiditate tenetur voluptas impedit! Nihil quos quisquam dolorem minus neque. Iste voluptatibus minus quam odit accusantium sit sequi est perferendis assumenda! Corrupti, incidunt? Sapiente!",
-          backgroundImage: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/furniture_10.jpg",
+          backgroundImage:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_1.jpg",
         },
         {
           title: "Best way to get out scratches",
           subtitle: "by Joe Scharr",
           body:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus soluta modi dolore saepe! Praesentium quos, dolore enim dicta tempora quasi veritatis adipisci at quod delectus officiis voluptatibus vel distinctio natus?",
+          backgroundImage:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_2.jpg",
         },
         {
           title: "best practices",
           body:
-			"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias magni soluta eaque dolore. Libero, at numquam dolore voluptatum, sapiente nemo tempora inventore quae beatae quia praesentium necessitatibus cupiditate omnis est ullam sequi nulla illo facere labore sint pariatur soluta excepturi!",
-			backgroundImage: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/furniture_12.jpg",
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias magni soluta eaque dolore. Libero, at numquam dolore voluptatum, sapiente nemo tempora inventore quae beatae quia praesentium necessitatibus cupiditate omnis est ullam sequi nulla illo facere labore sint pariatur soluta excepturi!",
+          backgroundImage:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_5.jpg",
         },
         {
           title: "Final Tip",
           subtitle: "by Mike",
           body:
             "Lorem ipsum dolor sit, amet consectetur adipisicing elit. A, repellat! Exercitationem, maiores illum nostrum cum, nulla mollitia reiciendis iure voluptas facilis, ducimus aspernatur optio provident dolorem adipisci quibusdam alias commodi. Obcaecati tempore dolorem, eos amet, illum repudiandae consequatur soluta labore optio repellendus consequuntur vero aperiam excepturi velit quis? Omnis, ducimus?",
-          backgroundImage: "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/furniture_13.jpg",
+          backgroundImage:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_12.jpg",
         },
       ],
     };
@@ -102,7 +107,9 @@ export default class ProTipsPage extends Component {
                   tipNumber={index + 1}
                   title={proTip.title}
                   subTitle={proTip.subtitle}
-                  backgroundImage={proTip.backgroundImage ? proTip.backgroundImage : ""}
+                  backgroundImage={
+                    proTip.backgroundImage ? proTip.backgroundImage : ""
+                  }
                 >
                   {proTip.body}
                 </ProTips>
@@ -141,8 +148,10 @@ export default class ProTipsPage extends Component {
                   key={index}
                   tipNumber={index + 1}
                   title={proTip.title}
-				  subTitle={proTip.subtitle}
-				  backgroundImage={proTip.backgroundImage ? proTip.backgroundImage : ""}
+                  subTitle={proTip.subtitle}
+                  backgroundImage={
+                    proTip.backgroundImage ? proTip.backgroundImage : ""
+                  }
                 >
                   {proTip.body}
                 </ProTips>
