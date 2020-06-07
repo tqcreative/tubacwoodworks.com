@@ -52,6 +52,7 @@ const StyledRoot = styled.section`
   display: flex;
   justify-content: center;
   padding: 1em;
+  box-sizing: border-box;
 
   div {
 
