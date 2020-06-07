@@ -59,7 +59,10 @@ Chapter.defaultProps = {
 };
 
 export default function Chapter(props) {
-  console.log(props);
+  // ==================== //
+  //   HELPER FUNCTIONS   //
+  // ==================== //
+  
   return (
     <StyledChapter>
       {/* ==== */}
@@ -69,7 +72,7 @@ export default function Chapter(props) {
         style={{
           background: `url(${props.chapterProps.hero.image})`,
           backgroundSize: "cover",
-          backgroundAttachment: "fixed",
+          backgroundAttachment: window.innerWidth < 768 ? "scroll" : "fixed",
         }}
       >
         <h2>{props.chapterProps.hero.title}</h2>
