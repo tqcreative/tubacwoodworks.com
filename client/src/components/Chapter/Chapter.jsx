@@ -149,6 +149,7 @@ const StyledHero = styled.div`
   h3 {
     max-width: 1400px;
     margin: auto;
+    margin-left: 0;
     text-transform: uppercase;
     font-size: 4em;
     font-weight: 900;
