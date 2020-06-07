@@ -200,6 +200,7 @@ const StyledRoot = styled.section`
     left: 0;
     background-color: rgba(0, 0, 0, 0.6);
     transition: width 0.3s, height 0.3s;
+    overflow: hidden;
     z-index: 9999;
 
     ul {
@@ -208,7 +209,6 @@ const StyledRoot = styled.section`
       top: 50%;
       left: 50%;
       overflow: hidden;
-      visibility: visible;
       transform: translate(-50%, -50%);
       transition: opacity 0.3s, transform 0.3s;
 
@@ -235,7 +235,7 @@ const StyledRoot = styled.section`
       ul {
         opacity: 0;
         transform: translate(-50%, -57%);
-        visibility: hidden;
+        display: none;
       }
     }
   }
