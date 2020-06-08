@@ -58,7 +58,15 @@ export default class ProTipsPage extends Component {
                 two years, then only once a year after that.
               </p>
               <p>
-              <a href="https://www.walmart.com/ip/2-Pack-Old-English-Conditions-Protects-Wood-Furniture-Polish-Lemon-Oil-16-oz/683910927" target="_blank" rel="noopener noreferrer">Old English Lemon Oil</a> can be found in your local hardware, grocery, or general supply store.
+                <a
+                  href="https://www.walmart.com/ip/2-Pack-Old-English-Conditions-Protects-Wood-Furniture-Polish-Lemon-Oil-16-oz/683910927"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Old English Lemon Oil
+                </a>{" "}
+                can be found in your local hardware, grocery, or general supply
+                store.
               </p>
             </React.Fragment>
           ),
@@ -67,25 +75,74 @@ export default class ProTipsPage extends Component {
         },
         {
           title: "best practices",
-          body:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias magni soluta eaque dolore. Libero, at numquam dolore voluptatum, sapiente nemo tempora inventore quae beatae quia praesentium necessitatibus cupiditate omnis est ullam sequi nulla illo facere labore sint pariatur soluta excepturi!",
+          body: (
+            <React.Fragment>
+              <strong>Drawer sticking a bit?</strong>: Spraying a little bit of
+              "WD-40" on the drawer slides is a breat way to help keep them
+              operating smoothly. Not too much though as that might create an
+              attraction for dirt and grime.
+            </React.Fragment>
+          ),
+          backgroundImage:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_5.jpg",
+        },
+        {
+          title: "Scratches",
+          body: (
+            <React.Fragment>
+              <p>
+                <em>"Scratches are a bit of trouble."</em> Sometimes you can
+                simply apply a little bit of the original stain to the wood can
+                help hide it. For deeper scraches{" "}
+                <a
+                  href="https://www.lowes.com/pd/Minwax-Natural-Pine-Wood-Putty/999914487"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  color putty
+                </a>{" "}
+                or matching sticks that some of the bigger box stores carry may
+                be needed.
+              </p>
+              <p>
+                For <strong>damaged</strong> wood or{" "}
+                <strong>deep scratches</strong> the absolute best thing is to
+                sand everything down completely and refinish, ensuring that you
+                sand the scratch out of the wood so it completely disappears.
+              </p>
+            </React.Fragment>
+          ),
           backgroundImage:
             "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_5.jpg",
         },
         {
           title: "Plants",
           subtitle: "by the Online Journal",
-          body:
+          body: (
             <React.Fragment>
               <p>
                 <em>
-                  "Wood and water don't go well together. Yet it's rare that a day goes by where we don't receive some sort of inquiry about planter drainage and how to water plants without staining, or for that matter, destroying wooden floors, surfaces, or furniture."
+                  "Wood and water don't go well together. Yet it's rare that a
+                  day goes by where we don't receive some sort of inquiry about
+                  planter drainage and how to water plants without staining, or
+                  for that matter, destroying wooden floors, surfaces, or
+                  furniture."
                 </em>
               </p>
               <p>
-                Drainage is important to a plants health, when decorating your home be sure to use a <a href="https://www.lowes.com/pd/4-331-in-Orange-Clay-Plant-Saucer/1000189691" target="_blank" rel="noopener noreferrer">drainage dish</a> under all plants that sit or hang new wooden surfaces.
+                Drainage is important to a plants health, when decorating your
+                home be sure to use a{" "}
+                <a
+                  href="https://www.lowes.com/pd/4-331-in-Orange-Clay-Plant-Saucer/1000189691"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  drainage dish
+                </a>{" "}
+                under all plants that sit or hang new wooden surfaces.
               </p>
-            </React.Fragment>,
+            </React.Fragment>
+          ),
           backgroundImage:
             "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/plants_3.jpg",
         },
