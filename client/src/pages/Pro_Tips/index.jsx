@@ -113,7 +113,7 @@ export default class ProTipsPage extends Component {
             </React.Fragment>
           ),
           backgroundImage:
-            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_5.jpg",
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_1.jpg",
         },
         {
           title: "Plants",
