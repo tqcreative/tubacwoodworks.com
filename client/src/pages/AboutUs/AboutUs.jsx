@@ -153,7 +153,8 @@ const StyledRoot = styled.main`
 `;
 
 const StyledIntro = styled.section`
-  margin: 2em auto;
+  margin: 1em auto;
+  padding: 1em;
 
   h2,
   h3,

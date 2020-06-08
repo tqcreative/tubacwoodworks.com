@@ -82,43 +82,40 @@ function NavBarComponent({ toggle, isHidden, loggedIn, logout }) {
             ></div>
           </StyledMobileMenu>
           <StyledRoot id="nav_root" className={isHidden ? "_hide" : ""}>
-          
-
-          <ul>
-            <li className="nav-item">
-              <Link to="/" className="nav-link">
-                <div>Home</div>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/services" className="nav-link">
-                <div>Services</div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/showcase" className="nav-link">
-                <div>Showcase</div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" className="nav-link">
-                <div>Our Story</div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/protips" className="nav-link">
-                <div>Pro Tips</div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/gallery" className="nav-link">
-                <div>Gallery</div>
-              </Link>
-            </li>
-          </ul>
-        </StyledRoot>
+            <ul>
+              <li className="nav-item">
+                <Link to="/" className="nav-link">
+                  <div>Home</div>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/services" className="nav-link">
+                  <div>Services</div>
+                </Link>
+              </li>
+              <li>
+                <Link to="/showcase" className="nav-link">
+                  <div>Showcase</div>
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="nav-link">
+                  <div>Our Story</div>
+                </Link>
+              </li>
+              <li>
+                <Link to="/protips" className="nav-link">
+                  <div>Pro Tips</div>
+                </Link>
+              </li>
+              <li>
+                <Link to="/gallery" className="nav-link">
+                  <div>Gallery</div>
+                </Link>
+              </li>
+            </ul>
+          </StyledRoot>
         </React.Fragment>
-        
       )}
     </nav>
   );
@@ -168,7 +165,7 @@ const StyledRoot = styled.section`
 
     li {
       margin: 0 0 0.5em 0.5em;
-      padding: 0 0.5em 0 0;
+      /* padding: 0 0.5em 0 0; */
 
       &:last-child {
         border: none;
@@ -204,7 +201,7 @@ const StyledRoot = styled.section`
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.6);
-      transition: transform .3s ease-in, border-radius .5s ease-in;
+    transition: transform 0.3s ease-in, border-radius 0.5s ease-out;
     overflow: hidden;
     z-index: 12;
 
@@ -215,13 +212,13 @@ const StyledRoot = styled.section`
       left: 50%;
       overflow: hidden;
       transform: translate(-50%, -50%);
-      transition: opacity .3s .3s, transform .5s .3s;
+      transition: opacity 0.3s 0.3s, transform 0.5s 0.3s;
 
       li {
         display: block;
         width: fit-content;
         margin: 0 auto;
-        padding: 0 0.5em;
+        /* padding: 0 0.5em; */
         text-align: center;
 
         a {
@@ -237,11 +234,13 @@ const StyledRoot = styled.section`
       height: 60px; */
       /* border-radius: 0 0 50% 0; */
       transform: translate(-100%, -100%);
-      border-radius: 0 0 50% 0;
+      border-radius: 0 0 25% 0;
+      transition: transform 0.3s ease-in 0.3s, border-radius 0.1s ease-out 0.3s;
 
       ul {
         opacity: 0;
         transform: translate(-50%, -57%);
+        transition: opacity 0.3s 0s, transform 0.5s 0s;
         /* display: none; */
       }
     }
