@@ -24,7 +24,8 @@ export default class Gallery extends Component {
       styleProp: "absolute",
       arrayOfImages: ["check_1.jpg"],
       tableName: "showcase",
-      galleryInfoName: "Photos",
+      galleryInfoName: "",
+      galleryName: "Showcase",
       toastMsg: [],
       toastShow: false,
       sliderArray: [],
@@ -32,24 +33,32 @@ export default class Gallery extends Component {
         {
           frontEnd: true,
           gallery: "Showcase",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/thumb_2.jpg",
           name: "showcaseGrid", // Name of the Table it pulls its images from.
           icon: <FaTrophy />,
           // onClick: {this.changeTableName} // needs to be added to the button creation within the class
         },
         {
           frontEnd: true,
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/thumb_8.jpg",
           gallery: "Kitchen",
           name: "kitchenTable", // Name of the Table it pulls its images from.
           icon: <MdKitchen />,
         },
         {
           frontEnd: true,
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/thumb_7.jpg",
           gallery: "Bathroom",
           name: "bathTable", // Name of the Table it pulls its images from.,
           icon: <FaToilet />,
         },
         {
           frontEnd: true,
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/thumb_6.jpg",
           gallery: "Furniture",
           name: "furnitureTable",
           icon: <GiDesk />,
@@ -57,11 +66,15 @@ export default class Gallery extends Component {
         {
           frontEnd: true,
           gallery: "Wall Beds",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/thumb_5.jpg",
           name: "imageArray", // Name of the Table it pulls its images from.
           icon: <IoIosBed />,
         },
         {
           frontEnd: true,
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/thumb_4.jpg",
           gallery: "More Photos",
           name: "showcase",
           icon: <FaPhotoVideo />,
@@ -137,6 +150,7 @@ export default class Gallery extends Component {
   changeTableName(event) {
     let galleryName = "";
     let galleryInfoName = "";
+    let pretyName = "Photo";
 
     if (event.target.parentNode.name) {
       galleryName = event.target.parentNode.name;
@@ -150,6 +164,30 @@ export default class Gallery extends Component {
         : event.target.name;
     }
 
+    // Update Pretty Name
+    switch (galleryName) {
+      case "showcaseGrid":
+        pretyName = "Showcase";
+        break;
+      case "kitchenTable":
+        pretyName = "Kitchen";
+        break;
+      case "bathTable":
+        pretyName = "Bath & Vanity";
+        break;
+      case "furnitureTable":
+        pretyName = "Furniture";
+        break;
+      case "imageArray":
+        pretyName = "Wall Beds";
+        break;
+      case "showcase":
+        pretyName = "More Photos";
+        break;
+      default:
+        break;
+    }
+
     if (galleryName !== null && galleryName !== undefined) {
       this.setState({ tableName: `${galleryName}` });
       this.state.allImageTables.forEach((table) => {
@@ -157,6 +195,7 @@ export default class Gallery extends Component {
           this.setState({
             arrayOfImages: table[galleryName],
             galleryInfoName: galleryInfoName,
+            galleryName: pretyName,
           });
         }
       });
@@ -229,6 +268,10 @@ export default class Gallery extends Component {
                     name={buttonInfo.name}
                     galleryInfoName={buttonInfo.gallery}
                     onClick={this.changeTableName}
+                    style={{
+                      background: `url(${buttonInfo.thumbnail})`,
+                      backgroundSize: "cover",
+                    }}
                   >
                     {buttonInfo.icon}
                     <span>{buttonInfo.gallery}</span>
@@ -236,6 +279,9 @@ export default class Gallery extends Component {
                 );
               })}
             </StyledButtons>
+
+            <StyledTitle>{this.state.galleryName} Gallery</StyledTitle>
+
             <Signup submitResult={this.handleSignupResult} />
             <Footer />
             <Toast show={this.state.toastShow} onClose={this.toggleToast}>
@@ -278,6 +324,10 @@ export default class Gallery extends Component {
                     type="button"
                     name={buttonInfo.name}
                     onClick={this.changeTableName}
+                    style={{
+                      background: `url(${buttonInfo.thumbnail})`,
+                      backgroundSize: "cover",
+                    }}
                   >
                     {buttonInfo.icon}
                     <span>{buttonInfo.gallery}</span>
@@ -285,6 +335,9 @@ export default class Gallery extends Component {
                 );
               })}
             </StyledButtons>
+
+            <StyledTitle>{this.state.galleryName} Gallery</StyledTitle>
+
             <GalleryFlex theArray={this.state.arrayOfImages} />
             <Signup submitResult={this.handleSignupResult} />
             <Footer />
@@ -307,66 +360,84 @@ const StyledRoot = styled.section`
 `;
 
 const StyledButtons = styled.section`
-    height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1400px;
+  padding: 0;
+  margin: 1em auto;
+
+  button {
+    border: none;
+    /* background-color: rgba(#a6988d, .3); */
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 900;
+    border-radius: 8px;
+    margin: 0.5em;
+    width: 40vw;
+    max-width: 170px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    min-height: 16px;
-    max-width: 1000px;
-    padding: 3em;
-
-    button {
-        border: none;
-        background-color: rgba(#a6988d, .3);
-        color: #a6988d;
-        font-size: 1.1em;
-        line-height: 1.4em;
-        font-weight: 800;
-        padding: .5em;
-        border-radius: 8px;
-        margin: 0 .5em 1em .5em;
-        width: 256px;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
-
-        span {
-          display: inline-block;
-          padding-left: .5em;
-        }
-
-
-        &:hover{
-            transform: translateY(2px);
-            background-color: rgba($light, 1);
-        }
-
-        &:active {
-            transform: translateY(5px);
-        }
-
-        &:focus {
-          outline: 1px solid red;
-        }
-    }
-}
-
-
-
-@media (max-width: 768px) {
-    
-.image-div {
-    justify-content: center;
-    display: flex;
+    height: 40vw;
+    max-height: 170px;
+    color: #fff;
     flex-wrap: wrap;
-    margin: 0 !important;
-    padding: 0 !important;
+    text-shadow: 0 1px 8px black;
 
-    .imagecard {
-        margin: 3em auto !important;
+    svg {
+      font-size: 2em;
+      -webkit-filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.7));
+      filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.7));
     }
-}
 
+    span {
+      display: block;
+      width: 100%;
+      text-shadow: 0 1px 8px black;
+      font-size: 0.9em;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: translateY(4px);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 4px #c0392b;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .image-div {
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 !important;
+      padding: 0 !important;
+
+      .imagecard {
+        margin: 3em auto !important;
+      }
+    }
+  }
+`;
+
+const StyledTitle = styled.h2`
+  width: 100%;
+  max-width: 1400px;
+  text-align: center;
+  color: #a6988d;
+  font-weight: 900;
+  margin: 1.5em auto;
+  font-size: 2em;
+  padding: .2em;
+  border-bottom: 1px solid #a6988d;
 `;

@@ -65,7 +65,7 @@ function NavBarComponent({ toggle, isHidden, loggedIn, logout }) {
           </ul>
         </StyledRoot>
       ) : (
-        <StyledRoot id="nav_root" className={isHidden ? "_hide" : ""}>
+        <React.Fragment>
           <StyledMobileMenu
             id="mobile_menu"
             onClick={() => toggle()}
@@ -81,6 +81,8 @@ function NavBarComponent({ toggle, isHidden, loggedIn, logout }) {
               className={isHidden ? "" : "_close"}
             ></div>
           </StyledMobileMenu>
+          <StyledRoot id="nav_root" className={isHidden ? "_hide" : ""}>
+          
 
           <ul>
             <li className="nav-item">
@@ -115,6 +117,8 @@ function NavBarComponent({ toggle, isHidden, loggedIn, logout }) {
             </li>
           </ul>
         </StyledRoot>
+        </React.Fragment>
+        
       )}
     </nav>
   );
@@ -123,6 +127,8 @@ function NavBarComponent({ toggle, isHidden, loggedIn, logout }) {
 export const NavBar = React.memo(NavBarComponent);
 
 const StyledNavButton = styled.div`
+  z-index: 9999;
+
   &:hover {
     cursor: pointer;
   }
@@ -151,7 +157,6 @@ const StyledRoot = styled.section`
     rgba(0, 0, 0, 0.2),
     rgba(0, 0, 0, 0)
   );
-  z-index: 9999;
   overflow: hidden;
 
   ul {
@@ -199,8 +204,9 @@ const StyledRoot = styled.section`
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    transition: width 0.3s, height 0.3s;
-    z-index: 9999;
+      transition: transform .3s ease-in, border-radius .5s ease-in;
+    overflow: hidden;
+    z-index: 12;
 
     ul {
       display: block;
@@ -208,9 +214,8 @@ const StyledRoot = styled.section`
       top: 50%;
       left: 50%;
       overflow: hidden;
-      visibility: visible;
       transform: translate(-50%, -50%);
-      transition: opacity 0.3s, transform 0.3s;
+      transition: opacity .3s .3s, transform .5s .3s;
 
       li {
         display: block;
@@ -228,14 +233,16 @@ const StyledRoot = styled.section`
     }
 
     &._hide {
-      width: 62px;
-      height: 60px;
+      /* width: 62px;
+      height: 60px; */
+      /* border-radius: 0 0 50% 0; */
+      transform: translate(-100%, -100%);
       border-radius: 0 0 50% 0;
 
       ul {
         opacity: 0;
         transform: translate(-50%, -57%);
-        visibility: hidden;
+        /* display: none; */
       }
     }
   }
@@ -243,6 +250,7 @@ const StyledRoot = styled.section`
 
 const StyledMobileMenu = styled.div`
   display: none;
+  z-index: 9999;
 
   @media (max-width: 1025px) {
     display: block;

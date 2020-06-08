@@ -7,26 +7,26 @@ import Footer from "../../components/Footer";
 import LayoutThree from "../../components/LayoutThree";
 import Video from "../../components/Video/Video";
 
-let bathroomBoxes = [
+const ourStoryBoxes = [
   {
-    title: "Stand Alone",
+    title: "Local",
     body:
-      "More than just a space saver. You'll be able to keep the look and feel of your home office with these stylish Wallbeds.",
+      "We serve the entire southern Arizona areas of Pima and Santa Cruz Counties",
     image_uri:
-      "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/dsc_0021.jpg",
+      "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/kitchen_image_6.jpg",
   },
   {
-    title: "Bath & Vanity",
-    body: "Keep your office space and still have that guest room!",
+    title: "Specialized",
+    body:
+      "We specialize in the building and installation of custom cabinetry for kitchens, baths, entertainment centers, office desks, armoires, wall-beds, and a variety of other wood products",
     image_uri:
       "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/14b5d483-d86c-4c2b-9d6c-d335658f9e16.jpg",
   },
   {
-    title: "Custom Styles",
-    body:
-      "Wallbed units also add in-wall storage that can be used to stay organized.",
+    title: "Quality",
+    body: "Learning a craft takes time. Mastering one takes discipline.",
     image_uri:
-      "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d4b7203a-86a1-48fb-9e12-415dcab8a180.jpg",
+      "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/2cff3553-7f37-4f99-b3ad-999b65a66c11.jpg",
   },
 ];
 
@@ -69,68 +69,70 @@ export default class AboutUs extends Component {
           subTitle="An Arizona business with over 40 years of history"
         />
 
-        <NavBar isHidden={this.state.mobileNavHidden} toggle={this.toggleMobileNav} />
+        <NavBar
+          isHidden={this.state.mobileNavHidden}
+          toggle={this.toggleMobileNav}
+        />
 
         <StyledIntro>
           <h2>Tubac Woodworks</h2>
-          <h3>An Arizona business with over 40 years of history.</h3>
           <p>
-            Tubac Woodworks, has been owned and opporated for over 40 years. And
-            our motto has not changed.{" "}
+            Tubac Woodworks, has been an Arizona owned and opporated business
+            for over 40 years. And our goal has not changed.
             <span>"We want people to love their homes"</span>
           </p>
           <p>
-            We've had the pleasure to serve hundres of Arizona locals and
-            visitors, and that number keeps going up. Our team is dedicated to
-            their craft.
+            We've had the pleasure to serve hundres of Arizona locals &amp;
+            visitors, and that number keeps going up. We are dedicated to our
+            craft and have built some of the most stunning wood furniture and
+            cabinetry on the market today.
+          </p>
+          <p>
+            We hope you enjoy your tour of the Tubac Woodworks, Inc. Gallery
+            work, and look forward to bringing to life your vision for the home
+            you live in.
           </p>
         </StyledIntro>
 
-        <LayoutThree login={false} image_info={bathroomBoxes} />
+        <LayoutThree login={false} image_info={ourStoryBoxes} />
 
         <StyledIntro>
           <h3>Our Mission</h3>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia
-            itaque hic, debitis quos minima libero iure alias suscipit
-            asperiores voluptatem necessitatibus. Corporis delectus in, iste
-            temporibus quam distinctio totam facilis enim doloremque. Autem
-            facere debitis obcaecati est sapiente quae aut.
+            With the Tubac Woodwork showcase we hope to bring inspiration and
+            innovation to every home owner in Souther Arizona, and generate the
+            enthusiasm you have for your own home remodel.
           </p>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
-            soluta distinctio ab nisi voluptatem. Neque expedita velit maxime ut
-            dolore officia vitae perspiciatis doloribus placeat odio ad
-            inventore, amet ab.
+            We dont just build high quality wood furniture, storage, counters,
+            and closets. We love what we do! And that passion comes out in our
+            work. Every piece we design and craft, and every tool that we use is
+            taken care of with the same love and care that each of us has for
+            our own homes.
           </p>
         </StyledIntro>
 
         <Video />
 
         <StyledIntro>
-          <h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-            vitae.
-          </h3>
+          <h3>Tools of the trade.</h3>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-            veniam commodi id perspiciatis saepe delectus, dolores quibusdam
-            non, placeat nisi iste voluptatibus veritatis quae neque praesentium
-            consequuntur. Accusantium vero sunt dolore doloremque tenetur. In
-            possimus placeat corrupti voluptatem sed impedit eaque, sit
-            laudantium magnam! Natus doloribus rem blanditiis dolores labore.
+            We take care of our shop, our tools, our people, and our customers.
           </p>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe
-            excepturi nam eligendi aspernatur, quis eius cumque, expedita
-            deserunt natus totam fugit nulla dignissimos ea dicta enim! Aliquam
-            iusto sapiente rem corrupti. Impedit velit debitis tenetur ducimus
-            explicabo ullam necessitatibus suscipit soluta, voluptate blanditiis
-            illo qui architecto praesentium inventore quae quaerat.
+            While specializing in woodwork and wood care, Tubac Woodworks is
+            proud to say that we partner with only the best local contractors
+            for projects that extend beyond building the best wood cabinets and
+            furniture. These partnerships were formed over years of working in
+            the Southern Arizona market.
+          </p>
+
+          <p>
+            We look forward to learing about your next project and are eager to hear about it.
           </p>
         </StyledIntro>
 

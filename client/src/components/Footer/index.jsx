@@ -48,12 +48,12 @@ function Footer(props) {
               <h3>Share</h3>
               <ul>
                 <li>
-                  <a href="https://www.facebook.com/Tubac-Woodworks-110111612386150/?referrer=services_landing_page">
+                  <a href="https://www.facebook.com/Tubac-Woodworks-110111612386150/">
                     <ion-icon name="logo-facebook"></ion-icon>
                   </a>
                 </li>
                 <li>
-                  <a href="https://instagram.com">
+                  <a href="https://www.facebook.com/Tubac-Woodworks-110111612386150/">
                     <ion-icon name="logo-instagram"></ion-icon>
                   </a>
                 </li>
@@ -96,7 +96,6 @@ const StyledRoot = styled.footer`
   justify-content: center;
   align-items: flex-start;
   box-sizing: border-box;
-  width: 100vw;
   margin: 0 auto;
   padding: 0;
 
