@@ -74,7 +74,7 @@ function DeleteButton(props) {
               break;
           }
 
-          console.log(mongoObject);
+          // console.log(mongoObject);
           // console.log(theId);
 
           axios
