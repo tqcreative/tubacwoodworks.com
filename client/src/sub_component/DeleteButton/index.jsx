@@ -24,33 +24,30 @@ function DeleteButton(props) {
 
       // go through the array of objects and find the one that has a key that matches the table name (passed through props)
       theReturnedObjectArray.forEach((objectInThisArray) => {
-
+        // console.log(objectInThisArray); // display all the gallery options
         if (objectInThisArray[props.tableName]) {
           let theFinalArray = objectInThisArray[props.tableName];
-          console.log(theFinalArray);
           let theId = objectInThisArray._id;
           let theTablesName = props.tableName;
           // is
           // console.log(theFinalArray[indexNumber]);
           if (theFinalArray.length <= 1) {
-            console.log('not enough items in gallery to remove.')
+            console.log("not enough items in gallery to remove.");
             // you only have 1 item in this array. Do not touch it.
             return;
           } else if (indexNumber === 0) {
-            console.log('shift() the array')
+            console.log("shift() the array");
             // we can shift this object
             theFinalArray.shift();
           } else if (indexNumber === theFinalArray.length - 1) {
-            console.log('pop() the array')
+            console.log("pop() the array");
             // we can pop this number
             theFinalArray.pop();
           } else {
             //wait what?
             theFinalArray.splice(indexNumber, 1);
-            console.log(theFinalArray);
+            // console.log(theFinalArray);
           }
-
-          console.log(theFinalArray);
 
           let mongoObject = { none: theFinalArray };
           switch (theTablesName) {
@@ -78,6 +75,7 @@ function DeleteButton(props) {
           }
 
           console.log(mongoObject);
+          // console.log(theId);
 
           axios
             .put(`/cms/deletebuttonroute/put/${theId}`, mongoObject)
