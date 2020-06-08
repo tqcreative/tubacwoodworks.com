@@ -83,21 +83,33 @@ export default class Services extends Component {
       sliderArray: [
         {
           original:
-            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_kitchen_bath_vanity.jpg",
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_6.jpg",
           thumbnail:
-            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_kitchen_bath_vanity.jpg",
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_6.jpg",
         },
         {
           original:
-            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_gallery.jpg",
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/white2.jpg",
           thumbnail:
-            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_gallery.jpg",
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/white2.jpg",
         },
         {
           original:
-            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_commercial.jpg",
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/kitchen_image_1.jpg",
           thumbnail:
-            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_commercial.jpg",
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/kitchen_image_1.jpg",
+        },
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/kitchen_image_6.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/kitchen_image_6.jpg",
+        },
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/kitchen_image_8.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/kitchen_image_8.jpg",
         },
       ],
       hero: {
@@ -133,6 +145,26 @@ export default class Services extends Component {
     };
 
     const bathProps = {
+      sliderArray: [
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_11.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_11.jpg",
+        },
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/dsc_0061.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/dsc_0061.jpg",
+        },
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_9.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_9.jpg",
+        },
+      ],
       hero: {
         image:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/14b5d483-d86c-4c2b-9d6c-d335658f9e16.jpg",
@@ -166,6 +198,32 @@ export default class Services extends Component {
     };
 
     const wallBedProps = {
+      sliderArray: [
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wallbed_green2.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wallbed_green2.jpg",
+        },
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/gallery_7.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/gallery_7.jpg",
+        },
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d23.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d23.jpg",
+        },
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d25.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d25.jpg",
+        },
+      ],
       hero: {
         image:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/gallery_7.jpg",
@@ -232,6 +290,26 @@ export default class Services extends Component {
     };
 
     const commecrialProps = {
+      sliderArray: [
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/com_1.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/com_1.jpg",
+        },
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/com_3.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/com_3.jpg",
+        },
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/com_4.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/com_4.jpg",
+        },
+      ],
       hero: {
         image:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/com_2.jpg",
@@ -265,6 +343,32 @@ export default class Services extends Component {
     };
 
     const customProps = {
+      sliderArray: [
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_7.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_7.jpg",
+        },
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_12.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_12.jpg",
+        },
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_13.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_13.jpg",
+        },
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_14.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_14.jpg",
+        },
+      ],
       hero: {
         image:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/furniture_42.jpg",
@@ -303,15 +407,21 @@ export default class Services extends Component {
       kitchen: {
         h2Tag: "Tubac Woodworks",
         pTag:
-          "Our products are available through authorized showrooms, on-line retailers and the Urban Woods website. If there is not a dealer near you then we encourage you to contact us directly for more information.",
+          "We service a variety of different woodworking needs. From Kitchen, Bath, Vanity, Furniture, Wall Beds, Storage, and more. We service both Residential and Commercial. New homes and remodels. Small and large projects, but the one thing they all have in common is the genuine awe that our customers feel after the job is done.",
         pTag2:
-          "Reclaimed wood has many advantages. The grain of the timber has tight growth rings that show the superior density of the wood. The natural patina and color of the old-growth timber is preserved in the manufacturing process.  The results provide a look and feel that can not be replicated in new wood.",
-        pTag3:
-          "The reclaimed wood was originally harvested and milled 50 to 100 years ago, and has been seasoned in sunny Southern California for decades. The vintage wood has better stability and resistance to future distortion or structural movement.",
+          "Below is a list of different services that Tubac Woodworks has to offer. We would be both honored and excited to hear more about your project and would love to know where we can help!",
+        pTag3: (
+          <React.Fragment>
+            Not sure where to start? Head over to our{" "}
+            <a href="/gallery">Gallery</a> to draw insperation. Already know
+            what you're looking for? Feel free to give us a call at{" "}
+            <a href="tel:+15206250050">(520) 625-0050</a> and ask for Tom.
+          </React.Fragment>
+        ),
       },
     };
 
-    let kitchenBoxes = [
+    const kitchenBoxes = [
       {
         title: "stunning cabinets",
         body: "Keep your office space and still have that guest room!",
@@ -346,7 +456,10 @@ export default class Services extends Component {
             subTitle="Love your home."
           />
 
-          <NavBar isHidden={this.state.mobileNavHidden} toggle={this.toggleMobileNav} />
+          <NavBar
+            isHidden={this.state.mobileNavHidden}
+            toggle={this.toggleMobileNav}
+          />
 
           <LayoutBasic
             h2Tag={contentObject.kitchen.h2Tag}
@@ -385,7 +498,10 @@ export default class Services extends Component {
           {/* ====== */}
           {/* HEADER */}
           {/* ====== */}
-          <NavBar isHidden={this.state.mobileNavHidden} toggle={this.toggleMobileNav} />
+          <NavBar
+            isHidden={this.state.mobileNavHidden}
+            toggle={this.toggleMobileNav}
+          />
 
           {/* ===== */}
           {/* INTRO */}
@@ -403,24 +519,25 @@ export default class Services extends Component {
           <LayoutThree login={false} image_info={kitchenBoxes} />
 
           <StyledParagraph>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
-            illo repudiandae eos qui. Tenetur optio sed ipsum quis sunt,
-            deleniti ab, quibusdam ipsam commodi minus accusamus eum, soluta
-            saepe accusantium excepturi quo aliquam similique vero sapiente
-            molestiae dolores eligendi sint? Minus atque soluta distinctio sed
-            accusamus placeat sint amet! Reiciendis.
+            Welcome to the Tubac Woodworks, Inc. Portfolio Web Page. This page
+            provides us with an opportunity to showcase the work done by Tom
+            Simons of Tubac Woodworks, Inc. Tom has been in business in Arizona
+            since 1982, providing all areas of Pima and Santa Cruz Counties with
+            quality products at competitive prices.
           </StyledParagraph>
 
           <StyledParagraph>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magnam
-            nihil, molestias doloribus et vitae reprehenderit explicabo odit
-            libero accusamus quidem eos ratione? Sunt, numquam consequuntur?
-            Doloribus, pariatur? Architecto, dignissimos inventore consectetur
-            dicta deserunt eius, nulla natus nesciunt autem officiis sequi
-            repudiandae nam eveniet unde. Saepe voluptatem odit quod temporibus
-            tempore minus ab maiores obcaecati id architecto voluptatibus
-            eveniet voluptas animi alias vitae, quae eos eum placeat nihil, odio
-            deserunt?
+            Located near the southern Arizona town of Green Valley, Tubac
+            Woodworks, Inc. serves the entire southern Arizona areas of Pima and
+            Santa Cruz Counties, specializing in the building and installation
+            of custom cabinetry for kitchens and baths, entertainment centers,
+            bookcases, office desks, computer desks, armoires, wall-beds, and a
+            variety of other wood products for the home, office, or business.
+          </StyledParagraph>
+
+          <StyledParagraph>
+            We hope you enjoy your tour of the Tubac Woodworks, Inc website and
+            look forward to hearing from you!
           </StyledParagraph>
 
           {/* =============== */}

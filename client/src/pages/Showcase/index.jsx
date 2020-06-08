@@ -81,13 +81,19 @@ export default class Showcase extends Component {
     // this data will normally be held in a server cand axios called on mount.
     const contentObject = {
       paragraphOne: {
-        h2Tag: "Wood Furniture",
+        h2Tag: "Design and Expertise",
         pTag:
-          "Our products are available through authorized showrooms, on-line retailers and the Urban Woods website. If there is not a dealer near you then we encourage you to contact us directly for more information.",
-        pTag2:
-          "Reclaimed wood has many advantages. The grain of the timber has tight growth rings that show the superior density of the wood. The natural patina and color of the old-growth timber is preserved in the manufacturing process.  The results provide a look and feel that can not be replicated in new wood.",
+          "The Showcase offers you a glimps at the latest products in our portfolio. We hope they inspire you for your next home imporvment project as much as it has inspired the people who's homes we have remodeled.",
+        pTag2: (
+          <React.Fragment>
+            Some of the most exciting pieces that we have done are featured in
+            this segment. But dont forget to see our{" "}
+            <a href="/gallery">Gallery</a> for even more pieces that are sure to
+            inspire and delight you.
+          </React.Fragment>
+        ),
         pTag3:
-          "The reclaimed wood was originally harvested and milled 50 to 100 years ago, and has been seasoned in sunny Southern California for decades. The vintage wood has better stability and resistance to future distortion or structural movement.",
+          "Call now to make an appointment for a consultation and experience our creative design and experience first hand.",
       },
     };
 
@@ -100,6 +106,23 @@ export default class Showcase extends Component {
           "This can be accomplished by selecting a stylish Wall-Bed. These functional pieces of furniture double as both storage and a convenient guestroom sleep area when the time comes to have your mother-in-law visit.",
         pTag3:
           "With multiple different styles to choose from, Wall-Bed's display upright in an in-wall unit or in a stand-alone armor fashion. Storage can be placed on the sides, under, or over the main section and make a perfect addition to any home office.",
+      },
+    };
+
+    const contentObjectThree = {
+      paragraphOne: {
+        h2Tag: "Contact Us",
+        pTag: (
+          <React.Fragment>
+            <em>Tubac Woodworks Inc, Southern Arizona</em> <br />
+            Phone: <a href="tel:+5206250050">(520) 625-0050</a> <br />
+            Email:{" "}
+            <a href="mailto:info@tubacwoodworks.com">
+              info@tubacwoodworks.com
+            </a>{" "}
+            <br />
+          </React.Fragment>
+        ),
       },
     };
 
@@ -181,24 +204,25 @@ export default class Showcase extends Component {
           <LayoutThree
             image_info={[
               {
-                title: "Save Space",
-                body: "Keep your office space and still have that guest room!",
+                title: "Keep Your Office",
+                body:
+                  "Keep your office space and still have that guest room with the addtion of a Wall Bed unit",
                 image_uri:
                   "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/gallery_7.jpg",
               },
               {
-                title: "Keep Style",
+                title: "Class & Style",
                 body:
-                  "More than just a space saver. You'll be able to keep the look and feel of your home office with these stylish Wallbeds.",
+                  "Dont hunt for peices that go together. Design pieces that go with what you love.",
                 image_uri:
                   "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_gallery.jpg",
               },
               {
-                title: "Storage",
+                title: "Just Right",
                 body:
-                  "Wallbed units also add in-wall storage that can be used to stay organized.",
+                  "The perfect mantle piece, in the perfect color, and all the character that comes out of natural wood.",
                 image_uri:
-                  "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d23.jpg",
+                  "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d18.jpg",
               },
             ]}
           />
@@ -214,6 +238,11 @@ export default class Showcase extends Component {
             login={false}
             user={this.state.user}
             staticGalleryImageProp={this.state.showcaseImages}
+          />
+
+          <LayoutBasic
+            h2Tag={contentObjectThree.paragraphOne.h2Tag}
+            pTag={contentObjectThree.paragraphOne.pTag}
           />
 
           <Signup submitResult={this.handleSignupResult} />
