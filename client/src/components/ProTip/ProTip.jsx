@@ -82,6 +82,21 @@ const StyledRoot = styled.section`
       border-bottom: 1px solid #a6988d;
       font-family: "Times New Roman", Times, serif;
     }
+
+    a,
+    a:visited,
+    a:hover,
+    a:link,
+    a:active {
+      font-weight: 600;
+      text-decoration: underline;
+      color: inherit;
+      color: #c0392b;
+    }
+
+    em {
+      font-style: italic;
+    }
   }
 
   &:nth-child(even) {
