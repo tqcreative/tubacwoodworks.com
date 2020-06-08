@@ -24,6 +24,7 @@ function DeleteButton(props) {
 
       // go through the array of objects and find the one that has a key that matches the table name (passed through props)
       theReturnedObjectArray.forEach((objectInThisArray) => {
+        // console.log(objectInThisArray); // display all the gallery options
         if (objectInThisArray[props.tableName]) {
           let theFinalArray = objectInThisArray[props.tableName];
           let theId = objectInThisArray._id;
@@ -31,17 +32,21 @@ function DeleteButton(props) {
           // is
           // console.log(theFinalArray[indexNumber]);
           if (theFinalArray.length <= 1) {
+            console.log("not enough items in gallery to remove.");
             // you only have 1 item in this array. Do not touch it.
             return;
           } else if (indexNumber === 0) {
+            console.log("shift() the array");
             // we can shift this object
             theFinalArray.shift();
           } else if (indexNumber === theFinalArray.length - 1) {
+            console.log("pop() the array");
             // we can pop this number
             theFinalArray.pop();
           } else {
             //wait what?
             theFinalArray.splice(indexNumber, 1);
+            // console.log(theFinalArray);
           }
 
           let mongoObject = { none: theFinalArray };
@@ -61,16 +66,22 @@ function DeleteButton(props) {
             case "furnitureTable":
               mongoObject = { furnitureTable: theFinalArray };
               break;
+            case "showcaseGrid":
+              mongoObject = { showcaseGrid: theFinalArray };
+              break;
             default:
               console.log("No Table Found.");
               break;
           }
 
+          // console.log(mongoObject);
+          // console.log(theId);
+
           axios
             .put(`/cms/deletebuttonroute/put/${theId}`, mongoObject)
             .then((returnedData) => {
-            //   console.log(returnedData);
-            props.forceRefresh(); // this is passed down from the page component and will refresh the images after it is done.
+              //   console.log(returnedData);
+              props.forceRefresh(); // this is passed down from the page component and will refresh the images after it is done.
             })
             .catch((err) => {
               console.error(err);

@@ -377,13 +377,13 @@ const StyledButtons = styled.section`
     border-radius: 8px;
     margin: 0.5em;
     width: 40vw;
-    max-width: 150px;
+    max-width: 170px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     height: 40vw;
-    max-height: 150px;
+    max-height: 170px;
     color: #fff;
     flex-wrap: wrap;
     text-shadow: 0 1px 8px black;
