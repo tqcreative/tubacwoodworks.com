@@ -18,18 +18,50 @@ export default class ProTipsPage extends Component {
       toastShow: false,
       proTipArray: [
         {
-          title: "Great Tips",
-          subtitle: "by Sean Scharr",
-          body:
-            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum ea dolores ut eaque cumque, culpa placeat tempore eligendi reprehenderit similique assumenda saepe minima? Expedita eius ducimus mollitia nobis dolore cupiditate, quae facilis optio, pariatur sapiente in voluptas natus debitis. Accusantium repellendus accusamus non quas aliquam iusto cupiditate tenetur voluptas impedit! Nihil quos quisquam dolorem minus neque. Iste voluptatibus minus quam odit accusantium sit sequi est perferendis assumenda! Corrupti, incidunt? Sapiente!",
+          title: "Keep your kitchen cabinets looking like new",
+          subtitle: "by Tom",
+          body: (
+            <React.Fragment>
+              <p>
+                Wash with{" "}
+                <a
+                  href="https://www.lowes.com/pd/Murphy-Oil-Soap-32-Oz-Concentrate/1040895"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Murphy's Oil Soap
+                </a>
+                . This especially is important around the stove and sink areas.
+              </p>
+              <p>
+                Just mix 2 oz per gallon of water and apply directly to the wood
+                surface, be sure to sufficiently dry after applying
+              </p>
+            </React.Fragment>
+          ),
           backgroundImage:
-            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_1.jpg",
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/white2.jpg",
         },
         {
-          title: "Best way to get out scratches",
-          subtitle: "by Joe Scharr",
-          body:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus soluta modi dolore saepe! Praesentium quos, dolore enim dicta tempora quasi veritatis adipisci at quod delectus officiis voluptatibus vel distinctio natus?",
+          title: "Another way to keep that fresh look",
+          subtitle: "Tubac Woodworks",
+          body: (
+            <React.Fragment>
+              <p>
+                Apply <em>generic</em> "lemon oil" liberally- but not dripping.
+                Once applied be sure to wipe off any excess and let fully dry
+                before using the surface again.
+              </p>
+              <p>
+                This process can be donw around the first year anniversary of
+                their installation, then every 6 months after for the following
+                two years, then only once a year after that.
+              </p>
+              <p>
+              <a href="https://www.walmart.com/ip/2-Pack-Old-English-Conditions-Protects-Wood-Furniture-Polish-Lemon-Oil-16-oz/683910927" target="_blank" rel="noopener noreferrer">Old English Lemon Oil</a> can be found in your local hardware, grocery, or general supply store.
+              </p>
+            </React.Fragment>
+          ),
           backgroundImage:
             "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_2.jpg",
         },
@@ -41,12 +73,21 @@ export default class ProTipsPage extends Component {
             "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_5.jpg",
         },
         {
-          title: "Final Tip",
-          subtitle: "by Mike",
+          title: "Plants",
+          subtitle: "by the Online Journal",
           body:
-            "Lorem ipsum dolor sit, amet consectetur adipisicing elit. A, repellat! Exercitationem, maiores illum nostrum cum, nulla mollitia reiciendis iure voluptas facilis, ducimus aspernatur optio provident dolorem adipisci quibusdam alias commodi. Obcaecati tempore dolorem, eos amet, illum repudiandae consequatur soluta labore optio repellendus consequuntur vero aperiam excepturi velit quis? Omnis, ducimus?",
+            <React.Fragment>
+              <p>
+                <em>
+                  "Wood and water don't go well together. Yet it's rare that a day goes by where we don't receive some sort of inquiry about planter drainage and how to water plants without staining, or for that matter, destroying wooden floors, surfaces, or furniture."
+                </em>
+              </p>
+              <p>
+                Drainage is important to a plants health, when decorating your home be sure to use a <a href="https://www.lowes.com/pd/4-331-in-Orange-Clay-Plant-Saucer/1000189691" target="_blank" rel="noopener noreferrer">drainage dish</a> under all plants that sit or hang new wooden surfaces.
+              </p>
+            </React.Fragment>,
           backgroundImage:
-            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_12.jpg",
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/plants_3.jpg",
         },
       ],
     };
@@ -81,13 +122,13 @@ export default class ProTipsPage extends Component {
     // this data will normally be held in a server cand axios called on mount.
     let contentObject = {
       paragraphOne: {
-        h2Tag: "Furniture you're going to love.",
+        h2Tag: "Get tips from the Experts!",
         pTag:
-          "Our products are available through authorized showrooms, on-line retailers and the Urban Woods website. If there is not a dealer near you then we encourage you to contact us directly for more information.",
+          "Taking care of your wood products can be challenge. Here at Tubac Woodworks we frequently hear concerns from our customers about how to keep their wood products safe from stratches, dents, aging, even just regular wear and tear.",
         pTag2:
-          "Reclaimed wood has many advantages. The grain of the timber has tight growth rings that show the superior density of the wood. The natural patina and color of the old-growth timber is preserved in the manufacturing process.  The results provide a look and feel that can not be replicated in new wood.",
+          "Well We've put together a list of some of the most common questions we receive and the ways we overcome those challenges.",
         pTag3:
-          "The reclaimed wood was originally harvested and milled 50 to 100 years ago, and has been seasoned in sunny Southern California for decades. The vintage wood has better stability and resistance to future distortion or structural movement.",
+          "Here are some of the most frequently asked questions about taking care of your wood products.",
       },
     };
 

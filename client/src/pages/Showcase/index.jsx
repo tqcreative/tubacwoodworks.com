@@ -47,12 +47,12 @@ export default class Showcase extends Component {
     axios.get("/cms/kitchenbathvanity").then((collectData) => {
       collectData.data.forEach((table) => {
         // set the table for the slider
-        if (table.imageArray) {
+        if (table.showcaseGrid) {
           // tell the gallery what to place inside
-          this.setState({ showcaseImages: table.imageArray });
+          this.setState({ showcaseImages: table.showcaseGrid });
 
           // grab images for slider
-          const newArray = Array.from(table.imageArray);
+          const newArray = Array.from(table.showcaseGrid);
           const arrayOfObjects = [];
           for (let i = 0; i < newArray.length; i++) {
             let newObjectItem = {
@@ -79,15 +79,27 @@ export default class Showcase extends Component {
   render() {
     // content for demo
     // this data will normally be held in a server cand axios called on mount.
-    let contentObject = {
+    const contentObject = {
       paragraphOne: {
-        h2Tag: "Wall Beds",
+        h2Tag: "Wood Furniture",
         pTag:
           "Our products are available through authorized showrooms, on-line retailers and the Urban Woods website. If there is not a dealer near you then we encourage you to contact us directly for more information.",
         pTag2:
           "Reclaimed wood has many advantages. The grain of the timber has tight growth rings that show the superior density of the wood. The natural patina and color of the old-growth timber is preserved in the manufacturing process.  The results provide a look and feel that can not be replicated in new wood.",
         pTag3:
           "The reclaimed wood was originally harvested and milled 50 to 100 years ago, and has been seasoned in sunny Southern California for decades. The vintage wood has better stability and resistance to future distortion or structural movement.",
+      },
+    };
+
+    const contentObjectTwo = {
+      paragraphOne: {
+        h2Tag: "Wall Beds",
+        pTag:
+          "One of the things Tubac Woodworks is excited about is helping our clients discover how to both keep their office and their guestroom.",
+        pTag2:
+          "This can be accomplished by selecting a stylish Wall-Bed. These functional pieces of furniture double as both storage and a convenient guestroom sleep area when the time comes to have your mother-in-law visit.",
+        pTag3:
+          "With multiple different styles to choose from, Wall-Bed's display upright in an in-wall unit or in a stand-alone armor fashion. Storage can be placed on the sides, under, or over the main section and make a perfect addition to any home office.",
       },
     };
 
@@ -123,10 +135,10 @@ export default class Showcase extends Component {
           />
 
           <LayoutBasic
-            h2Tag={contentObject.paragraphOne.h2Tag}
-            pTag={contentObject.paragraphOne.pTag}
-            pTag2={contentObject.paragraphOne.pTag2}
-            pTag3={contentObject.paragraphOne.pTag3}
+            h2Tag={contentObjectTwo.paragraphOne.h2Tag}
+            pTag={contentObjectTwo.paragraphOne.pTag}
+            pTag2={contentObjectTwo.paragraphOne.pTag2}
+            pTag3={contentObjectTwo.paragraphOne.pTag3}
           />
 
           <Gallery
@@ -192,10 +204,10 @@ export default class Showcase extends Component {
           />
 
           <LayoutBasic
-            h2Tag={contentObject.paragraphOne.h2Tag}
-            pTag={contentObject.paragraphOne.pTag}
-            pTag2={contentObject.paragraphOne.pTag2}
-            pTag3={contentObject.paragraphOne.pTag3}
+            h2Tag={contentObjectTwo.paragraphOne.h2Tag}
+            pTag={contentObjectTwo.paragraphOne.pTag}
+            pTag2={contentObjectTwo.paragraphOne.pTag2}
+            pTag3={contentObjectTwo.paragraphOne.pTag3}
           />
 
           <Gallery
