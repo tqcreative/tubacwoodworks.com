@@ -148,7 +148,7 @@ const StyledRoot = styled.section`
   font-size: 1.3em;
   font-weight: 900;
   width: 100%;
-  max-width: 100%;
+  /* max-width: 100%; */
   background-image: linear-gradient(
     rgba(0, 0, 0, 0.25),
     rgba(0, 0, 0, 0.2),
@@ -196,12 +196,14 @@ const StyledRoot = styled.section`
   @media (max-width: 1025px) {
     flex-wrap: wrap;
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    width: 200%;
+    height: 200%;
     top: 0;
     left: 0;
+    border-radius: 50%;
+    transform: translate(-25%,-25%);
     background-color: rgba(0, 0, 0, 0.6);
-    transition: transform 0.3s ease-in, border-radius 0.5s ease-out;
+    transition: transform 0.3s ease-in;
     overflow: hidden;
     z-index: 12;
 
@@ -234,7 +236,6 @@ const StyledRoot = styled.section`
       height: 60px; */
       /* border-radius: 0 0 50% 0; */
       transform: translate(-100%, -100%);
-      border-radius: 0 0 25% 0;
       transition: transform 0.3s ease-in 0.3s, border-radius 0.1s ease-out 0.3s;
 
       ul {
