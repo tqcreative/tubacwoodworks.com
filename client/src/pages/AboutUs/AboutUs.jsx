@@ -13,20 +13,20 @@ const ourStoryBoxes = [
     body:
       "We serve the entire southern Arizona areas of Pima and Santa Cruz Counties",
     image_uri:
-      "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/kitchen_image_6.jpg",
+      "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_7.jpg",
   },
   {
     title: "Specialized",
     body:
       "We specialize in the building and installation of custom cabinetry for kitchens, baths, entertainment centers, office desks, armoires, wall-beds, and a variety of other wood products",
     image_uri:
-      "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/14b5d483-d86c-4c2b-9d6c-d335658f9e16.jpg",
+      "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_8.jpg",
   },
   {
     title: "Quality",
     body: "Learning a craft takes time. Mastering one takes discipline.",
     image_uri:
-      "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/2cff3553-7f37-4f99-b3ad-999b65a66c11.jpg",
+      "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_1.jpg",
   },
 ];
 
@@ -134,6 +134,12 @@ export default class AboutUs extends Component {
           <p>
             We look forward to learing about your next project and are eager to hear about it.
           </p>
+        </StyledIntro>
+
+        <StyledIntro>
+          <h3>Our Clients</h3>
+
+          <p>Bill and Lisa Garber</p>
         </StyledIntro>
 
         <Signup submitResult={this.handleSignupResult} />

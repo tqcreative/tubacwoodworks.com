@@ -120,27 +120,11 @@ export default class Services extends Component {
       },
       category: "Kitchen Remodels",
       contentArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minus
-        tempore hic fuga, eveniet totam odit, repellendus delectus earum
-        suscipit quae obcaecati amet assumenda explicabo dolore saepe laboriosam
-        laudantium illo?`,
-        `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis earum
-        eveniet similique vero praesentium laudantium aperiam consequatur, ab
-        dolorem ipsum, enim nulla! Vitae molestiae possimus accusamus at
-        laboriosam ea ex dolore laborum est voluptates earum qui eaque corrupti,
-        omnis eum officiis a doloribus asperiores excepturi vel dolorem tempora.
-        Cupiditate, obcaecati?`,
+        `Let us help you remodel your kitchen into the one you've always dreamed of.`,
+        `A lot goes into the planning of a new kitchen. "Where do we put the island?" "What type of wood is going to hold up over the years?""What color should the cupboards be?"`,
       ],
       footerArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magnam
-    nihil, molestias doloribus et vitae reprehenderit explicabo odit
-    libero accusamus quidem eos ratione? Sunt, numquam consequuntur?
-    Doloribus, pariatur? Architecto, dignissimos inventore consectetur
-    dicta deserunt eius, nulla natus nesciunt autem officiis sequi
-    repudiandae nam eveniet unde. Saepe voluptatem odit quod temporibus
-    tempore minus ab maiores obcaecati id architecto voluptatibus
-    eveniet voluptas animi alias vitae, quae eos eum placeat nihil, odio
-    deserunt?`,
+        <React.Fragment><strong>Storage</strong></React.Fragment>,
       ],
     };
 
@@ -185,15 +169,9 @@ export default class Services extends Component {
         Cupiditate, obcaecati?`,
       ],
       footerArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magnam
-    nihil, molestias doloribus et vitae reprehenderit explicabo odit
-    libero accusamus quidem eos ratione? Sunt, numquam consequuntur?
-    Doloribus, pariatur? Architecto, dignissimos inventore consectetur
-    dicta deserunt eius, nulla natus nesciunt autem officiis sequi
-    repudiandae nam eveniet unde. Saepe voluptatem odit quod temporibus
-    tempore minus ab maiores obcaecati id architecto voluptatibus
-    eveniet voluptas animi alias vitae, quae eos eum placeat nihil, odio
-    deserunt?`,
+        <React.Fragment>
+          Though our kids believe he can do anything. We know some work is left to the right professionals. It's because of this we take strategic partners when consulting on <em>Tile work, General Construction, Foundations,</em> and other non-wood related needs. 
+        </React.Fragment>,
       ],
     };
 
