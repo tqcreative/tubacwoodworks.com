@@ -97,12 +97,10 @@ export default class AboutUs extends Component {
         <LayoutThree login={false} image_info={ourStoryBoxes} />
 
         <StyledIntro>
-          <h3>Our Mission</h3>
+          <h3>1979</h3>
 
           <p>
-            With the Tubac Woodwork showcase we hope to bring inspiration and
-            innovation to every home owner in Souther Arizona, and generate the
-            enthusiasm you have for your own home remodel.
+          In 1979 Tom was hired as a <em>cabinetmakers assistant</em> at a prominent Los Angeles hospital. The shop owner, Andy, had completed his “Master Craftsmen“ program in Germany. Andy was a certified master craftsman and an extraordinary entrepreneur. When Andy was ready to retire he wanted to pass on what he had learned, and so he took Tom under his wing and taught him everything he knew. Once retired Tom single handedly caught-up the shop, and now it was time for him to take on challenges of his own. So Tom went out on his own and came to Arizona.
           </p>
 
           <p>
@@ -131,16 +129,15 @@ export default class AboutUs extends Component {
             the Southern Arizona market.
           </p>
 
-          <p>
-            We look forward to learing about your next project and are eager to hear about it.
-          </p>
         </StyledIntro>
 
-        <StyledIntro>
-          <h3>Our Clients</h3>
+        <StyledClient>
+          <h2>Our Clients</h2>
+          <blockquote>
 
-          <p>Bill and Lisa Garber</p>
-        </StyledIntro>
+          </blockquote>
+          <cite>Bill and Lisa Garber</cite>
+        </StyledClient>
 
         <Signup submitResult={this.handleSignupResult} />
 
@@ -172,4 +169,18 @@ const StyledIntro = styled.section`
   h2 {
     text-transform: uppercase;
   }
+`;
+
+const StyledClient = styled.article`
+h2 {
+
+}
+
+blockquote {
+
+}
+
+cite {
+
+}
 `;

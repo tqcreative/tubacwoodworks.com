@@ -7,23 +7,30 @@ NavBarComponent.defaultProps = {
 };
 
 function NavBarComponent({ toggle, isHidden, loggedIn, logout }) {
+
+  // ==================== //
+  //   HELPER FUNCTIONS   //
+  // ==================== //
+let hideValue = isHidden ? "_hide" : "_show";
+let closeValue = isHidden ? "_open" : "_close";
+
   return (
     <nav id="nav" className="">
       {loggedIn ? (
-        <StyledRoot id="nav_root" className={isHidden ? "_hide" : ""}>
+        <StyledRoot id="nav_root" className={hideValue}>
           <StyledMobileMenu
             id="mobile_menu"
             onClick={() => toggle()}
-            className={isHidden ? "" : "_close"}
+            className={closeValue}
           >
-            <div className="top_bar" className={isHidden ? "" : "_close"}></div>
+            <div className="top_bar" className={closeValue}></div>
             <div
               className="center_bar"
-              className={isHidden ? "" : "_close"}
+              className={closeValue}
             ></div>
             <div
               className="bottom_bar"
-              className={isHidden ? "" : "_close"}
+              className={closeValue}
             ></div>
           </StyledMobileMenu>
           <ul>
@@ -69,19 +76,19 @@ function NavBarComponent({ toggle, isHidden, loggedIn, logout }) {
           <StyledMobileMenu
             id="mobile_menu"
             onClick={() => toggle()}
-            className={isHidden ? "" : "_close"}
+            className={closeValue}
           >
-            <div className="top_bar" className={isHidden ? "" : "_close"}></div>
+            <div className="top_bar" className={closeValue}></div>
             <div
               className="center_bar"
-              className={isHidden ? "" : "_close"}
+              className={closeValue}
             ></div>
             <div
               className="bottom_bar"
-              className={isHidden ? "" : "_close"}
+              className={closeValue}
             ></div>
           </StyledMobileMenu>
-          <StyledRoot id="nav_root" className={isHidden ? "_hide" : ""}>
+          <StyledRoot id="nav_root" className={hideValue}>
             <ul>
               <li className="nav-item">
                 <Link to="/" className="nav-link">
