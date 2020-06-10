@@ -424,30 +424,35 @@ export default class Services extends Component {
 
     const woodTypes = [
       {
+        mobile: true,
         title: "Maple",
         body: "Light in color, great for doors, bookshelves, and desks",
         image_uri:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_maple.jpg",
       },
       {
+        mobile: true,
         title: "Birch",
         body: "A light colored wood. Wavey grain with knots.",
         image_uri:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_birch.jpg",
       },
       {
+        mobile: true,
         title: "Pine",
         body: "A hard wood with lots of character. Perfect for bathrooms and furniture",
         image_uri:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_pine.jpg",
       },
       {
+        mobile: true,
         title: "Ash",
         body: "Much like the pine, this popular choice works well with all kinds of needs",
         image_uri:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_ash.jpg",
       },
       {
+        mobile: true,
         title: "Oak",
         body:
           "A strong and popular wood that holds up well over the years.",
@@ -455,6 +460,7 @@ export default class Services extends Component {
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_red_oak.jpg",
       },
       {
+        mobile: true,
         title: "Walnut",
         body:
           "A tame multipurpose wood. Holds up well against regular wear and tear",
@@ -462,6 +468,7 @@ export default class Services extends Component {
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_walnut.jpg",
       },
       {
+        mobile: true,
         title: "Cherry",
         body:
           "A deep red that works well in open areas",
@@ -469,6 +476,7 @@ export default class Services extends Component {
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_cherry.jpg",
       },
       {
+        mobile: true,
         title: "Mahogany",
         body:
           "A Dark and elegant choice that's perfect for custom curniture and bookshelves.",

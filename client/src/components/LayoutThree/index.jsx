@@ -47,14 +47,20 @@ export default function LayoutThree(props) {
           return (
             <StyledBox
               key={index}
+              className={info.mobile ? "mobile" : ""}
               style={{
                 background: `url(${info.image_uri})`,
                 backgroundSize: "cover",
                 index,
               }}
               onClick={() => {
-                updateShowToast(true);
-                updateToastImage(info.image_uri);
+                if (info.mobile) {
+                  // dont display toast, just remove shadow box.
+                } else {
+                  // go to toast if not mobile
+                  updateShowToast(true);
+                  updateToastImage(info.image_uri);
+                }
               }}
             >
               <div
@@ -95,6 +101,11 @@ const StyledBox = styled.div`
   padding: 0;
   margin: 0 auto;
   flex-grow: 1;
+
+  &.mobile {
+    max-width: 50%;
+    max-height: 50vw;
+  }
 
   .cover_box {
     position: absolute;
