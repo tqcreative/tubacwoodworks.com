@@ -7,23 +7,30 @@ NavBarComponent.defaultProps = {
 };
 
 function NavBarComponent({ toggle, isHidden, loggedIn, logout }) {
+
+  // ==================== //
+  //   HELPER FUNCTIONS   //
+  // ==================== //
+let hideValue = isHidden ? "_hide" : "_show";
+let closeValue = isHidden ? "_open" : "_close";
+
   return (
     <nav id="nav" className="">
       {loggedIn ? (
-        <StyledRoot id="nav_root" className={isHidden ? "_hide" : ""}>
+        <StyledRoot id="nav_root" className={hideValue}>
           <StyledMobileMenu
             id="mobile_menu"
             onClick={() => toggle()}
-            className={isHidden ? "" : "_close"}
+            className={closeValue}
           >
-            <div className="top_bar" className={isHidden ? "" : "_close"}></div>
+            <div className="top_bar" className={closeValue}></div>
             <div
               className="center_bar"
-              className={isHidden ? "" : "_close"}
+              className={closeValue}
             ></div>
             <div
               className="bottom_bar"
-              className={isHidden ? "" : "_close"}
+              className={closeValue}
             ></div>
           </StyledMobileMenu>
           <ul>
@@ -69,56 +76,53 @@ function NavBarComponent({ toggle, isHidden, loggedIn, logout }) {
           <StyledMobileMenu
             id="mobile_menu"
             onClick={() => toggle()}
-            className={isHidden ? "" : "_close"}
+            className={closeValue}
           >
-            <div className="top_bar" className={isHidden ? "" : "_close"}></div>
+            <div className="top_bar" className={closeValue}></div>
             <div
               className="center_bar"
-              className={isHidden ? "" : "_close"}
+              className={closeValue}
             ></div>
             <div
               className="bottom_bar"
-              className={isHidden ? "" : "_close"}
+              className={closeValue}
             ></div>
           </StyledMobileMenu>
-          <StyledRoot id="nav_root" className={isHidden ? "_hide" : ""}>
-          
-
-          <ul>
-            <li className="nav-item">
-              <Link to="/" className="nav-link">
-                <div>Home</div>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/services" className="nav-link">
-                <div>Services</div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/showcase" className="nav-link">
-                <div>Showcase</div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" className="nav-link">
-                <div>Our Story</div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/protips" className="nav-link">
-                <div>Pro Tips</div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/gallery" className="nav-link">
-                <div>Gallery</div>
-              </Link>
-            </li>
-          </ul>
-        </StyledRoot>
+          <StyledRoot id="nav_root" className={hideValue}>
+            <ul>
+              <li className="nav-item">
+                <Link to="/" className="nav-link">
+                  <div>Home</div>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/services" className="nav-link">
+                  <div>Services</div>
+                </Link>
+              </li>
+              <li>
+                <Link to="/showcase" className="nav-link">
+                  <div>Showcase</div>
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="nav-link">
+                  <div>Our Story</div>
+                </Link>
+              </li>
+              <li>
+                <Link to="/protips" className="nav-link">
+                  <div>Pro Tips</div>
+                </Link>
+              </li>
+              <li>
+                <Link to="/gallery" className="nav-link">
+                  <div>Gallery</div>
+                </Link>
+              </li>
+            </ul>
+          </StyledRoot>
         </React.Fragment>
-        
       )}
     </nav>
   );
@@ -151,7 +155,7 @@ const StyledRoot = styled.section`
   font-size: 1.3em;
   font-weight: 900;
   width: 100%;
-  max-width: 100%;
+  /* max-width: 100%; */
   background-image: linear-gradient(
     rgba(0, 0, 0, 0.25),
     rgba(0, 0, 0, 0.2),
@@ -168,7 +172,7 @@ const StyledRoot = styled.section`
 
     li {
       margin: 0 0 0.5em 0.5em;
-      padding: 0 0.5em 0 0;
+      /* padding: 0 0.5em 0 0; */
 
       &:last-child {
         border: none;
@@ -199,12 +203,14 @@ const StyledRoot = styled.section`
   @media (max-width: 1025px) {
     flex-wrap: wrap;
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    width: 200%;
+    height: 200%;
     top: 0;
     left: 0;
+    border-radius: 50%;
+    transform: translate(-25%,-25%);
     background-color: rgba(0, 0, 0, 0.6);
-      transition: transform .3s ease-in, border-radius .5s ease-in;
+    transition: transform 0.3s ease-in;
     overflow: hidden;
     z-index: 12;
 
@@ -215,13 +221,13 @@ const StyledRoot = styled.section`
       left: 50%;
       overflow: hidden;
       transform: translate(-50%, -50%);
-      transition: opacity .3s .3s, transform .5s .3s;
+      transition: opacity 0.3s 0.3s, transform 0.5s 0.3s;
 
       li {
         display: block;
         width: fit-content;
         margin: 0 auto;
-        padding: 0 0.5em;
+        /* padding: 0 0.5em; */
         text-align: center;
 
         a {
@@ -237,11 +243,12 @@ const StyledRoot = styled.section`
       height: 60px; */
       /* border-radius: 0 0 50% 0; */
       transform: translate(-100%, -100%);
-      border-radius: 0 0 50% 0;
+      transition: transform 0.3s ease-in 0.3s, border-radius 0.1s ease-out 0.3s;
 
       ul {
         opacity: 0;
         transform: translate(-50%, -57%);
+        transition: opacity 0.3s 0s, transform 0.5s 0s;
         /* display: none; */
       }
     }

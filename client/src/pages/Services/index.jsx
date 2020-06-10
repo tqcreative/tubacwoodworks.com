@@ -120,27 +120,11 @@ export default class Services extends Component {
       },
       category: "Kitchen Remodels",
       contentArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minus
-        tempore hic fuga, eveniet totam odit, repellendus delectus earum
-        suscipit quae obcaecati amet assumenda explicabo dolore saepe laboriosam
-        laudantium illo?`,
-        `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis earum
-        eveniet similique vero praesentium laudantium aperiam consequatur, ab
-        dolorem ipsum, enim nulla! Vitae molestiae possimus accusamus at
-        laboriosam ea ex dolore laborum est voluptates earum qui eaque corrupti,
-        omnis eum officiis a doloribus asperiores excepturi vel dolorem tempora.
-        Cupiditate, obcaecati?`,
+        `Let us help you remodel your kitchen into the one you've always dreamed of.`,
+        `A lot goes into the planning of a new kitchen. "Where do we put the island?" "What type of wood is going to hold up over the years?""What color should the cupboards be?"`,
       ],
       footerArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magnam
-    nihil, molestias doloribus et vitae reprehenderit explicabo odit
-    libero accusamus quidem eos ratione? Sunt, numquam consequuntur?
-    Doloribus, pariatur? Architecto, dignissimos inventore consectetur
-    dicta deserunt eius, nulla natus nesciunt autem officiis sequi
-    repudiandae nam eveniet unde. Saepe voluptatem odit quod temporibus
-    tempore minus ab maiores obcaecati id architecto voluptatibus
-    eveniet voluptas animi alias vitae, quae eos eum placeat nihil, odio
-    deserunt?`,
+        <React.Fragment><strong>Storage</strong></React.Fragment>,
       ],
     };
 
@@ -185,15 +169,9 @@ export default class Services extends Component {
         Cupiditate, obcaecati?`,
       ],
       footerArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magnam
-    nihil, molestias doloribus et vitae reprehenderit explicabo odit
-    libero accusamus quidem eos ratione? Sunt, numquam consequuntur?
-    Doloribus, pariatur? Architecto, dignissimos inventore consectetur
-    dicta deserunt eius, nulla natus nesciunt autem officiis sequi
-    repudiandae nam eveniet unde. Saepe voluptatem odit quod temporibus
-    tempore minus ab maiores obcaecati id architecto voluptatibus
-    eveniet voluptas animi alias vitae, quae eos eum placeat nihil, odio
-    deserunt?`,
+        <React.Fragment>
+          Though our kids believe he can do anything. We know some work is left to the right professionals. It's because of this we take strategic partners when consulting on <em>Tile work, General Construction, Foundations,</em> and other non-wood related needs. 
+        </React.Fragment>,
       ],
     };
 
@@ -444,6 +422,69 @@ export default class Services extends Component {
       },
     ];
 
+    const woodTypes = [
+      {
+        mobile: true,
+        title: "Maple",
+        body: "Light in color, great for doors, bookshelves, and desks",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_maple.jpg",
+      },
+      {
+        mobile: true,
+        title: "Birch",
+        body: "A light colored wood. Wavey grain with knots.",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_birch.jpg",
+      },
+      {
+        mobile: true,
+        title: "Pine",
+        body: "A hard wood with lots of character. Perfect for bathrooms and furniture",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_pine.jpg",
+      },
+      {
+        mobile: true,
+        title: "Ash",
+        body: "Much like the pine, this popular choice works well with all kinds of needs",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_ash.jpg",
+      },
+      {
+        mobile: true,
+        title: "Oak",
+        body:
+          "A strong and popular wood that holds up well over the years.",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_red_oak.jpg",
+      },
+      {
+        mobile: true,
+        title: "Walnut",
+        body:
+          "A tame multipurpose wood. Holds up well against regular wear and tear",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_walnut.jpg",
+      },
+      {
+        mobile: true,
+        title: "Cherry",
+        body:
+          "A deep red that works well in open areas",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_cherry.jpg",
+      },
+      {
+        mobile: true,
+        title: "Mahogany",
+        body:
+          "A Dark and elegant choice that's perfect for custom curniture and bookshelves.",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_mahogany.jpg",
+      },
+    ];
+
     if (this.props.user) {
       return (
         <div>
@@ -525,6 +566,8 @@ export default class Services extends Component {
             since 1982, providing all areas of Pima and Santa Cruz Counties with
             quality products at competitive prices.
           </StyledParagraph>
+
+          <LayoutThree login={false} image_info={woodTypes} />
 
           <StyledParagraph>
             Located near the southern Arizona town of Green Valley, Tubac

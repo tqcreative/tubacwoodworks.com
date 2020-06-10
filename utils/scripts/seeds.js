@@ -19,25 +19,25 @@ mongoose.connect(
 // get ready for all them callbacks! One callback per component that uses a collection.
 
 db.Portfolio
-.remove({})
+.deleteMany({})
 .then(() => db.Portfolio.collection.insertMany(seed_portfolio))
 .then(data => {
    console.log(data.result.n + " portfolio content seeded.");
 
   db.Partners
-  .remove({})
+  .deleteMany({})
   .then(() => db.Partners.collection.insertMany(seed_partners))
   .then(data => {
      console.log(data.result.n + " partners seeded.");
 
     db.Images
-    .remove({})
+    .deleteMany({})
     .then(() => db.Images.collection.insertMany(seed_imgs))
     .then(data => {
        console.log(data.result.n + " images seeded.")
       
       db.Homepage
-      .remove({})
+      .deleteMany({})
       .then(() => db.Homepage.collection.insertMany(seed_homepage))
       .then(data => {
          console.log(data.result.n + " home page items seeded.")
