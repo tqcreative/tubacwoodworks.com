@@ -21,9 +21,9 @@ let seed_text = [
                 picture: "/cms/images/partner_2.jpg"
             },
             partner_2: {
-                name: "Decore-Ative Specialties",
-                description: "Fine Crafted Cabinet Doors",
-                url: "https://decore.com",
+                name: "Floor & Decor",
+                description: "Tile, Stone, Travertine, Granite, Glass, and more!",
+                url: "https://www.flooranddecor.com/store?StoreID=141",
                 picture: "/cms/images/partner_2.jpg"
             },
             partner_3: {

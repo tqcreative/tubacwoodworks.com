@@ -13,20 +13,20 @@ const ourStoryBoxes = [
     body:
       "We serve the entire southern Arizona areas of Pima and Santa Cruz Counties",
     image_uri:
-      "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/kitchen_image_6.jpg",
+      "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_7.jpg",
   },
   {
     title: "Specialized",
     body:
       "We specialize in the building and installation of custom cabinetry for kitchens, baths, entertainment centers, office desks, armoires, wall-beds, and a variety of other wood products",
     image_uri:
-      "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/14b5d483-d86c-4c2b-9d6c-d335658f9e16.jpg",
+      "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_8.jpg",
   },
   {
     title: "Quality",
     body: "Learning a craft takes time. Mastering one takes discipline.",
     image_uri:
-      "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/2cff3553-7f37-4f99-b3ad-999b65a66c11.jpg",
+      "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_1.jpg",
   },
 ];
 
@@ -74,35 +74,13 @@ export default class AboutUs extends Component {
           toggle={this.toggleMobileNav}
         />
 
-        <StyledIntro>
-          <h2>Tubac Woodworks</h2>
-          <p>
-            Tubac Woodworks, has been an Arizona owned and opporated business
-            for over 40 years. And our goal has not changed.
-            <span>"We want people to love their homes"</span>
-          </p>
-          <p>
-            We've had the pleasure to serve hundres of Arizona locals &amp;
-            visitors, and that number keeps going up. We are dedicated to our
-            craft and have built some of the most stunning wood furniture and
-            cabinetry on the market today.
-          </p>
-          <p>
-            We hope you enjoy your tour of the Tubac Woodworks, Inc. Gallery
-            work, and look forward to bringing to life your vision for the home
-            you live in.
-          </p>
-        </StyledIntro>
-
         <LayoutThree login={false} image_info={ourStoryBoxes} />
 
         <StyledIntro>
-          <h3>Our Mission</h3>
+          <h3>1979</h3>
 
           <p>
-            With the Tubac Woodwork showcase we hope to bring inspiration and
-            innovation to every home owner in Souther Arizona, and generate the
-            enthusiasm you have for your own home remodel.
+          In 1979 Tom was hired as a <em>cabinetmakers assistant</em> at a prominent Los Angeles hospital. The shop owner, Andy, had completed his “Master Craftsmen“ program in Germany. Andy was a certified master craftsman and an extraordinary entrepreneur. When Andy was ready to retire he wanted to pass on what he had learned, and so he took Tom under his wing and taught him everything he knew. Once retired Tom single handedly caught-up the shop, and now it was time for him to take on challenges of his own. So Tom went out on his own and came to Arizona.
           </p>
 
           <p>
@@ -131,10 +109,15 @@ export default class AboutUs extends Component {
             the Southern Arizona market.
           </p>
 
-          <p>
-            We look forward to learing about your next project and are eager to hear about it.
-          </p>
         </StyledIntro>
+
+        <StyledClient>
+          <h2>Our Clients</h2>
+          <blockquote>
+
+          </blockquote>
+          <cite>Bill and Lisa Garber</cite>
+        </StyledClient>
 
         <Signup submitResult={this.handleSignupResult} />
 
@@ -153,7 +136,8 @@ const StyledRoot = styled.main`
 `;
 
 const StyledIntro = styled.section`
-  margin: 2em auto;
+  margin: 1em auto;
+  padding: 1em;
 
   h2,
   h3,
@@ -165,4 +149,18 @@ const StyledIntro = styled.section`
   h2 {
     text-transform: uppercase;
   }
+`;
+
+const StyledClient = styled.article`
+h2 {
+
+}
+
+blockquote {
+
+}
+
+cite {
+
+}
 `;
