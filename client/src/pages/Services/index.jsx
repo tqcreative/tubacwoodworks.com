@@ -422,6 +422,61 @@ export default class Services extends Component {
       },
     ];
 
+    const woodTypes = [
+      {
+        title: "Maple",
+        body: "Light in color, great for doors, bookshelves, and desks",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_maple.jpg",
+      },
+      {
+        title: "Birch",
+        body: "A light colored wood. Wavey grain with knots.",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_birch.jpg",
+      },
+      {
+        title: "Pine",
+        body: "A hard wood with lots of character. Perfect for bathrooms and furniture",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_pine.jpg",
+      },
+      {
+        title: "Ash",
+        body: "Much like the pine, this popular choice works well with all kinds of needs",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_ash.jpg",
+      },
+      {
+        title: "Oak",
+        body:
+          "A strong and popular wood that holds up well over the years.",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_red_oak.jpg",
+      },
+      {
+        title: "Walnut",
+        body:
+          "A tame multipurpose wood. Holds up well against regular wear and tear",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_walnut.jpg",
+      },
+      {
+        title: "Cherry",
+        body:
+          "A deep red that works well in open areas",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_cherry.jpg",
+      },
+      {
+        title: "Mahogany",
+        body:
+          "A Dark and elegant choice that's perfect for custom curniture and bookshelves.",
+        image_uri:
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_mahogany.jpg",
+      },
+    ];
+
     if (this.props.user) {
       return (
         <div>
@@ -503,6 +558,8 @@ export default class Services extends Component {
             since 1982, providing all areas of Pima and Santa Cruz Counties with
             quality products at competitive prices.
           </StyledParagraph>
+
+          <LayoutThree login={false} image_info={woodTypes} />
 
           <StyledParagraph>
             Located near the southern Arizona town of Green Valley, Tubac

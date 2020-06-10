@@ -79,6 +79,22 @@ export default class Gallery extends Component {
           name: "showcase",
           icon: <FaPhotoVideo />,
         },
+        {
+          frontEnd: false,
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/thumb_4.jpg",
+          gallery: "showroom",
+          name: "showroom",
+          icon: <FaPhotoVideo />,
+        },
+        {
+          frontEnd: false,
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/thumb_4.jpg",
+          gallery: "tubacwoodworks",
+          name: "tubacwoodworks",
+          icon: <FaPhotoVideo />,
+        },
       ],
     };
     this.changeTableName = this.changeTableName.bind(this);
@@ -184,6 +200,12 @@ export default class Gallery extends Component {
       case "showcase":
         pretyName = "More Photos";
         break;
+      case "tubacwoodworks":
+        pretyName = "Our Story";
+        break;
+      case "showroom":
+        pretyName = "Show Room";
+        break;
       default:
         break;
     }
@@ -225,20 +247,23 @@ export default class Gallery extends Component {
             {/* <SmartSlider smartArray={this.state.sliderArray} /> */}
 
             <StyledButtons>
-              {this.state.galleryOptionsFrontEnd.map((buttonInfo, index) => {
-                return (
+            {this.state.galleryOptionsFrontEnd.map((buttonInfo, index) => {
+                if (buttonInfo.frontEnd) { return (
                   <button
                     key={index}
                     className="matthews_bootstrap_button"
                     type="button"
                     name={buttonInfo.name}
-                    galleryInfoName={buttonInfo.gallery}
                     onClick={this.changeTableName}
+                    style={{
+                      background: `url(${buttonInfo.thumbnail})`,
+                      backgroundSize: "cover",
+                    }}
                   >
                     {buttonInfo.icon}
                     <span>{buttonInfo.gallery}</span>
                   </button>
-                );
+                ); } else { /* do not display front end, hide this element */ }
               })}
             </StyledButtons>
             <div style={{ position: "relative" }}></div>
@@ -317,7 +342,7 @@ export default class Gallery extends Component {
 
             <StyledButtons>
               {this.state.galleryOptionsFrontEnd.map((buttonInfo, index) => {
-                return (
+                if (buttonInfo.frontEnd) { return (
                   <button
                     key={index}
                     className="matthews_bootstrap_button"
@@ -332,7 +357,7 @@ export default class Gallery extends Component {
                     {buttonInfo.icon}
                     <span>{buttonInfo.gallery}</span>
                   </button>
-                );
+                ); } else { /* do not display front end, hide this element */ }
               })}
             </StyledButtons>
 

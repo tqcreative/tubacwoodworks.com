@@ -74,26 +74,6 @@ export default class AboutUs extends Component {
           toggle={this.toggleMobileNav}
         />
 
-        <StyledIntro>
-          <h2>Tubac Woodworks</h2>
-          <p>
-            Tubac Woodworks, has been an Arizona owned and opporated business
-            for over 40 years. And our goal has not changed.
-            <span>"We want people to love their homes"</span>
-          </p>
-          <p>
-            We've had the pleasure to serve hundres of Arizona locals &amp;
-            visitors, and that number keeps going up. We are dedicated to our
-            craft and have built some of the most stunning wood furniture and
-            cabinetry on the market today.
-          </p>
-          <p>
-            We hope you enjoy your tour of the Tubac Woodworks, Inc. Gallery
-            work, and look forward to bringing to life your vision for the home
-            you live in.
-          </p>
-        </StyledIntro>
-
         <LayoutThree login={false} image_info={ourStoryBoxes} />
 
         <StyledIntro>
