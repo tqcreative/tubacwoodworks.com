@@ -68,6 +68,14 @@ const StyledRoot = styled.section`
       line-height: 1.2em;
       font-weight: 400;
 
+      em {
+        font-style: italic;
+      }
+      
+      strong {
+        color: #a6988d;
+      }
+      
       a,
       a:visited,
       a:hover,

@@ -113,6 +113,10 @@ const StyledChapter = styled.section`
   max-width: none;
   margin: 2em auto;
 
+  strong {
+    color: #a6988d;
+  }
+
   p {
     strong {
       font-weight: 900;
