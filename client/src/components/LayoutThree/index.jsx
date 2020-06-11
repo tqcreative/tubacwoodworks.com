@@ -103,6 +103,7 @@ const StyledBox = styled.div`
   flex-grow: 1;
 
   &.mobile {
+    font-size: 14px;
     max-width: 50%;
     max-height: 50vw;
   }

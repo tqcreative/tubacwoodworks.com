@@ -78,7 +78,7 @@ export default class AboutUs extends Component {
           <h3>1979</h3>
 
           <p>
-            In 1979 Tom was hired as a <em>cabinetmakers assistant</em> at a
+            Over fourty years ago, Tom was hired as a <em>cabinetmakers assistant</em> at a
             prominent Los Angeles hospital. The shop owner, Andy, had completed
             his “Master Craftsmen“ program in Germany. Andy was a certified
             master craftsman and an extraordinary entrepreneur. When Andy was
@@ -105,7 +105,7 @@ export default class AboutUs extends Component {
 
           <p>
             While specializing in woodwork and wood care, Tubac Woodworks is
-            proud to say that we partner with only the best local contractors
+            proud to say that we partner with only the best <em>local contractors </em>
             for projects that extend beyond building the best wood cabinets and
             furniture. These partnerships were formed over years of working in
             the Southern Arizona market.
@@ -114,9 +114,18 @@ export default class AboutUs extends Component {
 
         <Video />
 
-        <StyledClient>
+        <StyledTitle>
           <h2>Testimonials</h2>
+          <p>
+            We could go on about how much we love the work we do, but why not
+            hear from our previous clients instead!
+          </p>
+        </StyledTitle>
+
+        <StyledClient>
           <blockquote>
+            <h3>We were inspired by the quality</h3>
+            <h2>&#x2605; &#x2605; &#x2605; &#x2605; &#x2605;</h2>
             <p>
               My wife was so excited about our new bathroom cabinets from Tubac
               Woodworks, that we decided to upgrade the cabinets in the kitchen,
@@ -163,6 +172,9 @@ export default class AboutUs extends Component {
         </StyledClient>
 
         <StyledClient>
+          <h3>We had Tom work on 3 projects in our home</h3>
+          <h2>&#x2605; &#x2605; &#x2605; &#x2605; &#x2605;</h2>
+
           <p>
             If you want work done by a perfectionist, Tom Simons is the one to
             do it. I have a custom built 1500 square foot house in which the
@@ -182,10 +194,13 @@ export default class AboutUs extends Component {
         </StyledClient>
 
         <StyledClient>
+          <h3>Tom is who you need to see</h3>
+          <h2>&#x2605; &#x2605; &#x2605; &#x2605; &#x2605;</h2>
+
           <p>
             We have had Tom work on 3 projects in our home. He has built a
             custom desk, cabinets for the bathroom and kitchen. If you are
-            looking for an excellent wood craftsman Tom is who need to see. I am
+            looking for an excellent wood craftsman Tom is who you need to see. I am
             so comfortable with Tom that he installed our kitchen cabinets while
             we were gone.
           </p>
@@ -194,6 +209,9 @@ export default class AboutUs extends Component {
         </StyledClient>
 
         <StyledClient>
+          <h3>How a kitchen should be</h3>
+          <h2>&#x2605; &#x2605; &#x2605; &#x2605; &#x2605;</h2>
+
           <p>
             We first met Tom Simons right after we moved to Rio Rico. The
             kitchen in the home we bought did not have enough cabinets for all
@@ -248,6 +266,20 @@ const StyledRoot = styled.main`
   padding: 0;
 `;
 
+const StyledTitle = styled.section`
+  max-width: 1400px;
+  margin: 1em auto;
+  padding: 1em;
+
+  h2 {
+    text-transform: uppercase;
+    color: #a6988d;
+    font-weight: 900;
+    padding-bottom: 4px;
+    border-bottom: 2px dashed #a6988d;
+  }
+`;
+
 const StyledIntro = styled.section`
   margin: 1em auto;
   padding: 1em;
@@ -262,14 +294,33 @@ const StyledIntro = styled.section`
   h2 {
     text-transform: uppercase;
   }
+
+  p {
+    em {
+      font-style: italic;
+    }
+  }
 `;
 
 const StyledClient = styled.article`
+  max-width: 1400px;
+  margin: 1.5em auto;
   padding: 1em;
+  background-color: #f1f1f1;
 
   h2 {
     color: #a6988d;
     text-transform: capitalize;
+  }
+
+  h3 {
+    font-weight: 100;
+    color: #4a5559;
+
+    &::before,
+    &::after {
+      content: '"';
+    }
   }
 
   blockquote {
@@ -279,10 +330,10 @@ const StyledClient = styled.article`
   cite {
     color: #4a5559;
     text-transform: capitalize;
-    font-weight: 600;
+    font-weight: 900;
 
     &::before {
-      content: "- "
+      content: "- ";
     }
   }
 `;

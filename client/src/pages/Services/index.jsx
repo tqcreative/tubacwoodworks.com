@@ -121,10 +121,14 @@ export default class Services extends Component {
       category: "Kitchen Remodels",
       contentArray: [
         `Let us help you remodel your kitchen into the one you've always dreamed of.`,
-        `A lot goes into the planning of a new kitchen. "Where do we put the island?" "What type of wood is going to hold up over the years?""What color should the cupboards be?"`,
+        `Theres alot that goes into the planning of a new kitchen; along with design questions that we would love to help you with. "Where do I put that island?" "What type of wood is going to hold up over the years?""What color should the cupboards be?"`,
       ],
       footerArray: [
-        <React.Fragment><strong>Storage</strong></React.Fragment>,
+        <React.Fragment>
+          Island: Gives you that extra counter top space you have been missing for far too long
+          Lazy Susan: Allows you a convienant way to utilize the normally usable corner cabinet space.
+          Pantry: An unorganized kitchen can make for a caotic cooking experience, give your self a space to storage everything neatly to make cooking that much easier.
+        </React.Fragment>,
       ],
     };
 
@@ -155,22 +159,15 @@ export default class Services extends Component {
         title: "Bath & Vanity",
         subtitle: "In-wall or Standalone",
       },
-      category: "Bathroom Storage",
-      contentArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minus
-        tempore hic fuga, eveniet totam odit, repellendus delectus earum
-        suscipit quae obcaecati amet assumenda explicabo dolore saepe laboriosam
-        laudantium illo?`,
-        `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis earum
-        eveniet similique vero praesentium laudantium aperiam consequatur, ab
-        dolorem ipsum, enim nulla! Vitae molestiae possimus accusamus at
-        laboriosam ea ex dolore laborum est voluptates earum qui eaque corrupti,
-        omnis eum officiis a doloribus asperiores excepturi vel dolorem tempora.
-        Cupiditate, obcaecati?`,
-      ],
+      category: "Bathroom Upgrades",
+      contentArray: [`Under the sink doesnt just have to be a place for the cat to hide`, `long`],
       footerArray: [
         <React.Fragment>
-          Though our kids believe he can do anything. We know some work is left to the right professionals. It's because of this we take strategic partners when consulting on <em>Tile work, General Construction, Foundations,</em> and other non-wood related needs. 
+          Though our kids believe we can do anything. We know some work is left
+          to the right professionals. It's because of this we take strategic
+          partners when consulting on{" "}
+          <em>Tile work, General Construction, Foundations, Pluming,</em> and
+          other non-wood related needs.
         </React.Fragment>,
       ],
     };
@@ -238,8 +235,9 @@ export default class Services extends Component {
       hero: {
         image:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/dsc_0017.jpg",
-        title: "Home & Office",
-        subtitle: "Desks, Bookshelves, Entertainment Centers",
+        title: "Wall Beds",
+        subtitle:
+          "Class up your office by turning it into a Guestroom slash Office",
       },
       category: "Don't sacrifice your office space for a spare bedroom",
       contentArray: [
@@ -254,17 +252,7 @@ export default class Services extends Component {
         omnis eum officiis a doloribus asperiores excepturi vel dolorem tempora.
         Cupiditate, obcaecati?`,
       ],
-      footerArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magnam
-    nihil, molestias doloribus et vitae reprehenderit explicabo odit
-    libero accusamus quidem eos ratione? Sunt, numquam consequuntur?
-    Doloribus, pariatur? Architecto, dignissimos inventore consectetur
-    dicta deserunt eius, nulla natus nesciunt autem officiis sequi
-    repudiandae nam eveniet unde. Saepe voluptatem odit quod temporibus
-    tempore minus ab maiores obcaecati id architecto voluptatibus
-    eveniet voluptas animi alias vitae, quae eos eum placeat nihil, odio
-    deserunt?`,
-      ],
+      footerArray: [<React.Fragment></React.Fragment>],
     };
 
     const commecrialProps = {
@@ -307,17 +295,7 @@ export default class Services extends Component {
         omnis eum officiis a doloribus asperiores excepturi vel dolorem tempora.
         Cupiditate, obcaecati?`,
       ],
-      footerArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magnam
-    nihil, molestias doloribus et vitae reprehenderit explicabo odit
-    libero accusamus quidem eos ratione? Sunt, numquam consequuntur?
-    Doloribus, pariatur? Architecto, dignissimos inventore consectetur
-    dicta deserunt eius, nulla natus nesciunt autem officiis sequi
-    repudiandae nam eveniet unde. Saepe voluptatem odit quod temporibus
-    tempore minus ab maiores obcaecati id architecto voluptatibus
-    eveniet voluptas animi alias vitae, quae eos eum placeat nihil, odio
-    deserunt?`,
-      ],
+      footerArray: [<React.Fragment></React.Fragment>],
     };
 
     const customProps = {
@@ -366,20 +344,9 @@ export default class Services extends Component {
         omnis eum officiis a doloribus asperiores excepturi vel dolorem tempora.
         Cupiditate, obcaecati?`,
       ],
-      footerArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magnam
-    nihil, molestias doloribus et vitae reprehenderit explicabo odit
-    libero accusamus quidem eos ratione? Sunt, numquam consequuntur?
-    Doloribus, pariatur? Architecto, dignissimos inventore consectetur
-    dicta deserunt eius, nulla natus nesciunt autem officiis sequi
-    repudiandae nam eveniet unde. Saepe voluptatem odit quod temporibus
-    tempore minus ab maiores obcaecati id architecto voluptatibus
-    eveniet voluptas animi alias vitae, quae eos eum placeat nihil, odio
-    deserunt?`,
-      ],
+      footerArray: [<React.Fragment></React.Fragment>],
     };
 
-    // content for demo
     // this data will normally be held in a server cand axios called on mount.
     let contentObject = {
       kitchen: {
@@ -402,21 +369,21 @@ export default class Services extends Component {
     const kitchenBoxes = [
       {
         title: "stunning cabinets",
-        body: "Keep your office space and still have that guest room!",
+        body: "Let your home feel new again",
         image_uri:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d10.jpg",
       },
       {
-        title: "Kitchen Islands",
+        title: "Islands",
         body:
-          "More than just a space saver. You'll be able to keep the look and feel of your home office with these stylish Wallbeds.",
+          "Add more counter space, more storage, and more class",
         image_uri:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/97f7c6bf-12d2-472f-975c-8634d6fe88a2.jpg",
       },
       {
-        title: "Stove & Oven Covers",
+        title: "Custom wood designs",
         body:
-          "Wallbed units also add in-wall storage that can be used to stay organized.",
+          "Over the stove accent that adds that dark finish to every angle",
         image_uri:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/gallery_5.jpg",
       },
@@ -440,22 +407,23 @@ export default class Services extends Component {
       {
         mobile: true,
         title: "Pine",
-        body: "A hard wood with lots of character. Perfect for bathrooms and furniture",
+        body:
+          "A hard wood with lots of character. Perfect for bathrooms and furniture",
         image_uri:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_pine.jpg",
       },
       {
         mobile: true,
         title: "Ash",
-        body: "Much like the pine, this popular choice works well with all kinds of needs",
+        body:
+          "Much like the pine, this popular choice works well with all kinds of needs",
         image_uri:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_ash.jpg",
       },
       {
         mobile: true,
         title: "Oak",
-        body:
-          "A strong and popular wood that holds up well over the years.",
+        body: "A strong and popular wood that holds up well over the years.",
         image_uri:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_red_oak.jpg",
       },
@@ -470,8 +438,7 @@ export default class Services extends Component {
       {
         mobile: true,
         title: "Cherry",
-        body:
-          "A deep red that works well in open areas",
+        body: "A deep red that works well in open areas",
         image_uri:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_cherry.jpg",
       },
@@ -567,6 +534,9 @@ export default class Services extends Component {
             quality products at competitive prices.
           </StyledParagraph>
 
+          {/* ========== */}
+          {/* WOOD TYPES */}
+          {/* ========== */}
           <LayoutThree login={false} image_info={woodTypes} />
 
           <StyledParagraph>
