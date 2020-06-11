@@ -82,7 +82,7 @@ export default class Gallery extends Component {
         {
           frontEnd: false,
           thumbnail:
-            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/thumb_4.jpg",
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d18.jpg",
           gallery: "showroom",
           name: "showroom",
           icon: <FaPhotoVideo />,
@@ -90,7 +90,7 @@ export default class Gallery extends Component {
         {
           frontEnd: false,
           thumbnail:
-            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/thumb_4.jpg",
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/woodworking_5.jpg",
           gallery: "tubacwoodworks",
           name: "tubacwoodworks",
           icon: <FaPhotoVideo />,
@@ -206,6 +206,12 @@ export default class Gallery extends Component {
       case "showroom":
         pretyName = "Show Room";
         break;
+      case "showcase":
+        pretyName = "Showcase";
+        break;
+      case "tubacwoodworks":
+        pretyName = "Company Photos"; 
+        break;
       default:
         break;
     }
@@ -247,23 +253,27 @@ export default class Gallery extends Component {
             {/* <SmartSlider smartArray={this.state.sliderArray} /> */}
 
             <StyledButtons>
-            {this.state.galleryOptionsFrontEnd.map((buttonInfo, index) => {
-                if (buttonInfo.frontEnd) { return (
-                  <button
-                    key={index}
-                    className="matthews_bootstrap_button"
-                    type="button"
-                    name={buttonInfo.name}
-                    onClick={this.changeTableName}
-                    style={{
-                      background: `url(${buttonInfo.thumbnail})`,
-                      backgroundSize: "cover",
-                    }}
-                  >
-                    {buttonInfo.icon}
-                    <span>{buttonInfo.gallery}</span>
-                  </button>
-                ); } else { /* do not display front end, hide this element */ }
+              {this.state.galleryOptionsFrontEnd.map((buttonInfo, index) => {
+                if (buttonInfo.frontEnd) {
+                  return (
+                    <button
+                      key={index}
+                      className="matthews_bootstrap_button"
+                      type="button"
+                      name={buttonInfo.name}
+                      onClick={this.changeTableName}
+                      style={{
+                        background: `url(${buttonInfo.thumbnail})`,
+                        backgroundSize: "cover",
+                      }}
+                    >
+                      {buttonInfo.icon}
+                      <span>{buttonInfo.gallery}</span>
+                    </button>
+                  );
+                } else {
+                  /* do not display front end, hide this element */
+                }
               })}
             </StyledButtons>
             <div style={{ position: "relative" }}></div>
@@ -342,22 +352,26 @@ export default class Gallery extends Component {
 
             <StyledButtons>
               {this.state.galleryOptionsFrontEnd.map((buttonInfo, index) => {
-                if (buttonInfo.frontEnd) { return (
-                  <button
-                    key={index}
-                    className="matthews_bootstrap_button"
-                    type="button"
-                    name={buttonInfo.name}
-                    onClick={this.changeTableName}
-                    style={{
-                      background: `url(${buttonInfo.thumbnail})`,
-                      backgroundSize: "cover",
-                    }}
-                  >
-                    {buttonInfo.icon}
-                    <span>{buttonInfo.gallery}</span>
-                  </button>
-                ); } else { /* do not display front end, hide this element */ }
+                if (buttonInfo.frontEnd) {
+                  return (
+                    <button
+                      key={index}
+                      className="matthews_bootstrap_button"
+                      type="button"
+                      name={buttonInfo.name}
+                      onClick={this.changeTableName}
+                      style={{
+                        background: `url(${buttonInfo.thumbnail})`,
+                        backgroundSize: "cover",
+                      }}
+                    >
+                      {buttonInfo.icon}
+                      <span>{buttonInfo.gallery}</span>
+                    </button>
+                  );
+                } else {
+                  /* do not display front end, hide this element */
+                }
               })}
             </StyledButtons>
 
@@ -463,6 +477,6 @@ const StyledTitle = styled.h2`
   font-weight: 900;
   margin: 1.5em auto;
   font-size: 2em;
-  padding: .2em;
+  padding: 0.2em;
   border-bottom: 1px solid #a6988d;
 `;

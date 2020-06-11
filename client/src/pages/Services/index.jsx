@@ -125,9 +125,28 @@ export default class Services extends Component {
       ],
       footerArray: [
         <React.Fragment>
-          Island: Gives you that extra counter top space you have been missing for far too long
-          Lazy Susan: Allows you a convienant way to utilize the normally usable corner cabinet space.
-          Pantry: An unorganized kitchen can make for a caotic cooking experience, give your self a space to storage everything neatly to make cooking that much easier.
+          <p>
+            <strong>Island</strong> &ndash;{" "}
+            <em>
+              Gives you that extra counter top space you have been missing for
+              far too long
+            </em>
+          </p>
+          <p>
+            <strong>Lazy Susan</strong> &ndash;{" "}
+            <em>
+              Allows you a convienant way to utilize the normally usable corner
+              cabinet space.
+            </em>
+          </p>
+          <p>
+            <strong>Pantry</strong> &ndash;{" "}
+            <em>
+              An unorganized kitchen can make for a caotic cooking experience,
+              give your self a space to storage everything neatly to make
+              cooking that much easier.
+            </em>
+          </p>
         </React.Fragment>,
       ],
     };
@@ -160,13 +179,16 @@ export default class Services extends Component {
         subtitle: "In-wall or Standalone",
       },
       category: "Bathroom Upgrades",
-      contentArray: [`Under the sink doesnt just have to be a place for the cat to hide`, `long`],
+      contentArray: [
+        `Under the sink doesnt just have to be a place for the cat to hide`,
+        `Turn extra space into storage or even extend your counter space into a Hers & His sink. Increase walk space with a barn door instead of a traditional swinging door. Let us help you add zen to one of the most sacred places in the house. `,
+      ],
       footerArray: [
         <React.Fragment>
-          Though our kids believe we can do anything. We know some work is left
-          to the right professionals. It's because of this we take strategic
+          Though our kids believe we can do anything. We know some work should
+          be left to the professionals. It's because of this we take strategic
           partners when consulting on{" "}
-          <em>Tile work, General Construction, Foundations, Pluming,</em> and
+          <em>tile work, general construction, foundations, plumbing,</em> and
           other non-wood related needs.
         </React.Fragment>,
       ],
@@ -205,29 +227,16 @@ export default class Services extends Component {
         title: "Wall Beds",
         subtitle: "Luxury without the price tag",
       },
-      category: "Don't sacrifice your office space for a spare bedroom",
+      category:
+        "Who says you cant have a spacious office & a guest bedroom when the inlaws come to visit",
       contentArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minus
-        tempore hic fuga, eveniet totam odit, repellendus delectus earum
-        suscipit quae obcaecati amet assumenda explicabo dolore saepe laboriosam
-        laudantium illo?`,
-        `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis earum
-        eveniet similique vero praesentium laudantium aperiam consequatur, ab
-        dolorem ipsum, enim nulla! Vitae molestiae possimus accusamus at
-        laboriosam ea ex dolore laborum est voluptates earum qui eaque corrupti,
-        omnis eum officiis a doloribus asperiores excepturi vel dolorem tempora.
-        Cupiditate, obcaecati?`,
+        `A bed can take up alot of floor space in a room, with a Wall Bed you can hide the bed in a attractive looking cabinet when your not using it. And no one would be the wiser`,
+        `Maybe you also wanted a workout studio where you can close the door, throw on some music and get to burning some caliories.  Well just fold that bed out of the way and act like it's not even there.`,
       ],
       footerArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magnam
-    nihil, molestias doloribus et vitae reprehenderit explicabo odit
-    libero accusamus quidem eos ratione? Sunt, numquam consequuntur?
-    Doloribus, pariatur? Architecto, dignissimos inventore consectetur
-    dicta deserunt eius, nulla natus nesciunt autem officiis sequi
-    repudiandae nam eveniet unde. Saepe voluptatem odit quod temporibus
-    tempore minus ab maiores obcaecati id architecto voluptatibus
-    eveniet voluptas animi alias vitae, quae eos eum placeat nihil, odio
-    deserunt?`,
+        <React.Fragment>
+          In addition to Wall Beds, we also can help you decorate your office with custom desks, armour, bookshelves, or reading stands.
+        </React.Fragment>
       ],
     };
 
@@ -237,22 +246,17 @@ export default class Services extends Component {
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/dsc_0017.jpg",
         title: "Wall Beds",
         subtitle:
-          "Class up your office by turning it into a Guestroom slash Office",
+          "Custom Furniture",
       },
-      category: "Don't sacrifice your office space for a spare bedroom",
+      category: "No need to hunt down the perfect night stand. Design it!",
       contentArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minus
-        tempore hic fuga, eveniet totam odit, repellendus delectus earum
-        suscipit quae obcaecati amet assumenda explicabo dolore saepe laboriosam
-        laudantium illo?`,
-        `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis earum
-        eveniet similique vero praesentium laudantium aperiam consequatur, ab
-        dolorem ipsum, enim nulla! Vitae molestiae possimus accusamus at
-        laboriosam ea ex dolore laborum est voluptates earum qui eaque corrupti,
-        omnis eum officiis a doloribus asperiores excepturi vel dolorem tempora.
-        Cupiditate, obcaecati?`,
+        `Finding furniture you love can be a journy, one that could lead to settling on something that works, but doesnt quite fit the room. We understand! Custom furniture is one of the things we specialize in. Everything from book shelves to a clasic trunk that sits at the foot of your bed.`,
+        `Want your home office to feel more like a library? Need somewhere to put your keys when you come through the door? Or perhaps you need a desk that creates the perfect energy you need to make your study about your work.`,
       ],
-      footerArray: [<React.Fragment></React.Fragment>],
+      footerArray: [
+      <React.Fragment>
+        Tables that include storage under the top, and even halway closet shelves! These are just some of the few places finding the right peice for at a local furniture shop can really become a challange. But there's more, we are able to <em>stain</em>, <em>paint</em>, or <em>lacquer</em> your new design in the shade you're actually looking for. 
+      </React.Fragment>],
     };
 
     const commecrialProps = {
@@ -282,20 +286,17 @@ export default class Services extends Component {
         title: "Commercial",
         subtitle: "From one local business to another",
       },
-      category: "Don't sacrifice your office space for a spare bedroom",
+      category: "You want to wow your visitors & So do we",
       contentArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minus
-        tempore hic fuga, eveniet totam odit, repellendus delectus earum
-        suscipit quae obcaecati amet assumenda explicabo dolore saepe laboriosam
-        laudantium illo?`,
-        `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis earum
-        eveniet similique vero praesentium laudantium aperiam consequatur, ab
-        dolorem ipsum, enim nulla! Vitae molestiae possimus accusamus at
-        laboriosam ea ex dolore laborum est voluptates earum qui eaque corrupti,
-        omnis eum officiis a doloribus asperiores excepturi vel dolorem tempora.
-        Cupiditate, obcaecati?`,
+        `
+        Tubac Woodworks is proud to say we service other local businesses. They say:  "When you are your own boss; You can work any 80 hours in the week you want." Funny to hear but as a small business ourselves we understand what that means as much as you do. 
+        `,
+        `The experience you provide to your visitors and employees in one of the most rewarding experiences a business owner can have. So when it comes to having the right look in your front of stage, we've got you covered.`,
       ],
-      footerArray: [<React.Fragment></React.Fragment>],
+      footerArray: [
+      <React.Fragment>
+        <strong>Thank you</strong> for taking the time to read about the services we offer. While you're here feel free to check out the <a href="/gallery">Gallery</a> and see some of the work we've done around southern Arizona. We take a great deal of pride in our craft and <a href="/about">history</a>.
+      </React.Fragment>],
     };
 
     const customProps = {
@@ -375,15 +376,13 @@ export default class Services extends Component {
       },
       {
         title: "Islands",
-        body:
-          "Add more counter space, more storage, and more class",
+        body: "Add more counter space, more storage, and more class",
         image_uri:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/97f7c6bf-12d2-472f-975c-8634d6fe88a2.jpg",
       },
       {
         title: "Custom wood designs",
-        body:
-          "Over the stove accent that adds that dark finish to every angle",
+        body: "Over the stove accent that adds that dark finish to every angle",
         image_uri:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/gallery_5.jpg",
       },
@@ -528,10 +527,10 @@ export default class Services extends Component {
 
           <StyledParagraph>
             Welcome to the Tubac Woodworks, Inc. Portfolio Web Page. This page
-            provides us with an opportunity to showcase the work done by Tom
-            Simons of Tubac Woodworks, Inc. Tom has been in business in Arizona
-            since 1982, providing all areas of Pima and Santa Cruz Counties with
-            quality products at competitive prices.
+            provides us with an opportunity to showcase the work done by{" "}
+            <span>Tom Simons</span> of Tubac Woodworks, Inc. Tom has been in
+            business in Arizona since 1982, providing all areas of Pima and
+            Santa Cruz Counties with quality products at competitive prices.
           </StyledParagraph>
 
           {/* ========== */}
@@ -609,4 +608,8 @@ const StyledParagraph = styled.p`
   font-weight: 400;
   margin: auto;
   font-size: 1.1em;
+
+  span {
+    display: inline-block;
+  }
 `;

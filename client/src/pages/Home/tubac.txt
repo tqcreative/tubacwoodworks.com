@@ -1,0 +1,81 @@
+{
+    "_id": {
+        "$oid": "5e51b23f605e2b0545b63d39"
+    },
+    "name": "homepage",
+    "quoteTop": {
+        "h2": "Barb Anderson",
+        "p": "I love my new Kitchen. It's changed the whole look and feel of the house!",
+        "url": "tubacwoodworks.herokuapp.com/images/quote_2.jpg"
+    },
+    "quoteBottom": {
+        "h2": "Elena Borne",
+        "p": "My home feels new again. Thank you Tubac Woodworks.",
+        "url": "tubacwoodworks.herokuapp.com/images/quote_1.jpg"
+    },
+    "checkerBox": {
+        "slotOne": "trusted",
+        "slotTwo": "quality",
+        "slotThree": "innovation"
+    },
+    "partners": {
+        "partner_1": {
+            "name": "Decore-Ative Specialties",
+            "description": "Custom Cabinet Components since 1965",
+            "url": "https://www.decore.com",
+            "picture": "/cms/images/partner_2.jpg"
+        },
+        "partner_2": {
+            "name": "Accessories & Hardware",
+            "description": "Manufacturing custom cabinet components",
+            "url": "https://www.decore.com/products/accessories",
+            "picture": "/cms/images/partner_3.jpg"
+        },
+        "partner_3": {
+            "name": "Specialty Items",
+            "description": "Custom Finishes, Stains, and Specialty Molding",
+            "url": "https://www.decore.com/products/doors-and-drawer-fronts",
+            "picture": "/cms/images/partner_4.jpg"
+        },
+        "partner_text": {
+            "text": "take a look at our partners",
+            "backgroundImage": "/cms/images/partner_0.jpg"
+        }
+    },
+    "hero": {
+        "logo": "Tubac Woodworks LLC",
+        "h2": "Tubac Woodworks Inc, building custom cabinetry, entertainment center, bookcases, desks, and a variety of other wood products for home, office or business."
+    },
+    "portfolio": {
+        "box_1": {
+            "title": "Kitchen & Bath",
+            "description": "Have your home feel new again when you remodel your Kitchen and Baths",
+            "background": "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_port1.jpg"
+        },
+        "box_2": {
+            "title": "Custom Design",
+            "description": "Our wood furniture is hand crafted in Arizona, and is custom to the home it's designed for",
+            "background": "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_port2.jpg"
+        },
+        "box_3": {
+            "title": "Commercial",
+            "description": "Stunning office desks, conference room tables, breakroom storage, and custom counter tops",
+            "background": "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_port3.jpg"
+        },
+        "box_4": {
+            "title": "Pro Tips",
+            "description": "Learn more about what it takes to keep your wood furniture looking sharp",
+            "background": "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_port4.jpg"
+        },
+        "box_5": {
+            "title": "Local",
+            "description": "Tubac Woodworks is a proud locally owned business in Southern Arizona",
+            "background": "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_port5.jpg"
+        },
+        "box_6": {
+            "title": "Get A Quote!",
+            "description": "Call now or sign up today and take your first step to toward the home you've always wanted",
+            "background": "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_port6.jpg"
+        }
+    }
+}
