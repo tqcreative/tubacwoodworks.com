@@ -78,15 +78,16 @@ export default class AboutUs extends Component {
           <h3>1979</h3>
 
           <p>
-            Over fourty years ago, Tom was hired as a <em>cabinetmakers assistant</em> at a
-            prominent Los Angeles hospital. The shop owner, Andy, had completed
-            his “Master Craftsmen“ program in Germany. Andy was a certified
-            master craftsman and an extraordinary entrepreneur. When Andy was
-            ready to retire he wanted to pass on what he had learned, and so he
-            took Tom under his wing and taught him everything he knew. Once
-            retired Tom single handedly caught-up the shop, and now it was time
-            for him to take on challenges of his own. So Tom went out on his own
-            and came to Arizona.
+            Over fourty years ago, Tom was hired as a{" "}
+            <em>cabinetmakers assistant</em> at a prominent Los Angeles
+            hospital. The shop owner, Andy, had completed his “Master Craftsmen“
+            program in Germany. Andy was a certified master craftsman and an
+            extraordinary entrepreneur. When Andy was ready to retire he wanted
+            to pass on what he had learned, and so he took Tom under his wing
+            and taught him everything he knew. Once retired Tom single handedly
+            caught-up the shop, and now it was time for him to take on
+            challenges of his own. So Tom went out on his own and came to
+            Arizona.
           </p>
         </StyledIntro>
 
@@ -105,7 +106,8 @@ export default class AboutUs extends Component {
 
           <p>
             While specializing in woodwork and wood care, Tubac Woodworks is
-            proud to say that we partner with only the best <em>local contractors </em>
+            proud to say that we partner with only the best{" "}
+            <em>local contractors </em>
             for projects that extend beyond building the best wood cabinets and
             furniture. These partnerships were formed over years of working in
             the Southern Arizona market.
@@ -200,9 +202,9 @@ export default class AboutUs extends Component {
           <p>
             We have had Tom work on 3 projects in our home. He has built a
             custom desk, cabinets for the bathroom and kitchen. If you are
-            looking for an excellent wood craftsman Tom is who you need to see. I am
-            so comfortable with Tom that he installed our kitchen cabinets while
-            we were gone.
+            looking for an excellent wood craftsman Tom is who you need to see.
+            I am so comfortable with Tom that he installed our kitchen cabinets
+            while we were gone.
           </p>
 
           <cite>Phil &amp; Mary</cite>
@@ -248,6 +250,26 @@ export default class AboutUs extends Component {
           </p>
 
           <cite>Bill and Lisa Garber</cite>
+        </StyledClient>
+
+        <StyledClient>
+          <h3>Tom takes pride in his work</h3>
+          <h2>&#x2605; &#x2605; &#x2605; &#x2605; &#x2605;</h2>
+
+          <p>
+            Tom Simons of Tubac Woodworks orchestrated a total kitchen remodel
+            for us. Tom is knowledgeable about space and materials and does
+            beautiful cabinetry work. He offered many options as well as
+            listened to my ideas and found ways to develop my dream kitchen. Tom
+            was very patient when I was undecided offering more options and
+            suggestions and willingly made changes at my request. Tom takes
+            pride in his work and customer satisfaction is his top priority. He
+            responds quickly to inquiries and lets you know you are his number
+            one priority once the job starts. The Herbigs of Green Valley highly
+            recommend Tom Simons and Tubac Woodworks
+          </p>
+
+          <cite>Janice Herbig</cite>
         </StyledClient>
 
         <Signup submitResult={this.handleSignupResult} />
