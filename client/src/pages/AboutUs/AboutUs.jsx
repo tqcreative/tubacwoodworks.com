@@ -265,12 +265,24 @@ const StyledIntro = styled.section`
 `;
 
 const StyledClient = styled.article`
+  padding: 1em;
+
   h2 {
+    color: #a6988d;
+    text-transform: capitalize;
   }
 
   blockquote {
+    color: #4a5559;
   }
 
   cite {
+    color: #4a5559;
+    text-transform: capitalize;
+    font-weight: 600;
+
+    &::before {
+      content: "- "
+    }
   }
 `;
