@@ -74,14 +74,26 @@ export default class AboutUs extends Component {
           toggle={this.toggleMobileNav}
         />
 
-        <LayoutThree login={false} image_info={ourStoryBoxes} />
-
         <StyledIntro>
           <h3>1979</h3>
 
           <p>
-          In 1979 Tom was hired as a <em>cabinetmakers assistant</em> at a prominent Los Angeles hospital. The shop owner, Andy, had completed his “Master Craftsmen“ program in Germany. Andy was a certified master craftsman and an extraordinary entrepreneur. When Andy was ready to retire he wanted to pass on what he had learned, and so he took Tom under his wing and taught him everything he knew. Once retired Tom single handedly caught-up the shop, and now it was time for him to take on challenges of his own. So Tom went out on his own and came to Arizona.
+            In 1979 Tom was hired as a <em>cabinetmakers assistant</em> at a
+            prominent Los Angeles hospital. The shop owner, Andy, had completed
+            his “Master Craftsmen“ program in Germany. Andy was a certified
+            master craftsman and an extraordinary entrepreneur. When Andy was
+            ready to retire he wanted to pass on what he had learned, and so he
+            took Tom under his wing and taught him everything he knew. Once
+            retired Tom single handedly caught-up the shop, and now it was time
+            for him to take on challenges of his own. So Tom went out on his own
+            and came to Arizona.
           </p>
+        </StyledIntro>
+
+        <LayoutThree login={false} image_info={ourStoryBoxes} />
+
+        <StyledIntro>
+          <h3>Tools of the trade.</h3>
 
           <p>
             We dont just build high quality wood furniture, storage, counters,
@@ -89,16 +101,6 @@ export default class AboutUs extends Component {
             work. Every piece we design and craft, and every tool that we use is
             taken care of with the same love and care that each of us has for
             our own homes.
-          </p>
-        </StyledIntro>
-
-        <Video />
-
-        <StyledIntro>
-          <h3>Tools of the trade.</h3>
-
-          <p>
-            We take care of our shop, our tools, our people, and our customers.
           </p>
 
           <p>
@@ -108,14 +110,125 @@ export default class AboutUs extends Component {
             furniture. These partnerships were formed over years of working in
             the Southern Arizona market.
           </p>
-
         </StyledIntro>
 
-        <StyledClient>
-          <h2>Our Clients</h2>
-          <blockquote>
+        <Video />
 
+        <StyledClient>
+          <h2>Testimonials</h2>
+          <blockquote>
+            <p>
+              My wife was so excited about our new bathroom cabinets from Tubac
+              Woodworks, that we decided to upgrade the cabinets in the kitchen,
+              too.
+            </p>
+            <p>
+              Tom had warned me that this would happen. Our old cabinets were 26
+              years old, and typical for that time period. We had considered
+              upgrading our kitchen cabinets about 5 years prior, and decided to
+              simply replace the counter-tops to save on costs, so I was not
+              interested in replacing the kitchen cabinets this time, let alone
+              the counter-tops
+            </p>
+
+            <p>
+              However after we replaced the bathroom cabinets, we just were
+              inspired by the quality of his work and knew an upgrade of the
+              kitchen cabinets was needed. Since I did not want to throw our old
+              counter-tops out, Tom convinced me that he could replace the
+              cabinets (all, not just the face) and keep the existing
+              counter-tops.
+            </p>
+
+            <p>
+              During the design process, Tom insisted that he speak with both of
+              us, to see what we liked and didn't like about our existing
+              cabinets, and then provided options on how to make it meet our
+              needs while providing us with a more contemporary kitchen.
+            </p>
+
+            <p>
+              As a bonus, he was able to remove most of our old cabinets with
+              enough care that we could donate them to people who really needed
+              them. We appreciated that we didn't have to send perfectly good,
+              but old, cabinets to the landfill.
+            </p>
+
+            <p>
+              Be sure to ask Tom about the magical corner lazy Susan. Ours now
+              holds twice as much cookware in the same amount of space.
+            </p>
           </blockquote>
+          <cite>David J. Lichtsinn</cite>
+        </StyledClient>
+
+        <StyledClient>
+          <p>
+            If you want work done by a perfectionist, Tom Simons is the one to
+            do it. I have a custom built 1500 square foot house in which the
+            guest bedroom is a free standing studio apartment. The beautiful
+            custom cabinets throughout the house, studio and garage are a major
+            reason my downsizing from twice the square footage was such a
+            success.
+          </p>
+
+          <p>
+            Although there were delays during the construction project which
+            inconvenienced the flow of work; the end result was worth the wait
+            and I was completely satisfied.
+          </p>
+
+          <cite>Mildred Broome</cite>
+        </StyledClient>
+
+        <StyledClient>
+          <p>
+            We have had Tom work on 3 projects in our home. He has built a
+            custom desk, cabinets for the bathroom and kitchen. If you are
+            looking for an excellent wood craftsman Tom is who need to see. I am
+            so comfortable with Tom that he installed our kitchen cabinets while
+            we were gone.
+          </p>
+
+          <cite>Phil &amp; Mary</cite>
+        </StyledClient>
+
+        <StyledClient>
+          <p>
+            We first met Tom Simons right after we moved to Rio Rico. The
+            kitchen in the home we bought did not have enough cabinets for all
+            of my kitchenware and I couldn’t even finish unpacking my kitchen. I
+            found Tom/Tubac Woodworking on the internet, called him and he came
+            out the next day to look at the space we had and give us a quote for
+            building and installing cabinets in an empty area of the kitchen. I
+            was pleased at how reasonable I found the quote to be and his ideas
+            about transforming the space. (Although I had never had the option
+            of custom cabinetry before I assumed it was going to break the bank!
+            But it didn’t.) A couple of weeks later he came with the cabinet
+            boxes for the preliminary installation. The cabinetry is well-made
+            and transformed an essentially useless area of the kitchen into a
+            beautifully useful addition.
+          </p>
+
+          <p>
+            In fact, we were so pleased that we asked him to tear out the
+            existing kitchen cabinets and redo the remainder of the kitchen to
+            match. The flow of the kitchen is now how a kitchen should be and a
+            perfect utilization of the total space in the room. I am so thrilled
+            at the additional storage space that renovation gave us, not to
+            mention the striking granite countertops we had installed to top the
+            cabinetry off.{" "}
+          </p>
+
+          <p>
+            I would definitely recommend Tom and Tubac Woodworking to anyone who
+            is thinking of installing custom cabinetry anywhere in your home.
+            Because like Tom said, once you have custom cabinets you won’t ever
+            want to NOT have custom cabinetry. Yep, I am now officially spoiled
+            and I am considering having some cabinets added to an under-utilized
+            area in the Master Bath in the future. Thanks, Tom!{" "}
+          </p>
+
           <cite>Bill and Lisa Garber</cite>
         </StyledClient>
 
@@ -152,15 +265,12 @@ const StyledIntro = styled.section`
 `;
 
 const StyledClient = styled.article`
-h2 {
+  h2 {
+  }
 
-}
+  blockquote {
+  }
 
-blockquote {
-
-}
-
-cite {
-
-}
+  cite {
+  }
 `;
