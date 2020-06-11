@@ -235,8 +235,9 @@ export default class Services extends Component {
       ],
       footerArray: [
         <React.Fragment>
-          In addition to Wall Beds, we also can help you decorate your office with custom desks, armour, bookshelves, or reading stands.
-        </React.Fragment>
+          In addition to Wall Beds, we also can help you decorate your office
+          with custom desks, armour, bookshelves, or reading stands.
+        </React.Fragment>,
       ],
     };
 
@@ -245,8 +246,7 @@ export default class Services extends Component {
         image:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/dsc_0017.jpg",
         title: "Wall Beds",
-        subtitle:
-          "Custom Furniture",
+        subtitle: "Custom Furniture",
       },
       category: "No need to hunt down the perfect night stand. Design it!",
       contentArray: [
@@ -254,9 +254,15 @@ export default class Services extends Component {
         `Want your home office to feel more like a library? Need somewhere to put your keys when you come through the door? Or perhaps you need a desk that creates the perfect energy you need to make your study about your work.`,
       ],
       footerArray: [
-      <React.Fragment>
-        Tables that include storage under the top, and even halway closet shelves! These are just some of the few places finding the right peice for at a local furniture shop can really become a challange. But there's more, we are able to <em>stain</em>, <em>paint</em>, or <em>lacquer</em> your new design in the shade you're actually looking for. 
-      </React.Fragment>],
+        <React.Fragment>
+          Tables that include storage under the top, and even halway closet
+          shelves! These are just some of the few places finding the right peice
+          for at a local furniture shop can really become a challange. But
+          there's more, we are able to <em>stain</em>, <em>paint</em>, or{" "}
+          <em>lacquer</em> your new design in the shade you're actually looking
+          for.
+        </React.Fragment>,
+      ],
     };
 
     const commecrialProps = {
@@ -294,9 +300,10 @@ export default class Services extends Component {
         `The experience you provide to your visitors and employees in one of the most rewarding experiences a business owner can have. So when it comes to having the right look in your front of stage, we've got you covered.`,
       ],
       footerArray: [
-      <React.Fragment>
-        <strong>Thank you</strong> for taking the time to read about the services we offer. While you're here feel free to check out the <a href="/gallery">Gallery</a> and see some of the work we've done around southern Arizona. We take a great deal of pride in our craft and <a href="/about">history</a>.
-      </React.Fragment>],
+        <React.Fragment>
+          So whether you are looking to add something new to your living room or upgrading your spair bedroom, Tubac Woodworks is here to help. 
+        </React.Fragment>,
+      ],
     };
 
     const customProps = {
@@ -334,18 +341,20 @@ export default class Services extends Component {
       },
       category: "Don't sacrifice your office space for a spare bedroom",
       contentArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minus
-        tempore hic fuga, eveniet totam odit, repellendus delectus earum
-        suscipit quae obcaecati amet assumenda explicabo dolore saepe laboriosam
-        laudantium illo?`,
-        `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis earum
-        eveniet similique vero praesentium laudantium aperiam consequatur, ab
-        dolorem ipsum, enim nulla! Vitae molestiae possimus accusamus at
-        laboriosam ea ex dolore laborum est voluptates earum qui eaque corrupti,
-        omnis eum officiis a doloribus asperiores excepturi vel dolorem tempora.
-        Cupiditate, obcaecati?`,
+        `
+        Not quite sure how to describe that piece you are looking for in your entry way? Describe it to us! We have made custom pieces for clients over the years. And each one is a joy.
+        `,
+        `We can do barn doors to add space to small rooms. Side table, desk extensions and more. Lets get creative.`,
       ],
-      footerArray: [<React.Fragment></React.Fragment>],
+      footerArray: [
+        <React.Fragment>
+          <strong>Thank you</strong> for taking the time to read about the
+          services we offer. While you're here feel free to check out the{" "}
+          <a href="/gallery">Gallery</a> and see some of the work we've done
+          around southern Arizona. We take a great deal of pride in our craft
+          and <a href="/about">history</a>.
+        </React.Fragment>,
+      ],
     };
 
     // this data will normally be held in a server cand axios called on mount.
