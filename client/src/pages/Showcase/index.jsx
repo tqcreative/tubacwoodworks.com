@@ -90,7 +90,7 @@ export default class Showcase extends Component {
         pTag2: (
           <React.Fragment>
             Some of the most exciting pieces that we have done are featured in
-            this showcase. But dont forget to stop by and check out our
+            this showcase. But dont forget to stop by and check out our 
             <a href="/gallery">Gallery</a> for even more pieces that are sure to
             surprise and delight you.
           </React.Fragment>
@@ -108,7 +108,7 @@ export default class Showcase extends Component {
       paragraphOne: {
         h2Tag: "Wall Beds",
         pTag:
-          "One of the things Tubac Woodworks is excited about is helping our clients discover how to both keep their office and their guestroom.",
+          "One of the things Tubac Woodworks is most excited about is helping our clients discover how to both keep their office and their guestroom.",
         pTag2:
           "This can be accomplished by selecting a stylish Wall-Bed. These functional pieces of furniture double as both storage and a convenient guestroom sleep area when the time comes to have your mother-in-law visit.",
         pTag3:
@@ -158,9 +158,27 @@ export default class Showcase extends Component {
 
           <LayoutThree
             image_info={[
-              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/gallery_7.jpg",
-              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/photo (5).jpg",
-              "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d23.jpg",
+              {
+                title: "Wall Beds",
+                body:
+                  "Keep your office space and still have that guest room with the addtion of a Wall Bed unit",
+                image_uri:
+                  "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/gallery_7.jpg",
+              },
+              {
+                title: "Class & Style",
+                body:
+                  "Dont hunt for peices that go together. Design pieces that go with what you love.",
+                image_uri:
+                  "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/hero_gallery.jpg",
+              },
+              {
+                title: "Just Right",
+                body:
+                  "The perfect mantle piece, in the perfect color, and all the character that comes out of natural wood.",
+                image_uri:
+                  "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d18.jpg",
+              },
             ]}
           />
 
