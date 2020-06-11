@@ -261,7 +261,7 @@ const StyledMobileMenu = styled.div`
 
   @media (max-width: 1025px) {
     display: block;
-    position: fixed;
+    position: absolute;
     top: 16px;
     left: 12px;
     width: 32px;
