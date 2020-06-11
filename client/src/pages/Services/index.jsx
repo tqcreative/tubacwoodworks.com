@@ -181,14 +181,14 @@ export default class Services extends Component {
       category: "Bathroom Upgrades",
       contentArray: [
         `Under the sink doesnt just have to be a place for the cat to hide`,
-        `Let us add zen to one of the most sacred places in the house; all while making that next roll of toilet paper within arms length when you need it.`,
+        `Turn extra space into storage or even extend your counter space into a Hers & His sink. Increase walk space with a barn door instead of a traditional swinging door. Let us help you add zen to one of the most sacred places in the house. `,
       ],
       footerArray: [
         <React.Fragment>
           Though our kids believe we can do anything. We know some work should
           be left to the professionals. It's because of this we take strategic
           partners when consulting on{" "}
-          <em>Tile work, General Construction, Foundations, Plumbing,</em> and
+          <em>tile work, general construction, foundations, plumbing,</em> and
           other non-wood related needs.
         </React.Fragment>,
       ],
@@ -228,21 +228,15 @@ export default class Services extends Component {
         subtitle: "Luxury without the price tag",
       },
       category:
-        "Who says you cant have a spacious office AND a guest bedroom then the inlaws come to visit",
+        "Who says you cant have a spacious office & a guest bedroom when the inlaws come to visit",
       contentArray: [
-        `A bed can take up alot of floor space in a room, with a Wall Bed you can hide the bed when your not using it in a attractive looking cabinet and no one would be the wiser`,
-        `Maybe you also wanted a workout studio where you can close the door, throw on some music on and get to burning some caliories.  Well just fold that bed out of the way and act like its not even there.`,
+        `A bed can take up alot of floor space in a room, with a Wall Bed you can hide the bed in a attractive looking cabinet when your not using it. And no one would be the wiser`,
+        `Maybe you also wanted a workout studio where you can close the door, throw on some music and get to burning some caliories.  Well just fold that bed out of the way and act like it's not even there.`,
       ],
       footerArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde magnam
-    nihil, molestias doloribus et vitae reprehenderit explicabo odit
-    libero accusamus quidem eos ratione? Sunt, numquam consequuntur?
-    Doloribus, pariatur? Architecto, dignissimos inventore consectetur
-    dicta deserunt eius, nulla natus nesciunt autem officiis sequi
-    repudiandae nam eveniet unde. Saepe voluptatem odit quod temporibus
-    tempore minus ab maiores obcaecati id architecto voluptatibus
-    eveniet voluptas animi alias vitae, quae eos eum placeat nihil, odio
-    deserunt?`,
+        <React.Fragment>
+          In addition to Wall Beds, we also can help you decorate your office with custom desks, armour, bookshelves, or reading stands.
+        </React.Fragment>
       ],
     };
 
