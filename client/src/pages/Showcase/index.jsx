@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { NavBar } from "../../components/Navbar";
 import gsap from "gsap";
 import HeroSmart from "../../components/HeroSmart";
-import Gallery from "../../components/Gallery";
+import GalleryFlex from "../../components/GalleryFlex/GalleryFlex";
 import Footer from "../../components/Footer";
 import Signup from "../../components/Signup";
 import LayoutBasic from "../../components/LayoutBasic";
@@ -82,18 +82,25 @@ export default class Showcase extends Component {
     const contentObject = {
       paragraphOne: {
         h2Tag: "Design and Expertise",
-        pTag:
-          "The Showcase offers you a glimps at the latest products in our portfolio. We hope they inspire you for your next home imporvment project as much as it has inspired the people who's homes we have remodeled.",
+        pTag: `Welcome to the Tubac Woodworks, Inc. Portfolio Web Page. This page
+          provides us with an opportunity to showcase the work done by
+          Tom Simons of Tubac Woodworks, Inc. Tom has been in
+          business in Arizona since 1982, providing all areas of Pima and
+          Santa Cruz Counties with quality products at competitive prices.`,
         pTag2: (
           <React.Fragment>
             Some of the most exciting pieces that we have done are featured in
-            this segment. But dont forget to see our{" "}
+            this showcase. But dont forget to stop by and check out our
             <a href="/gallery">Gallery</a> for even more pieces that are sure to
-            inspire and delight you.
+            surprise and delight you.
           </React.Fragment>
         ),
-        pTag3:
-          "Call now to make an appointment for a consultation and experience our creative design and experience first hand.",
+        pTag3: (
+          <React.Fragment>
+            <a href="tel:+15206250050">Call now</a> to schedule an appointment
+            for a consultation and experience our creative designs first hand.
+          </React.Fragment>
+        ),
       },
     };
 
@@ -111,16 +118,16 @@ export default class Showcase extends Component {
 
     const contentObjectThree = {
       paragraphOne: {
-        h2Tag: "Contact Us",
+        h2Tag: "Business Card",
         pTag: (
           <React.Fragment>
+            <em>Tom</em>
             <em>Tubac Woodworks Inc, Southern Arizona</em> <br />
             Phone: <a href="tel:+5206250050">(520) 625-0050</a> <br />
             Email:{" "}
             <a href="mailto:info@tubacwoodworks.com">
               info@tubacwoodworks.com
             </a>{" "}
-            <br />
           </React.Fragment>
         ),
       },
@@ -164,11 +171,8 @@ export default class Showcase extends Component {
             pTag3={contentObjectTwo.paragraphOne.pTag3}
           />
 
-          <Gallery
-            login={"Peter"}
-            user={this.state.user}
-            staticGalleryImageProp={this.state.showcaseImages}
-          />
+          <GalleryFlex theArray={this.state.showcaseImages} />
+
           <Signup submitResult={this.handleSignupResult} />
           <Footer />
           <Toast show={this.state.toastShow} onClose={this.toggleToast}>
@@ -204,7 +208,7 @@ export default class Showcase extends Component {
           <LayoutThree
             image_info={[
               {
-                title: "Keep Your Office",
+                title: "Wall Beds",
                 body:
                   "Keep your office space and still have that guest room with the addtion of a Wall Bed unit",
                 image_uri:
@@ -234,11 +238,7 @@ export default class Showcase extends Component {
             pTag3={contentObjectTwo.paragraphOne.pTag3}
           />
 
-          <Gallery
-            login={false}
-            user={this.state.user}
-            staticGalleryImageProp={this.state.showcaseImages}
-          />
+          <GalleryFlex theArray={this.state.showcaseImages} />
 
           <LayoutBasic
             h2Tag={contentObjectThree.paragraphOne.h2Tag}

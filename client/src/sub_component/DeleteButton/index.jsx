@@ -69,6 +69,12 @@ function DeleteButton(props) {
             case "showcaseGrid":
               mongoObject = { showcaseGrid: theFinalArray };
               break;
+            case "tubacwoodworks":
+              mongoObject = { showcaseGrid: theFinalArray };
+              break;
+            case "showroom":
+              mongoObject = { showcaseGrid: theFinalArray };
+              break;
             default:
               console.log("No Table Found.");
               break;

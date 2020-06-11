@@ -89,7 +89,7 @@ export default function Chapter(props) {
       {/* ==== */}
 
       {props.chapterProps.contentArray.map((paragraph, index) => {
-        return <p key={index}>{paragraph}</p>;
+        return <div className="body" key={index}>{paragraph}</div>;
       })}
 
       {/* ====== */}
@@ -103,7 +103,7 @@ export default function Chapter(props) {
       {/* ENDING CONTENT */}
       {/* ============== */}
       {props.chapterProps.footerArray.map((paragraph, index) => {
-        return <p key={index}>{paragraph}</p>;
+        return <div className="body" key={index}>{paragraph}</div>;
       })}
     </StyledChapter>
   );
@@ -113,8 +113,21 @@ const StyledChapter = styled.section`
   max-width: none;
   margin: 2em auto;
 
-  p,
-  h3 {
+  p {
+    strong {
+      font-weight: 900;
+      color: #a6988d;
+    }
+
+    em {
+      font-size: .9em;
+      font-style: italic;
+    }
+
+  }
+
+  h3,
+  .body {
     max-width: 1400px;
     margin: auto;
     padding: 0.5em 1em;
@@ -128,14 +141,13 @@ const StyledChapter = styled.section`
     color: #a6988d;
   }
 
-  p {
+  .body {
     font-weight: 400;
     line-height: 1.2em;
     font-size: 1.1em;
   }
 
   @media (max-width: 768px) {
-    font-size: 14px;
 
     h3 {
       font-size: 2em;
@@ -170,10 +182,10 @@ const StyledHero = styled.div`
   @media (max-width: 768px) {
     height: 60vh;
     h2 {
-      font-size: 2.5em;
+      font-size: 1.8em;
     }
     h3 {
-      font-size: 1.1em;
+      font-size: 1em;
     }
   }
 `;
