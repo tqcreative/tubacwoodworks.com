@@ -7,12 +7,11 @@ NavBarComponent.defaultProps = {
 };
 
 function NavBarComponent({ toggle, isHidden, loggedIn, logout }) {
-
   // ==================== //
   //   HELPER FUNCTIONS   //
   // ==================== //
-let hideValue = isHidden ? "_hide" : "_show";
-let closeValue = isHidden ? "_open" : "_close";
+  let hideValue = isHidden ? "_hide" : "_show";
+  let closeValue = isHidden ? "_open" : "_close";
 
   return (
     <nav id="nav" className="">
@@ -24,14 +23,8 @@ let closeValue = isHidden ? "_open" : "_close";
             className={closeValue}
           >
             <div className="top_bar" className={closeValue}></div>
-            <div
-              className="center_bar"
-              className={closeValue}
-            ></div>
-            <div
-              className="bottom_bar"
-              className={closeValue}
-            ></div>
+            <div className="center_bar" className={closeValue}></div>
+            <div className="bottom_bar" className={closeValue}></div>
           </StyledMobileMenu>
           <ul>
             <li className="nav-item">
@@ -73,21 +66,17 @@ let closeValue = isHidden ? "_open" : "_close";
         </StyledRoot>
       ) : (
         <React.Fragment>
-          <StyledMobileMenu
-            id="mobile_menu"
-            onClick={() => toggle()}
-            className={closeValue}
-          >
-            <div className="top_bar" className={closeValue}></div>
-            <div
-              className="center_bar"
+          <StyledBackDrop>
+            <StyledMobileMenu
+              id="mobile_menu"
+              onClick={() => toggle()}
               className={closeValue}
-            ></div>
-            <div
-              className="bottom_bar"
-              className={closeValue}
-            ></div>
-          </StyledMobileMenu>
+            >
+              <div className="top_bar" className={closeValue}></div>
+              <div className="center_bar" className={closeValue}></div>
+              <div className="bottom_bar" className={closeValue}></div>
+            </StyledMobileMenu>
+          </StyledBackDrop>
           <StyledRoot id="nav_root" className={hideValue}>
             <ul>
               <li className="nav-item">
@@ -136,6 +125,23 @@ const StyledNavButton = styled.div`
   &:hover {
     cursor: pointer;
   }
+`;
+
+const StyledBackDrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 52px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, .6) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 9000;
 `;
 
 const StyledRoot = styled.section`
@@ -208,7 +214,7 @@ const StyledRoot = styled.section`
     top: 0;
     left: 0;
     border-radius: 50%;
-    transform: translate(-25%,-25%);
+    transform: translate(-25%, -25%);
     background-color: rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease-in;
     overflow: hidden;
