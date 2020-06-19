@@ -129,7 +129,6 @@ const StyledNavButton = styled.div`
 
 const StyledBackDrop = styled.div`
   position: absolute;
-  display: none;
   top: 0;
   left: 0;
   padding: 0;
@@ -143,10 +142,6 @@ const StyledBackDrop = styled.div`
     rgba(0, 0, 0, 0) 100%
   );
   z-index: 9000;
-
-  @media (max-width: 1025) {
-    display: block;
-  }
 
   @media (max-width: 768) {
     position: fixed;
