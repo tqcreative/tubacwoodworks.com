@@ -440,11 +440,11 @@ export default class Services extends Component {
       },
       {
         mobile: true,
-        title: "Pine",
+        title: "Alder",
         body:
-          "A hard wood with lots of character. Perfect for bathrooms and furniture",
+          "Our personal favorite, and perfect for any room.",
         image_uri:
-          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_pine.jpg",
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/alder.jpg",
       },
       {
         mobile: true,

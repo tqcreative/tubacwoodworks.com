@@ -82,7 +82,7 @@ export default class Gallery extends Component {
         {
           frontEnd: false,
           thumbnail:
-          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d18.jpg",
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d18.jpg",
           gallery: "showroom",
           name: "showroom",
           icon: <FaPhotoVideo />,
@@ -180,6 +180,15 @@ export default class Gallery extends Component {
         : event.target.name;
     }
 
+    // Turn on all box shadows before selection happens.
+    const list = document.querySelectorAll(".gallery_button");
+    for (var i = 0; i < list.length; ++i) {
+      list[i].classList.remove("selected");
+    }
+
+    // Turn off box shadow for selected.
+    document.getElementById(`${galleryName}_shadow`).classList.add("selected");
+
     // Update Pretty Name
     switch (galleryName) {
       case "showcaseGrid":
@@ -210,7 +219,7 @@ export default class Gallery extends Component {
         pretyName = "Showcase";
         break;
       case "tubacwoodworks":
-        pretyName = "Company Photos"; 
+        pretyName = "Company Photos";
         break;
       default:
         break;
@@ -298,7 +307,7 @@ export default class Gallery extends Component {
                 return (
                   <button
                     key={index}
-                    className="matthews_bootstrap_button"
+                    className={`matthews_bootstrap_button`}
                     type="button"
                     name={buttonInfo.name}
                     galleryInfoName={buttonInfo.gallery}
@@ -365,6 +374,10 @@ export default class Gallery extends Component {
                         backgroundSize: "cover",
                       }}
                     >
+                      <div
+                        id={`${buttonInfo.name}_shadow`}
+                        className={`gallery_button${buttonInfo.name === "showcase" ? " selected" : ""}`}
+                      ></div>
                       {buttonInfo.icon}
                       <span>{buttonInfo.gallery}</span>
                     </button>
@@ -378,8 +391,11 @@ export default class Gallery extends Component {
             <StyledTitle>{this.state.galleryName} Gallery</StyledTitle>
 
             <GalleryFlex theArray={this.state.arrayOfImages} />
+
             <Signup submitResult={this.handleSignupResult} />
+
             <Footer />
+
             <Toast show={this.state.toastShow} onClose={this.toggleToast}>
               {this.state.toastMsg.map((element) => {
                 return <p>{element}</p>;
@@ -399,6 +415,7 @@ const StyledRoot = styled.section`
 `;
 
 const StyledButtons = styled.section`
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -408,6 +425,7 @@ const StyledButtons = styled.section`
   margin: 1em auto;
 
   button {
+    position: relative;
     border: none;
     /* background-color: rgba(#a6988d, .3); */
     color: #fff;
@@ -426,11 +444,29 @@ const StyledButtons = styled.section`
     color: #fff;
     flex-wrap: wrap;
     text-shadow: 0 1px 8px black;
+    box-sizing: border-box;
+    z-index: 1;
+
+    div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      transition: opacity 0.2s;
+      z-index: 1;
+
+      &.selected {
+        opacity: 0;
+      }
+    }
 
     svg {
       font-size: 2em;
       -webkit-filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.7));
       filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.7));
+      z-index: 3;
     }
 
     span {
@@ -438,10 +474,15 @@ const StyledButtons = styled.section`
       width: 100%;
       text-shadow: 0 1px 8px black;
       font-size: 0.9em;
+      z-index: 3;
     }
 
     &:hover {
       cursor: pointer;
+    }
+
+    &:hover div {
+      opacity: 0;
     }
 
     &:active {
