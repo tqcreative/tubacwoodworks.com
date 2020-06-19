@@ -29,9 +29,13 @@ function Numbers() {
 
       {/* right box */}
       <div className="right_box">
-        <div>
-          <ion-icon className="ion-icon" name="clipboard"></ion-icon>
-          <p>
+        <div title="ROC# 223133" onClick={() => {alert("ROC# 223133")}}>
+          <ion-icon
+            className="ion-icon"
+            name="clipboard"
+            title="ROC# 223133"
+          ></ion-icon>
+          <p title="ROC# 223133">
             Licensed Bonded <span>Insured</span>
           </p>
         </div>

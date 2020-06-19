@@ -19,7 +19,7 @@ function Footer(props) {
                 </li>
                 <li>
                   <a href="tel:5206250050">
-                    <ion-icon name="ios-call"></ion-icon>(520)625-0050
+                    <ion-icon name="ios-call"></ion-icon> (520)625-0050
                   </a>
                 </li>
                 <li>
@@ -27,6 +27,7 @@ function Footer(props) {
                     <ion-icon name="mail"></ion-icon> info@tubacwoodworks.com
                   </a>
                 </li>
+                <li title="ROC# 223133"><ion-icon name="ios-construct"></ion-icon> ROC# 223133</li>
               </ul>
             </div>
             <div className="footer_section_2">

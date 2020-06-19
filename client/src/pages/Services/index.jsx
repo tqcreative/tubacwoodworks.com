@@ -121,7 +121,7 @@ export default class Services extends Component {
       category: "Kitchen Remodels",
       contentArray: [
         `Let us help you remodel your kitchen into the one you've always dreamed of.`,
-        `Theres alot that goes into the planning of a new kitchen; along with design questions that we would love to help you with. "Where do I put that island?" "What type of wood is going to hold up over the years?""What color should the cupboards be?"`,
+        `Theres alot that goes into the planning of a new kitchen; along with design questions that we can help you with. "Where do I put that island?"  "What type of wood is going to hold up over the years?"  "What color should the cupboards be?"`,
       ],
       footerArray: [
         <React.Fragment>
@@ -145,6 +145,12 @@ export default class Services extends Component {
               An unorganized kitchen can make for a caotic cooking experience,
               give your self a space to storage everything neatly to make
               cooking that much easier.
+            </em>
+          </p>
+          <p>
+            <strong>Counter Bar</strong> &ndash;{" "}
+            <em>
+              Tall counterspaces are perfect for a spot to place a few stylish stools.
             </em>
           </p>
         </React.Fragment>,
@@ -181,7 +187,7 @@ export default class Services extends Component {
       category: "Bathroom Upgrades",
       contentArray: [
         `Under the sink doesnt just have to be a place for the cat to hide`,
-        `Turn extra space into storage or even extend your counter space into a Hers & His sink. Increase walk space with a barn door instead of a traditional swinging door. Let us help you add zen to one of the most sacred places in the house. `,
+        `Turn extra space into storage or even extend your counter space into a Hers & His sink combo. Increase walk space with a barn door instead of a traditional swinging door. Let us help you add zen to one of the most sacred places in the house. `,
       ],
       footerArray: [
         <React.Fragment>
@@ -228,35 +234,61 @@ export default class Services extends Component {
         subtitle: "Luxury without the price tag",
       },
       category:
-        "Who says you cant have a spacious office & a guest bedroom when the inlaws come to visit",
+        "Who says you cant have a spacious office",
       contentArray: [
-        `A bed can take up alot of floor space in a room, with a Wall Bed you can hide the bed in a attractive looking cabinet when your not using it. And no one would be the wiser`,
-        `Maybe you also wanted a workout studio where you can close the door, throw on some music and get to burning some caliories.  Well just fold that bed out of the way and act like it's not even there.`,
+        <React.Fragment><strong>&amp; a guest bedroom for when the inlaws come to visit!</strong> A bed can take up a lot of floor space, with a Wall Bed you can hide that mattress in a attractive looking cabinet when your not using it. And no one would be the wiser`,
+        `Maybe you also wanted a workout studio where you can close the door, throw on some music and get to burning some calories.  Just fold that bed out of the way and act like it's not even there.</React.Fragment> ,
       ],
       footerArray: [
         <React.Fragment>
-          In addition to Wall Beds, we also can help you decorate your office with custom desks, armour, bookshelves, or reading stands.
-        </React.Fragment>
+          In addition to Wall Beds, we also can help you decorate your office
+          with custom <strong>desks</strong>, <strong>armour</strong>, <strong>bookshelves</strong>, or <strong>reading stands</strong>.
+        </React.Fragment>,
       ],
     };
 
     const furnitureProps = {
+      sliderArray: [
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/dsc_0131.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/dsc_0131.jpg",
+        },
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/furniture_7.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/furniture_7.jpg",
+        },
+        {
+          original:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wine_bar_1.jpg",
+          thumbnail:
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wine_bar_1.jpg",
+        },
+      ],
       hero: {
         image:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/dsc_0017.jpg",
         title: "Wall Beds",
-        subtitle:
-          "Custom Furniture",
+        subtitle: "Custom Furniture",
       },
       category: "No need to hunt down the perfect night stand. Design it!",
       contentArray: [
-        `Finding furniture you love can be a journy, one that could lead to settling on something that works, but doesnt quite fit the room. We understand! Custom furniture is one of the things we specialize in. Everything from book shelves to a clasic trunk that sits at the foot of your bed.`,
+        `Finding furniture you love can be a journey, one that could lead to settling on something that works, but doesnt quite fit the room. We understand! Custom furniture is one of the things we specialize in. Everything from book shelves to a clasic trunk that sits at the foot of your bed.`,
         `Want your home office to feel more like a library? Need somewhere to put your keys when you come through the door? Or perhaps you need a desk that creates the perfect energy you need to make your study about your work.`,
       ],
       footerArray: [
-      <React.Fragment>
-        Tables that include storage under the top, and even halway closet shelves! These are just some of the few places finding the right peice for at a local furniture shop can really become a challange. But there's more, we are able to <em>stain</em>, <em>paint</em>, or <em>lacquer</em> your new design in the shade you're actually looking for. 
-      </React.Fragment>],
+        <React.Fragment>
+          Tables that include storage under the top, and even hallway closet
+          shelves! These are just some of the few places finding the right peice
+          for at a local furniture shop can really become a challenge. But
+          there's more, we are able to <em>stain</em>, <em>paint</em>, or{" "}
+          <em>lacquer</em> your new design in the shade you're actually looking
+          for.
+        </React.Fragment>,
+      ],
     };
 
     const commecrialProps = {
@@ -288,30 +320,31 @@ export default class Services extends Component {
       },
       category: "You want to wow your visitors & So do we",
       contentArray: [
-        `
-        Tubac Woodworks is proud to say we service other local businesses. They say:  "When you are your own boss; You can work any 80 hours in the week you want." Funny to hear but as a small business ourselves we understand what that means as much as you do. 
-        `,
+        <React.Fragment>
+        Tubac Woodworks is proud to say we service other local businesses. They say:  <em>"When you are your own boss; You can work any 80 hours in the week you want."</em> Funny to hear, but as a small business ourselves we understand what that means as much as you do. 
+        </React.Fragment>,
         `The experience you provide to your visitors and employees in one of the most rewarding experiences a business owner can have. So when it comes to having the right look in your front of stage, we've got you covered.`,
       ],
       footerArray: [
-      <React.Fragment>
-        <strong>Thank you</strong> for taking the time to read about the services we offer. While you're here feel free to check out the <a href="/gallery">Gallery</a> and see some of the work we've done around southern Arizona. We take a great deal of pride in our craft and <a href="/about">history</a>.
-      </React.Fragment>],
+        <React.Fragment>
+          So whether you are looking to add something new to your living room or upgrading your spair bedroom, Tubac Woodworks is here to help. 
+        </React.Fragment>,
+      ],
     };
 
     const customProps = {
       sliderArray: [
         {
           original:
-            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_7.jpg",
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_12.jpg",
           thumbnail:
-            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_7.jpg",
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_12.jpg",
         },
         {
           original:
-            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_12.jpg",
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_7.jpg",
           thumbnail:
-            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_12.jpg",
+            "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/tww_gallery_7.jpg",
         },
         {
           original:
@@ -334,18 +367,20 @@ export default class Services extends Component {
       },
       category: "Don't sacrifice your office space for a spare bedroom",
       contentArray: [
-        `Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minus
-        tempore hic fuga, eveniet totam odit, repellendus delectus earum
-        suscipit quae obcaecati amet assumenda explicabo dolore saepe laboriosam
-        laudantium illo?`,
-        `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis earum
-        eveniet similique vero praesentium laudantium aperiam consequatur, ab
-        dolorem ipsum, enim nulla! Vitae molestiae possimus accusamus at
-        laboriosam ea ex dolore laborum est voluptates earum qui eaque corrupti,
-        omnis eum officiis a doloribus asperiores excepturi vel dolorem tempora.
-        Cupiditate, obcaecati?`,
+        `
+        Not quite sure how to describe that piece you are looking for in your entry way? Describe it to us! We have made custom pieces for clients over the years. And each one is a joy.
+        `,
+        `We can do barn doors to add space to small rooms. Side table, desk extensions and more. Lets get creative.`,
       ],
-      footerArray: [<React.Fragment></React.Fragment>],
+      footerArray: [
+        <React.Fragment>
+          <strong>Thank you</strong> for taking the time to read about the
+          services we offer. While you're here feel free to check out the{" "}
+          <a href="/gallery">Gallery</a> and see some of the work we've done
+          around southern Arizona. We take a great deal of pride in our craft
+          and <a href="/about">history</a>.
+        </React.Fragment>,
+      ],
     };
 
     // this data will normally be held in a server cand axios called on mount.
@@ -353,9 +388,9 @@ export default class Services extends Component {
       kitchen: {
         h2Tag: "Tubac Woodworks",
         pTag:
-          "We service a variety of different woodworking needs. From Kitchen, Bath, Vanity, Furniture, Wall Beds, Storage, and more. We service both Residential and Commercial. New homes and remodels. Small and large projects, but the one thing they all have in common is the genuine awe that our customers feel after the job is done.",
+          <React.Fragment>We service a variety of different woodworking needs. From <strong>Kitchen</strong>, <strong>Bath</strong>, <strong>Vanity</strong>, <strong>Furniture</strong>, <strong>Wall Beds</strong>, <strong>Storage</strong>, and more. We service both Residential and Commercial. New homes and remodels. Small and large projects, but the one thing they all have in common is the genuine awe that our customers feel after the job is done.</React.Fragment>,
         pTag2:
-          "Below is a list of different services that Tubac Woodworks has to offer. We would be both honored and excited to hear more about your project and would love to know where we can help!",
+          "Below is a list of different services that Tubac Woodworks has to offer. We would be both honored and excited to hear more about your project and where we can help!",
         pTag3: (
           <React.Fragment>
             Not sure where to start? Head over to our{" "}
@@ -369,20 +404,20 @@ export default class Services extends Component {
 
     const kitchenBoxes = [
       {
-        title: "stunning cabinets",
+        title: "Home Remodels",
         body: "Let your home feel new again",
         image_uri:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/d10.jpg",
       },
       {
         title: "Islands",
-        body: "Add more counter space, more storage, and more class",
+        body: "Add more counter space, more storage, and more class to that unused kitchen space",
         image_uri:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/97f7c6bf-12d2-472f-975c-8634d6fe88a2.jpg",
       },
       {
-        title: "Custom wood designs",
-        body: "Over the stove accent that adds that dark finish to every angle",
+        title: "Custom Designs",
+        body: "Get an over the stove accent that adds that dark finish to every angle of your new kitchen",
         image_uri:
           "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/gallery_5.jpg",
       },
@@ -405,11 +440,11 @@ export default class Services extends Component {
       },
       {
         mobile: true,
-        title: "Pine",
+        title: "Alder",
         body:
-          "A hard wood with lots of character. Perfect for bathrooms and furniture",
+          "Our personal favorite, and perfect for any room.",
         image_uri:
-          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/wood_pine.jpg",
+          "https://bobwehadababyitsaboy.s3-eu-west-1.amazonaws.com/alder.jpg",
       },
       {
         mobile: true,
@@ -526,11 +561,11 @@ export default class Services extends Component {
           <LayoutThree login={false} image_info={kitchenBoxes} />
 
           <StyledParagraph>
-            Welcome to the Tubac Woodworks, Inc. Portfolio Web Page. This page
-            provides us with an opportunity to showcase the work done by{" "}
-            <span>Tom Simons</span> of Tubac Woodworks, Inc. Tom has been in
-            business in Arizona since 1982, providing all areas of Pima and
-            Santa Cruz Counties with quality products at competitive prices.
+            Find the right <strong>wood</strong> for you. We are able to craft in a variety of different styles and types. Some of the more popular ones range from <strong>Maple</strong>, <strong>Birch</strong>, <strong>Pine</strong>, <strong>Ash</strong>, <strong>Oak</strong>, <strong>Walnut</strong>, <strong>Cherry</strong>, and <strong>Mahogany</strong>. These range from a soft to hard, heavy grain to light grane and different natural colors.
+          </StyledParagraph>
+
+          <StyledParagraph>
+            We also do our own finishes as well. You can choose from <strong>Natural</strong>, <strong>Painted</strong>, <strong>Stained</strong> <strong>Lacquered</strong>, or just <strong>sealed</strong>. With the combination of woods and finishes you're sure to love your new cabinets.
           </StyledParagraph>
 
           {/* ========== */}
@@ -608,6 +643,10 @@ const StyledParagraph = styled.p`
   font-weight: 400;
   margin: auto;
   font-size: 1.1em;
+
+strong {
+  color: #a6988d;
+}
 
   span {
     display: inline-block;
