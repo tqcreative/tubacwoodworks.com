@@ -168,6 +168,7 @@ const StyledRoot = styled.section`
     rgba(0, 0, 0, 0)
   );
   overflow: hidden;
+  z-index: 9999;
 
   ul {
     display: flex;
