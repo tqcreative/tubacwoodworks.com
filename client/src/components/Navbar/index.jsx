@@ -129,7 +129,6 @@ const StyledNavButton = styled.div`
 
 const StyledBackDrop = styled.div`
   position: absolute;
-  display: none;
   top: 0;
   left: 0;
   padding: 0;
