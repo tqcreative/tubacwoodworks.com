@@ -23,8 +23,8 @@ function Footer(props) {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:info@tubacwoodworks.com">
-                    <ion-icon name="mail"></ion-icon> info@tubacwoodworks.com
+                  <a href="mailto:tubacww@gmail.com">
+                    <ion-icon name="mail"></ion-icon> tubacww@gmail.com
                   </a>
                 </li>
                 <li title="ROC# 223133"><ion-icon name="ios-construct"></ion-icon> ROC# 223133</li>
